@@ -6,7 +6,8 @@
 		"dev": "next dev --turbopack",
 		"build": "next build",
 		"check": "biome check --write",
-		"start": "next start"
+		"start": "next start",
+		"prepare": "lefthook install"
 	},
 	"dependencies": {
 		"@mantine/core": "^8.1.1",
