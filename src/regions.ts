@@ -21,6 +21,7 @@ export const REGIONS = [
 	'Orbis',
 	'Singapore',
 	'Taiwan',
+	'Temple of Time',
 	'Thailand',
 	'Victoria Island',
 ] as const;
