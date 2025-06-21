@@ -1,0 +1,39 @@
+{
+	"$schema": "https://biomejs.dev/schemas/2.0.0/schema.json",
+	"files": {
+		"ignoreUnknown": true,
+		"includes": [
+			".vscode/*",
+			"src/**/*",
+			"biome.json",
+			"eslint.config.mjs",
+			"next.config.ts",
+			"package.json",
+			"postcss.config.cjs",
+			"tsconfig.json"
+		]
+	},
+	"formatter": {
+		"indentStyle": "tab"
+	},
+	"linter": {
+		"domains": {
+			"next": "recommended",
+			"react": "recommended"
+		}
+	},
+	"javascript": {
+		"formatter": {
+			"arrowParentheses": "asNeeded",
+			"quoteStyle": "single"
+		}
+	},
+	"assist": {
+		"enabled": true,
+		"actions": {
+			"source": {
+				"organizeImports": "on"
+			}
+		}
+	}
+}
