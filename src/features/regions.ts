@@ -39,6 +39,10 @@ export const SPINEL_REGIONS = [
 
 export type SpinelRegion = (typeof SPINEL_REGIONS)[number];
 
+export function isSpinelRegion(region: Region): region is SpinelRegion {
+	return SPINEL_REGIONS.some(r => r === region);
+}
+
 // User needs to return to their previous region if starting from one of these
 export const UNNAVIGABLE_REGIONS = [
 	'Coke Town',
@@ -48,4 +52,10 @@ export const UNNAVIGABLE_REGIONS = [
 	...SPINEL_REGIONS,
 ] satisfies Readonly<Region[]>;
 
-export type UnnavigableRegions = (typeof UNNAVIGABLE_REGIONS)[number];
+export type UnnavigableRegion = (typeof UNNAVIGABLE_REGIONS)[number];
+
+export function isUnnavigaableRegion(
+	region: Region,
+): region is UnnavigableRegion {
+	return UNNAVIGABLE_REGIONS.some(r => r === region);
+}
