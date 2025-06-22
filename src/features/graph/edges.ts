@@ -43,13 +43,14 @@ export type RegionEdge = {
 );
 
 export type EdgeMethod = RegionEdge['method'];
+export type EdgeId = `${EdgeMethod}|${Region}|${Region}`;
 
 export type Edge = RegionEdge & {
 	from: Region;
-	id: string;
+	id: EdgeId;
 };
 
-export type RegionEdges = {
+type RegionEdges = {
 	region: Region;
 	edges: RegionEdge[];
 };
@@ -610,7 +611,7 @@ export const edges: Edge[] = [
 	TEMPLE_OF_TIME,
 	VICTORIA_ISLAND,
 ].flatMap(({ edges, region }) =>
-	edges.map(edge => ({
+	edges.map<Edge>(edge => ({
 		...edge,
 		from: region,
 		id: `${edge.method}|${region}|${edge.to}`,
