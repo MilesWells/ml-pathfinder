@@ -26,8 +26,8 @@ export function PathfinderResults() {
 			</Title>
 
 			<Flex direction="column" gap="sm">
-				{path.map((step, idx) => (
-					<Checkbox defaultChecked={idx === 0} key={step} label={step} />
+				{path.map(edge => (
+					<Checkbox key={edge.id} label={`${edge.from} -> ${edge.to}`} />
 				))}
 			</Flex>
 		</Flex>

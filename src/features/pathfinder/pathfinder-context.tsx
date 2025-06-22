@@ -8,6 +8,7 @@ import {
 	useMemo,
 	useState,
 } from 'react';
+import type { Edge } from '../edges';
 import graph from '../graph';
 import type { Region } from '../regions';
 
@@ -21,7 +22,7 @@ export type PathfinderContextValue = {
 	  }
 	| {
 			from: Region;
-			path: Region[];
+			path: Edge[];
 			to: Region;
 	  }
 );
@@ -35,7 +36,7 @@ export function PathfinderContextProvider({
 }: React.PropsWithChildren) {
 	const [from, setFrom] = useState<Region>();
 	const [to, setTo] = useState<Region>();
-	const [path, setPath] = useState<Region[]>([]);
+	const [path, setPath] = useState<Edge[]>([]);
 
 	const findPath = useCallback<PathfinderContextValue['findPath']>(
 		(from, to) => {
@@ -43,7 +44,20 @@ export function PathfinderContextProvider({
 			setTo(to);
 
 			try {
-				setPath(shortestPath(graph, from, to).nodes);
+				const nodePath = shortestPath(graph, from, to).nodes;
+				const edgePath = nodePath.reduce<Edge[]>((acc, cur, idx, arr) => {
+					if (idx === arr.length - 1) return acc;
+
+					const edge = graph.getEdgeProperties(cur, arr[idx + 1]);
+
+					if (!edge) return acc;
+
+					acc.push(edge);
+
+					return acc;
+				}, []);
+
+				setPath(edgePath);
 			} catch {
 				setPath([]);
 			}

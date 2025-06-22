@@ -42,6 +42,8 @@ export type RegionEdge = {
 	| ItemTaxiEdge
 );
 
+export type EdgeMethod = RegionEdge['method'];
+
 export type Edge = RegionEdge & {
 	from: Region;
 	id: string;
