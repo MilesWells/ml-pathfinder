@@ -3,22 +3,30 @@ import {
 	AppShellFooter,
 	AppShellHeader,
 	AppShellMain,
+	Center,
+	Title,
 } from '@mantine/core';
 
 export default function Shell({ children }: React.PropsWithChildren) {
 	return (
 		<AppShell
 			header={{
-				height: '70',
+				height: '65',
 			}}
 			footer={{
-				height: '40',
+				height: '45',
 			}}
 			padding="sm"
 		>
-			<AppShellHeader>MapleLegends Pathfinder</AppShellHeader>
+			<AppShellHeader>
+				<Center p="xs">
+					<Title>MapleLegends Pathfinder</Title>
+				</Center>
+			</AppShellHeader>
 			<AppShellMain>{children}</AppShellMain>
-			<AppShellFooter>Not affilitated with MapleLegends</AppShellFooter>
+			<AppShellFooter>
+				<Center p="xs">Not affilitated with MapleLegends</Center>
+			</AppShellFooter>
 		</AppShell>
 	);
 }
