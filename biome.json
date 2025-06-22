@@ -20,6 +20,11 @@
 		"domains": {
 			"next": "recommended",
 			"react": "recommended"
+		},
+		"rules": {
+			"performance": {
+				"noImgElement": "off"
+			}
 		}
 	},
 	"javascript": {
