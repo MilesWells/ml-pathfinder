@@ -14,6 +14,9 @@ importers:
       '@mantine/hooks':
         specifier: ^8.1.1
         version: 8.1.1(react@19.1.0)
+      graph-data-structure:
+        specifier: ^4.5.0
+        version: 4.5.0
       next:
         specifier: 15.3.4
         version: 15.3.4(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -412,6 +415,9 @@ packages:
   glob-parent@5.1.2:
     resolution: {integrity: sha512-AOIgSQCepiJYwP3ARnGx+5VnTu2HBYdzbGP45eLw1vr3zB3vZLeyed1sC9hnbcOc9/SrMyM5RPQrkGz4aS9Zow==}
     engines: {node: '>= 6'}
+
+  graph-data-structure@4.5.0:
+    resolution: {integrity: sha512-OCeIzpK9JnV5js4gtDJgwebRbcOsZpoN9CNIwEooHkV/FNol+OykWPOugSTXBH/QICEW2N6U+6L2d9DcK4YBcw==}
 
   is-arrayish@0.3.2:
     resolution: {integrity: sha512-eVRqCvVlZbuw3GrM63ovNSNAeA1K16kaR/LRY/92w0zxQ5/1YzwblUX652i4Xs9RwAGjW9d9y6X88t8OaAJfWQ==}
@@ -1029,6 +1035,8 @@ snapshots:
   glob-parent@5.1.2:
     dependencies:
       is-glob: 4.0.3
+
+  graph-data-structure@4.5.0: {}
 
   is-arrayish@0.3.2:
     optional: true

@@ -1,4 +1,3 @@
-import { randomUUID, type UUID } from 'node:crypto';
 import type { Item } from './items';
 import { type Region, SPINEL_REGIONS } from './regions';
 
@@ -45,7 +44,7 @@ export type RegionEdge = {
 
 export type Edge = RegionEdge & {
 	from: Region;
-	id: UUID;
+	id: string;
 };
 
 export type RegionEdges = {
@@ -593,6 +592,6 @@ export const edges: Edge[] = [
 	edges.map(edge => ({
 		...edge,
 		from: region,
-		id: randomUUID(),
+		id: `${edge.method}|${region}|${edge.to}`,
 	})),
 );

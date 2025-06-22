@@ -1,10 +1,5 @@
-import { Code } from '@mantine/core';
-import { edges } from '@/features/edges';
+import { PathfinderRoot } from '@/features/pathfinder/pathfinder-root';
 
 export default function Home() {
-	return (
-		<div>
-			<Code block>{JSON.stringify(edges, null, 2)}</Code>
-		</div>
-	);
+	return <PathfinderRoot />;
 }
