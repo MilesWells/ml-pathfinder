@@ -2,6 +2,7 @@
 
 import { Center, Checkbox, Flex, Title } from '@mantine/core';
 import { isUnnavigaableRegion } from '../graph/regions';
+import { MethodIcon } from './method-icon';
 import { usePathfinder } from './pathfinder-context';
 
 export function PathfinderResults() {
@@ -27,7 +28,12 @@ export function PathfinderResults() {
 
 			<Flex direction="column" gap="sm">
 				{path.map(edge => (
-					<Checkbox key={edge.id} label={`${edge.from} -> ${edge.to}`} />
+					<Checkbox
+						key={edge.id}
+						label={
+							<MethodIcon edge={edge} label={`${edge.from} -> ${edge.to}`} />
+						}
+					/>
 				))}
 			</Flex>
 		</Flex>
