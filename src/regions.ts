@@ -15,12 +15,16 @@ export const REGIONS = [
 	'Magatia',
 	'Malaysia',
 	'Mu Lung',
-	'Mushroom Shrine/Showa',
+	'Mushroom Shrine',
+	'Neo Tokyo',
+	'Ninja Castle',
 	'NLC',
 	'Omega Sector',
 	'Orbis',
 	'Singapore',
+	'Showa',
 	'Taiwan',
+	'Taipei 101',
 	'Temple of Time',
 	'Thailand',
 	'Victoria Island',
@@ -31,7 +35,7 @@ export type Region = (typeof REGIONS)[number];
 export const SPINEL_REGIONS = [
 	'China',
 	'Thailand',
-	'Mushroom Shrine/Showa',
+	'Mushroom Shrine',
 ] satisfies Readonly<Region[]>;
 
 export type SpinelRegion = (typeof SPINEL_REGIONS)[number];
@@ -40,24 +44,8 @@ export type SpinelRegion = (typeof SPINEL_REGIONS)[number];
 export const UNNAVIGABLE_REGIONS = [
 	'Coke Town',
 	'Florina Beach',
+	'Showa',
 	...SPINEL_REGIONS,
 ] satisfies Readonly<Region[]>;
 
 export type UnnavigableRegions = (typeof UNNAVIGABLE_REGIONS)[number];
-
-/**
-- need all regions because you can start anywhere
-
-regions Spinel appears in:
-- Amoria
-- Ariant
-- El Nath
-- Ludi
-- Laefre
-- Malaysia
-- Mu Lung
-- Orbis
-- Singapore
-- Taiwan
-- Victoria
- */

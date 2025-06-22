@@ -12,7 +12,7 @@ export type RegionEdge = {
 			method: 'Walk' | 'Taxi' | 'Timed Taxi' | 'Spinel';
 	  }
 	| {
-			method: 'Item';
+			method: 'Item' | 'Item Taxi';
 			item: Item;
 	  }
 );
@@ -40,7 +40,7 @@ const AMORIA: RegionEdges = {
 		{
 			to: 'Victoria Island',
 			method: 'Taxi',
-			description: 'Henesys dude in a suit',
+			description: 'Thomas Swift (Henesys)',
 		},
 		...SPINEL_EDGES,
 	],
@@ -97,10 +97,20 @@ const EL_NATH: RegionEdges = {
 		},
 		{
 			to: 'Orbis',
-			method: 'Taxi',
-			description: 'Orbis Rock Scroll',
+			method: 'Item Taxi',
+			item: 'Orbis Rock Scroll',
 		},
 		...SPINEL_EDGES,
+	],
+};
+
+const ELLIN_FOREST: RegionEdges = {
+	region: 'Ellin Forest',
+	edges: [
+		{
+			to: 'Ludibrium',
+			method: 'Walk',
+		},
 	],
 };
 
@@ -129,8 +139,9 @@ const KOREAN_FOLK_TOWN: RegionEdges = {
 		},
 		{
 			to: 'Omega Sector',
-			method: 'Taxi',
-			description: 'Energy Shards (HP Challenge Tier 3)',
+			method: 'Item Taxi',
+			item: 'Energy Shard',
+			description: 'Requires HP Challenge Tier 3',
 		},
 		{
 			to: 'Aqua Road',
@@ -159,8 +170,8 @@ const LAEFRE: RegionEdges = {
 	edges: [
 		{
 			to: 'Victoria Island',
-			method: 'Taxi',
-			description: 'Magic Seed',
+			method: 'Item Taxi',
+			item: 'Magic Seed',
 		},
 		{
 			to: 'Orbis',
@@ -195,9 +206,20 @@ const LUDIBRIUM: RegionEdges = {
 			description: 'Helios Tower Elevator',
 		},
 		{
-			to: 'Omega Sector',
+			to: 'Florina Beach',
 			method: 'Taxi',
-			description: 'Eos Rock Scroll',
+			description: 'Nara',
+		},
+		{
+			to: 'Florina Beach',
+			method: 'Item Taxi',
+			item: 'VIP Ticket to Florina Beach',
+			description: 'Nara',
+		},
+		{
+			to: 'Omega Sector',
+			method: 'Item Taxi',
+			item: 'Eos Rock Scroll',
 		},
 		{
 			to: 'Omega Sector',
@@ -251,11 +273,245 @@ const MU_LUNG: RegionEdges = {
 	],
 };
 
+const MUSHROOM_SHRINE: RegionEdges = {
+	region: 'Mushroom Shrine',
+	edges: [
+		{
+			to: 'Showa',
+			method: 'Item',
+			item: 'Fruit Milk',
+		},
+		{
+			to: 'Ninja Castle',
+			method: 'Taxi',
+			description: 'Forest of Oblivion Crystal',
+		},
+		{
+			to: 'Neo Tokyo',
+			method: 'Item Taxi',
+			item: 'Gate Pass',
+			description: 'Forest of Oblivion Crystal',
+		},
+	],
+};
+
+const NEO_TOKYO: RegionEdges = {
+	region: 'Neo Tokyo',
+	edges: [
+		{
+			to: 'Mushroom Shrine',
+			method: 'Taxi',
+		},
+	],
+};
+
+const NINJA_CASTLE: RegionEdges = {
+	region: 'Ninja Castle',
+	edges: [
+		{
+			to: 'Mushroom Shrine',
+			method: 'Taxi',
+		},
+	],
+};
+
+const NLC: RegionEdges = {
+	region: 'NLC',
+	edges: [
+		{
+			to: 'Victoria Island',
+			method: 'Timed Taxi',
+			description: 'Subway (Bell)',
+		},
+	],
+};
+
+const OMEGA_SECTOR: RegionEdges = {
+	region: 'Omega Sector',
+	edges: [
+		{
+			to: 'Ludibrium',
+			method: 'Item',
+			item: 'Ludibrium Warp Capsule',
+		},
+		{
+			to: 'Ludibrium',
+			method: 'Item Taxi',
+			item: 'Eos Rock Scroll',
+		},
+		{
+			to: 'Victoria Island',
+			method: 'Item Taxi',
+			item: 'Warp Card',
+		},
+		{
+			to: 'Korean Folk Town',
+			method: 'Item Taxi',
+			item: 'Energy Shard',
+		},
+	],
+};
+
+const ORBIS: RegionEdges = {
+	region: 'Orbis',
+	edges: [
+		{
+			to: 'El Nath',
+			method: 'Item',
+			item: 'Orbis Rock Scroll',
+		},
+		{
+			to: 'Victoria Island',
+			method: 'Timed Taxi',
+			description: 'Airship',
+		},
+		{
+			to: 'Ludibrium',
+			method: 'Timed Taxi',
+			description: 'Airship',
+		},
+		{
+			to: 'Ariant',
+			method: 'Timed Taxi',
+			description: 'Genie',
+		},
+		{
+			to: 'Leafre',
+			method: 'Timed Taxi',
+			description: 'Airship',
+		},
+		{
+			to: 'Mu Lung',
+			method: 'Taxi',
+			description: 'Airship',
+		},
+		...SPINEL_EDGES,
+	],
+};
+
+const SINGAPORE: RegionEdges = {
+	region: 'Singapore',
+	edges: [
+		{
+			to: 'Malaysia',
+			method: 'Walk',
+		},
+		{
+			to: 'Victoria Island',
+			method: 'Timed Taxi',
+			description: 'Irene',
+		},
+		...SPINEL_EDGES,
+	],
+};
+
+const TAIWAN: RegionEdges = {
+	region: 'Taiwan',
+	edges: [
+		{
+			to: 'Victoria Island',
+			method: 'Taxi',
+			description: 'Tito',
+		},
+		{
+			to: 'Taipei 101',
+			method: 'Taxi',
+			description: 'Blake',
+		},
+		...SPINEL_EDGES,
+	],
+};
+
+const TAIPEI_101: RegionEdges = {
+	region: 'Taipei 101',
+	edges: [
+		{
+			to: 'Taiwan',
+			method: 'Taxi',
+			description: 'Blake',
+		},
+	],
+};
+
+const TEMPLE_OF_TIME: RegionEdges = {
+	region: 'Temple of Time',
+	edges: [
+		{
+			to: 'Leafre',
+			method: 'Walk',
+		},
+	],
+};
+
+const VICTORIA_ISLAND: RegionEdges = {
+	region: 'Victoria Island',
+	edges: [
+		{
+			to: 'Amoria',
+			method: 'Taxi',
+			description: 'Thomas Swift (Henesys)',
+		},
+		{
+			to: 'Ariant',
+			method: 'Item',
+			item: 'Desert Coin',
+		},
+		{
+			to: 'Orbis',
+			method: 'Timed Taxi',
+			description: 'Airship',
+		},
+		{
+			to: 'Leafre',
+			method: 'Item Taxi',
+			item: 'Magic Seed',
+		},
+		{
+			to: 'NLC',
+			method: 'Timed Taxi',
+			description: 'Subway (Bell)',
+		},
+		{
+			to: 'Singapore',
+			method: 'Timed Taxi',
+			description: 'Irene',
+		},
+		{
+			to: 'Taiwan',
+			method: 'Taxi',
+			description: 'Tito',
+		},
+		{
+			to: 'Omega Sector',
+			method: 'Item',
+			item: 'Warp Card',
+		},
+		{
+			to: 'Florina Beach',
+			method: 'Item Taxi',
+			item: 'VIP Ticket to Florina Beach',
+			description: 'Pason (Lith Harbor)',
+		},
+		{
+			to: 'Florina Beach',
+			method: 'Taxi',
+			description: 'Pason (Lith Harbor)',
+		},
+		{
+			to: 'NLC',
+			method: 'Item',
+			item: 'Return to New Leaf City Scroll',
+		},
+		...SPINEL_EDGES,
+	],
+};
+
 export const edges: Edge[] = [
 	AMORIA,
 	AQUA_ROAD,
 	ARIANT,
 	EL_NATH,
+	ELLIN_FOREST,
 	HERB_TOWN,
 	KOREAN_FOLK_TOWN,
 	LAEFRE,
@@ -263,6 +519,17 @@ export const edges: Edge[] = [
 	MAGATIA,
 	MALAYSIA,
 	MU_LUNG,
+	MUSHROOM_SHRINE,
+	NEO_TOKYO,
+	NINJA_CASTLE,
+	NLC,
+	OMEGA_SECTOR,
+	ORBIS,
+	SINGAPORE,
+	TAIWAN,
+	TAIPEI_101,
+	TEMPLE_OF_TIME,
+	VICTORIA_ISLAND,
 ].flatMap(({ edges, region }) =>
 	edges.map(edge => ({ ...edge, from: region, id: randomUUID() })),
 );
