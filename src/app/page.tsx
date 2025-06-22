@@ -1,5 +1,5 @@
-import { PathfinderRoot } from '@/features/pathfinder/pathfinder-root';
+import { Pathfinder } from '@/features/pathfinder';
 
 export default function Home() {
-	return <PathfinderRoot />;
+	return <Pathfinder />;
 }
