@@ -1,5 +1,4 @@
 import { randomUUID, type UUID } from 'node:crypto';
-import type { Prettify } from '../types';
 import type { Item } from './items';
 import { type Region, SPINEL_REGIONS } from './regions';
 
@@ -44,12 +43,10 @@ export type RegionEdge = {
 	| ItemTaxiEdge
 );
 
-export type Edge = Prettify<
-	RegionEdge & {
-		from: Region;
-		id: UUID;
-	}
->;
+export type Edge = RegionEdge & {
+	from: Region;
+	id: UUID;
+};
 
 export type RegionEdges = {
 	region: Region;
@@ -568,7 +565,7 @@ const VICTORIA_ISLAND: RegionEdges = {
 	],
 };
 
-export const edges: Edge[] = [
+export const edges = [
 	AMORIA,
 	AQUA_ROAD,
 	ARIANT,
@@ -592,6 +589,14 @@ export const edges: Edge[] = [
 	TAIPEI_101,
 	TEMPLE_OF_TIME,
 	VICTORIA_ISLAND,
-].flatMap(({ edges, region }) =>
-	edges.map(edge => ({ ...edge, from: region, id: randomUUID() })),
+].reduce<Edge[]>(
+	(prev, cur) =>
+		prev.concat(
+			cur.edges.map(edge => ({
+				...edge,
+				from: cur.region,
+				id: randomUUID(),
+			})),
+		),
+	[],
 );
