@@ -1,4 +1,4 @@
-import type { Item } from './items';
+import type { Item } from '../items';
 import { type Region, SPINEL_REGIONS } from './regions';
 
 type WalkEdge = {

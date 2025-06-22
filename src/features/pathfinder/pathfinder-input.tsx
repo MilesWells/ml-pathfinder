@@ -2,7 +2,7 @@
 
 import { Button, Flex, Select } from '@mantine/core';
 import { useState } from 'react';
-import { REGIONS, type Region } from '@/features/regions';
+import { REGIONS, type Region } from '@/features/graph/regions';
 import { usePathfinder } from './pathfinder-context';
 
 export function PathfinderInput() {

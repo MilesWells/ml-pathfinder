@@ -1,7 +1,7 @@
 'use client';
 
 import { Center, Checkbox, Flex, Title } from '@mantine/core';
-import { isUnnavigaableRegion } from '../regions';
+import { isUnnavigaableRegion } from '../graph/regions';
 import { usePathfinder } from './pathfinder-context';
 
 export function PathfinderResults() {

@@ -8,9 +8,9 @@ import {
 	useMemo,
 	useState,
 } from 'react';
-import type { Edge } from '../edges';
 import graph from '../graph';
-import type { Region } from '../regions';
+import type { Edge } from '../graph/edges';
+import type { Region } from '../graph/regions';
 
 export type PathfinderContextValue = {
 	findPath: (from: Region, to: Region) => void;
