@@ -44,7 +44,9 @@ export function PathfinderContextProvider({
 
 			try {
 				setPath(shortestPath(graph, from, to).nodes);
-			} catch {}
+			} catch {
+				setPath([]);
+			}
 		},
 		[],
 	);
