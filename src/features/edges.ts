@@ -565,7 +565,7 @@ const VICTORIA_ISLAND: RegionEdges = {
 	],
 };
 
-export const edges = [
+export const edges: Edge[] = [
 	AMORIA,
 	AQUA_ROAD,
 	ARIANT,
@@ -589,14 +589,10 @@ export const edges = [
 	TAIPEI_101,
 	TEMPLE_OF_TIME,
 	VICTORIA_ISLAND,
-].reduce<Edge[]>(
-	(prev, cur) =>
-		prev.concat(
-			cur.edges.map(edge => ({
-				...edge,
-				from: cur.region,
-				id: randomUUID(),
-			})),
-		),
-	[],
+].flatMap(({ edges, region }) =>
+	edges.map(edge => ({
+		...edge,
+		from: region,
+		id: randomUUID(),
+	})),
 );
