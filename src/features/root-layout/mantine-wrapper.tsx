@@ -21,6 +21,7 @@ const theme = createTheme({
 	colors: {
 		'pale-indigo': paleIndigo,
 	},
+	cursorType: 'pointer',
 	fontFamily: 'Geist',
 	fontFamilyMonospace: 'Geist Mono',
 	primaryColor: 'pale-indigo',

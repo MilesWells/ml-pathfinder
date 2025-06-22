@@ -1,6 +1,6 @@
 'use client';
 
-import { Button, Select } from '@mantine/core';
+import { Button, Flex, Select } from '@mantine/core';
 import { useState } from 'react';
 import { REGIONS, type Region } from '@/features/regions';
 import { usePathfinder } from './pathfinder-context';
@@ -11,23 +11,25 @@ export function PathfinderInput() {
 	const pathfinder = usePathfinder();
 
 	return (
-		<div>
+		<Flex justify="center" gap="md">
 			<Select
+				clearable
 				data={REGIONS}
-				label="From"
 				onChange={from => setFrom(from as Region)}
 				placeholder="Where you at?"
 				searchable
 				value={from}
 			/>
+
 			<Select
+				clearable
 				data={REGIONS}
-				label="To"
 				onChange={to => setTo(to as Region)}
 				placeholder="Where you wanna go?"
 				searchable
 				value={to}
 			/>
+
 			<Button
 				disabled={!from || !to}
 				onClick={() => {
@@ -38,6 +40,6 @@ export function PathfinderInput() {
 			>
 				Path Me!
 			</Button>
-		</div>
+		</Flex>
 	);
 }

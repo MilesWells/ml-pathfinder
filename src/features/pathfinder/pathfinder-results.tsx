@@ -1,6 +1,6 @@
 'use client';
 
-import { Title } from '@mantine/core';
+import { Center, Checkbox, Flex, Title } from '@mantine/core';
 import { isUnnavigaableRegion } from '../regions';
 import { usePathfinder } from './pathfinder-context';
 
@@ -8,25 +8,28 @@ export function PathfinderResults() {
 	const { from, path } = usePathfinder();
 
 	if (!from) {
-		return <div>Select a starting and ending region</div>;
+		return <Center component="h2">Select a starting and ending region</Center>;
 	}
 
 	if (isUnnavigaableRegion(from)) {
-		return <div>Staring from Unnavigable region.</div>;
+		return <Center component="h2">Staring from Unnavigable region.</Center>;
 	}
 
 	if (!path) {
-		return <div>No path found.</div>;
+		return <Center component="h2">No path found.</Center>;
 	}
 
 	return (
-		<div>
-			<Title order={2}>Pathfinder Results</Title>
-			<ol>
-				{path.map(step => (
-					<li key={step}>{step}</li>
+		<Flex align="center" direction="column">
+			<Title my="lg" order={2}>
+				Pathfinder Results
+			</Title>
+
+			<Flex direction="column" gap="sm">
+				{path.map((step, idx) => (
+					<Checkbox defaultChecked={idx === 0} key={step} label={step} />
 				))}
-			</ol>
-		</div>
+			</Flex>
+		</Flex>
 	);
 }

@@ -45,7 +45,6 @@ export function isSpinelRegion(region: Region): region is SpinelRegion {
 
 // User needs to return to their previous region if starting from one of these
 export const UNNAVIGABLE_REGIONS = [
-	'Coke Town',
 	'Florina Beach',
 	'Showa',
 	'Malaysia',

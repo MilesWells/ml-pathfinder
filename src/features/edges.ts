@@ -118,6 +118,18 @@ const ARIANT: RegionEdges = {
 	],
 };
 
+const COKE_TOWN: RegionEdges = {
+	region: 'Coke Town',
+	edges: [
+		{
+			to: 'Victoria Island',
+			method: 'Taxi',
+			mesos: 0,
+			description: 'Cokebear Administrator',
+		},
+	],
+};
+
 const EL_NATH: RegionEdges = {
 	region: 'El Nath',
 	edges: [
@@ -510,6 +522,12 @@ const VICTORIA_ISLAND: RegionEdges = {
 			item: 'Desert Coin',
 		},
 		{
+			to: 'Coke Town',
+			method: 'Taxi',
+			mesos: 0,
+			description: 'Cokebear Administrator',
+		},
+		{
 			to: 'Orbis',
 			method: 'Timed Taxi',
 			mesos: 0,
@@ -568,6 +586,7 @@ export const edges: Edge[] = [
 	AMORIA,
 	AQUA_ROAD,
 	ARIANT,
+	COKE_TOWN,
 	EL_NATH,
 	ELLIN_FOREST,
 	HERB_TOWN,
