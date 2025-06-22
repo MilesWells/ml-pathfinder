@@ -1,7 +1,7 @@
 import { randomUUID, type UUID } from 'node:crypto';
+import type { Prettify } from '../types';
 import type { Item } from './items';
 import { type Region, SPINEL_REGIONS } from './regions';
-import type { Prettify } from './types';
 
 // Edges represent ways to travel from one region to another
 export type RegionEdge = {

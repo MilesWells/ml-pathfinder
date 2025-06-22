@@ -45,6 +45,7 @@ export const UNNAVIGABLE_REGIONS = [
 	'Coke Town',
 	'Florina Beach',
 	'Showa',
+	'Malaysia',
 	...SPINEL_REGIONS,
 ] satisfies Readonly<Region[]>;
 
