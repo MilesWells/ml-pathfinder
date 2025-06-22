@@ -3,18 +3,45 @@ import type { Prettify } from '../types';
 import type { Item } from './items';
 import { type Region, SPINEL_REGIONS } from './regions';
 
-// Edges represent ways to travel from one region to another
+type WalkEdge = {
+	method: 'Walk';
+};
+
+type TaxiEdge = {
+	method: 'Taxi';
+	mesos: number;
+};
+
+type TimedTaxiEdge = {
+	method: 'Timed Taxi';
+	mesos: number;
+};
+
+type SpinelEdge = {
+	method: 'Spinel';
+	mesos: number;
+};
+
+type ItemEdge = {
+	method: 'Item';
+	item: Item;
+};
+
+type ItemTaxiEdge = {
+	method: 'Item Taxi';
+	item: Item;
+};
+
 export type RegionEdge = {
 	to: Region;
 	description?: React.ReactNode;
 } & (
-	| {
-			method: 'Walk' | 'Taxi' | 'Timed Taxi' | 'Spinel';
-	  }
-	| {
-			method: 'Item' | 'Item Taxi';
-			item: Item;
-	  }
+	| WalkEdge
+	| TaxiEdge
+	| TimedTaxiEdge
+	| SpinelEdge
+	| ItemEdge
+	| ItemTaxiEdge
 );
 
 export type Edge = Prettify<
@@ -32,6 +59,7 @@ export type RegionEdges = {
 const SPINEL_EDGES: RegionEdge[] = SPINEL_REGIONS.map(to => ({
 	method: 'Spinel',
 	to,
+	mesos: 3_000,
 }));
 
 const AMORIA: RegionEdges = {
@@ -40,6 +68,7 @@ const AMORIA: RegionEdges = {
 		{
 			to: 'Victoria Island',
 			method: 'Taxi',
+			mesos: 0,
 			description: 'Thomas Swift (Henesys)',
 		},
 		...SPINEL_EDGES,
@@ -52,11 +81,13 @@ const AQUA_ROAD: RegionEdges = {
 		{
 			to: 'Korean Folk Town',
 			method: 'Taxi',
+			mesos: 1_500,
 			description: 'Dolphin',
 		},
 		{
 			to: 'Herb Town',
 			method: 'Taxi',
+			mesos: 10_000,
 			description: 'Dolphin',
 		},
 		{
@@ -72,16 +103,19 @@ const ARIANT: RegionEdges = {
 		{
 			to: 'Magatia',
 			method: 'Taxi',
+			mesos: 1_500,
 			description: 'Camel',
 		},
 		{
 			to: 'Victoria Island',
 			method: 'Taxi',
+			mesos: 10_000,
 			description: 'Karcasa',
 		},
 		{
 			to: 'Orbis',
 			method: 'Timed Taxi',
+			mesos: 0,
 			description: 'Genie',
 		},
 		...SPINEL_EDGES,
@@ -124,6 +158,7 @@ const HERB_TOWN: RegionEdges = {
 		{
 			to: 'Mu Lung',
 			method: 'Taxi',
+			mesos: 500,
 			description: 'Crane',
 		},
 	],
@@ -135,6 +170,7 @@ const KOREAN_FOLK_TOWN: RegionEdges = {
 		{
 			to: 'Ludibrium',
 			method: 'Timed Taxi',
+			mesos: 0,
 			description: 'Helios Tower Elevator',
 		},
 		{
@@ -176,6 +212,7 @@ const LAEFRE: RegionEdges = {
 		{
 			to: 'Orbis',
 			method: 'Timed Taxi',
+			mesos: 0,
 			description: 'Airship',
 		},
 		{
@@ -193,6 +230,7 @@ const LUDIBRIUM: RegionEdges = {
 		{
 			to: 'Orbis',
 			method: 'Timed Taxi',
+			mesos: 0,
 			description: 'Airship',
 		},
 		{
@@ -203,11 +241,13 @@ const LUDIBRIUM: RegionEdges = {
 		{
 			to: 'Korean Folk Town',
 			method: 'Timed Taxi',
+			mesos: 0,
 			description: 'Helios Tower Elevator',
 		},
 		{
 			to: 'Florina Beach',
 			method: 'Taxi',
+			mesos: 1_500,
 			description: 'Nara',
 		},
 		{
@@ -240,6 +280,7 @@ const MAGATIA: RegionEdges = {
 		{
 			to: 'Ariant',
 			method: 'Taxi',
+			mesos: 1_500,
 			description: 'Camel',
 		},
 	],
@@ -262,11 +303,13 @@ const MU_LUNG: RegionEdges = {
 		{
 			to: 'Herb Town',
 			method: 'Taxi',
+			mesos: 500,
 			description: 'Crane',
 		},
 		{
 			to: 'Orbis',
 			method: 'Taxi',
+			mesos: 1_500,
 			description: 'Airship',
 		},
 		...SPINEL_EDGES,
@@ -284,6 +327,7 @@ const MUSHROOM_SHRINE: RegionEdges = {
 		{
 			to: 'Ninja Castle',
 			method: 'Taxi',
+			mesos: 0,
 			description: 'Forest of Oblivion Crystal',
 		},
 		{
@@ -301,6 +345,7 @@ const NEO_TOKYO: RegionEdges = {
 		{
 			to: 'Mushroom Shrine',
 			method: 'Taxi',
+			mesos: 0,
 		},
 	],
 };
@@ -311,6 +356,7 @@ const NINJA_CASTLE: RegionEdges = {
 		{
 			to: 'Mushroom Shrine',
 			method: 'Taxi',
+			mesos: 0,
 		},
 	],
 };
@@ -321,6 +367,7 @@ const NLC: RegionEdges = {
 		{
 			to: 'Victoria Island',
 			method: 'Timed Taxi',
+			mesos: 5_000,
 			description: 'Subway (Bell)',
 		},
 	],
@@ -363,27 +410,32 @@ const ORBIS: RegionEdges = {
 		{
 			to: 'Victoria Island',
 			method: 'Timed Taxi',
+			mesos: 0,
 			description: 'Airship',
 		},
 		{
 			to: 'Ludibrium',
 			method: 'Timed Taxi',
+			mesos: 0,
 			description: 'Airship',
 		},
 		{
 			to: 'Ariant',
 			method: 'Timed Taxi',
+			mesos: 0,
 			description: 'Genie',
 		},
 		{
 			to: 'Leafre',
 			method: 'Timed Taxi',
+			mesos: 0,
 			description: 'Airship',
 		},
 		{
 			to: 'Mu Lung',
 			method: 'Taxi',
-			description: 'Airship',
+			mesos: 1_500,
+			description: 'Crane',
 		},
 		...SPINEL_EDGES,
 	],
@@ -399,6 +451,7 @@ const SINGAPORE: RegionEdges = {
 		{
 			to: 'Victoria Island',
 			method: 'Timed Taxi',
+			mesos: 20_000,
 			description: 'Irene',
 		},
 		...SPINEL_EDGES,
@@ -411,11 +464,13 @@ const TAIWAN: RegionEdges = {
 		{
 			to: 'Victoria Island',
 			method: 'Taxi',
+			mesos: 2_000,
 			description: 'Tito',
 		},
 		{
 			to: 'Taipei 101',
 			method: 'Taxi',
+			mesos: 2_000,
 			description: 'Blake',
 		},
 		...SPINEL_EDGES,
@@ -428,6 +483,7 @@ const TAIPEI_101: RegionEdges = {
 		{
 			to: 'Taiwan',
 			method: 'Taxi',
+			mesos: 2_000,
 			description: 'Blake',
 		},
 	],
@@ -449,6 +505,7 @@ const VICTORIA_ISLAND: RegionEdges = {
 		{
 			to: 'Amoria',
 			method: 'Taxi',
+			mesos: 0,
 			description: 'Thomas Swift (Henesys)',
 		},
 		{
@@ -459,6 +516,7 @@ const VICTORIA_ISLAND: RegionEdges = {
 		{
 			to: 'Orbis',
 			method: 'Timed Taxi',
+			mesos: 0,
 			description: 'Airship',
 		},
 		{
@@ -469,16 +527,19 @@ const VICTORIA_ISLAND: RegionEdges = {
 		{
 			to: 'NLC',
 			method: 'Timed Taxi',
+			mesos: 5_000,
 			description: 'Subway (Bell)',
 		},
 		{
 			to: 'Singapore',
 			method: 'Timed Taxi',
+			mesos: 20_000,
 			description: 'Irene',
 		},
 		{
 			to: 'Taiwan',
 			method: 'Taxi',
+			mesos: 2_000,
 			description: 'Tito',
 		},
 		{
@@ -495,6 +556,7 @@ const VICTORIA_ISLAND: RegionEdges = {
 		{
 			to: 'Florina Beach',
 			method: 'Taxi',
+			mesos: 1_500,
 			description: 'Pason (Lith Harbor)',
 		},
 		{
