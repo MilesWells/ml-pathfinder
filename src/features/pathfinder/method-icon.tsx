@@ -1,6 +1,7 @@
 import { Group, Text } from '@mantine/core';
-import Image from 'next/image';
 import type { Edge } from '../graph/edges';
+import { ItemIcon } from '../items/item-icon';
+import { MesosIcon } from '../items/mesos-icon';
 
 export type MethodIconProps = {
 	edge: Edge;
@@ -28,27 +29,4 @@ function Icon({ edge }: { edge: Edge }) {
 		case 'Item Taxi':
 			return <ItemIcon item={edge.item} />;
 	}
-}
-
-type MesosIconProps = {
-	mesos: number;
-};
-
-function MesosIcon({ mesos }: MesosIconProps) {
-	return (
-		<Image
-			alt={`${mesos} mesos`}
-			height={23}
-			src="/images/mesos.png"
-			width={23}
-		/>
-	);
-}
-
-type ItemIconProps = {
-	item: string;
-};
-
-function ItemIcon({ item }: ItemIconProps) {
-	return <span title={item}>🟨</span>;
 }
