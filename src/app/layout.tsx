@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-	title: 'Next Template',
+	title: 'MapleLegends Pathfinder',
 };
 
 export default function RootLayout({

@@ -1,4 +1,3 @@
-// https://fireship.io/courses/javascript/interview-graphs/
 export const REGIONS = [
 	'Amoria',
 	'Aqua Road',

@@ -17,6 +17,7 @@ export function PathfinderRoot() {
 				label="From"
 				onChange={from => setFrom(from as Region)}
 				placeholder="Where you at?"
+				searchable
 				value={from}
 			/>
 			<Select
@@ -24,6 +25,7 @@ export function PathfinderRoot() {
 				label="To"
 				onChange={to => setTo(to as Region)}
 				placeholder="Where you wanna go?"
+				searchable
 				value={to}
 			/>
 			<Button
