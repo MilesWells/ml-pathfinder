@@ -2,6 +2,7 @@ import { Group, Text } from '@mantine/core';
 import type { Edge } from '../graph/edges';
 import { ItemIcon } from '../items/item-icon';
 import { MesosIcon } from '../items/mesos-icon';
+import { WalkIcon } from './walk-icon';
 
 export type MethodIconProps = {
 	edge: Edge;
@@ -20,7 +21,7 @@ export function MethodIcon({ edge, label }: MethodIconProps) {
 function Icon({ edge }: { edge: Edge }) {
 	switch (edge.method) {
 		case 'Walk':
-			return '🚶';
+			return <WalkIcon />;
 		case 'Taxi':
 		case 'Timed Taxi':
 		case 'Spinel':

@@ -1,11 +1,13 @@
 import { Center } from '@mantine/core';
-import { type Item, itemImages } from '.';
+import { ITEM_IMAGE_PLACEHOLDER, type Item, itemImages } from '.';
 
 export type ItemIconProps = {
 	item: Item;
 };
 
 export function ItemIcon({ item }: ItemIconProps) {
+	const image = itemImages[item].image;
+
 	return (
 		<Center
 			styles={{
@@ -15,7 +17,7 @@ export function ItemIcon({ item }: ItemIconProps) {
 				},
 			}}
 		>
-			<img alt={item} src={itemImages[item]} />
+			{image ? <img alt={item} src={image} /> : ITEM_IMAGE_PLACEHOLDER}
 		</Center>
 	);
 }
