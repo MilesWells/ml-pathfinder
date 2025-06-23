@@ -11,7 +11,7 @@ export function PathfinderInput() {
 	const pathfinder = usePathfinder();
 
 	return (
-		<Flex justify="center" gap="md">
+		<Flex justify="center" gap="md" mt={40}>
 			<Select
 				clearable
 				data={REGIONS}
