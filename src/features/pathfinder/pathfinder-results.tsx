@@ -1,6 +1,6 @@
 'use client';
 
-import { Center, Checkbox, Flex, Title } from '@mantine/core';
+import { Center, Flex, Title } from '@mantine/core';
 import { isUnnavigaableRegion } from '../graph/regions';
 import { MethodIcon } from './method-icon';
 import { usePathfinder } from './pathfinder-context';
@@ -28,11 +28,10 @@ export function PathfinderResults() {
 
 			<Flex direction="column" gap="sm">
 				{path.map(edge => (
-					<Checkbox
+					<MethodIcon
 						key={edge.id}
-						label={
-							<MethodIcon edge={edge} label={`${edge.from} -> ${edge.to}`} />
-						}
+						edge={edge}
+						label={`${edge.from} -> ${edge.to}`}
 					/>
 				))}
 			</Flex>

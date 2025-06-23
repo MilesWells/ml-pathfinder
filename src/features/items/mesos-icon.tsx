@@ -1,14 +1,13 @@
+import { Center } from '@mantine/core';
+
 export type MesosIconProps = {
 	mesos: number;
 };
 
 export function MesosIcon({ mesos }: MesosIconProps) {
 	return (
-		<img
-			alt={`${mesos} mesos`}
-			height={23}
-			src="/images/mesos.png"
-			width={23}
-		/>
+		<Center styles={{ root: { height: 30, width: 30 } }}>
+			<img alt={`${mesos} mesos`} src="/images/mesos.png" />
+		</Center>
 	);
 }
