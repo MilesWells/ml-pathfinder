@@ -1,6 +1,6 @@
 'use client';
 
-import { Center, Flex, Title } from '@mantine/core';
+import { Center, Stack, Title } from '@mantine/core';
 import { isUnnavigaableRegion } from '../graph/regions';
 import { MethodIcon } from './method-icon';
 import { usePathfinder } from './pathfinder-context';
@@ -21,12 +21,12 @@ export function PathfinderResults() {
 	}
 
 	return (
-		<Flex align="center" direction="column">
+		<Stack align="center">
 			<Title my="lg" order={2}>
 				Pathfinder Results
 			</Title>
 
-			<Flex direction="column" gap="sm">
+			<Stack gap="sm">
 				{path.map(edge => (
 					<MethodIcon
 						key={edge.id}
@@ -34,7 +34,7 @@ export function PathfinderResults() {
 						label={`${edge.from} -> ${edge.to}`}
 					/>
 				))}
-			</Flex>
-		</Flex>
+			</Stack>
+		</Stack>
 	);
 }
