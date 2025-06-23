@@ -1,37 +1,36 @@
+'use client';
+
 import {
 	Anchor,
 	AppShell,
-	AppShellFooter,
-	AppShellHeader,
 	AppShellMain,
+	AppShellNavbar,
+	Burger,
 	Center,
+	Stack,
 	Text,
 	Title,
 } from '@mantine/core';
+import { useDisclosure } from '@mantine/hooks';
 
 export default function Shell({ children }: React.PropsWithChildren) {
+	const [opened, { toggle }] = useDisclosure();
+
 	return (
 		<AppShell
-			header={{
-				height: '65',
-			}}
-			footer={{
-				height: '45',
+			navbar={{
+				breakpoint: 'sm',
+				collapsed: {
+					mobile: !opened,
+				},
+				width: 300,
 			}}
 			padding="sm"
 		>
-			<AppShellHeader>
-				<Center p="xs">
-					<Title>MapleLegends Pathfinder</Title>
-				</Center>
-			</AppShellHeader>
-
-			<AppShellMain>{children}</AppShellMain>
-
-			<AppShellFooter>
-				<Center p="xs">
-					<Text>
-						Made with love, but not affilitated with{' '}
+			<AppShellNavbar p="xs">
+				<Stack h="100%">
+					<Text ta="center" mt="auto">
+						Created out of my love for{' '}
 						<Anchor
 							href="https://maplelegends.com/"
 							target="_blank"
@@ -39,9 +38,23 @@ export default function Shell({ children }: React.PropsWithChildren) {
 						>
 							MapleLegends
 						</Anchor>
+						{', '}
+						but not affiliated.
 					</Text>
+				</Stack>
+			</AppShellNavbar>
+
+			<AppShellMain>
+				<Center>
+					<Center p="xs">
+						<Title>MapleLegends Pathfinder</Title>
+					</Center>
+
+					<Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
 				</Center>
-			</AppShellFooter>
+
+				{children}
+			</AppShellMain>
 		</AppShell>
 	);
 }
