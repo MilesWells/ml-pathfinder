@@ -7,19 +7,23 @@ import {
 	AppShellNavbar,
 	Burger,
 	Center,
+	CloseButton,
+	type MantineSize,
 	Stack,
 	Text,
 	Title,
 } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 
+const MOBILE_BREAKPOINT: MantineSize = 'sm';
+
 export default function Shell({ children }: React.PropsWithChildren) {
-	const [opened, { toggle }] = useDisclosure();
+	const [opened, { close, open }] = useDisclosure();
 
 	return (
 		<AppShell
 			navbar={{
-				breakpoint: 'sm',
+				breakpoint: MOBILE_BREAKPOINT,
 				collapsed: {
 					mobile: !opened,
 				},
@@ -28,6 +32,8 @@ export default function Shell({ children }: React.PropsWithChildren) {
 			padding="sm"
 		>
 			<AppShellNavbar p="xs">
+				<CloseButton onClick={close} hiddenFrom={MOBILE_BREAKPOINT} />
+
 				<Stack h="100%">
 					<Text ta="center" mt="auto">
 						Created out of my love for{' '}
@@ -46,11 +52,16 @@ export default function Shell({ children }: React.PropsWithChildren) {
 
 			<AppShellMain>
 				<Center>
-					<Center p="xs">
-						<Title>MapleLegends Pathfinder</Title>
-					</Center>
+					<Title order={3} p="xs" ta="center">
+						MapleLegends Pathfinder
+					</Title>
 
-					<Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
+					<Burger
+						opened={opened}
+						onClick={open}
+						hiddenFrom={MOBILE_BREAKPOINT}
+						size="sm"
+					/>
 				</Center>
 
 				{children}

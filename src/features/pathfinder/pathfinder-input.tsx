@@ -11,7 +11,7 @@ export function PathfinderInput() {
 	const pathfinder = usePathfinder();
 
 	return (
-		<Group justify="center" gap="md" mt={40}>
+		<Group justify="center" gap="md">
 			<Select
 				clearable
 				data={REGIONS}
