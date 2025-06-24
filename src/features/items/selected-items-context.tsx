@@ -1,6 +1,6 @@
 'use client';
 
-import { createContext, useCallback, useContext, useMemo, useState } from 'react';
+import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
 import { z } from 'zod';
 import type { Item } from '.';
 
@@ -51,16 +51,18 @@ const DEFAULT_ITEMS: SelectedItemMap = {
 };
 
 export function SelectedItemsProvider({ children }: React.PropsWithChildren) {
-	const [selectedItems, setSelectedItems] = useState<SelectedItemMap>(() => {
+	const [selectedItems, setSelectedItems] = useState<SelectedItemMap>(DEFAULT_ITEMS);
+
+	useEffect(() => {
 		const localStorageValue = localStorage.getItem(LOCAL_STORAGE_KEY);
-		if (!localStorageValue) return DEFAULT_ITEMS;
+		if (!localStorageValue) return;
 
 		try {
-			return selectedItemsMapSchema.parse(JSON.parse(localStorageValue));
+			setSelectedItems(selectedItemsMapSchema.parse(JSON.parse(localStorageValue)));
 		} catch {
-			return DEFAULT_ITEMS;
+			return;
 		}
-	});
+	}, []);
 
 	const addItem = useCallback<SelectedItemsContextValue['addItem']>(item => {
 		const itemsToAdd = Array.isArray(item) ? item : [item];
@@ -104,15 +106,24 @@ export function SelectedItemsProvider({ children }: React.PropsWithChildren) {
 		});
 	}, []);
 
-	const value = useMemo(() => ({ addItem, removeItem, selectedItems }), [addItem, removeItem, selectedItems]);
+	const value = useMemo(
+		() => ({
+			addItem,
+			removeItem,
+			selectedItems,
+		}),
+		[addItem, removeItem, selectedItems],
+	);
 
 	return <SelectedItemsContext value={value}>{children}</SelectedItemsContext>;
 }
 
 export function useSelectedItems() {
 	const value = useContext(SelectedItemsContext);
+
 	if (value === null) {
 		throw new Error('useSelectedItems must be used within a SelectedItemsProvider');
 	}
+
 	return value;
 }
