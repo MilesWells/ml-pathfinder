@@ -1,20 +1,32 @@
 'use client';
 
-import { Button, Select, Stack } from '@mantine/core';
+import { Button, Drawer, ScrollArea, Select, Stack } from '@mantine/core';
+import { useDisclosure } from '@mantine/hooks';
 import { useState } from 'react';
 import { REGIONS, type Region } from '@/features/graph/regions';
+import { ItemCheckList } from '../items/item-check-list';
 import { usePathfinder } from './pathfinder-context';
 
 export function PathfinderInput() {
 	const [from, setFrom] = useState<Region | null>(null);
 	const [to, setTo] = useState<Region | null>(null);
 	const pathfinder = usePathfinder();
+	const [itemsListOpened, { open: openItemsList, close: closeItemsList }] = useDisclosure(false);
 
 	return (
 		<Stack>
-			<Button mx="auto" w="fit-content">
+			<Button mx="auto" onClick={openItemsList} w="fit-content">
 				Select Items
 			</Button>
+
+			<Drawer
+				onClose={closeItemsList}
+				opened={itemsListOpened}
+				scrollAreaComponent={ScrollArea.Autosize}
+				title="Select Items to Use"
+			>
+				<ItemCheckList />
+			</Drawer>
 
 			<Select
 				clearable
