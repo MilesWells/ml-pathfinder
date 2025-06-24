@@ -4,6 +4,7 @@ applyTo: "**/*.ts,**/*.tsx"
 # Project coding standards for TypeScript and React
 
 - Never look at any file ignored by git via .gitignore
+- Never search any file in the node_modules, out, or .next directories
 - Do not alter the structure of any existing code
 
 ## TypeScript Guidelines
@@ -26,3 +27,4 @@ applyTo: "**/*.ts,**/*.tsx"
 - Use Mantine core components wherever possible (documentation at: https://mantine.dev/core/package)
 - Use CSS modules for component styling (documentation at: https://mantine.dev/styles/css-modules/)
 - Never import React (for example: "import React from 'react';")
+- For components with children wrap the props type with the generic type React.PropsWithChildren

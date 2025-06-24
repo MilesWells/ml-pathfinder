@@ -37,11 +37,7 @@ export default function Shell({ children }: React.PropsWithChildren) {
 				<Stack h="100%">
 					<Text ta="center" mt="auto">
 						Created out of my love for{' '}
-						<Anchor
-							href="https://maplelegends.com/"
-							target="_blank"
-							rel="noopener"
-						>
+						<Anchor href="https://maplelegends.com/" target="_blank" rel="noopener">
 							MapleLegends
 						</Anchor>
 						{', '}
@@ -56,12 +52,7 @@ export default function Shell({ children }: React.PropsWithChildren) {
 						MapleLegends Pathfinder
 					</Title>
 
-					<Burger
-						opened={opened}
-						onClick={open}
-						hiddenFrom={MOBILE_BREAKPOINT}
-						size="sm"
-					/>
+					<Burger opened={opened} onClick={open} hiddenFrom={MOBILE_BREAKPOINT} size="sm" />
 				</Center>
 
 				{children}

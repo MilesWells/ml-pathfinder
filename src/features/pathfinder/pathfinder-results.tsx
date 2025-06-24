@@ -28,11 +28,7 @@ export function PathfinderResults() {
 
 			<Stack gap="sm">
 				{path.map(edge => (
-					<MethodIcon
-						key={edge.id}
-						edge={edge}
-						label={`${edge.from} -> ${edge.to}`}
-					/>
+					<MethodIcon key={edge.id} edge={edge} label={`${edge.from} -> ${edge.to}`} />
 				))}
 			</Stack>
 		</Stack>

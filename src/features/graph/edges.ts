@@ -33,14 +33,7 @@ type ItemTaxiEdge = {
 export type RegionEdge = {
 	to: Region;
 	description?: React.ReactNode;
-} & (
-	| WalkEdge
-	| TaxiEdge
-	| TimedTaxiEdge
-	| SpinelEdge
-	| ItemEdge
-	| ItemTaxiEdge
-);
+} & (WalkEdge | TaxiEdge | TimedTaxiEdge | SpinelEdge | ItemEdge | ItemTaxiEdge);
 
 export type EdgeMethod = RegionEdge['method'];
 export type EdgeId = `${EdgeMethod}|${Region}|${Region}`;

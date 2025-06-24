@@ -1,8 +1,4 @@
-import {
-	createTheme,
-	type MantineColorsTuple,
-	MantineProvider,
-} from '@mantine/core';
+import { createTheme, type MantineColorsTuple, MantineProvider } from '@mantine/core';
 
 const paleIndigo: MantineColorsTuple = [
 	'#eff2ff',
