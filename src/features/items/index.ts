@@ -19,11 +19,11 @@ export type Item = (typeof items)[number];
 
 export const ITEM_IMAGE_PLACEHOLDER = '🟨';
 
-export type ItemImage = {
+export type ItemDetails = {
 	image: string | null;
 };
 
-export const itemImages: Record<Item, ItemImage> = {
+export const itemDetailsMap: Record<Item, ItemDetails> = {
 	'Command Center Warp Capsule': {
 		image: '/images/warp-capsule.png',
 	},
