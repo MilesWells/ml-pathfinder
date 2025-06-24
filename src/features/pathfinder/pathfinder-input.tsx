@@ -19,6 +19,8 @@ export function PathfinderInput() {
 			<Select
 				clearable
 				data={REGIONS}
+				maw="300px"
+				mx="auto"
 				onChange={from => setFrom(from as Region)}
 				placeholder="Choose starting continent"
 				searchable
@@ -28,6 +30,8 @@ export function PathfinderInput() {
 			<Select
 				clearable
 				data={REGIONS}
+				maw="300px"
+				mx="auto"
 				onChange={to => setTo(to as Region)}
 				placeholder="Choose destination continent"
 				searchable

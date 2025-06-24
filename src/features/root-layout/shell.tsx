@@ -4,7 +4,7 @@ export default function Shell({ children }: React.PropsWithChildren) {
 	return (
 		<AppShell
 			footer={{
-				height: 35,
+				height: 30,
 			}}
 			padding="sm"
 		>
@@ -20,8 +20,8 @@ export default function Shell({ children }: React.PropsWithChildren) {
 
 			<AppShellFooter>
 				<Center h="100%" ta="center">
-					<Text>
-						Created out of my love for{' '}
+					<Text fz="sm">
+						Made with love for{' '}
 						<Anchor href="https://maplelegends.com/" rel="noopener" target="_blank">
 							MapleLegends
 						</Anchor>
