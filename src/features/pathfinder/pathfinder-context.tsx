@@ -2,7 +2,7 @@
 
 import { shortestPath } from 'graph-data-structure';
 import { createContext, useCallback, useContext, useMemo, useState } from 'react';
-import graph from '../graph';
+import { useGraph } from '../graph';
 import type { Edge } from '../graph/edges';
 import type { Region } from '../graph/regions';
 
@@ -27,30 +27,34 @@ export function PathfinderContextProvider({ children }: React.PropsWithChildren)
 	const [from, setFrom] = useState<Region>();
 	const [to, setTo] = useState<Region>();
 	const [path, setPath] = useState<Edge[]>([]);
+	const graph = useGraph();
 
-	const findPath = useCallback<PathfinderContextValue['findPath']>((from, to) => {
-		setFrom(from);
-		setTo(to);
+	const findPath = useCallback<PathfinderContextValue['findPath']>(
+		(from, to) => {
+			setFrom(from);
+			setTo(to);
 
-		try {
-			const nodePath = shortestPath(graph, from, to).nodes;
-			const edgePath = nodePath.reduce<Edge[]>((acc, cur, idx, arr) => {
-				if (idx === arr.length - 1) return acc;
+			try {
+				const nodePath = shortestPath(graph, from, to).nodes;
+				const edgePath = nodePath.reduce<Edge[]>((acc, cur, idx, arr) => {
+					if (idx === arr.length - 1) return acc;
 
-				const edge = graph.getEdgeProperties(cur, arr[idx + 1]);
+					const edge = graph.getEdgeProperties(cur, arr[idx + 1]);
 
-				if (!edge) return acc;
+					if (!edge) return acc;
 
-				acc.push(edge);
+					acc.push(edge);
 
-				return acc;
-			}, []);
+					return acc;
+				}, []);
 
-			setPath(edgePath);
-		} catch {
-			setPath([]);
-		}
-	}, []);
+				setPath(edgePath);
+			} catch {
+				setPath([]);
+			}
+		},
+		[graph],
+	);
 
 	const value = useMemo<PathfinderContextValue>(() => {
 		if (!from || !to) return { findPath };

@@ -1,4 +1,8 @@
+'use client';
+
 import { Graph } from 'graph-data-structure';
+import { useMemo } from 'react';
+import { useSelectedItems } from '../items/selected-items-context';
 import { type Edge, type EdgeMethod, edges } from './edges';
 import { REGIONS, type Region } from './regions';
 
@@ -11,14 +15,28 @@ const graphWeights: Record<EdgeMethod, number> = {
 	Walk: 2,
 };
 
-const graph = new Graph<Region, Edge>();
+export function useGraph() {
+	const { selectedItems } = useSelectedItems();
 
-for (const node of REGIONS) graph.addNode(node);
+	return useMemo(() => {
+		const graph = new Graph<Region, Edge>();
 
-for (const edge of edges)
-	graph.addEdge(edge.from, edge.to, {
-		props: edge,
-		weight: graphWeights[edge.method],
-	});
+		for (const node of REGIONS) graph.addNode(node);
 
-export default graph;
+		const filteredEdges = edges.filter(edge => {
+			if (edge.method !== 'Item' && edge.method !== 'Item Taxi') return true;
+
+			if (selectedItems[edge.item]) return true;
+
+			return false;
+		});
+
+		for (const edge of filteredEdges)
+			graph.addEdge(edge.from, edge.to, {
+				props: edge,
+				weight: edge.weight ?? graphWeights[edge.method],
+			});
+
+		return graph;
+	}, [selectedItems]);
+}

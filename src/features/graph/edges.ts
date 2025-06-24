@@ -33,6 +33,7 @@ type ItemTaxiEdge = {
 export type RegionEdge = {
 	to: Region;
 	description?: React.ReactNode;
+	weight?: number;
 } & (WalkEdge | TaxiEdge | TimedTaxiEdge | SpinelEdge | ItemEdge | ItemTaxiEdge);
 
 export type EdgeMethod = RegionEdge['method'];
@@ -131,6 +132,11 @@ const EL_NATH: RegionEdges = {
 		{
 			method: 'Walk',
 			to: 'Aqua Road',
+		},
+		{
+			method: 'Walk',
+			to: 'Orbis',
+			weight: 5,
 		},
 		{
 			item: 'Orbis Rock Scroll',
@@ -274,6 +280,11 @@ const LUDIBRIUM: RegionEdges = {
 			method: 'Item',
 			to: 'Omega Sector',
 		},
+		{
+			method: 'Walk',
+			to: 'Omega Sector',
+			weight: 5,
+		},
 	],
 	region: 'Ludibrium',
 };
@@ -390,6 +401,11 @@ const OMEGA_SECTOR: RegionEdges = {
 			to: 'Ludibrium',
 		},
 		{
+			method: 'Walk',
+			to: 'Ludibrium',
+			weight: 5,
+		},
+		{
 			item: 'Warp Card',
 			method: 'Item Taxi',
 			to: 'Victoria Island',
@@ -408,6 +424,10 @@ const ORBIS: RegionEdges = {
 		{
 			item: 'Orbis Rock Scroll',
 			method: 'Item',
+			to: 'El Nath',
+		},
+		{
+			method: 'Walk',
 			to: 'El Nath',
 		},
 		{
