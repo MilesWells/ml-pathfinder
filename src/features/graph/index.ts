@@ -6,7 +6,7 @@ import { useSelectedItems } from '../items/selected-items-context';
 import { type Edge, type EdgeMethod, edges } from './edges';
 import { REGIONS, type Region } from './regions';
 
-const graphWeights: Record<EdgeMethod, number> = {
+const edgeMethodWeights: Record<EdgeMethod, number> = {
 	Item: 0,
 	'Item Taxi': 1,
 	Spinel: 1,
@@ -34,7 +34,7 @@ export function useGraph() {
 		for (const edge of filteredEdges)
 			graph.addEdge(edge.from, edge.to, {
 				props: edge,
-				weight: edge.weight ?? graphWeights[edge.method],
+				weight: edge.weight ?? edgeMethodWeights[edge.method],
 			});
 
 		return graph;

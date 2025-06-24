@@ -6,7 +6,7 @@ import { MethodIcon } from './method-icon';
 import { usePathfinder } from './pathfinder-context';
 
 export function PathfinderResults() {
-	const { from, path } = usePathfinder();
+	const { from, to, path } = usePathfinder();
 
 	if (!from) return null;
 
@@ -20,8 +20,8 @@ export function PathfinderResults() {
 
 	return (
 		<Stack align="center">
-			<Title my="lg" order={2}>
-				Pathfinder Results
+			<Title my="lg" order={4}>
+				{from} {`->`} {to}
 			</Title>
 
 			<Stack gap="sm">

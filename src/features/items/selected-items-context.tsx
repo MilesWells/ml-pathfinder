@@ -54,7 +54,6 @@ export function SelectedItemsProvider({ children }: React.PropsWithChildren) {
 	const [selectedItems, setSelectedItems] = useState<SelectedItemMap>(DEFAULT_ITEMS);
 
 	useEffect(() => {
-		console.log('effect');
 		const localStorageValue = localStorage.getItem(LOCAL_STORAGE_KEY);
 		if (!localStorageValue) return;
 

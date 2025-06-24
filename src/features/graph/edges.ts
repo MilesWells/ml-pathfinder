@@ -264,6 +264,7 @@ const LUDIBRIUM: RegionEdges = {
 			item: 'VIP Ticket to Florina Beach',
 			method: 'Item Taxi',
 			to: 'Florina Beach',
+			weight: 0,
 		},
 		{
 			item: 'Eos Rock Scroll',
@@ -581,6 +582,7 @@ const VICTORIA_ISLAND: RegionEdges = {
 			item: 'VIP Ticket to Florina Beach',
 			method: 'Item Taxi',
 			to: 'Florina Beach',
+			weight: 0,
 		},
 		{
 			description: 'Pason (Lith Harbor)',
@@ -596,6 +598,21 @@ const VICTORIA_ISLAND: RegionEdges = {
 		...SPINEL_EDGES,
 	],
 	region: 'Victoria Island',
+};
+
+/*
+	Edges must be sorted by method such that the most preferred method appears last on the list.
+	This is because an edge with the same from and to as an existing edge will overwrite the
+	existing edge. Sorting them in this order means more preferable travel methods will
+	overwrite less preferable ones.
+*/
+const edgeSortWeights: Record<EdgeMethod, number> = {
+	Item: 3,
+	'Item Taxi': 3,
+	Spinel: 2,
+	Taxi: 2,
+	'Timed Taxi': 1,
+	Walk: 0,
 };
 
 export const edges: Edge[] = [
@@ -623,10 +640,12 @@ export const edges: Edge[] = [
 	TAIPEI_101,
 	TEMPLE_OF_TIME,
 	VICTORIA_ISLAND,
-].flatMap(({ edges, region }) =>
-	edges.map<Edge>(edge => ({
-		...edge,
-		from: region,
-		id: `${edge.method}|${region}|${edge.to}`,
-	})),
-);
+]
+	.flatMap(({ edges, region }) =>
+		edges.map<Edge>(edge => ({
+			...edge,
+			from: region,
+			id: `${edge.method}|${region}|${edge.to}`,
+		})),
+	)
+	.sort((a, b) => edgeSortWeights[a.method] - edgeSortWeights[b.method]);
