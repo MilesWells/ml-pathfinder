@@ -2,6 +2,7 @@ import { Group, Text } from '@mantine/core';
 import type { Edge } from '../graph/edges';
 import { ItemIcon } from '../items/item-icon';
 import { MesosIcon } from '../items/mesos-icon';
+import { RightArrowIcon } from './right-arrow-icon';
 import { WalkIcon } from './walk-icon';
 
 export type MethodIconProps = {
@@ -25,6 +26,8 @@ function Icon({ edge }: { edge: Edge }) {
 		case 'Taxi':
 		case 'Timed Taxi':
 		case 'Spinel':
+			if (edge.mesos === 0) return <RightArrowIcon />;
+
 			return <MesosIcon mesos={edge.mesos} />;
 		case 'Item':
 		case 'Item Taxi':

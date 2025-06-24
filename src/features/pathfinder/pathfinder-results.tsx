@@ -8,9 +8,7 @@ import { usePathfinder } from './pathfinder-context';
 export function PathfinderResults() {
 	const { from, path } = usePathfinder();
 
-	if (!from) {
-		return <Center component="h2">Select a starting and ending region</Center>;
-	}
+	if (!from) return null;
 
 	if (isUnnavigaableRegion(from)) {
 		return <Center component="h2">Staring from Unnavigable region.</Center>;

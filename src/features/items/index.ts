@@ -17,10 +17,10 @@ export const items = [
 
 export type Item = (typeof items)[number];
 
-export const ITEM_IMAGE_PLACEHOLDER = '🟨';
+const ITEM_IMAGE_PLACEHOLDER = '/images/slime-sweat.png';
 
 export type ItemDetails = {
-	image: string | null;
+	image: string;
 };
 
 export const itemDetailsMap: Record<Item, ItemDetails> = {
@@ -28,10 +28,10 @@ export const itemDetailsMap: Record<Item, ItemDetails> = {
 		image: '/images/warp-capsule.png',
 	},
 	'Desert Coin': {
-		image: null,
+		image: ITEM_IMAGE_PLACEHOLDER,
 	},
 	'Energy Shard': {
-		image: null,
+		image: ITEM_IMAGE_PLACEHOLDER,
 	},
 	'Eos Rock Scroll': {
 		image: '/images/eos-rock-scroll.png',
@@ -40,7 +40,7 @@ export const itemDetailsMap: Record<Item, ItemDetails> = {
 		image: '/images/fruit-milk.png',
 	},
 	'Gate Pass': {
-		image: null,
+		image: ITEM_IMAGE_PLACEHOLDER,
 	},
 	'Ludibrium Warp Capsule': {
 		image: '/images/warp-capsule.png',

@@ -1,18 +1,18 @@
 import { Center } from '@mantine/core';
 
-export function WalkIcon() {
+export function RightArrowIcon() {
 	return (
 		<Center
 			styles={{
 				root: {
 					cursor: 'default',
-					fontSize: 26,
+					fontSize: 22,
 					height: 30,
 					width: 30,
 				},
 			}}
 		>
-			🚶
+			➡️
 		</Center>
 	);
 }

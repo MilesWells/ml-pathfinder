@@ -1,5 +1,5 @@
 import { Center } from '@mantine/core';
-import { ITEM_IMAGE_PLACEHOLDER, type Item, itemDetailsMap } from '.';
+import { type Item, itemDetailsMap } from '.';
 
 export type ItemIconProps = {
 	item: Item;
@@ -12,12 +12,13 @@ export function ItemIcon({ item }: ItemIconProps) {
 		<Center
 			styles={{
 				root: {
+					cursor: 'default',
 					height: 30,
 					width: 30,
 				},
 			}}
 		>
-			{image ? <img alt={item} src={image} /> : ITEM_IMAGE_PLACEHOLDER}
+			<img alt={item} src={image} />
 		</Center>
 	);
 }
