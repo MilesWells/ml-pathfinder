@@ -5,6 +5,7 @@ const nextConfig: NextConfig = {
 		optimizePackageImports: ['@mantine/core', '@mantine/hooks'],
 	},
 	output: 'export',
+	reactStrictMode: true,
 };
 
 export default nextConfig;

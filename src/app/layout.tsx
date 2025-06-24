@@ -6,13 +6,13 @@ import { MantineWrapper } from '@/features/root-layout/mantine-wrapper';
 import Shell from '@/features/root-layout/shell';
 
 const geistSans = Geist({
-	variable: '--font-geist-sans',
 	subsets: ['latin'],
+	variable: '--font-geist-sans',
 });
 
 const geistMono = Geist_Mono({
-	variable: '--font-geist-mono',
 	subsets: ['latin'],
+	variable: '--font-geist-mono',
 });
 
 export const metadata: Metadata = {

@@ -4,9 +4,9 @@ import { REGIONS, type Region } from './regions';
 
 const graphWeights: Record<EdgeMethod, number> = {
 	Item: 0,
-	Taxi: 1,
-	Spinel: 1,
 	'Item Taxi': 1,
+	Spinel: 1,
+	Taxi: 1,
 	'Timed Taxi': 2,
 	Walk: 2,
 };
@@ -17,8 +17,8 @@ for (const node of REGIONS) graph.addNode(node);
 
 for (const edge of edges)
 	graph.addEdge(edge.from, edge.to, {
-		weight: graphWeights[edge.method],
 		props: edge,
+		weight: graphWeights[edge.method],
 	});
 
 export default graph;

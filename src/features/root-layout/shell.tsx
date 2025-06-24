@@ -1,65 +1,35 @@
-'use client';
-
-import {
-	Anchor,
-	AppShell,
-	AppShellMain,
-	AppShellNavbar,
-	Burger,
-	Center,
-	CloseButton,
-	type MantineSize,
-	Stack,
-	Text,
-	Title,
-} from '@mantine/core';
-import { useDisclosure } from '@mantine/hooks';
-import { ItemCheckList } from '../items/item-check-list';
-import { SelectedItemsProvider } from '../items/selected-items-context';
-
-const MOBILE_BREAKPOINT: MantineSize = 'sm';
+import { Anchor, AppShell, AppShellFooter, AppShellMain, Center, Text, Title } from '@mantine/core';
 
 export default function Shell({ children }: React.PropsWithChildren) {
-	const [opened, { close, open }] = useDisclosure();
-
 	return (
-		<SelectedItemsProvider>
-			<AppShell
-				navbar={{
-					breakpoint: MOBILE_BREAKPOINT,
-					collapsed: {
-						mobile: !opened,
-					},
-					width: 300,
-				}}
-				padding="sm"
-			>
-				<AppShellNavbar p="xs">
-					<CloseButton onClick={close} hiddenFrom={MOBILE_BREAKPOINT} />
+		<AppShell
+			footer={{
+				height: 35,
+			}}
+			padding="sm"
+		>
+			<AppShellMain>
+				<Center>
+					<Title p="xs" ta="center">
+						MapleLegends Pathfinder
+					</Title>
+				</Center>
 
-					<ItemCheckList />
+				{children}
+			</AppShellMain>
 
-					<Stack h="100%">
-						<Text ta="center" mt="auto">
-							Created out of my love for{' '}
-							<Anchor href="https://maplelegends.com/" target="_blank" rel="noopener">
-								MapleLegends
-							</Anchor>
-							{', '}
-							but not affiliated.
-						</Text>
-					</Stack>
-				</AppShellNavbar>
-				<AppShellMain>
-					<Center>
-						<Title order={3} p="xs" ta="center">
-							MapleLegends Pathfinder
-						</Title>
-						<Burger opened={opened} onClick={open} hiddenFrom={MOBILE_BREAKPOINT} size="sm" />
-					</Center>
-					{children}
-				</AppShellMain>
-			</AppShell>
-		</SelectedItemsProvider>
+			<AppShellFooter>
+				<Center h="100%" ta="center">
+					<Text>
+						Created out of my love for{' '}
+						<Anchor href="https://maplelegends.com/" rel="noopener" target="_blank">
+							MapleLegends
+						</Anchor>
+						{', '}
+						but not affiliated.
+					</Text>
+				</Center>
+			</AppShellFooter>
+		</AppShell>
 	);
 }

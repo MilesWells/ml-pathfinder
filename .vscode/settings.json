@@ -1,12 +1,12 @@
 {
+	"editor.codeActionsOnSave": {
+		"source.fixAll.biome": "always"
+	},
+	"editor.defaultFormatter": "biomejs.biome",
 	"explorer.fileNesting.enabled": true,
 	"explorer.fileNesting.patterns": {
 		"*.tsx": "${capture}.tsx, ${capture}.module.css, ${capture}.module.scss",
 		"page.tsx": "page.client.tsx, layout.tsx, layout.client.tsx, loading.tsx, error.tsx"
 	},
-	"typescript.tsdk": "node_modules/typescript/lib",
-	"editor.defaultFormatter": "biomejs.biome",
-	"editor.codeActionsOnSave": {
-		"source.organizeImports": "always"
-	}
+	"typescript.tsdk": "node_modules/typescript/lib"
 }

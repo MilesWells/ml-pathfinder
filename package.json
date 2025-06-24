@@ -1,14 +1,4 @@
 {
-	"name": "ml-pathfinder",
-	"version": "0.1.0",
-	"private": true,
-	"scripts": {
-		"dev": "next dev --turbopack",
-		"build": "next build",
-		"check": "biome check --write",
-		"start": "next start",
-		"prepare": "lefthook install"
-	},
 	"dependencies": {
 		"@mantine/core": "^8.1.1",
 		"@mantine/hooks": "^8.1.1",
@@ -28,5 +18,15 @@
 		"postcss-preset-mantine": "^1.17.0",
 		"postcss-simple-vars": "^7.0.1",
 		"typescript": "^5"
-	}
+	},
+	"name": "ml-pathfinder",
+	"private": true,
+	"scripts": {
+		"build": "next build",
+		"check": "biome check --write",
+		"dev": "next dev --turbopack",
+		"prepare": "lefthook install",
+		"start": "next start"
+	},
+	"version": "0.1.0"
 }
