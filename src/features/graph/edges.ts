@@ -548,6 +548,7 @@ const VICTORIA_ISLAND: RegionEdges = {
 			mesos: 0,
 			method: 'Timed Taxi',
 			to: 'Orbis',
+			weight: 5,
 		},
 		{
 			item: 'Magic Seed',
