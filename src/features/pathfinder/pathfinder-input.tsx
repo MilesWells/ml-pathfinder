@@ -1,6 +1,6 @@
 'use client';
 
-import { Button, Drawer, ScrollArea, Select, Stack } from '@mantine/core';
+import { Button, Drawer, Select, Stack, Title } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { useState } from 'react';
 import { REGIONS, type Region } from '@/features/graph/regions';
@@ -19,12 +19,7 @@ export function PathfinderInput() {
 				Select Items
 			</Button>
 
-			<Drawer
-				onClose={closeItemsList}
-				opened={itemsListOpened}
-				scrollAreaComponent={ScrollArea.Autosize}
-				title="Select Items to Use"
-			>
+			<Drawer onClose={closeItemsList} opened={itemsListOpened} title={<Title order={4}>Select items to use</Title>}>
 				<ItemCheckList />
 			</Drawer>
 
