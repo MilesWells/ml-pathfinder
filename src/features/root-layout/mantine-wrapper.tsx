@@ -1,16 +1,16 @@
 import { createTheme, type MantineColorsTuple, MantineProvider } from '@mantine/core';
 
 const paleIndigo: MantineColorsTuple = [
-	'#eff2ff',
-	'#dfe2f2',
-	'#bdc2de',
-	'#99a0ca',
-	'#7a84b9',
-	'#6672af',
-	'#5c69ac',
-	'#4c5897',
-	'#424e88',
-	'#36437a',
+	'#e6f5ff',
+	'#d2e7fe',
+	'#a6cbf5',
+	'#76afed',
+	'#4f96e7',
+	'#3687e3',
+	'#2780e3',
+	'#156dca',
+	'#0361b6',
+	'#0053a2',
 ];
 
 const theme = createTheme({
