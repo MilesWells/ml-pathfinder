@@ -25,7 +25,6 @@
 		"build": "next build",
 		"check": "biome check --write",
 		"dev": "next dev --turbopack",
-		"prepare": "lefthook install",
 		"start": "next start"
 	},
 	"version": "0.1.0"
