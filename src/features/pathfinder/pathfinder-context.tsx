@@ -6,6 +6,7 @@ import { createContext, useCallback, useContext, useMemo, useState } from 'react
 import { useGraph } from '../graph';
 import type { Edge } from '../graph/edges';
 import { isUnnavigaableRegion, type NavigableRegion, type Region } from '../graph/regions';
+import { useSelectedItems } from '../items/selected-items-context';
 
 export type PathfinderContextValue = {
 	findPath: () => void;
@@ -16,6 +17,7 @@ export type PathfinderContextValue = {
 	from: NavigableRegion | null;
 	path: Edge[];
 	to: Region | null;
+	canPath: boolean;
 };
 
 export const PathfinderContext = createContext<PathfinderContextValue | null>(null);
@@ -27,6 +29,7 @@ export function PathfinderContextProvider({ children }: React.PropsWithChildren)
 	const [to, setTo] = useState<Region | null>(null);
 	const [path, setPath] = useState<Edge[]>([]);
 	const graph = useGraph();
+	const { selectedItems } = useSelectedItems();
 
 	const findPath = useCallback<PathfinderContextValue['findPath']>(() => {
 		if (!toFormValue || !fromFormValue || isUnnavigaableRegion(fromFormValue)) return;
@@ -54,8 +57,21 @@ export function PathfinderContextProvider({ children }: React.PropsWithChildren)
 		}
 	}, [toFormValue, fromFormValue, graph]);
 
+	const canPath = useMemo(() => {
+		if (!fromFormValue || !toFormValue) return false;
+
+		if (isUnnavigaableRegion(fromFormValue)) return false;
+
+		if (fromFormValue === toFormValue) return false;
+
+		if (toFormValue === 'Neo Tokyo' && !selectedItems['Gate Pass']) return false;
+
+		return true;
+	}, [fromFormValue, toFormValue, selectedItems]);
+
 	const value = useMemo<PathfinderContextValue>(
 		() => ({
+			canPath,
 			findPath,
 			from,
 			fromFormValue,
@@ -65,7 +81,7 @@ export function PathfinderContextProvider({ children }: React.PropsWithChildren)
 			to,
 			toFormValue,
 		}),
-		[findPath, from, fromFormValue, path, to, toFormValue],
+		[canPath, findPath, from, fromFormValue, path, to, toFormValue],
 	);
 
 	return <PathfinderContext value={value}>{children}</PathfinderContext>;

@@ -7,7 +7,7 @@ import { ItemCheckList } from '../items/item-check-list';
 import { usePathfinder } from './pathfinder-context';
 
 export function PathfinderInput() {
-	const { findPath, fromFormValue, setFromFormValue, setToFormValue, toFormValue } = usePathfinder();
+	const { canPath, findPath, fromFormValue, setFromFormValue, setToFormValue, toFormValue } = usePathfinder();
 	const [itemsListOpened, { open: openItemsList, close: closeItemsList }] = useDisclosure(false);
 
 	return (
@@ -42,7 +42,7 @@ export function PathfinderInput() {
 				value={toFormValue}
 			/>
 
-			<Button disabled={!fromFormValue || !toFormValue} mx="auto" onClick={findPath} w="fit-content">
+			<Button disabled={!canPath} mx="auto" onClick={findPath} w="fit-content">
 				Path Me!
 			</Button>
 		</Stack>
