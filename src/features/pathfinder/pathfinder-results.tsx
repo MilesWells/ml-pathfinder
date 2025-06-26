@@ -1,6 +1,7 @@
 'use client';
 
 import { Center, Stack, Title } from '@mantine/core';
+import { ExternalLink } from '@/ui/external-link';
 import { isUnnavigaableRegion } from '../graph/regions';
 import { useSelectedItems } from '../items/selected-items-context';
 import { MethodIcon } from './method-icon';
@@ -15,10 +16,13 @@ export function PathfinderResults() {
 	if (from === to) return <Center component="h2">You're already there!</Center>;
 
 	if (isUnnavigaableRegion(from)) {
-		if (from === 'Florina Beach')
-			return <Center component="h2">You must first move back to either Ludibrium or Lith Harbor.</Center>;
-
-		return <Center component="h2">You must first move back to your original location via Spinel.</Center>;
+		return (
+			<Center>
+				<Title order={2}>
+					First move back to your original location via {from === 'Florina Beach' ? <PisonLink /> : <SpinelLink />}.
+				</Title>
+			</Center>
+		);
 	}
 
 	if (to === 'Neo Tokyo' && !selectedItems['Gate Pass'])
@@ -37,4 +41,12 @@ export function PathfinderResults() {
 			</Stack>
 		</Stack>
 	);
+}
+
+function SpinelLink() {
+	return <ExternalLink href="https://maplelegends.com/lib/npc?id=9000020">Spinel</ExternalLink>;
+}
+
+function PisonLink() {
+	return <ExternalLink href="https://maplelegends.com/lib/npc?id=1081001">Pison</ExternalLink>;
 }

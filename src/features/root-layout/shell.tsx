@@ -1,4 +1,5 @@
-import { Anchor, AppShell, AppShellFooter, AppShellMain, Center, Text, Title } from '@mantine/core';
+import { AppShell, AppShellFooter, AppShellMain, Center, Text, Title } from '@mantine/core';
+import { ExternalLink } from '@/ui/external-link';
 
 export default function Shell({ children }: React.PropsWithChildren) {
 	return (
@@ -21,10 +22,7 @@ export default function Shell({ children }: React.PropsWithChildren) {
 			<AppShellFooter>
 				<Center h="100%" ta="center">
 					<Text fz="sm">
-						Made with love for{' '}
-						<Anchor href="https://maplelegends.com/" rel="noopener" target="_blank">
-							MapleLegends
-						</Anchor>
+						Made with love for <ExternalLink href="https://maplelegends.com">MapleLegends</ExternalLink>
 						{', '}
 						but not affiliated.
 					</Text>
