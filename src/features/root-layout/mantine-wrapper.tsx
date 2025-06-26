@@ -1,6 +1,6 @@
 import { createTheme, type MantineColorsTuple, MantineProvider } from '@mantine/core';
 
-const maplelegendsPathfinder: MantineColorsTuple = [
+const maplelegendsBlue: MantineColorsTuple = [
 	'#eff4fb',
 	'#dde5ef',
 	'#b7cae2',
@@ -13,14 +13,28 @@ const maplelegendsPathfinder: MantineColorsTuple = [
 	'#26538b',
 ];
 
+const kimmyRed: MantineColorsTuple = [
+	'#ffe8e8',
+	'#ffcfcf',
+	'#ff9c9c',
+	'#fe6565',
+	'#fd3937',
+	'#fe1e1a',
+	'#fe0e0b',
+	'#ec0000',
+	'#cb0000',
+	'#b10000',
+];
+
 const theme = createTheme({
 	colors: {
-		'maplelegends-pathfinder': maplelegendsPathfinder,
+		'kimmy-red': kimmyRed,
+		'maplelegends-blue': maplelegendsBlue,
 	},
 	cursorType: 'pointer',
 	fontFamily: 'Geist',
 	fontFamilyMonospace: 'Geist Mono',
-	primaryColor: 'maplelegends-pathfinder',
+	primaryColor: 'maplelegends-blue',
 });
 
 export function MantineWrapper({ children }: React.PropsWithChildren) {
