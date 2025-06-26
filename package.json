@@ -10,14 +10,20 @@
 	},
 	"devDependencies": {
 		"@biomejs/biome": "2.0.0",
+		"@testing-library/dom": "^10.4.0",
+		"@testing-library/react": "^16.3.0",
 		"@types/node": "^20",
 		"@types/react": "^19",
 		"@types/react-dom": "^19",
+		"@vitejs/plugin-react": "^4.6.0",
+		"jsdom": "^26.1.0",
 		"lefthook": "^1.11.14",
 		"postcss": "^8.5.6",
 		"postcss-preset-mantine": "^1.17.0",
 		"postcss-simple-vars": "^7.0.1",
-		"typescript": "^5"
+		"typescript": "^5",
+		"vite-tsconfig-paths": "^5.1.4",
+		"vitest": "^3.2.4"
 	},
 	"name": "ml-pathfinder",
 	"private": true,
@@ -25,7 +31,8 @@
 		"build": "next build",
 		"check": "biome check --write",
 		"dev": "next dev --turbopack",
-		"start": "next start"
+		"start": "next start",
+		"test": "vitest"
 	},
 	"version": "0.1.0"
 }

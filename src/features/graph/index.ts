@@ -40,3 +40,17 @@ export function useGraph() {
 		return graph;
 	}, [selectedItems]);
 }
+
+export function getFullGraph() {
+	const graph = new Graph<Region, Edge>();
+
+	for (const node of REGIONS) graph.addNode(node);
+
+	for (const edge of edges)
+		graph.addEdge(edge.from, edge.to, {
+			props: edge,
+			weight: edge.weight ?? edgeMethodWeights[edge.method],
+		});
+
+	return graph;
+}

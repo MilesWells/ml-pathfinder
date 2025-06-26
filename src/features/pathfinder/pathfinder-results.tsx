@@ -10,12 +10,10 @@ export function PathfinderResults() {
 
 	if (!from) return null;
 
+	if (from === to) return <Center component="h2">You're already there!</Center>;
+
 	if (isUnnavigaableRegion(from)) {
 		return <Center component="h2">Staring from Unnavigable region.</Center>;
-	}
-
-	if (!path) {
-		return <Center component="h2">No path found.</Center>;
 	}
 
 	return (

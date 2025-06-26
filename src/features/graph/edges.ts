@@ -355,28 +355,6 @@ const MUSHROOM_SHRINE: RegionEdges = {
 	region: 'Mushroom Shrine',
 };
 
-const NEO_TOKYO: RegionEdges = {
-	edges: [
-		{
-			mesos: 0,
-			method: 'Taxi',
-			to: 'Mushroom Shrine',
-		},
-	],
-	region: 'Neo Tokyo',
-};
-
-const NINJA_CASTLE: RegionEdges = {
-	edges: [
-		{
-			mesos: 0,
-			method: 'Taxi',
-			to: 'Mushroom Shrine',
-		},
-	],
-	region: 'Ninja Castle',
-};
-
 const NLC: RegionEdges = {
 	edges: [
 		{
@@ -631,8 +609,6 @@ export const edges: Edge[] = [
 	MALAYSIA,
 	MU_LUNG,
 	MUSHROOM_SHRINE,
-	NEO_TOKYO,
-	NINJA_CASTLE,
 	NLC,
 	OMEGA_SECTOR,
 	ORBIS,

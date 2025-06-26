@@ -10,7 +10,7 @@ export default function Shell({ children }: React.PropsWithChildren) {
 		>
 			<AppShellMain>
 				<Center>
-					<Title c="maplelegends-pathfinder.3" p="xs" ta="center">
+					<Title p="xs" ta="center">
 						MapleLegends Pathfinder
 					</Title>
 				</Center>

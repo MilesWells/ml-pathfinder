@@ -14,6 +14,7 @@
 	"files": {
 		"ignoreUnknown": true,
 		"includes": [
+			"__tests__/**/*",
 			".vscode/*",
 			"src/**/*",
 			"biome.json",
@@ -21,7 +22,8 @@
 			"next.config.ts",
 			"package.json",
 			"postcss.config.cjs",
-			"tsconfig.json"
+			"tsconfig.json",
+			"vitest.config.mts"
 		]
 	},
 	"formatter": {
