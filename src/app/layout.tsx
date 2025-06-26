@@ -1,4 +1,5 @@
 import '@mantine/core/styles.css';
+import './mantine.css';
 import { ColorSchemeScript, mantineHtmlProps } from '@mantine/core';
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
