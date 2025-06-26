@@ -2,15 +2,12 @@
 
 import { Button, Drawer, Select, Stack } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
-import { useState } from 'react';
 import { REGIONS, type Region } from '@/features/graph/regions';
 import { ItemCheckList } from '../items/item-check-list';
 import { usePathfinder } from './pathfinder-context';
 
 export function PathfinderInput() {
-	const [from, setFrom] = useState<Region | null>(null);
-	const [to, setTo] = useState<Region | null>(null);
-	const pathfinder = usePathfinder();
+	const { findPath, fromFormValue, setFromFormValue, setToFormValue, toFormValue } = usePathfinder();
 	const [itemsListOpened, { open: openItemsList, close: closeItemsList }] = useDisclosure(false);
 
 	return (
@@ -28,10 +25,10 @@ export function PathfinderInput() {
 				data={REGIONS}
 				maw="300px"
 				mx="auto"
-				onChange={from => setFrom(from as Region)}
+				onChange={from => setFromFormValue(from as Region)}
 				placeholder="Choose starting continent"
 				searchable
-				value={from}
+				value={fromFormValue}
 			/>
 
 			<Select
@@ -39,22 +36,13 @@ export function PathfinderInput() {
 				data={REGIONS}
 				maw="300px"
 				mx="auto"
-				onChange={to => setTo(to as Region)}
+				onChange={to => setToFormValue(to as Region)}
 				placeholder="Choose destination continent"
 				searchable
-				value={to}
+				value={toFormValue}
 			/>
 
-			<Button
-				disabled={!from || !to}
-				mx="auto"
-				onClick={() => {
-					if (!from || !to) return;
-
-					pathfinder.findPath(from, to);
-				}}
-				w="fit-content"
-			>
+			<Button disabled={!fromFormValue || !toFormValue} mx="auto" onClick={findPath} w="fit-content">
 				Path Me!
 			</Button>
 		</Stack>

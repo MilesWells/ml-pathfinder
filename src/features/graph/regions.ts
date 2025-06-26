@@ -53,3 +53,5 @@ export type UnnavigableRegion = (typeof UNNAVIGABLE_REGIONS)[number];
 export function isUnnavigaableRegion(region: Region): region is UnnavigableRegion {
 	return UNNAVIGABLE_REGIONS.some(r => r === region);
 }
+
+export type NavigableRegion = Exclude<Region, UnnavigableRegion>;
