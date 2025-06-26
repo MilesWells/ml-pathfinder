@@ -340,6 +340,10 @@ const MUSHROOM_SHRINE: RegionEdges = {
 			to: 'Showa',
 		},
 		{
+			method: 'Walk',
+			to: 'Showa',
+		},
+		{
 			description: 'Forest of Oblivion Crystal',
 			mesos: 0,
 			method: 'Taxi',

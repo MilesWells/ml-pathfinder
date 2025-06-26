@@ -43,7 +43,6 @@ export function isSpinelRegion(region: Region): region is SpinelRegion {
 export const UNNAVIGABLE_REGIONS = [
 	'Florina Beach',
 	'Showa',
-	'Malaysia',
 	'Neo Tokyo',
 	'Ninja Castle',
 	...SPINEL_REGIONS,

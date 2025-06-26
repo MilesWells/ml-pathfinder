@@ -54,3 +54,20 @@ export function getFullGraph() {
 
 	return graph;
 }
+
+export function getGraphWithoutItemEdges() {
+	const graph = new Graph<Region, Edge>();
+
+	for (const node of REGIONS) graph.addNode(node);
+
+	for (const edge of edges) {
+		if (edge.method === 'Item' || edge.method === 'Item Taxi') continue;
+
+		graph.addEdge(edge.from, edge.to, {
+			props: edge,
+			weight: edge.weight ?? edgeMethodWeights[edge.method],
+		});
+	}
+
+	return graph;
+}
