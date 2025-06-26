@@ -1,6 +1,6 @@
 import { createTheme, type MantineColorsTuple, MantineProvider } from '@mantine/core';
 
-const paleIndigo: MantineColorsTuple = [
+const mapleLegends: MantineColorsTuple = [
 	'#e6f5ff',
 	'#d2e7fe',
 	'#a6cbf5',
@@ -15,17 +15,17 @@ const paleIndigo: MantineColorsTuple = [
 
 const theme = createTheme({
 	colors: {
-		'pale-indigo': paleIndigo,
+		maplelegends: mapleLegends,
 	},
 	cursorType: 'pointer',
 	fontFamily: 'Geist',
 	fontFamilyMonospace: 'Geist Mono',
-	primaryColor: 'pale-indigo',
+	primaryColor: 'maplelegends',
 });
 
 export function MantineWrapper({ children }: React.PropsWithChildren) {
 	return (
-		<MantineProvider defaultColorScheme="dark" theme={theme}>
+		<MantineProvider forceColorScheme="dark" theme={theme}>
 			{children}
 		</MantineProvider>
 	);

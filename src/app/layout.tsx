@@ -27,7 +27,7 @@ export default function RootLayout({
 	return (
 		<html lang="en" {...mantineHtmlProps}>
 			<head>
-				<ColorSchemeScript />
+				<ColorSchemeScript forceColorScheme="dark" />
 			</head>
 
 			<body className={`${geistSans.variable} ${geistMono.variable}`}>
