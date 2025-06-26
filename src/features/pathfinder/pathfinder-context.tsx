@@ -2,44 +2,37 @@
 
 import { shortestPath } from 'graph-data-structure';
 import type React from 'react';
-import { createContext, useCallback, useContext, useMemo, useState } from 'react';
+import { createContext, useContext, useMemo, useState } from 'react';
 import { useGraph } from '../graph';
 import type { Edge } from '../graph/edges';
 import { isUnnavigaableRegion, type NavigableRegion, type Region } from '../graph/regions';
 import { useSelectedItems } from '../items/selected-items-context';
 
 export type PathfinderContextValue = {
-	findPath: () => void;
-	fromFormValue: Region | null;
-	setFromFormValue: React.Dispatch<React.SetStateAction<Region | null>>;
-	setToFormValue: React.Dispatch<React.SetStateAction<Region | null>>;
-	toFormValue: Region | null;
-	from: NavigableRegion | null;
-	path: Edge[];
+	from: Region | null;
+	setFrom: React.Dispatch<React.SetStateAction<Region | null>>;
+	setTo: React.Dispatch<React.SetStateAction<Region | null>>;
 	to: Region | null;
-	canPath: boolean;
+	path: Edge[];
 };
 
 export const PathfinderContext = createContext<PathfinderContextValue | null>(null);
 
 export function PathfinderContextProvider({ children }: React.PropsWithChildren) {
-	const [fromFormValue, setFromFormValue] = useState<Region | null>(null);
-	const [toFormValue, setToFormValue] = useState<Region | null>(null);
-	const [from, setFrom] = useState<NavigableRegion | null>(null);
+	const [from, setFrom] = useState<Region | null>(null);
 	const [to, setTo] = useState<Region | null>(null);
-	const [path, setPath] = useState<Edge[]>([]);
 	const graph = useGraph();
 	const { selectedItems } = useSelectedItems();
 
-	const findPath = useCallback<PathfinderContextValue['findPath']>(() => {
-		if (!toFormValue || !fromFormValue || isUnnavigaableRegion(fromFormValue)) return;
+	const path = useMemo<Edge[]>(() => {
+		const path = { from, to };
 
-		setFrom(fromFormValue);
-		setTo(toFormValue);
+		if (!canPath(path, selectedItems['Warp Card'])) return [];
 
 		try {
-			const nodePath = shortestPath(graph, fromFormValue, toFormValue).nodes;
-			const edgePath = nodePath.reduce<Edge[]>((acc, cur, idx, arr) => {
+			const nodePath = shortestPath(graph, path.from, path.to).nodes;
+
+			return nodePath.reduce<Edge[]>((acc, cur, idx, arr) => {
 				if (idx === arr.length - 1) return acc;
 
 				const edge = graph.getEdgeProperties(cur, arr[idx + 1]);
@@ -50,41 +43,40 @@ export function PathfinderContextProvider({ children }: React.PropsWithChildren)
 
 				return acc;
 			}, []);
-
-			setPath(edgePath);
 		} catch {
-			setPath([]);
+			return [];
 		}
-	}, [toFormValue, fromFormValue, graph]);
-
-	const canPath = useMemo(() => {
-		if (!fromFormValue || !toFormValue) return false;
-
-		if (isUnnavigaableRegion(fromFormValue)) return false;
-
-		if (fromFormValue === toFormValue) return false;
-
-		if (toFormValue === 'Neo Tokyo' && !selectedItems['Gate Pass']) return false;
-
-		return true;
-	}, [fromFormValue, toFormValue, selectedItems]);
+	}, [from, graph, selectedItems, to]);
 
 	const value = useMemo<PathfinderContextValue>(
 		() => ({
-			canPath,
-			findPath,
-			from,
-			fromFormValue,
+			from: from,
 			path,
-			setFromFormValue,
-			setToFormValue,
-			to,
-			toFormValue,
+			setFrom: setFrom,
+			setTo: setTo,
+			to: to,
 		}),
-		[canPath, findPath, from, fromFormValue, path, to, toFormValue],
+		[from, path, to],
 	);
 
 	return <PathfinderContext value={value}>{children}</PathfinderContext>;
+}
+
+export function canPath(
+	input: { from: Region | null; to: Region | null },
+	hasGatePass: boolean,
+): input is { from: NavigableRegion; to: Region } {
+	const { from, to } = input;
+
+	if (!from || !to) return false;
+
+	if (isUnnavigaableRegion(from)) return false;
+
+	if (from === to) return false;
+
+	if (to === 'Neo Tokyo' && !hasGatePass) return false;
+
+	return true;
 }
 
 export function usePathfinder() {

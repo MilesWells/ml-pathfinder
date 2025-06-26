@@ -7,10 +7,12 @@ import { useSelectedItems } from '../items/selected-items-context';
 import { usePathfinder } from './pathfinder-context';
 
 export function PathfinderInputFeedback() {
-	const { fromFormValue, toFormValue } = usePathfinder();
+	const { from, to } = usePathfinder();
 	const { selectedItems } = useSelectedItems();
 
-	if (toFormValue === 'Neo Tokyo' && !selectedItems['Gate Pass'])
+	if (from !== null && from === to) return <Center component="h2">You're already there!</Center>;
+
+	if (to === 'Neo Tokyo' && !selectedItems['Gate Pass'])
 		return (
 			<Center>
 				<Title order={2}>
@@ -22,20 +24,17 @@ export function PathfinderInputFeedback() {
 			</Center>
 		);
 
-	if (!fromFormValue || !toFormValue) return null;
-
-	if (fromFormValue === toFormValue) return <Center component="h2">You're already there!</Center>;
-
-	if (isUnnavigaableRegion(fromFormValue)) {
+	if (from && isUnnavigaableRegion(from)) {
 		return (
 			<Center>
 				<Title order={2}>
-					First move back to your original location via{' '}
-					{fromFormValue === 'Florina Beach' ? <PisonLink /> : <SpinelLink />}
+					First move back to your original location via {from === 'Florina Beach' ? <PisonLink /> : <SpinelLink />}
 				</Title>
 			</Center>
 		);
 	}
+
+	return null;
 }
 
 function SpinelLink() {

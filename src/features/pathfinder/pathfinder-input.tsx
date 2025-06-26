@@ -7,7 +7,7 @@ import { ItemCheckList } from '../items/item-check-list';
 import { usePathfinder } from './pathfinder-context';
 
 export function PathfinderInput() {
-	const { canPath, findPath, fromFormValue, setFromFormValue, setToFormValue, toFormValue } = usePathfinder();
+	const { from, setFrom: setfrom, setTo: setto, to } = usePathfinder();
 	const [itemsListOpened, { open: openItemsList, close: closeItemsList }] = useDisclosure(false);
 
 	return (
@@ -25,10 +25,10 @@ export function PathfinderInput() {
 				data={REGIONS}
 				maw="300px"
 				mx="auto"
-				onChange={from => setFromFormValue(from as Region)}
+				onChange={from => setfrom(from as Region)}
 				placeholder="Choose starting continent"
 				searchable
-				value={fromFormValue}
+				value={from}
 			/>
 
 			<Select
@@ -36,15 +36,11 @@ export function PathfinderInput() {
 				data={REGIONS}
 				maw="300px"
 				mx="auto"
-				onChange={to => setToFormValue(to as Region)}
+				onChange={to => setto(to as Region)}
 				placeholder="Choose destination continent"
 				searchable
-				value={toFormValue}
+				value={to}
 			/>
-
-			<Button disabled={!canPath} mx="auto" onClick={findPath} w="fit-content">
-				Path Me!
-			</Button>
 		</Stack>
 	);
 }
