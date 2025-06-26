@@ -2,6 +2,7 @@ import { Stack } from '@mantine/core';
 import { SelectedItemsProvider } from '../items/selected-items-context';
 import { PathfinderContextProvider } from './pathfinder-context';
 import { PathfinderInput } from './pathfinder-input';
+import { PathfinderInputFeedback } from './pathfinder-input-feedback';
 import { PathfinderResults } from './pathfinder-results';
 
 export function Pathfinder() {
@@ -10,6 +11,7 @@ export function Pathfinder() {
 			<PathfinderContextProvider>
 				<Stack gap="xl" mt={40}>
 					<PathfinderInput />
+					<PathfinderInputFeedback />
 					<PathfinderResults />
 				</Stack>
 			</PathfinderContextProvider>
