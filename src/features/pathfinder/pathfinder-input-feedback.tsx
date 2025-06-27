@@ -1,6 +1,6 @@
 'use client';
 
-import { Center, Title } from '@mantine/core';
+import { Alert, Center, Text } from '@mantine/core';
 import { ExternalLink } from '@/ui/external-link';
 import { isUnnavigaableRegion } from '../graph/regions';
 import { useSelectedItems } from '../items/selected-items-context';
@@ -10,29 +10,34 @@ export function PathfinderInputFeedback() {
 	const { from, to } = usePathfinder();
 	const { selectedItems } = useSelectedItems();
 
-	if (from !== null && from === to) return <Center component="h2">You're already there!</Center>;
-
-	if (to === 'Neo Tokyo' && !selectedItems['Gate Pass'])
-		return (
-			<Center>
-				<Title order={2}>
-					Accessing Neo Tokyo requires the{' '}
-					<ExternalLink href="https://forum.maplelegends.com/index.php?threads/neo-tokyo-guide.25729/">
-						Gate Pass
-					</ExternalLink>
-				</Title>
-			</Center>
-		);
+	let content: React.ReactNode;
 
 	if (from && isUnnavigaableRegion(from)) {
-		return (
-			<Center>
-				<Title order={2}>
-					First move back to your original location via {from === 'Florina Beach' ? <PisonLink /> : <SpinelLink />}
-				</Title>
-			</Center>
+		content = (
+			<Text fz="lg">
+				First move back to your original location via {from === 'Florina Beach' ? <PisonLink /> : <SpinelLink />}
+			</Text>
 		);
 	}
+
+	if (to === 'Neo Tokyo' && !selectedItems['Gate Pass'])
+		content = (
+			<Text fz="lg">
+				Accessing Neo Tokyo requires the{' '}
+				<ExternalLink href="https://forum.maplelegends.com/index.php?threads/neo-tokyo-guide.25729/">
+					Gate Pass
+				</ExternalLink>
+			</Text>
+		);
+
+	if (from !== null && from === to) content = <Text fz="lg">You're already there!</Text>;
+
+	if (content)
+		return (
+			<Center>
+				<Alert color="kimmy-red.5">{content}</Alert>
+			</Center>
+		);
 
 	return null;
 }
