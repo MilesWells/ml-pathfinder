@@ -51,7 +51,7 @@ export type NPC = (typeof NPCS)[number];
 
 export type NPCDetails = {
 	docsLink: string;
-	image: string;
+	image: string | null;
 };
 
 export const npcDetailsMap = {
@@ -91,7 +91,7 @@ export const npcDetailsMap = {
 	},
 	'Command Center': {
 		docsLink: 'https://maplelegends.com/lib/map?id=221000300',
-		image: IMAGE_PLACEHOLDER,
+		image: null,
 	},
 	Corba: {
 		docsLink: 'https://maplelegends.com/lib/npc?id=2082003',
@@ -131,11 +131,11 @@ export const npcDetailsMap = {
 	},
 	'Helios Tower Elevator (KFT)': {
 		docsLink: 'https://maplelegends.com/lib/map?id=222020100',
-		image: IMAGE_PLACEHOLDER,
+		image: null,
 	},
 	'Helios Tower Elevator (Ludibrium)': {
 		docsLink: 'https://maplelegends.com/lib/map?id=222020200',
-		image: IMAGE_PLACEHOLDER,
+		image: null,
 	},
 	Irene: {
 		docsLink: 'https://maplelegends.com/lib/npc?id=9270041',
@@ -147,11 +147,11 @@ export const npcDetailsMap = {
 	},
 	'Magic Seed Portal (Ellinia)': {
 		docsLink: 'https://maplelegends.com/lib/map?id=101010000',
-		image: IMAGE_PLACEHOLDER,
+		image: null,
 	},
 	'Magic Seed Portal (Leafre)': {
 		docsLink: 'https://maplelegends.com/lib/map?id=240010100',
-		image: IMAGE_PLACEHOLDER,
+		image: null,
 	},
 	Nara: {
 		docsLink: 'https://maplelegends.com/lib/npc?id=2040048',
@@ -159,7 +159,7 @@ export const npcDetailsMap = {
 	},
 	'Nautilus Navigation Room': {
 		docsLink: 'https://maplelegends.com/lib/map?id=120000101',
-		image: IMAGE_PLACEHOLDER,
+		image: null,
 	},
 	'Orbis Magic Spot': {
 		docsLink: 'https://maplelegends.com/lib/npc?id=2012014',
@@ -203,7 +203,7 @@ export const npcDetailsMap = {
 	},
 	'Time Control Room': {
 		docsLink: 'https://maplelegends.com/lib/map?id=222020400',
-		image: IMAGE_PLACEHOLDER,
+		image: null,
 	},
 	'Tito (Taiwan)': {
 		docsLink: 'https://maplelegends.com/lib/npc?id=9330014',
