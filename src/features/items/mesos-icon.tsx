@@ -18,7 +18,7 @@ export function MesosIcon({ mesos }: MesosIconProps) {
 					onMouseLeave={close}
 					styles={{ root: { cursor: 'pointer', height: 30, width: 30 } }}
 				>
-					<img alt={`${mesos} mesos`} src="/images/mesos.png" />
+					<img alt={`${mesos} mesos`} src="/images/items/mesos.png" />
 				</Center>
 			</PopoverTarget>
 			<PopoverDropdown style={{ pointerEvents: 'none' }}>

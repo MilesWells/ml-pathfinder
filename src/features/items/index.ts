@@ -18,7 +18,7 @@ export const items = [
 
 export type Item = (typeof items)[number];
 
-const ITEM_IMAGE_PLACEHOLDER = '/images/slime-sweat.png';
+const ITEM_IMAGE_PLACEHOLDER = '/images/items/slime-sweat.png';
 
 export type ItemDetails = {
 	image: string;
@@ -28,7 +28,7 @@ export type ItemDetails = {
 export const itemDetailsMap: Record<Item, ItemDetails> = {
 	'Command Center Warp Capsule': {
 		docsLink: 'https://bbb.hidden-street.net/items/return-scroll/command-center-warp-capsule',
-		image: '/images/warp-capsule.png',
+		image: '/images/items/warp-capsule.png',
 	},
 	'Desert Coin': {
 		docsLink: 'https://forum.maplelegends.com/index.php?threads/general-patch-notes-october-9-2022.47422/',
@@ -40,11 +40,11 @@ export const itemDetailsMap: Record<Item, ItemDetails> = {
 	},
 	'Eos Rock Scroll': {
 		docsLink: 'https://bbb.hidden-street.net/items/quest/eos-rock-scroll',
-		image: '/images/eos-rock-scroll.png',
+		image: '/images/items/eos-rock-scroll.png',
 	},
 	'Fruit Milk': {
 		docsLink: 'https://bbb.hidden-street.net/items/return-scroll/fruit-milk',
-		image: '/images/fruit-milk.png',
+		image: '/images/items/fruit-milk.png',
 	},
 	'Gate Pass': {
 		docsLink: 'https://forum.maplelegends.com/index.php?threads/neo-tokyo-guide.25729/',
@@ -52,38 +52,38 @@ export const itemDetailsMap: Record<Item, ItemDetails> = {
 	},
 	'Ludibrium Warp Capsule': {
 		docsLink: 'https://bbb.hidden-street.net/items/return-scroll/ludibrium-warp-capsule',
-		image: '/images/warp-capsule.png',
+		image: '/images/items/warp-capsule.png',
 	},
 	'Magic Seed': {
 		docsLink: 'https://maplelegends.com/lib/npc?id=2081000',
-		image: '/images/magic-seed.png',
+		image: '/images/items/magic-seed.png',
 	},
 	'Omega Sector Warp Capsule': {
 		docsLink: 'https://bbb.hidden-street.net/items/return-scroll/omega-sector-warp-capsule',
-		image: '/images/warp-capsule.png',
+		image: '/images/items/warp-capsule.png',
 	},
 	'Orbis Rock Scroll': {
 		docsLink: 'https://bbb.hidden-street.net/items/quest/orbis-rock-scroll',
-		image: '/images/orbis-rock-scroll.png',
+		image: '/images/items/orbis-rock-scroll.png',
 	},
 	'Return Scroll - Nearest Town': {
 		docsLink: 'https://bbb.hidden-street.net/items/return-scroll/return-scroll-nearest-town',
-		image: 'images/return-scroll-nearest-town.png',
+		image: '/images/items/return-scroll-nearest-town.png',
 	},
 	'Return to New Leaf City Scroll': {
 		docsLink: 'https://bbb.hidden-street.net/items/return-scroll/return-to-new-leaf-city-scroll',
-		image: '/images/return-to-new-leaf-city-scroll.png',
+		image: '/images/items/return-to-new-leaf-city-scroll.png',
 	},
 	'Strawberry Milk': {
 		docsLink: 'https://bbb.hidden-street.net/items/return-scroll/strawberry-milk',
-		image: '/images/strawberry-milk.png',
+		image: '/images/items/strawberry-milk.png',
 	},
 	'VIP Ticket to Florina Beach': {
 		docsLink: 'https://bbb.hidden-street.net/items/ticket/vip-ticket-to-florina-beach',
-		image: '/images/vip-ticket-to-florina-beach.png',
+		image: '/images/items/vip-ticket-to-florina-beach.png',
 	},
 	'Warp Card': {
 		docsLink: 'https://bbb.hidden-street.net/items/quest/warp-card',
-		image: '/images/warp-card.png',
+		image: '/images/items/warp-card.png',
 	},
 };
