@@ -1,20 +1,23 @@
 import { Group, Text } from '@mantine/core';
-import type { Edge } from '../graph/edges';
 import { ItemIcon } from '../items/item-icon';
 import { MesosIcon } from '../items/mesos-icon';
-import { RightArrowIcon } from './right-arrow-icon';
-import { WalkIcon } from './walk-icon';
+import { RightArrowIcon } from '../pathfinder/right-arrow-icon';
+import { WalkIcon } from '../pathfinder/walk-icon';
+import type { Edge } from './edges';
 
-export type MethodIconProps = {
+export type EdgeDescription = {
 	edge: Edge;
-	label: string;
 };
 
-export function MethodIcon({ edge, label }: MethodIconProps) {
+export function EdgeDescription({ edge }: EdgeDescription) {
 	return (
 		<Group align="center">
 			<Icon edge={edge} />
-			<Text>{label}</Text>
+			<Text>
+				{edge.from}
+				{`->`}
+				{edge.to}
+			</Text>
 		</Group>
 	);
 }

@@ -1,7 +1,7 @@
 'use client';
 
 import { Stack, Title } from '@mantine/core';
-import { MethodIcon } from './method-icon';
+import { EdgeDescription } from '../graph/edge-description';
 import { usePathfinder } from './pathfinder-context';
 
 export function PathfinderResults() {
@@ -17,7 +17,7 @@ export function PathfinderResults() {
 
 			<Stack gap="sm">
 				{path.map(edge => (
-					<MethodIcon edge={edge} key={edge.id} label={`${edge.from} -> ${edge.to}`} />
+					<EdgeDescription edge={edge} key={edge.id} />
 				))}
 			</Stack>
 		</Stack>

@@ -10,6 +10,7 @@ export const items = [
 	'Omega Sector Warp Capsule',
 	'Orbis Rock Scroll',
 	'Return to New Leaf City Scroll',
+	'Return Scroll - Nearest Town',
 	'Strawberry Milk',
 	'VIP Ticket to Florina Beach',
 	'Warp Card',
@@ -53,6 +54,9 @@ export const itemDetailsMap: Record<Item, ItemDetails> = {
 	},
 	'Orbis Rock Scroll': {
 		image: '/images/orbis-rock-scroll.png',
+	},
+	'Return Scroll - Nearest Town': {
+		image: 'images/return-scroll-nearest-town.png',
 	},
 	'Return to New Leaf City Scroll': {
 		image: '/images/return-to-new-leaf-city-scroll.png',

@@ -72,7 +72,7 @@ const AQUA_ROAD: RegionEdges = {
 	edges: [
 		{
 			description: 'Dolphin',
-			mesos: 1_500,
+			mesos: 1_000,
 			method: 'Taxi',
 			to: 'Korean Folk Town',
 		},
@@ -85,6 +85,7 @@ const AQUA_ROAD: RegionEdges = {
 		{
 			method: 'Walk',
 			to: 'El Nath',
+			weight: 0,
 		},
 	],
 	region: 'Aqua Road',
@@ -161,7 +162,8 @@ const ELLIN_FOREST: RegionEdges = {
 const HERB_TOWN: RegionEdges = {
 	edges: [
 		{
-			method: 'Walk',
+			mesos: 10_000,
+			method: 'Taxi',
 			to: 'Aqua Road',
 		},
 		{
@@ -190,6 +192,12 @@ const KOREAN_FOLK_TOWN: RegionEdges = {
 		},
 		{
 			method: 'Walk',
+			to: 'Aqua Road',
+		},
+		{
+			description: 'Use item in "The Sharp Unknown"',
+			item: 'Return Scroll - Nearest Town',
+			method: 'Item',
 			to: 'Aqua Road',
 		},
 		{
