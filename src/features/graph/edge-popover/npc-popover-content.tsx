@@ -12,17 +12,23 @@ export type NpcPopoverContentProps = {
 export function NpcPopoverContent({ edge }: NpcPopoverContentProps) {
 	const { docsLink, image } = npcDetailsMap[edge.npc];
 
-	return (
-		<>
-			{image && (
+	if (image) {
+		return (
+			<>
 				<ExternalLink href={docsLink} mb="md" mt="sm">
 					<img alt={edge.npc} src={image} />
 				</ExternalLink>
-			)}
 
-			<Text>
-				NPC: <ExternalLink href={docsLink}>{edge.npc}</ExternalLink>
-			</Text>
-		</>
+				<Text>
+					NPC: <ExternalLink href={docsLink}>{edge.npc}</ExternalLink>
+				</Text>
+			</>
+		);
+	}
+
+	return (
+		<Text>
+			Map: <ExternalLink href={docsLink}>{edge.npc}</ExternalLink>
+		</Text>
 	);
 }
