@@ -13,7 +13,11 @@ export function MesosIcon({ mesos }: MesosIconProps) {
 	return (
 		<Popover opened={opened} position="left" shadow="md" withArrow>
 			<PopoverTarget>
-				<Center onMouseEnter={open} onMouseLeave={close} styles={{ root: { height: 30, width: 30 } }}>
+				<Center
+					onMouseEnter={open}
+					onMouseLeave={close}
+					styles={{ root: { cursor: 'pointer', height: 30, width: 30 } }}
+				>
 					<img alt={`${mesos} mesos`} src="/images/mesos.png" />
 				</Center>
 			</PopoverTarget>
