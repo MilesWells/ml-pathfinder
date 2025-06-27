@@ -1,12 +1,12 @@
-import { Anchor, type AnchorProps } from '@mantine/core';
+import { Anchor, type BoxProps } from '@mantine/core';
 
-export type ExternalLinkProps = React.PropsWithChildren<AnchorProps> & {
+export type ExternalLinkProps = React.PropsWithChildren<BoxProps> & {
 	href: string;
 };
 
 export function ExternalLink({ children, ...props }: ExternalLinkProps) {
 	return (
-		<Anchor fw="inherit" fz="inherit" {...props} rel="noopener" target="_blank">
+		<Anchor c="maplelegends-blue.6" fw="bold" fz="inherit" {...props} rel="noopener" target="_blank">
 			{children}
 		</Anchor>
 	);

@@ -16,17 +16,11 @@ export type EdgeDescription = {
 };
 
 export function EdgeDescription({ edge }: EdgeDescription) {
-	const label = `${edge.from} -> ${edge.to}`;
-
-	let content = <Text>{label}</Text>;
-	if (edge.method === 'Item') content = <ItemEdgeCost edge={edge} label={label} />;
-	else if (edge.method !== 'Walk') content = <NpcEdge edge={edge} label={label} />;
-
 	return (
 		<Group align="center">
 			<Icon edge={edge} />
 
-			{content}
+			<EdgePopover edge={edge} label={`${edge.from} -> ${edge.to}`} />
 		</Group>
 	);
 }
@@ -47,40 +41,47 @@ function Icon({ edge }: { edge: Edge }) {
 	}
 }
 
-type NPCEdge = Extract<Edge, TaxiEdge | TimedTaxiEdge | SpinelEdge | ItemTaxiEdge>;
-
-function NpcEdge({ edge, label }: { edge: NPCEdge; label: string }) {
+function EdgePopover({ edge, label }: { edge: Edge; label: string }) {
 	const [opened, { close, open }] = useDisclosure(false);
+
+	let content: React.ReactNode = 'Walk';
+	if (edge.method === 'Item') content = <ItemEdgeCost edge={edge} />;
+	else if (edge.method !== 'Walk') content = <NpcEdge edge={edge} />;
 
 	return (
 		<Popover opened={opened} position="right" shadow="md" withArrow>
 			<PopoverTarget>
-				<Center onMouseEnter={open} onMouseLeave={close}>
-					<ExternalLink href={npcDetailsMap[edge.npc].docsLink}>{label}</ExternalLink>
+				<Center onMouseEnter={open} onMouseLeave={close} style={{ cursor: 'pointer' }}>
+					{label}
 				</Center>
 			</PopoverTarget>
 
-			<PopoverDropdown style={{ pointerEvents: 'none' }}>
-				<Center style={{ flexDirection: 'column' }}>
-					<Box mb="md">
-						<img alt={edge.npc} src={npcDetailsMap[edge.npc].image} />
-					</Box>
-
-					<Box>
-						<Text>
-							NPC:{' '}
-							<Text c="maplelegends-blue.6" component="span" fw="bold">
-								{edge.npc}
-							</Text>
-						</Text>
-					</Box>
-
-					<EdgeCost edge={edge} />
-
-					{'item' in edge ? <ItemConsumption item={edge.item} /> : null}
-				</Center>
+			<PopoverDropdown onMouseEnter={open} onMouseLeave={close}>
+				{content}
 			</PopoverDropdown>
 		</Popover>
+	);
+}
+
+type NPCEdge = Extract<Edge, TaxiEdge | TimedTaxiEdge | SpinelEdge | ItemTaxiEdge>;
+
+function NpcEdge({ edge }: { edge: NPCEdge }) {
+	return (
+		<Center style={{ flexDirection: 'column' }}>
+			<Box mb="md">
+				<img alt={edge.npc} src={npcDetailsMap[edge.npc].image} />
+			</Box>
+
+			<Box>
+				<Text>
+					NPC: <ExternalLink href={npcDetailsMap[edge.npc].docsLink}>{edge.npc}</ExternalLink>
+				</Text>
+			</Box>
+
+			<EdgeCost edge={edge} />
+
+			{'item' in edge ? <ItemConsumption item={edge.item} /> : null}
+		</Center>
 	);
 }
 
@@ -105,29 +106,17 @@ function EdgeCost({ edge }: { edge: NPCEdge }) {
 	);
 }
 
-function ItemEdgeCost({ edge, label }: { edge: Extract<Edge, ItemEdge | ItemTaxiEdge>; label: string }) {
-	const [opened, { close, open }] = useDisclosure(false);
-
+function ItemEdgeCost({ edge }: { edge: Extract<Edge, ItemEdge | ItemTaxiEdge> }) {
 	return (
-		<Popover opened={opened} position="right" shadow="md" withArrow>
-			<PopoverTarget>
-				<Center onMouseEnter={open} onMouseLeave={close}>
-					<ExternalLink href={itemDetailsMap[edge.item].docsLink}>{label}</ExternalLink>
-				</Center>
-			</PopoverTarget>
+		<Center style={{ flexDirection: 'column' }}>
+			<Text>
+				Item: <ExternalLink href={itemDetailsMap[edge.item].docsLink}>{edge.item}</ExternalLink>
+			</Text>
 
-			<PopoverDropdown style={{ pointerEvents: 'none' }}>
-				<Center style={{ flexDirection: 'column' }}>
-					<Text c="maplelegends-blue.6" component="span" fw="bold">
-						{edge.item}
-					</Text>
+			<ItemContent edge={edge} />
 
-					<ItemContent edge={edge} />
-
-					<ItemConsumption item={edge.item} />
-				</Center>
-			</PopoverDropdown>
-		</Popover>
+			<ItemConsumption item={edge.item} />
+		</Center>
 	);
 }
 
