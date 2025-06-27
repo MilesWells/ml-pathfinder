@@ -1,7 +1,8 @@
 'use client';
 
-import { Box, Center, Group, Popover, PopoverDropdown, PopoverTarget, Text } from '@mantine/core';
+import { Center, Group, Popover, PopoverDropdown, PopoverTarget, Text } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
+import { useEffect, useState } from 'react';
 import { ExternalLink } from '@/ui/external-link';
 import { type Item, itemDetailsMap } from '../items';
 import { ItemIcon } from '../items/item-icon';
@@ -43,6 +44,24 @@ function Icon({ edge }: { edge: Edge }) {
 
 function EdgePopover({ edge, label }: { edge: Edge; label: string }) {
 	const [opened, { close, open }] = useDisclosure(false);
+	const [closeTimeout, setCloseTimeout] = useState<NodeJS.Timeout>();
+
+	useEffect(() => {
+		() => clearTimeout(closeTimeout);
+	}, [closeTimeout]);
+
+	function handleOpen() {
+		if (closeTimeout) {
+			clearTimeout(closeTimeout);
+			setCloseTimeout(undefined);
+		}
+
+		open();
+	}
+
+	function handleClose() {
+		setCloseTimeout(setTimeout(close, 75));
+	}
 
 	let content: React.ReactNode = 'Walk';
 	if (edge.method === 'Item') content = <ItemEdgeCost edge={edge} />;
@@ -51,12 +70,12 @@ function EdgePopover({ edge, label }: { edge: Edge; label: string }) {
 	return (
 		<Popover opened={opened} position="right" shadow="md" withArrow>
 			<PopoverTarget>
-				<Center onMouseEnter={open} onMouseLeave={close} style={{ cursor: 'pointer' }}>
+				<Center onMouseEnter={handleOpen} onMouseLeave={handleClose} style={{ cursor: 'pointer' }}>
 					{label}
 				</Center>
 			</PopoverTarget>
 
-			<PopoverDropdown onMouseEnter={open} onMouseLeave={close}>
+			<PopoverDropdown onMouseEnter={handleOpen} onMouseLeave={handleClose}>
 				{content}
 			</PopoverDropdown>
 		</Popover>
@@ -66,17 +85,17 @@ function EdgePopover({ edge, label }: { edge: Edge; label: string }) {
 type NPCEdge = Extract<Edge, TaxiEdge | TimedTaxiEdge | SpinelEdge | ItemTaxiEdge>;
 
 function NpcEdge({ edge }: { edge: NPCEdge }) {
+	const { docsLink, image } = npcDetailsMap[edge.npc];
+
 	return (
 		<Center style={{ flexDirection: 'column' }}>
-			<Box mb="md">
-				<img alt={edge.npc} src={npcDetailsMap[edge.npc].image} />
-			</Box>
+			<ExternalLink href={docsLink} mb="md" mt="sm">
+				<img alt={edge.npc} src={image} />
+			</ExternalLink>
 
-			<Box>
-				<Text>
-					NPC: <ExternalLink href={npcDetailsMap[edge.npc].docsLink}>{edge.npc}</ExternalLink>
-				</Text>
-			</Box>
+			<Text>
+				NPC: <ExternalLink href={docsLink}>{edge.npc}</ExternalLink>
+			</Text>
 
 			<EdgeCost edge={edge} />
 
