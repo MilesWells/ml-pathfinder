@@ -1,3 +1,5 @@
+import { IMAGE_PLACEHOLDER } from '@/ui/image-placeholder';
+
 const mapLocations = [
 	'Helios Tower Elevator (KFT)',
 	'Helios Tower Elevator (Ludibrium)',
@@ -52,18 +54,16 @@ export type NPCDetails = {
 	image: string;
 };
 
-const NPC_IMAGE_PLACEHOLDER = '/images/slime-sweat.png';
-
 export const npcDetailsMap = {
 	Astralis: {
 		// located in Omega Sector
 		docsLink: 'https://maplelegends.com/lib/npc?id=1052311',
-		image: NPC_IMAGE_PLACEHOLDER,
+		image: IMAGE_PLACEHOLDER,
 	},
 	Astrum: {
 		// located in KFT
 		docsLink: 'https://maplelegends.com/lib/npc?id=1052310',
-		image: NPC_IMAGE_PLACEHOLDER,
+		image: IMAGE_PLACEHOLDER,
 	},
 	Bell: {
 		docsLink: 'https://maplelegends.com/lib/npc?id=9201057',
@@ -91,7 +91,7 @@ export const npcDetailsMap = {
 	},
 	'Command Center': {
 		docsLink: 'https://maplelegends.com/lib/map?id=221000300',
-		image: NPC_IMAGE_PLACEHOLDER,
+		image: IMAGE_PLACEHOLDER,
 	},
 	Corba: {
 		docsLink: 'https://maplelegends.com/lib/npc?id=2082003',
@@ -131,11 +131,11 @@ export const npcDetailsMap = {
 	},
 	'Helios Tower Elevator (KFT)': {
 		docsLink: 'https://maplelegends.com/lib/map?id=222020100',
-		image: NPC_IMAGE_PLACEHOLDER,
+		image: IMAGE_PLACEHOLDER,
 	},
 	'Helios Tower Elevator (Ludibrium)': {
 		docsLink: 'https://maplelegends.com/lib/map?id=222020200',
-		image: NPC_IMAGE_PLACEHOLDER,
+		image: IMAGE_PLACEHOLDER,
 	},
 	Irene: {
 		docsLink: 'https://maplelegends.com/lib/npc?id=9270041',
@@ -147,11 +147,11 @@ export const npcDetailsMap = {
 	},
 	'Magic Seed Portal (Ellinia)': {
 		docsLink: 'https://maplelegends.com/lib/map?id=101010000',
-		image: NPC_IMAGE_PLACEHOLDER,
+		image: IMAGE_PLACEHOLDER,
 	},
 	'Magic Seed Portal (Leafre)': {
 		docsLink: 'https://maplelegends.com/lib/map?id=240010100',
-		image: NPC_IMAGE_PLACEHOLDER,
+		image: IMAGE_PLACEHOLDER,
 	},
 	Nara: {
 		docsLink: 'https://maplelegends.com/lib/npc?id=2040048',
@@ -159,7 +159,7 @@ export const npcDetailsMap = {
 	},
 	'Nautilus Navigation Room': {
 		docsLink: 'https://maplelegends.com/lib/map?id=120000101',
-		image: NPC_IMAGE_PLACEHOLDER,
+		image: IMAGE_PLACEHOLDER,
 	},
 	'Orbis Magic Spot': {
 		docsLink: 'https://maplelegends.com/lib/npc?id=2012014',
@@ -203,7 +203,7 @@ export const npcDetailsMap = {
 	},
 	'Time Control Room': {
 		docsLink: 'https://maplelegends.com/lib/map?id=222020400',
-		image: NPC_IMAGE_PLACEHOLDER,
+		image: IMAGE_PLACEHOLDER,
 	},
 	'Tito (Taiwan)': {
 		docsLink: 'https://maplelegends.com/lib/npc?id=9330014',

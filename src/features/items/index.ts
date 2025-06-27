@@ -1,3 +1,5 @@
+import { IMAGE_PLACEHOLDER } from '@/ui/image-placeholder';
+
 export const items = [
 	'Command Center Warp Capsule',
 	'Desert Coin',
@@ -18,8 +20,6 @@ export const items = [
 
 export type Item = (typeof items)[number];
 
-const ITEM_IMAGE_PLACEHOLDER = '/images/slime-sweat.png';
-
 export type ItemDetails = {
 	image: string;
 	docsLink: string;
@@ -32,11 +32,11 @@ export const itemDetailsMap = {
 	},
 	'Desert Coin': {
 		docsLink: 'https://forum.maplelegends.com/index.php?threads/general-patch-notes-october-9-2022.47422/',
-		image: ITEM_IMAGE_PLACEHOLDER,
+		image: IMAGE_PLACEHOLDER,
 	},
 	'Energy Shard': {
 		docsLink: 'https://maplelegends.com/lib/etc?id=4035060',
-		image: ITEM_IMAGE_PLACEHOLDER,
+		image: IMAGE_PLACEHOLDER,
 	},
 	'Eos Rock Scroll': {
 		docsLink: 'https://bbb.hidden-street.net/items/quest/eos-rock-scroll',
@@ -48,7 +48,7 @@ export const itemDetailsMap = {
 	},
 	'Gate Pass': {
 		docsLink: 'https://forum.maplelegends.com/index.php?threads/neo-tokyo-guide.25729/',
-		image: ITEM_IMAGE_PLACEHOLDER,
+		image: IMAGE_PLACEHOLDER,
 	},
 	'Ludibrium Warp Capsule': {
 		docsLink: 'https://bbb.hidden-street.net/items/return-scroll/ludibrium-warp-capsule',
