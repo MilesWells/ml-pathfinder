@@ -2,34 +2,34 @@ import type { Item } from '../items';
 import type { NPC } from '../npcs';
 import { type Region, SPINEL_REGIONS } from './regions';
 
-type WalkEdge = {
+export type WalkEdge = {
 	method: 'Walk';
 };
 
-type TaxiEdge = {
+export type TaxiEdge = {
 	method: 'Taxi';
 	mesos: number;
 	npc: NPC;
 };
 
-type TimedTaxiEdge = {
+export type TimedTaxiEdge = {
 	method: 'Timed Taxi';
 	mesos: number;
 	npc: NPC;
 };
 
-type SpinelEdge = {
+export type SpinelEdge = {
 	method: 'Spinel';
 	mesos: number;
 	npc: 'Spinel';
 };
 
-type ItemEdge = {
+export type ItemEdge = {
 	method: 'Item';
 	item: Item;
 };
 
-type ItemTaxiEdge = {
+export type ItemTaxiEdge = {
 	method: 'Item Taxi';
 	item: Item;
 	npc: NPC;

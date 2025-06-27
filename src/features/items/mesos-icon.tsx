@@ -1,29 +1,15 @@
-'use client';
-
-import { Center, Popover, PopoverDropdown, PopoverTarget, Text } from '@mantine/core';
-import { useDisclosure } from '@mantine/hooks';
+import { Center } from '@mantine/core';
 
 export type MesosIconProps = {
 	mesos: number;
 };
 
 export function MesosIcon({ mesos }: MesosIconProps) {
-	const [opened, { close, open }] = useDisclosure(false);
+	const mesosIntl = new Intl.NumberFormat().format(mesos);
 
 	return (
-		<Popover opened={opened} position="left" shadow="md" withArrow>
-			<PopoverTarget>
-				<Center
-					onMouseEnter={open}
-					onMouseLeave={close}
-					styles={{ root: { cursor: 'pointer', height: 30, width: 30 } }}
-				>
-					<img alt={`${mesos} mesos`} src="/images/items/mesos.png" />
-				</Center>
-			</PopoverTarget>
-			<PopoverDropdown style={{ pointerEvents: 'none' }}>
-				<Text>{mesos} mesos</Text>
-			</PopoverDropdown>
-		</Popover>
+		<Center styles={{ root: { height: 30, width: 30 } }} title={`${mesosIntl} mesos`}>
+			<img alt={`${mesosIntl} mesos`} src="/images/items/mesos.png" />
+		</Center>
 	);
 }

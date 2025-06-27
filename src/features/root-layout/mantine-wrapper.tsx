@@ -13,6 +13,19 @@ const maplelegendsBlue: MantineColorsTuple = [
 	'#26538b',
 ];
 
+const mesoYellow: MantineColorsTuple = [
+	'#fbfbe5',
+	'#f4f4d5',
+	'#e8e8b0',
+	'#dbdb87',
+	'#d1d164',
+	'#cccc55',
+	'#c6c640',
+	'#aeaf31',
+	'#9b9b27',
+	'#858618',
+];
+
 const kimmyRed: MantineColorsTuple = [
 	'#ffe8e8',
 	'#ffcfcf',
@@ -30,6 +43,7 @@ const theme = createTheme({
 	colors: {
 		'kimmy-red': kimmyRed,
 		'maplelegends-blue': maplelegendsBlue,
+		'meso-yellow': mesoYellow,
 	},
 	cursorType: 'pointer',
 	fontFamily: 'Geist',

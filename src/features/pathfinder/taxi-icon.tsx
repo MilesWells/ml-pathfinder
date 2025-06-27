@@ -1,6 +1,6 @@
 import { Center } from '@mantine/core';
 
-export function RightArrowIcon() {
+export function TaxiIcon() {
 	return (
 		<Center
 			styles={{
@@ -11,8 +11,9 @@ export function RightArrowIcon() {
 					width: 30,
 				},
 			}}
+			title="Taxi"
 		>
-			➡️
+			🚕
 		</Center>
 	);
 }
