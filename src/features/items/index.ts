@@ -18,14 +18,14 @@ export const items = [
 
 export type Item = (typeof items)[number];
 
-const ITEM_IMAGE_PLACEHOLDER = '/images/items/slime-sweat.png';
+const ITEM_IMAGE_PLACEHOLDER = '/images/slime-sweat.png';
 
 export type ItemDetails = {
 	image: string;
 	docsLink: string;
 };
 
-export const itemDetailsMap: Record<Item, ItemDetails> = {
+export const itemDetailsMap = {
 	'Command Center Warp Capsule': {
 		docsLink: 'https://bbb.hidden-street.net/items/return-scroll/command-center-warp-capsule',
 		image: '/images/items/warp-capsule.png',
@@ -86,4 +86,4 @@ export const itemDetailsMap: Record<Item, ItemDetails> = {
 		docsLink: 'https://bbb.hidden-street.net/items/quest/warp-card',
 		image: '/images/items/warp-card.png',
 	},
-};
+} satisfies Record<Item, ItemDetails>;

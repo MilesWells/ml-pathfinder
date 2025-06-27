@@ -1,4 +1,5 @@
 import type { Item } from '../items';
+import type { NPC } from '../npcs';
 import { type Region, SPINEL_REGIONS } from './regions';
 
 type WalkEdge = {
@@ -8,16 +9,19 @@ type WalkEdge = {
 type TaxiEdge = {
 	method: 'Taxi';
 	mesos: number;
+	npc: NPC;
 };
 
 type TimedTaxiEdge = {
 	method: 'Timed Taxi';
 	mesos: number;
+	npc: NPC;
 };
 
 type SpinelEdge = {
 	method: 'Spinel';
 	mesos: number;
+	npc: 'Spinel';
 };
 
 type ItemEdge = {
@@ -28,11 +32,11 @@ type ItemEdge = {
 type ItemTaxiEdge = {
 	method: 'Item Taxi';
 	item: Item;
+	npc: NPC;
 };
 
 export type RegionEdge = {
 	to: Region;
-	description?: React.ReactNode;
 	weight?: number;
 } & (WalkEdge | TaxiEdge | TimedTaxiEdge | SpinelEdge | ItemEdge | ItemTaxiEdge);
 
@@ -52,15 +56,16 @@ type RegionEdges = {
 const SPINEL_EDGES: RegionEdge[] = SPINEL_REGIONS.map(to => ({
 	mesos: 3_000,
 	method: 'Spinel',
+	npc: 'Spinel',
 	to,
 }));
 
 const AMORIA = {
 	edges: [
 		{
-			description: 'Thomas Swift (Henesys)',
 			mesos: 0,
 			method: 'Taxi',
+			npc: 'Thomas Swift',
 			to: 'Victoria Island',
 		},
 		...SPINEL_EDGES,
@@ -71,15 +76,15 @@ const AMORIA = {
 const AQUA_ROAD = {
 	edges: [
 		{
-			description: 'Dolphin',
 			mesos: 1_000,
 			method: 'Taxi',
+			npc: 'Dolphin (Aquarium)',
 			to: 'Korean Folk Town',
 		},
 		{
-			description: 'Dolphin',
 			mesos: 10_000,
 			method: 'Taxi',
+			npc: 'Dolphin (Aquarium)',
 			to: 'Herb Town',
 		},
 		{
@@ -94,21 +99,21 @@ const AQUA_ROAD = {
 const ARIANT = {
 	edges: [
 		{
-			description: 'Camel',
 			mesos: 1_500,
 			method: 'Taxi',
+			npc: 'Camel Taxi',
 			to: 'Magatia',
 		},
 		{
-			description: 'Karcasa',
 			mesos: 10_000,
 			method: 'Taxi',
+			npc: 'Karcasa',
 			to: 'Victoria Island',
 		},
 		{
-			description: 'Genie',
 			mesos: 0,
 			method: 'Timed Taxi',
+			npc: 'Syras',
 			to: 'Orbis',
 		},
 		...SPINEL_EDGES,
@@ -119,9 +124,9 @@ const ARIANT = {
 const COKE_TOWN = {
 	edges: [
 		{
-			description: 'Cokebear Administrator',
 			mesos: 0,
 			method: 'Taxi',
+			npc: 'Cokebear Administrator',
 			to: 'Victoria Island',
 		},
 	],
@@ -142,6 +147,7 @@ const EL_NATH = {
 		{
 			item: 'Orbis Rock Scroll',
 			method: 'Item Taxi',
+			npc: 'El Nath Magic Spot',
 			to: 'Orbis',
 		},
 		...SPINEL_EDGES,
@@ -164,12 +170,13 @@ const HERB_TOWN = {
 		{
 			mesos: 10_000,
 			method: 'Taxi',
+			npc: 'Dolphin (Herb Town)',
 			to: 'Aqua Road',
 		},
 		{
-			description: 'Crane',
 			mesos: 500,
 			method: 'Taxi',
+			npc: 'Hak',
 			to: 'Mu Lung',
 		},
 	],
@@ -179,15 +186,15 @@ const HERB_TOWN = {
 const KOREAN_FOLK_TOWN = {
 	edges: [
 		{
-			description: 'Helios Tower Elevator',
 			mesos: 0,
 			method: 'Timed Taxi',
+			npc: 'Helios Tower Elevator (KFT)',
 			to: 'Ludibrium',
 		},
 		{
-			description: 'Requires HP Challenge Tier 3',
 			item: 'Energy Shard',
 			method: 'Item Taxi',
+			npc: 'Astrum',
 			to: 'Omega Sector',
 		},
 		{
@@ -195,7 +202,6 @@ const KOREAN_FOLK_TOWN = {
 			to: 'Aqua Road',
 		},
 		{
-			description: 'Use item in "The Sharp Unknown"',
 			item: 'Return Scroll - Nearest Town',
 			method: 'Item',
 			to: 'Aqua Road',
@@ -219,22 +225,24 @@ const KOREAN_FOLK_TOWN = {
 	region: 'Korean Folk Town',
 } satisfies RegionEdges;
 
-const LAEFRE = {
+const LEAFRE = {
 	edges: [
 		{
 			item: 'Magic Seed',
 			method: 'Item Taxi',
+			npc: 'Magic Seed Portal (Leafre)',
 			to: 'Victoria Island',
 		},
 		{
-			description: 'Airship',
 			mesos: 0,
 			method: 'Timed Taxi',
+			npc: 'Corba',
 			to: 'Orbis',
 		},
 		{
-			description: 'From Orbis taxi turn into dragon and fly',
-			method: 'Walk',
+			mesos: 0,
+			method: 'Taxi',
+			npc: 'Corba',
 			to: 'Temple of Time',
 		},
 		...SPINEL_EDGES,
@@ -245,38 +253,40 @@ const LAEFRE = {
 const LUDIBRIUM = {
 	edges: [
 		{
-			description: 'Airship',
 			mesos: 0,
 			method: 'Timed Taxi',
+			npc: 'Tian',
 			to: 'Orbis',
 		},
 		{
-			description: 'Top of Helios Tower',
-			method: 'Walk',
+			mesos: 0,
+			method: 'Taxi',
+			npc: 'Time Control Room',
 			to: 'Ellin Forest',
 		},
 		{
-			description: 'Helios Tower Elevator',
 			mesos: 0,
 			method: 'Timed Taxi',
+			npc: 'Helios Tower Elevator (Ludibrium)',
 			to: 'Korean Folk Town',
 		},
 		{
-			description: 'Nara',
 			mesos: 1_500,
 			method: 'Taxi',
+			npc: 'Nara',
 			to: 'Florina Beach',
 		},
 		{
-			description: 'Nara',
 			item: 'VIP Ticket to Florina Beach',
 			method: 'Item Taxi',
+			npc: 'Nara',
 			to: 'Florina Beach',
 			weight: 0,
 		},
 		{
 			item: 'Eos Rock Scroll',
 			method: 'Item Taxi',
+			npc: 'First Eos Rock',
 			to: 'Omega Sector',
 		},
 		{
@@ -301,9 +311,9 @@ const LUDIBRIUM = {
 const MAGATIA = {
 	edges: [
 		{
-			description: 'Camel',
 			mesos: 1_500,
 			method: 'Taxi',
+			npc: 'Camel Taxi',
 			to: 'Ariant',
 		},
 	],
@@ -324,15 +334,15 @@ const MALAYSIA = {
 const MU_LUNG = {
 	edges: [
 		{
-			description: 'Crane',
 			mesos: 500,
 			method: 'Taxi',
+			npc: 'Hak',
 			to: 'Herb Town',
 		},
 		{
-			description: 'Airship',
 			mesos: 1_500,
 			method: 'Taxi',
+			npc: 'Hak',
 			to: 'Orbis',
 		},
 		...SPINEL_EDGES,
@@ -352,15 +362,15 @@ const MUSHROOM_SHRINE = {
 			to: 'Showa',
 		},
 		{
-			description: 'Forest of Oblivion Crystal',
 			mesos: 0,
 			method: 'Taxi',
+			npc: 'Crystal (Zipangu)',
 			to: 'Ninja Castle',
 		},
 		{
-			description: 'Forest of Oblivion Crystal',
 			item: 'Gate Pass',
 			method: 'Item Taxi',
+			npc: 'Crystal (Zipangu)',
 			to: 'Neo Tokyo',
 		},
 	],
@@ -370,9 +380,9 @@ const MUSHROOM_SHRINE = {
 const NLC = {
 	edges: [
 		{
-			description: 'Subway (Bell)',
 			mesos: 5_000,
 			method: 'Timed Taxi',
+			npc: 'Bell',
 			to: 'Victoria Island',
 		},
 	],
@@ -389,6 +399,7 @@ const OMEGA_SECTOR = {
 		{
 			item: 'Eos Rock Scroll',
 			method: 'Item Taxi',
+			npc: 'Fourth Eos Rock',
 			to: 'Ludibrium',
 		},
 		{
@@ -399,11 +410,13 @@ const OMEGA_SECTOR = {
 		{
 			item: 'Warp Card',
 			method: 'Item Taxi',
+			npc: 'Command Center',
 			to: 'Victoria Island',
 		},
 		{
 			item: 'Energy Shard',
 			method: 'Item Taxi',
+			npc: 'Astralis',
 			to: 'Korean Folk Town',
 		},
 	],
@@ -414,7 +427,8 @@ const ORBIS = {
 	edges: [
 		{
 			item: 'Orbis Rock Scroll',
-			method: 'Item',
+			method: 'Item Taxi',
+			npc: 'Orbis Magic Spot',
 			to: 'El Nath',
 		},
 		{
@@ -422,33 +436,33 @@ const ORBIS = {
 			to: 'El Nath',
 		},
 		{
-			description: 'Airship',
 			mesos: 0,
 			method: 'Timed Taxi',
+			npc: 'Rini',
 			to: 'Victoria Island',
 		},
 		{
-			description: 'Airship',
 			mesos: 0,
 			method: 'Timed Taxi',
+			npc: 'Sunny',
 			to: 'Ludibrium',
 		},
 		{
-			description: 'Genie',
 			mesos: 0,
 			method: 'Timed Taxi',
+			npc: 'Geras',
 			to: 'Ariant',
 		},
 		{
-			description: 'Airship',
 			mesos: 0,
 			method: 'Timed Taxi',
+			npc: 'Ramini',
 			to: 'Leafre',
 		},
 		{
-			description: 'Crane',
 			mesos: 1_500,
 			method: 'Taxi',
+			npc: 'Hak',
 			to: 'Mu Lung',
 		},
 		...SPINEL_EDGES,
@@ -463,9 +477,9 @@ const SINGAPORE = {
 			to: 'Malaysia',
 		},
 		{
-			description: 'Irene',
 			mesos: 20_000,
 			method: 'Timed Taxi',
+			npc: 'Shalon',
 			to: 'Victoria Island',
 		},
 		...SPINEL_EDGES,
@@ -476,15 +490,15 @@ const SINGAPORE = {
 const TAIWAN = {
 	edges: [
 		{
-			description: 'Tito',
 			mesos: 2_000,
 			method: 'Taxi',
+			npc: 'Tito (Taiwan)',
 			to: 'Victoria Island',
 		},
 		{
-			description: 'Blake',
 			mesos: 2_000,
 			method: 'Taxi',
+			npc: 'Blake (Ximending)',
 			to: 'Taipei 101',
 		},
 		...SPINEL_EDGES,
@@ -495,9 +509,9 @@ const TAIWAN = {
 const TAIPEI_101 = {
 	edges: [
 		{
-			description: 'Blake',
 			mesos: 2_000,
 			method: 'Taxi',
+			npc: 'Blake (Taipei 101)',
 			to: 'Taiwan',
 		},
 	],
@@ -517,9 +531,9 @@ const TEMPLE_OF_TIME = {
 const VICTORIA_ISLAND = {
 	edges: [
 		{
-			description: 'Thomas Swift (Henesys)',
 			mesos: 0,
 			method: 'Taxi',
+			npc: 'Thomas Swift',
 			to: 'Amoria',
 		},
 		{
@@ -528,57 +542,59 @@ const VICTORIA_ISLAND = {
 			to: 'Ariant',
 		},
 		{
-			description: 'Cokebear Administrator',
 			mesos: 0,
 			method: 'Taxi',
+			npc: 'Cokebear Administrator',
 			to: 'Coke Town',
 		},
 		{
-			description: 'Airship',
 			mesos: 0,
 			method: 'Timed Taxi',
+			npc: 'Cherry',
 			to: 'Orbis',
 			weight: 5,
 		},
 		{
 			item: 'Magic Seed',
 			method: 'Item Taxi',
+			npc: 'Magic Seed Portal (Ellinia)',
 			to: 'Leafre',
 		},
 		{
-			description: 'Subway (Bell)',
 			mesos: 5_000,
 			method: 'Timed Taxi',
+			npc: 'Bell',
 			to: 'NLC',
 		},
 		{
-			description: 'Irene',
 			mesos: 20_000,
 			method: 'Timed Taxi',
+			npc: 'Irene',
 			to: 'Singapore',
 		},
 		{
-			description: 'Tito',
 			mesos: 2_000,
 			method: 'Taxi',
+			npc: 'Tito (Victoria)',
 			to: 'Taiwan',
 		},
 		{
 			item: 'Warp Card',
-			method: 'Item',
+			method: 'Item Taxi',
+			npc: 'Nautilus Navigation Room',
 			to: 'Omega Sector',
 		},
 		{
-			description: 'Pason (Lith Harbor)',
 			item: 'VIP Ticket to Florina Beach',
 			method: 'Item Taxi',
+			npc: 'Pason',
 			to: 'Florina Beach',
 			weight: 0,
 		},
 		{
-			description: 'Pason (Lith Harbor)',
 			mesos: 1_500,
 			method: 'Taxi',
+			npc: 'Pason',
 			to: 'Florina Beach',
 		},
 		{
@@ -615,7 +631,7 @@ export const edges: Edge[] = [
 	ELLIN_FOREST,
 	HERB_TOWN,
 	KOREAN_FOLK_TOWN,
-	LAEFRE,
+	LEAFRE,
 	LUDIBRIUM,
 	MAGATIA,
 	MALAYSIA,
