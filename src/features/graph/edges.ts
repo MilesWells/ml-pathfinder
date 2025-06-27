@@ -55,7 +55,7 @@ const SPINEL_EDGES: RegionEdge[] = SPINEL_REGIONS.map(to => ({
 	to,
 }));
 
-const AMORIA: RegionEdges = {
+const AMORIA = {
 	edges: [
 		{
 			description: 'Thomas Swift (Henesys)',
@@ -66,9 +66,9 @@ const AMORIA: RegionEdges = {
 		...SPINEL_EDGES,
 	],
 	region: 'Amoria',
-};
+} satisfies RegionEdges;
 
-const AQUA_ROAD: RegionEdges = {
+const AQUA_ROAD = {
 	edges: [
 		{
 			description: 'Dolphin',
@@ -89,9 +89,9 @@ const AQUA_ROAD: RegionEdges = {
 		},
 	],
 	region: 'Aqua Road',
-};
+} satisfies RegionEdges;
 
-const ARIANT: RegionEdges = {
+const ARIANT = {
 	edges: [
 		{
 			description: 'Camel',
@@ -114,9 +114,9 @@ const ARIANT: RegionEdges = {
 		...SPINEL_EDGES,
 	],
 	region: 'Ariant',
-};
+} satisfies RegionEdges;
 
-const COKE_TOWN: RegionEdges = {
+const COKE_TOWN = {
 	edges: [
 		{
 			description: 'Cokebear Administrator',
@@ -126,9 +126,9 @@ const COKE_TOWN: RegionEdges = {
 		},
 	],
 	region: 'Coke Town',
-};
+} satisfies RegionEdges;
 
-const EL_NATH: RegionEdges = {
+const EL_NATH = {
 	edges: [
 		{
 			method: 'Walk',
@@ -147,9 +147,9 @@ const EL_NATH: RegionEdges = {
 		...SPINEL_EDGES,
 	],
 	region: 'El Nath',
-};
+} satisfies RegionEdges;
 
-const ELLIN_FOREST: RegionEdges = {
+const ELLIN_FOREST = {
 	edges: [
 		{
 			method: 'Walk',
@@ -157,9 +157,9 @@ const ELLIN_FOREST: RegionEdges = {
 		},
 	],
 	region: 'Ellin Forest',
-};
+} satisfies RegionEdges;
 
-const HERB_TOWN: RegionEdges = {
+const HERB_TOWN = {
 	edges: [
 		{
 			mesos: 10_000,
@@ -174,9 +174,9 @@ const HERB_TOWN: RegionEdges = {
 		},
 	],
 	region: 'Herb Town',
-};
+} satisfies RegionEdges;
 
-const KOREAN_FOLK_TOWN: RegionEdges = {
+const KOREAN_FOLK_TOWN = {
 	edges: [
 		{
 			description: 'Helios Tower Elevator',
@@ -217,9 +217,9 @@ const KOREAN_FOLK_TOWN: RegionEdges = {
 		},
 	],
 	region: 'Korean Folk Town',
-};
+} satisfies RegionEdges;
 
-const LAEFRE: RegionEdges = {
+const LAEFRE = {
 	edges: [
 		{
 			item: 'Magic Seed',
@@ -240,9 +240,9 @@ const LAEFRE: RegionEdges = {
 		...SPINEL_EDGES,
 	],
 	region: 'Leafre',
-};
+} satisfies RegionEdges;
 
-const LUDIBRIUM: RegionEdges = {
+const LUDIBRIUM = {
 	edges: [
 		{
 			description: 'Airship',
@@ -296,9 +296,9 @@ const LUDIBRIUM: RegionEdges = {
 		},
 	],
 	region: 'Ludibrium',
-};
+} satisfies RegionEdges;
 
-const MAGATIA: RegionEdges = {
+const MAGATIA = {
 	edges: [
 		{
 			description: 'Camel',
@@ -308,9 +308,9 @@ const MAGATIA: RegionEdges = {
 		},
 	],
 	region: 'Magatia',
-};
+} satisfies RegionEdges;
 
-const MALAYSIA: RegionEdges = {
+const MALAYSIA = {
 	edges: [
 		{
 			method: 'Walk',
@@ -319,9 +319,9 @@ const MALAYSIA: RegionEdges = {
 		...SPINEL_EDGES,
 	],
 	region: 'Malaysia',
-};
+} satisfies RegionEdges;
 
-const MU_LUNG: RegionEdges = {
+const MU_LUNG = {
 	edges: [
 		{
 			description: 'Crane',
@@ -338,9 +338,9 @@ const MU_LUNG: RegionEdges = {
 		...SPINEL_EDGES,
 	],
 	region: 'Mu Lung',
-};
+} satisfies RegionEdges;
 
-const MUSHROOM_SHRINE: RegionEdges = {
+const MUSHROOM_SHRINE = {
 	edges: [
 		{
 			item: 'Fruit Milk',
@@ -365,9 +365,9 @@ const MUSHROOM_SHRINE: RegionEdges = {
 		},
 	],
 	region: 'Mushroom Shrine',
-};
+} satisfies RegionEdges;
 
-const NLC: RegionEdges = {
+const NLC = {
 	edges: [
 		{
 			description: 'Subway (Bell)',
@@ -377,9 +377,9 @@ const NLC: RegionEdges = {
 		},
 	],
 	region: 'NLC',
-};
+} satisfies RegionEdges;
 
-const OMEGA_SECTOR: RegionEdges = {
+const OMEGA_SECTOR = {
 	edges: [
 		{
 			item: 'Ludibrium Warp Capsule',
@@ -408,9 +408,9 @@ const OMEGA_SECTOR: RegionEdges = {
 		},
 	],
 	region: 'Omega Sector',
-};
+} satisfies RegionEdges;
 
-const ORBIS: RegionEdges = {
+const ORBIS = {
 	edges: [
 		{
 			item: 'Orbis Rock Scroll',
@@ -454,9 +454,9 @@ const ORBIS: RegionEdges = {
 		...SPINEL_EDGES,
 	],
 	region: 'Orbis',
-};
+} satisfies RegionEdges;
 
-const SINGAPORE: RegionEdges = {
+const SINGAPORE = {
 	edges: [
 		{
 			method: 'Walk',
@@ -471,9 +471,9 @@ const SINGAPORE: RegionEdges = {
 		...SPINEL_EDGES,
 	],
 	region: 'Singapore',
-};
+} satisfies RegionEdges;
 
-const TAIWAN: RegionEdges = {
+const TAIWAN = {
 	edges: [
 		{
 			description: 'Tito',
@@ -490,9 +490,9 @@ const TAIWAN: RegionEdges = {
 		...SPINEL_EDGES,
 	],
 	region: 'Taiwan',
-};
+} satisfies RegionEdges;
 
-const TAIPEI_101: RegionEdges = {
+const TAIPEI_101 = {
 	edges: [
 		{
 			description: 'Blake',
@@ -502,9 +502,9 @@ const TAIPEI_101: RegionEdges = {
 		},
 	],
 	region: 'Taipei 101',
-};
+} satisfies RegionEdges;
 
-const TEMPLE_OF_TIME: RegionEdges = {
+const TEMPLE_OF_TIME = {
 	edges: [
 		{
 			method: 'Walk',
@@ -512,9 +512,9 @@ const TEMPLE_OF_TIME: RegionEdges = {
 		},
 	],
 	region: 'Temple of Time',
-};
+} satisfies RegionEdges;
 
-const VICTORIA_ISLAND: RegionEdges = {
+const VICTORIA_ISLAND = {
 	edges: [
 		{
 			description: 'Thomas Swift (Henesys)',
@@ -589,7 +589,7 @@ const VICTORIA_ISLAND: RegionEdges = {
 		...SPINEL_EDGES,
 	],
 	region: 'Victoria Island',
-};
+} satisfies RegionEdges;
 
 /*
 	Edges must be sorted by method such that the most preferred method appears last on the list.

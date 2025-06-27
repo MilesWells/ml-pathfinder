@@ -31,7 +31,7 @@ export const REGIONS = [
 
 export type Region = (typeof REGIONS)[number];
 
-export const SPINEL_REGIONS = ['China', 'Thailand', 'Mushroom Shrine'] satisfies Readonly<Region[]>;
+export const SPINEL_REGIONS = ['China', 'Thailand', 'Mushroom Shrine'] as const;
 
 export type SpinelRegion = (typeof SPINEL_REGIONS)[number];
 
@@ -40,13 +40,7 @@ export function isSpinelRegion(region: Region): region is SpinelRegion {
 }
 
 // User needs to return to their previous region if starting from one of these
-export const UNNAVIGABLE_REGIONS = [
-	'Florina Beach',
-	'Showa',
-	'Neo Tokyo',
-	'Ninja Castle',
-	...SPINEL_REGIONS,
-] satisfies Readonly<Region[]>;
+export const UNNAVIGABLE_REGIONS = ['Florina Beach', 'Showa', 'Neo Tokyo', 'Ninja Castle', ...SPINEL_REGIONS] as const;
 
 export type UnnavigableRegion = (typeof UNNAVIGABLE_REGIONS)[number];
 
