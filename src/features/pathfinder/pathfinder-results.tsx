@@ -1,8 +1,8 @@
 'use client';
 
 import { Card, Center, Group, Stack, Title } from '@mantine/core';
+import { EdgeDescription } from '../graph/edge-description';
 import { EdgeMethodIcon } from '../graph/edge-method-icon';
-import { EdgePopover } from '../graph/edge-popover';
 import { usePathfinder } from './pathfinder-context';
 
 export function PathfinderResults() {
@@ -22,7 +22,7 @@ export function PathfinderResults() {
 						{path.map(edge => (
 							<Group align="center" key={edge.id}>
 								<EdgeMethodIcon edge={edge} />
-								<EdgePopover edge={edge} label={`${edge.from} -> ${edge.to}`} />
+								<EdgeDescription edge={edge} />
 							</Group>
 						))}
 					</Stack>

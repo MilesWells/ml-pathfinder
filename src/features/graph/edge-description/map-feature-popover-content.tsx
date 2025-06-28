@@ -14,10 +14,11 @@ export function MapFeaturePopoverContent({ edge }: MapFeaturePopoverContentProps
 
 	return (
 		<>
-			<Text>
+			<Text ta="center">
 				Map: <ExternalLink href={docsLink}>{edge.mapFeature}</ExternalLink>
 			</Text>
-			<Text>
+
+			<Text ta="center">
 				How:{' '}
 				<Text component="span" fs="italic">
 					{description}

@@ -1,6 +1,5 @@
-import { Center, Popover, PopoverDropdown, PopoverTarget, Text } from '@mantine/core';
+import { Center, Drawer, Text } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
-import { useEffect, useState } from 'react';
 import { itemDetailsMap } from '@/features/items';
 import { ExternalLink } from '@/ui/external-link';
 import type { Edge } from '../edges';
@@ -10,48 +9,34 @@ import { MapFeaturePopoverContent } from './map-feature-popover-content';
 import { MesosPopoverContent } from './mesos-popover-content';
 import { NpcPopoverContent } from './npc-popover-content';
 
-export type EdgePopoverProps = {
+export type EdgeDrawerProps = {
 	edge: Edge;
-	label: string;
 };
 
-export function EdgePopover({ edge, label }: EdgePopoverProps) {
+export function EdgeDrawer({ edge }: EdgeDrawerProps) {
 	const [opened, { close, open }] = useDisclosure(false);
-	const [closeTimeout, setCloseTimeout] = useState<NodeJS.Timeout>();
-
-	useEffect(() => {
-		() => clearTimeout(closeTimeout);
-	}, [closeTimeout]);
-
-	function handleOpen() {
-		if (closeTimeout) {
-			clearTimeout(closeTimeout);
-			setCloseTimeout(undefined);
-		}
-
-		open();
-	}
-
-	function handleClose() {
-		setCloseTimeout(setTimeout(close, 75));
-	}
 
 	return (
-		<Popover opened={opened} position="right" shadow="md" withArrow>
-			<PopoverTarget>
-				<Center
-					c="meso-yellow.6"
-					onMouseEnter={handleOpen}
-					onMouseLeave={handleClose}
-					style={{ cursor: 'pointer' }}
-					td="underline"
-				>
-					{label}
-				</Center>
-			</PopoverTarget>
+		<>
+			<Center c="meso-yellow.6" onClick={open} style={{ cursor: 'pointer' }} td="underline">
+				{edge.from} {`->`} {edge.to}
+			</Center>
 
-			<PopoverDropdown bg="dark.9" onMouseEnter={handleOpen} onMouseLeave={handleClose}>
-				<Center style={{ flexDirection: 'column' }}>
+			<Drawer
+				onClose={close}
+				opened={opened}
+				styles={{
+					body: {
+						flexGrow: '1',
+					},
+					content: {
+						display: 'flex',
+						flexDirection: 'column',
+					},
+				}}
+				title={`${edge.from} -> ${edge.to}`}
+			>
+				<Center h="100%" style={{ flexDirection: 'column' }}>
 					{edge.method === 'Walk' && <Text>Walk</Text>}
 					{'npc' in edge && <NpcPopoverContent edge={edge} />}
 					{'mapFeature' in edge && <MapFeaturePopoverContent edge={edge} />}
@@ -68,7 +53,7 @@ export function EdgePopover({ edge, label }: EdgePopoverProps) {
 					)}
 					{'mesos' in edge && <MesosPopoverContent edge={edge} />}
 				</Center>
-			</PopoverDropdown>
-		</Popover>
+			</Drawer>
+		</>
 	);
 }
