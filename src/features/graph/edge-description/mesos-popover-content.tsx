@@ -1,7 +1,7 @@
 import { Text } from '@mantine/core';
-import type { Edge, SpinelEdge, TaxiEdge, TimedTaxiEdge } from '../edges';
+import type { Edge, SpinelEdge, TaxiEdge } from '../edges';
 
-export type MesosEdge = Extract<Edge, TaxiEdge | TimedTaxiEdge | SpinelEdge>;
+export type MesosEdge = Extract<Edge, TaxiEdge | SpinelEdge>;
 
 export type MesosPopoverContentProps = {
 	edge: MesosEdge;
