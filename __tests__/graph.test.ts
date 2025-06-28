@@ -2,6 +2,7 @@ import { shortestPath } from 'graph-data-structure';
 import { describe, expect, test } from 'vitest';
 import { getFullGraph, getGraphWithoutItemEdges } from '@/features/graph';
 import { isUnnavigaableRegion, REGIONS } from '@/features/graph/regions';
+import { canPath } from '@/features/pathfinder/pathfinder-context';
 
 describe('Navigable regions should be solvable', () => {
 	const graph = getFullGraph();
@@ -12,7 +13,8 @@ describe('Navigable regions should be solvable', () => {
 		for (const to of REGIONS) {
 			if (from === to) continue;
 
-			test(`${from}->${to} should not throw an error`, () => {
+			test(`${from}->${to} should be solvable`, () => {
+				expect(canPath({ from, to }, true)).toBeTruthy();
 				expect(() => shortestPath(graph, from, to)).not.to.throw();
 			});
 		}
@@ -29,7 +31,8 @@ describe('Navigable regions should be solvable without items', () => {
 			if (from === to) continue;
 			if (to === 'Neo Tokyo') continue; // Neo Tokyo requires an item to access
 
-			test(`${from}->${to} should not throw an error`, () => {
+			test(`${from}->${to} should be solveable`, () => {
+				expect(canPath({ from, to }, false)).toBeTruthy();
 				expect(() => shortestPath(graph, from, to)).not.to.throw();
 			});
 		}

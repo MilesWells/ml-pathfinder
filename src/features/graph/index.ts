@@ -63,7 +63,7 @@ export function getGraphWithoutItemEdges() {
 	for (const node of REGIONS) graph.addNode(node);
 
 	for (const edge of edges) {
-		if (edge.method === 'Item' || edge.method === 'Item Taxi') continue;
+		if ('item' in edge && edge.item !== null) continue;
 
 		graph.addEdge(edge.from, edge.to, {
 			props: edge,

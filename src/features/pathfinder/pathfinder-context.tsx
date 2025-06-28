@@ -27,7 +27,7 @@ export function PathfinderContextProvider({ children }: React.PropsWithChildren)
 	const path = useMemo<Edge[]>(() => {
 		const path = { from, to };
 
-		if (!canPath(path, selectedItems['Warp Card'])) return [];
+		if (!canPath(path, selectedItems['Gate Pass'])) return [];
 
 		try {
 			const nodePath = shortestPath(graph, path.from, path.to).nodes;
