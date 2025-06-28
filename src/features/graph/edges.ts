@@ -188,7 +188,7 @@ const KOREAN_FOLK_TOWN = {
 		{
 			mesos: 0,
 			method: 'Timed Taxi',
-			npc: 'Helios Tower Elevator (KFT)',
+			npc: 'Helios Tower <2nd Floor>',
 			to: 'Ludibrium',
 		},
 		{
@@ -230,7 +230,7 @@ const LEAFRE = {
 		{
 			item: 'Magic Seed',
 			method: 'Item Taxi',
-			npc: 'Magic Seed Portal (Leafre)',
+			npc: 'Minar Forest : West Border',
 			to: 'Victoria Island',
 		},
 		{
@@ -267,7 +267,7 @@ const LUDIBRIUM = {
 		{
 			mesos: 0,
 			method: 'Timed Taxi',
-			npc: 'Helios Tower Elevator (Ludibrium)',
+			npc: 'Helios Tower <99th Floor>',
 			to: 'Korean Folk Town',
 		},
 		{
@@ -557,7 +557,7 @@ const VICTORIA_ISLAND = {
 		{
 			item: 'Magic Seed',
 			method: 'Item Taxi',
-			npc: 'Magic Seed Portal (Ellinia)',
+			npc: 'The Field Up North of Ellinia',
 			to: 'Leafre',
 		},
 		{
@@ -581,7 +581,7 @@ const VICTORIA_ISLAND = {
 		{
 			item: 'Warp Card',
 			method: 'Item Taxi',
-			npc: 'Nautilus Navigation Room',
+			npc: 'Nautilus: Navigation Room',
 			to: 'Omega Sector',
 		},
 		{

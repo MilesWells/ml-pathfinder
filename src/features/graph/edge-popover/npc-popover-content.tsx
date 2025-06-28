@@ -26,9 +26,5 @@ export function NpcPopoverContent({ edge }: NpcPopoverContentProps) {
 		);
 	}
 
-	return (
-		<Text>
-			Map: <ExternalLink href={docsLink}>{edge.npc}</ExternalLink>
-		</Text>
-	);
+	return <ExternalLink href={docsLink}>{edge.npc}</ExternalLink>;
 }

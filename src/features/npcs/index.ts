@@ -1,13 +1,13 @@
 import { IMAGE_PLACEHOLDER } from '@/ui/image-placeholder';
 
 const mapLocations = [
-	'Helios Tower Elevator (KFT)',
-	'Helios Tower Elevator (Ludibrium)',
-	'Magic Seed Portal (Leafre)',
-	'Magic Seed Portal (Ellinia)',
-	'Time Control Room',
-	'Nautilus Navigation Room',
 	'Command Center',
+	'Helios Tower <2nd Floor>',
+	'Helios Tower <99th Floor>',
+	'Minar Forest : West Border',
+	'Nautilus: Navigation Room',
+	'The Field Up North of Ellinia',
+	'Time Control Room',
 ] as const;
 
 export const NPCS = [
@@ -129,11 +129,11 @@ export const npcDetailsMap = {
 		docsLink: 'https://maplelegends.com/lib/npc?id=2090005',
 		image: '/images/npcs/hak.png',
 	},
-	'Helios Tower Elevator (KFT)': {
+	'Helios Tower <2nd Floor>': {
 		docsLink: 'https://maplelegends.com/lib/map?id=222020100',
 		image: null,
 	},
-	'Helios Tower Elevator (Ludibrium)': {
+	'Helios Tower <99th Floor>': {
 		docsLink: 'https://maplelegends.com/lib/map?id=222020200',
 		image: null,
 	},
@@ -145,11 +145,7 @@ export const npcDetailsMap = {
 		docsLink: 'https://maplelegends.com/lib/npc?id=2101013',
 		image: '/images/npcs/karcasa.png',
 	},
-	'Magic Seed Portal (Ellinia)': {
-		docsLink: 'https://maplelegends.com/lib/map?id=101010000',
-		image: null,
-	},
-	'Magic Seed Portal (Leafre)': {
+	'Minar Forest : West Border': {
 		docsLink: 'https://maplelegends.com/lib/map?id=240010100',
 		image: null,
 	},
@@ -157,7 +153,7 @@ export const npcDetailsMap = {
 		docsLink: 'https://maplelegends.com/lib/npc?id=2040048',
 		image: '/images/npcs/nara.png',
 	},
-	'Nautilus Navigation Room': {
+	'Nautilus: Navigation Room': {
 		docsLink: 'https://maplelegends.com/lib/map?id=120000101',
 		image: null,
 	},
@@ -167,7 +163,7 @@ export const npcDetailsMap = {
 	},
 	Pason: {
 		docsLink: 'https://maplelegends.com/lib/npc?id=1002002',
-		image: '/images/npcs/payson.png',
+		image: '/images/npcs/pason.png',
 	},
 	Ramini: {
 		docsLink: 'https://maplelegends.com/lib/npc?id=2012021',
@@ -192,6 +188,10 @@ export const npcDetailsMap = {
 	Syras: {
 		docsLink: 'https://maplelegends.com/lib/npc?id=2102002',
 		image: '/images/npcs/syras.png',
+	},
+	'The Field Up North of Ellinia': {
+		docsLink: 'https://maplelegends.com/lib/map?id=101010000',
+		image: null,
 	},
 	'Thomas Swift': {
 		docsLink: 'https://maplelegends.com/lib/npc?id=9201022',
