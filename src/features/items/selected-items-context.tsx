@@ -4,7 +4,7 @@ import { createContext, useCallback, useContext, useEffect, useMemo, useState } 
 import { z } from 'zod';
 import type { Item } from '.';
 
-const LOCAL_STORAGE_KEY = 'selected-items';
+const SELECTED_ITEMS_LOCAL_STORAGE_KEY = 'ml-p-selected-items';
 
 const selectedItemsMapSchema = z.object({
 	'Command Center Warp Capsule': z.boolean(),
@@ -76,7 +76,7 @@ export function SelectedItemsProvider({ children }: React.PropsWithChildren) {
 	const [selectedItems, setSelectedItems] = useState<SelectedItemMap>(DEFAULT_ITEMS_FALSE);
 
 	useEffect(() => {
-		const localStorageValue = localStorage.getItem(LOCAL_STORAGE_KEY);
+		const localStorageValue = localStorage.getItem(SELECTED_ITEMS_LOCAL_STORAGE_KEY);
 		if (!localStorageValue) return;
 
 		try {
@@ -101,7 +101,7 @@ export function SelectedItemsProvider({ children }: React.PropsWithChildren) {
 				...partialMap,
 			};
 
-			localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(newSelectedItems));
+			localStorage.setItem(SELECTED_ITEMS_LOCAL_STORAGE_KEY, JSON.stringify(newSelectedItems));
 
 			return newSelectedItems;
 		});
@@ -122,7 +122,7 @@ export function SelectedItemsProvider({ children }: React.PropsWithChildren) {
 				...partialMap,
 			};
 
-			localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(newSelectedItems));
+			localStorage.setItem(SELECTED_ITEMS_LOCAL_STORAGE_KEY, JSON.stringify(newSelectedItems));
 
 			return newSelectedItems;
 		});
@@ -130,12 +130,12 @@ export function SelectedItemsProvider({ children }: React.PropsWithChildren) {
 
 	const removeAll = useCallback(() => {
 		setSelectedItems(DEFAULT_ITEMS_FALSE);
-		localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(DEFAULT_ITEMS_FALSE));
+		localStorage.setItem(SELECTED_ITEMS_LOCAL_STORAGE_KEY, JSON.stringify(DEFAULT_ITEMS_FALSE));
 	}, []);
 
 	const selectAll = useCallback(() => {
 		setSelectedItems(DEFAULT_ITEMS_TRUE);
-		localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(DEFAULT_ITEMS_TRUE));
+		localStorage.setItem(SELECTED_ITEMS_LOCAL_STORAGE_KEY, JSON.stringify(DEFAULT_ITEMS_TRUE));
 	}, []);
 
 	const value = useMemo(

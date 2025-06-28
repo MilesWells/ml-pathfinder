@@ -7,7 +7,7 @@ import { ItemCheckList } from '../items/item-check-list';
 import { usePathfinder } from './pathfinder-context';
 
 export function PathfinderInput() {
-	const { from, setFrom: setfrom, setTo: setto, to } = usePathfinder();
+	const { from, setFrom, setTo, to } = usePathfinder();
 	const [itemsListOpened, { open: openItemsList, close: closeItemsList }] = useDisclosure(false);
 
 	return (
@@ -25,7 +25,7 @@ export function PathfinderInput() {
 				data={REGIONS}
 				maw="300px"
 				mx="auto"
-				onChange={from => setfrom(from as Region)}
+				onChange={from => setFrom(from as Region)}
 				placeholder="Choose starting continent"
 				searchable
 				value={from}
@@ -36,7 +36,7 @@ export function PathfinderInput() {
 				data={REGIONS}
 				maw="300px"
 				mx="auto"
-				onChange={to => setto(to as Region)}
+				onChange={to => setTo(to as Region)}
 				placeholder="Choose destination continent"
 				searchable
 				value={to}

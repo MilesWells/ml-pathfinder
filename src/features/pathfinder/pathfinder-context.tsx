@@ -2,11 +2,17 @@
 
 import { shortestPath } from 'graph-data-structure';
 import type React from 'react';
-import { createContext, useContext, useMemo, useState } from 'react';
+import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
+import { z } from 'zod';
 import { useGraph } from '../graph';
 import type { Edge } from '../graph/edges';
-import { isUnnavigaableRegion, type NavigableRegion, type Region } from '../graph/regions';
+import { isUnnavigaableRegion, type NavigableRegion, REGIONS, type Region } from '../graph/regions';
 import { useSelectedItems } from '../items/selected-items-context';
+
+const FROM_LOCAL_STORAGE_KEY = 'ml-p-from';
+const TO_LOCAL_STORAGE_KEY = 'ml-p-to';
+
+const regionSchema = z.enum(REGIONS).nullable();
 
 export type PathfinderContextValue = {
 	from: Region | null;
@@ -23,6 +29,14 @@ export function PathfinderContextProvider({ children }: React.PropsWithChildren)
 	const [to, setTo] = useState<Region | null>(null);
 	const graph = useGraph();
 	const { selectedItems } = useSelectedItems();
+
+	useEffect(() => {
+		const fromParseResult = regionSchema.safeParse(JSON.parse(localStorage.getItem(FROM_LOCAL_STORAGE_KEY) ?? 'null'));
+		const toParseResult = regionSchema.safeParse(JSON.parse(localStorage.getItem(TO_LOCAL_STORAGE_KEY) ?? 'null'));
+
+		if (fromParseResult.success) setFrom(fromParseResult.data);
+		if (toParseResult.success) setTo(toParseResult.data);
+	}, []);
 
 	const path = useMemo<Edge[]>(() => {
 		const path = { from, to };
@@ -48,15 +62,25 @@ export function PathfinderContextProvider({ children }: React.PropsWithChildren)
 		}
 	}, [from, graph, selectedItems, to]);
 
+	const setFromWrapped = useCallback<PathfinderContextValue['setFrom']>(localFrom => {
+		setFrom(localFrom);
+		localStorage.setItem(FROM_LOCAL_STORAGE_KEY, JSON.stringify(localFrom));
+	}, []);
+
+	const setToWrapped = useCallback<PathfinderContextValue['setTo']>(localTo => {
+		setTo(localTo);
+		localStorage.setItem(TO_LOCAL_STORAGE_KEY, JSON.stringify(localTo));
+	}, []);
+
 	const value = useMemo<PathfinderContextValue>(
 		() => ({
-			from: from,
+			from,
 			path,
-			setFrom: setFrom,
-			setTo: setTo,
-			to: to,
+			setFrom: setFromWrapped,
+			setTo: setToWrapped,
+			to,
 		}),
-		[from, path, to],
+		[from, path, setFromWrapped, setToWrapped, to],
 	);
 
 	return <PathfinderContext value={value}>{children}</PathfinderContext>;
