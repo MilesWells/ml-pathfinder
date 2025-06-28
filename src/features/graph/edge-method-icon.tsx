@@ -9,17 +9,11 @@ export type EdgeMethodIconProps = {
 };
 
 export function EdgeMethodIcon({ edge }: EdgeMethodIconProps) {
-	switch (edge.method) {
-		case 'Walk':
-			return <WalkIcon />;
-		case 'Taxi':
-		case 'Timed Taxi':
-		case 'Spinel':
-			if (edge.mesos === 0) return <TaxiIcon />;
+	if (edge.method === 'Walk') return <WalkIcon />;
 
-			return <MesosIcon mesos={edge.mesos} />;
-		case 'Item':
-		case 'Item Taxi':
-			return <ItemIcon item={edge.item} />;
-	}
+	if ('mesos' in edge && edge.mesos > 0) return <MesosIcon mesos={edge.mesos} />;
+
+	if ('item' in edge && edge.item !== null) return <ItemIcon item={edge.item} />;
+
+	return <TaxiIcon />;
 }

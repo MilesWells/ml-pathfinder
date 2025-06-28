@@ -1,4 +1,5 @@
 import type { Item } from '../items';
+import type { MapFeature } from '../map-features';
 import type { NPC } from '../npcs';
 import { type Region, SPINEL_REGIONS } from './regions';
 
@@ -7,13 +8,7 @@ export type WalkEdge = {
 };
 
 export type TaxiEdge = {
-	method: 'Taxi';
-	mesos: number;
-	npc: NPC;
-};
-
-export type TimedTaxiEdge = {
-	method: 'Timed Taxi';
+	method: 'Taxi' | 'Timed Taxi';
 	mesos: number;
 	npc: NPC;
 };
@@ -35,10 +30,16 @@ export type ItemTaxiEdge = {
 	npc: NPC;
 };
 
+export type MapFeatureEdge = {
+	item: Item | null;
+	method: 'Map Feature' | 'Timed Map Feature';
+	mapFeature: MapFeature;
+};
+
 export type RegionEdge = {
 	to: Region;
 	weight?: number;
-} & (WalkEdge | TaxiEdge | TimedTaxiEdge | SpinelEdge | ItemEdge | ItemTaxiEdge);
+} & (WalkEdge | TaxiEdge | SpinelEdge | ItemEdge | ItemTaxiEdge | MapFeatureEdge);
 
 export type EdgeMethod = RegionEdge['method'];
 export type EdgeId = `${EdgeMethod}|${Region}|${Region}`;
@@ -158,7 +159,9 @@ const EL_NATH = {
 const ELLIN_FOREST = {
 	edges: [
 		{
-			method: 'Walk',
+			item: null,
+			mapFeature: 'Altaire Camp: Small Forest',
+			method: 'Map Feature',
 			to: 'Ludibrium',
 		},
 	],
@@ -186,9 +189,9 @@ const HERB_TOWN = {
 const KOREAN_FOLK_TOWN = {
 	edges: [
 		{
-			mesos: 0,
-			method: 'Timed Taxi',
-			npc: 'Helios Tower <2nd Floor>',
+			item: null,
+			mapFeature: 'Helios Tower <2nd Floor>',
+			method: 'Timed Map Feature',
 			to: 'Ludibrium',
 		},
 		{
@@ -229,8 +232,8 @@ const LEAFRE = {
 	edges: [
 		{
 			item: 'Magic Seed',
-			method: 'Item Taxi',
-			npc: 'Minar Forest : West Border',
+			mapFeature: 'Minar Forest : West Border',
+			method: 'Map Feature',
 			to: 'Victoria Island',
 		},
 		{
@@ -259,15 +262,15 @@ const LUDIBRIUM = {
 			to: 'Orbis',
 		},
 		{
-			mesos: 0,
-			method: 'Taxi',
-			npc: 'Time Control Room',
+			item: null,
+			mapFeature: 'Helios Tower: Time Control Room',
+			method: 'Map Feature',
 			to: 'Ellin Forest',
 		},
 		{
-			mesos: 0,
-			method: 'Timed Taxi',
-			npc: 'Helios Tower <99th Floor>',
+			item: null,
+			mapFeature: 'Helios Tower <99th Floor>',
+			method: 'Timed Map Feature',
 			to: 'Korean Folk Town',
 		},
 		{
@@ -409,8 +412,8 @@ const OMEGA_SECTOR = {
 		},
 		{
 			item: 'Warp Card',
-			method: 'Item Taxi',
-			npc: 'Command Center',
+			mapFeature: 'Omega Sector: Command Center',
+			method: 'Map Feature',
 			to: 'Victoria Island',
 		},
 		{
@@ -538,7 +541,8 @@ const VICTORIA_ISLAND = {
 		},
 		{
 			item: 'Desert Coin',
-			method: 'Item',
+			mapFeature: 'Perion: Iron Boar Land',
+			method: 'Map Feature',
 			to: 'Ariant',
 		},
 		{
@@ -556,8 +560,8 @@ const VICTORIA_ISLAND = {
 		},
 		{
 			item: 'Magic Seed',
-			method: 'Item Taxi',
-			npc: 'The Field Up North of Ellinia',
+			mapFeature: 'The Field Up North of Ellinia',
+			method: 'Map Feature',
 			to: 'Leafre',
 		},
 		{
@@ -580,8 +584,8 @@ const VICTORIA_ISLAND = {
 		},
 		{
 			item: 'Warp Card',
-			method: 'Item Taxi',
-			npc: 'Nautilus: Navigation Room',
+			mapFeature: 'Nautilus: Navigation Room',
+			method: 'Map Feature',
 			to: 'Omega Sector',
 		},
 		{
@@ -616,8 +620,10 @@ const VICTORIA_ISLAND = {
 const edgeSortWeights: Record<EdgeMethod, number> = {
 	Item: 3,
 	'Item Taxi': 3,
+	'Map Feature': 3,
 	Spinel: 2,
 	Taxi: 2,
+	'Timed Map Feature': 1,
 	'Timed Taxi': 1,
 	Walk: 0,
 };

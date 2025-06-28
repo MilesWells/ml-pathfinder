@@ -1,8 +1,8 @@
 import { Text } from '@mantine/core';
 import { ExternalLink } from '@/ui/external-link';
-import type { Edge, ItemEdge, ItemTaxiEdge } from '../edges';
+import type { Edge, ItemEdge, ItemTaxiEdge, MapFeatureEdge } from '../edges';
 
-export type ItemUseEdge = Extract<Edge, ItemEdge | ItemTaxiEdge>;
+export type ItemUseEdge = Extract<Edge, ItemEdge | ItemTaxiEdge | MapFeatureEdge>;
 
 export type ItemUseEdgeDetailsProps = {
 	edge: ItemUseEdge;

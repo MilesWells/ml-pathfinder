@@ -9,8 +9,10 @@ import { REGIONS, type Region } from './regions';
 const edgeMethodWeights: Record<EdgeMethod, number> = {
 	Item: 0,
 	'Item Taxi': 1,
+	'Map Feature': 1,
 	Spinel: 1,
 	Taxi: 1,
+	'Timed Map Feature': 2,
 	'Timed Taxi': 2,
 	Walk: 2,
 };

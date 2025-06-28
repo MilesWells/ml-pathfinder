@@ -1,15 +1,5 @@
 import { IMAGE_PLACEHOLDER } from '@/ui/image-placeholder';
 
-const mapLocations = [
-	'Command Center',
-	'Helios Tower <2nd Floor>',
-	'Helios Tower <99th Floor>',
-	'Minar Forest : West Border',
-	'Nautilus: Navigation Room',
-	'The Field Up North of Ellinia',
-	'Time Control Room',
-] as const;
-
 export const NPCS = [
 	'Astralis',
 	'Astrum',
@@ -44,14 +34,13 @@ export const NPCS = [
 	'Tito (Victoria)',
 	'Tommie',
 	'Shalon',
-	...mapLocations,
 ] as const;
 
 export type NPC = (typeof NPCS)[number];
 
 export type NPCDetails = {
 	docsLink: string;
-	image: string | null;
+	image: string;
 };
 
 export const npcDetailsMap = {
@@ -89,10 +78,6 @@ export const npcDetailsMap = {
 		docsLink: 'https://maplelegends.com/lib/npc?id=9001000',
 		image: '/images/npcs/cokebear-administrator.png',
 	},
-	'Command Center': {
-		docsLink: 'https://maplelegends.com/lib/map?id=221000300',
-		image: null,
-	},
 	Corba: {
 		docsLink: 'https://maplelegends.com/lib/npc?id=2082003',
 		image: '/images/npcs/corba.png',
@@ -129,14 +114,6 @@ export const npcDetailsMap = {
 		docsLink: 'https://maplelegends.com/lib/npc?id=2090005',
 		image: '/images/npcs/hak.png',
 	},
-	'Helios Tower <2nd Floor>': {
-		docsLink: 'https://maplelegends.com/lib/map?id=222020100',
-		image: null,
-	},
-	'Helios Tower <99th Floor>': {
-		docsLink: 'https://maplelegends.com/lib/map?id=222020200',
-		image: null,
-	},
 	Irene: {
 		docsLink: 'https://maplelegends.com/lib/npc?id=9270041',
 		image: '/images/npcs/irene.png',
@@ -145,17 +122,9 @@ export const npcDetailsMap = {
 		docsLink: 'https://maplelegends.com/lib/npc?id=2101013',
 		image: '/images/npcs/karcasa.png',
 	},
-	'Minar Forest : West Border': {
-		docsLink: 'https://maplelegends.com/lib/map?id=240010100',
-		image: null,
-	},
 	Nara: {
 		docsLink: 'https://maplelegends.com/lib/npc?id=2040048',
 		image: '/images/npcs/nara.png',
-	},
-	'Nautilus: Navigation Room': {
-		docsLink: 'https://maplelegends.com/lib/map?id=120000101',
-		image: null,
 	},
 	'Orbis Magic Spot': {
 		docsLink: 'https://maplelegends.com/lib/npc?id=2012014',
@@ -189,10 +158,6 @@ export const npcDetailsMap = {
 		docsLink: 'https://maplelegends.com/lib/npc?id=2102002',
 		image: '/images/npcs/syras.png',
 	},
-	'The Field Up North of Ellinia': {
-		docsLink: 'https://maplelegends.com/lib/map?id=101010000',
-		image: null,
-	},
 	'Thomas Swift': {
 		docsLink: 'https://maplelegends.com/lib/npc?id=9201022',
 		image: '/images/npcs/thomas-swift.png',
@@ -200,10 +165,6 @@ export const npcDetailsMap = {
 	Tian: {
 		docsLink: 'https://maplelegends.com/lib/npc?id=2041000',
 		image: '/images/npcs/tian.png',
-	},
-	'Time Control Room': {
-		docsLink: 'https://maplelegends.com/lib/map?id=222020400',
-		image: null,
 	},
 	'Tito (Taiwan)': {
 		docsLink: 'https://maplelegends.com/lib/npc?id=9330014',
