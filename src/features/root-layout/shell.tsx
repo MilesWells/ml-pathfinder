@@ -11,7 +11,7 @@ export default function Shell({ children }: React.PropsWithChildren) {
 		>
 			<AppShellMain>
 				<Center>
-					<Title p="xs" ta="center">
+					<Title ta="center" textWrap="wrap">
 						MapleLegends Pathfinder
 					</Title>
 				</Center>

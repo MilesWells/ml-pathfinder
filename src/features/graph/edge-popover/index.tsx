@@ -39,12 +39,18 @@ export function EdgePopover({ edge, label }: EdgePopoverProps) {
 	return (
 		<Popover opened={opened} position="right" shadow="md" withArrow>
 			<PopoverTarget>
-				<Center onMouseEnter={handleOpen} onMouseLeave={handleClose} style={{ cursor: 'pointer' }}>
+				<Center
+					c="meso-yellow.6"
+					onMouseEnter={handleOpen}
+					onMouseLeave={handleClose}
+					style={{ cursor: 'pointer' }}
+					td="underline"
+				>
 					{label}
 				</Center>
 			</PopoverTarget>
 
-			<PopoverDropdown onMouseEnter={handleOpen} onMouseLeave={handleClose}>
+			<PopoverDropdown bg="dark.9" onMouseEnter={handleOpen} onMouseLeave={handleClose}>
 				<Center style={{ flexDirection: 'column' }}>
 					{edge.method === 'Walk' && <Text>Walk</Text>}
 					{'npc' in edge && <NpcPopoverContent edge={edge} />}

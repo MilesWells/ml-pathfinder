@@ -14,7 +14,7 @@ export function PathfinderInputFeedback() {
 
 	if (from && isUnnavigaableRegion(from)) {
 		content = (
-			<Text fz="lg">
+			<Text fz="lg" ta="center">
 				First move back to your original location via {from === 'Florina Beach' ? <PisonLink /> : <SpinelLink />}
 			</Text>
 		);
@@ -22,7 +22,7 @@ export function PathfinderInputFeedback() {
 
 	if (to === 'Neo Tokyo' && !selectedItems['Gate Pass'])
 		content = (
-			<Text fz="lg">
+			<Text fz="lg" ta="center">
 				Accessing Neo Tokyo requires the{' '}
 				<ExternalLink href="https://forum.maplelegends.com/index.php?threads/neo-tokyo-guide.25729/">
 					Gate Pass

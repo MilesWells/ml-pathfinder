@@ -12,7 +12,7 @@ export function PathfinderInput() {
 
 	return (
 		<Stack>
-			<Button mx="auto" onClick={openItemsList} w="fit-content">
+			<Button mx="auto" onClick={openItemsList} size="compact-lg" w="fit-content">
 				Select Items
 			</Button>
 
