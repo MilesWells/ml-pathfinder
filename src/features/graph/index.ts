@@ -26,7 +26,7 @@ export function useGraph() {
 		for (const node of REGIONS) graph.addNode(node);
 
 		const filteredEdges = edges.filter(edge => {
-			if (edge.method !== 'Item' && edge.method !== 'Item Taxi') return true;
+			if (!('item' in edge) || edge.item === null) return true;
 
 			if (selectedItems[edge.item]) return true;
 

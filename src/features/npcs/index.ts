@@ -108,7 +108,7 @@ export const npcDetailsMap = {
 	},
 	Geras: {
 		docsLink: 'https://maplelegends.com/lib/npc?id=2012025',
-		image: 'images/npcs/geras',
+		image: 'images/npcs/geras.png',
 	},
 	Hak: {
 		docsLink: 'https://maplelegends.com/lib/npc?id=2090005',
