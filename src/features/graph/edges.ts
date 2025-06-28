@@ -143,7 +143,6 @@ const EL_NATH = {
 		{
 			method: 'Walk',
 			to: 'Orbis',
-			weight: 5,
 		},
 		{
 			item: 'Orbis Rock Scroll',
@@ -305,7 +304,6 @@ const LUDIBRIUM = {
 		{
 			method: 'Walk',
 			to: 'Omega Sector',
-			weight: 5,
 		},
 	],
 	region: 'Ludibrium',
@@ -408,7 +406,6 @@ const OMEGA_SECTOR = {
 		{
 			method: 'Walk',
 			to: 'Ludibrium',
-			weight: 5,
 		},
 		{
 			item: 'Warp Card',
@@ -556,7 +553,6 @@ const VICTORIA_ISLAND = {
 			method: 'Timed Taxi',
 			npc: 'Cherry',
 			to: 'Orbis',
-			weight: 5,
 		},
 		{
 			item: 'Magic Seed',
