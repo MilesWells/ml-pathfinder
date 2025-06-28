@@ -12,9 +12,9 @@ const edgeMethodWeights: Record<EdgeMethod, number> = {
 	'Map Feature': 1,
 	Spinel: 1,
 	Taxi: 1,
-	'Timed Map Feature': 2,
-	'Timed Taxi': 2,
-	Walk: 2,
+	'Timed Map Feature': 3,
+	'Timed Taxi': 3,
+	Walk: 10,
 };
 
 export function useGraph() {

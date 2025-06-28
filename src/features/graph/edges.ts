@@ -618,12 +618,12 @@ const VICTORIA_ISLAND = {
 	overwrite less preferable ones.
 */
 const edgeSortWeights: Record<EdgeMethod, number> = {
-	Item: 3,
-	'Item Taxi': 3,
-	'Map Feature': 3,
-	Spinel: 2,
-	Taxi: 2,
-	'Timed Map Feature': 1,
+	Item: 7,
+	'Item Taxi': 6,
+	'Map Feature': 5,
+	Spinel: 4,
+	Taxi: 3,
+	'Timed Map Feature': 2,
 	'Timed Taxi': 1,
 	Walk: 0,
 };
