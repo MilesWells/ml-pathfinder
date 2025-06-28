@@ -28,13 +28,15 @@ export type SelectedItemMap = z.infer<typeof selectedItemsMapSchema>;
 
 export type SelectedItemsContextValue = {
 	addItem: (item: Item | Item[]) => void;
+	removeAll: () => void;
 	removeItem: (item: Item | Item[]) => void;
 	selectedItems: SelectedItemMap;
+	selectAll: () => void;
 };
 
 export const SelectedItemsContext = createContext<SelectedItemsContextValue | null>(null);
 
-const DEFAULT_ITEMS: SelectedItemMap = {
+const DEFAULT_ITEMS_FALSE: SelectedItemMap = {
 	'Command Center Warp Capsule': false,
 	'Desert Coin': false,
 	'Energy Shard': false,
@@ -52,8 +54,26 @@ const DEFAULT_ITEMS: SelectedItemMap = {
 	'Warp Card': false,
 };
 
+const DEFAULT_ITEMS_TRUE: SelectedItemMap = {
+	'Command Center Warp Capsule': true,
+	'Desert Coin': true,
+	'Energy Shard': true,
+	'Eos Rock Scroll': true,
+	'Fruit Milk': true,
+	'Gate Pass': true,
+	'Ludibrium Warp Capsule': true,
+	'Magic Seed': true,
+	'Omega Sector Warp Capsule': true,
+	'Orbis Rock Scroll': true,
+	'Return Scroll - Nearest Town': true,
+	'Return to New Leaf City Scroll': true,
+	'Strawberry Milk': true,
+	'VIP Ticket to Florina Beach': true,
+	'Warp Card': true,
+};
+
 export function SelectedItemsProvider({ children }: React.PropsWithChildren) {
-	const [selectedItems, setSelectedItems] = useState<SelectedItemMap>(DEFAULT_ITEMS);
+	const [selectedItems, setSelectedItems] = useState<SelectedItemMap>(DEFAULT_ITEMS_FALSE);
 
 	useEffect(() => {
 		const localStorageValue = localStorage.getItem(LOCAL_STORAGE_KEY);
@@ -108,13 +128,25 @@ export function SelectedItemsProvider({ children }: React.PropsWithChildren) {
 		});
 	}, []);
 
+	const removeAll = useCallback(() => {
+		setSelectedItems(DEFAULT_ITEMS_FALSE);
+		localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(DEFAULT_ITEMS_FALSE));
+	}, []);
+
+	const selectAll = useCallback(() => {
+		setSelectedItems(DEFAULT_ITEMS_TRUE);
+		localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(DEFAULT_ITEMS_TRUE));
+	}, []);
+
 	const value = useMemo(
 		() => ({
 			addItem,
+			removeAll,
 			removeItem,
+			selectAll,
 			selectedItems,
 		}),
-		[addItem, removeItem, selectedItems],
+		[addItem, removeAll, removeItem, selectAll, selectedItems],
 	);
 
 	return <SelectedItemsContext value={value}>{children}</SelectedItemsContext>;

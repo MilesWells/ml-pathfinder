@@ -1,15 +1,28 @@
 'use client';
 
 import { Checkbox, Group, Stack, Text } from '@mantine/core';
+import { useMemo } from 'react';
 import { type Item, items } from '.';
 import { ItemIcon } from './item-icon';
 import { useSelectedItems } from './selected-items-context';
 
 export function ItemCheckList() {
-	const { addItem, removeItem, selectedItems } = useSelectedItems();
+	const { addItem, removeItem, removeAll, selectAll, selectedItems } = useSelectedItems();
+
+	const allSelected = useMemo(() => Object.entries(selectedItems).every(([, hasItem]) => hasItem), [selectedItems]);
 
 	return (
 		<Stack>
+			<Checkbox
+				checked={allSelected}
+				label={<Text>Select All</Text>}
+				onChange={({ currentTarget: { checked } }) => {
+					if (checked) selectAll();
+					else removeAll();
+				}}
+				styles={{ body: { alignItems: 'center' } }}
+			/>
+
 			{items.map(item => (
 				<Checkbox
 					checked={selectedItems[item]}
