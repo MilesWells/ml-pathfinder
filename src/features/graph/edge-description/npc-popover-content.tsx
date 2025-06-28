@@ -14,9 +14,11 @@ export function NpcPopoverContent({ edge }: NpcPopoverContentProps) {
 
 	return (
 		<>
-			<ExternalLink href={docsLink} mb="md" mt="sm">
-				<img alt={edge.npc} src={image} />
-			</ExternalLink>
+			{image && (
+				<ExternalLink href={docsLink} mb="md" mt="sm">
+					<img alt={edge.npc} src={image} />
+				</ExternalLink>
+			)}
 
 			<Text>
 				NPC: <ExternalLink href={docsLink}>{edge.npc}</ExternalLink>

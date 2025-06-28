@@ -1,5 +1,3 @@
-import { IMAGE_PLACEHOLDER } from '@/ui/image-placeholder';
-
 export const NPCS = [
 	'Astralis',
 	'Astrum',
@@ -40,19 +38,19 @@ export type NPC = (typeof NPCS)[number];
 
 export type NPCDetails = {
 	docsLink: string;
-	image: string;
+	image: string | null;
 };
 
 export const npcDetailsMap = {
 	Astralis: {
 		// located in Omega Sector
 		docsLink: 'https://maplelegends.com/lib/npc?id=1052311',
-		image: IMAGE_PLACEHOLDER,
+		image: null,
 	},
 	Astrum: {
 		// located in KFT
 		docsLink: 'https://maplelegends.com/lib/npc?id=1052310',
-		image: IMAGE_PLACEHOLDER,
+		image: null,
 	},
 	Bell: {
 		docsLink: 'https://maplelegends.com/lib/npc?id=9201057',

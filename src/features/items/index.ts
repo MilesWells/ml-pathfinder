@@ -1,5 +1,3 @@
-import { IMAGE_PLACEHOLDER } from '@/ui/image-placeholder';
-
 export const items = [
 	'Command Center Warp Capsule',
 	'Desert Coin',
@@ -24,6 +22,8 @@ export type ItemDetails = {
 	image: string;
 	docsLink: string;
 };
+
+const IMAGE_PLACEHOLDER = '/images/slime-sweat.png';
 
 export const itemDetailsMap = {
 	'Command Center Warp Capsule': {
