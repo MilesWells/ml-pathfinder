@@ -10,10 +10,16 @@ export type MapFeaturePopoverContentProps = {
 };
 
 export function MapFeaturePopoverContent({ edge }: MapFeaturePopoverContentProps) {
-	const { description, docsLink } = mapFeatureDetailsMap[edge.mapFeature];
+	const { description, docsLink, image } = mapFeatureDetailsMap[edge.mapFeature];
 
 	return (
 		<>
+			{image && (
+				<ExternalLink href={docsLink} mb="md" mt="sm">
+					<img alt={edge.mapFeature} src={image} />
+				</ExternalLink>
+			)}
+
 			<Text ta="center">
 				Map: <ExternalLink href={docsLink}>{edge.mapFeature}</ExternalLink>
 			</Text>

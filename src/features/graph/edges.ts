@@ -232,7 +232,7 @@ const LEAFRE = {
 	edges: [
 		{
 			item: 'Magic Seed',
-			mapFeature: 'Minar Forest : West Border',
+			mapFeature: 'Minar Forest: West Border',
 			method: 'Map Feature',
 			to: 'Victoria Island',
 		},
