@@ -1,7 +1,4 @@
-'use client';
-
-import { Center } from '@mantine/core';
-import { ExternalLink } from '@/ui/external-link';
+import { Box } from '@mantine/core';
 import { type Item, itemDetailsMap } from '.';
 
 export type ItemIconProps = {
@@ -9,22 +6,24 @@ export type ItemIconProps = {
 };
 
 export function ItemIcon({ item }: ItemIconProps) {
-	const image = itemDetailsMap[item].image;
-
 	return (
-		<ExternalLink href={itemDetailsMap[item].docsLink}>
-			<Center
-				styles={{
-					root: {
-						cursor: 'pointer',
-						height: 30,
-						width: 30,
-					},
+		<Box
+			component="span"
+			display="inline-flex"
+			h={30}
+			style={{
+				verticalAlign: 'middle',
+			}}
+			w={30}
+		>
+			<img
+				alt={item}
+				src={itemDetailsMap[item].image}
+				style={{
+					margin: 'auto',
 				}}
 				title={item}
-			>
-				<img alt={item} src={image} />
-			</Center>
-		</ExternalLink>
+			/>
+		</Box>
 	);
 }

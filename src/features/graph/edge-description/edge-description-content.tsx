@@ -18,7 +18,8 @@ export function EdgeDescriptionContent({ edge }: EdgeDescriptionContentProps) {
 			{edge.method === 'Walk' && <Text>Walk</Text>}
 			{'npc' in edge && <NpcPopoverContent edge={edge} />}
 			{'mapFeature' in edge && <MapFeaturePopoverContent edge={edge} />}
-			{'item' in edge && edge.item && (
+			{'mesos' in edge && <MesosPopoverContent edge={edge} />}
+			{'item' in edge && !('mapFeature' in edge) && (
 				<>
 					<Text>
 						Item: <ExternalLink href={itemDetailsMap[edge.item].docsLink}>{edge.item}</ExternalLink>
@@ -29,7 +30,6 @@ export function EdgeDescriptionContent({ edge }: EdgeDescriptionContentProps) {
 					<ItemConsumption item={edge.item} />
 				</>
 			)}
-			{'mesos' in edge && <MesosPopoverContent edge={edge} />}
 		</>
 	);
 }

@@ -1,3 +1,8 @@
+import { Text } from '@mantine/core';
+import { ExternalLink } from '@/ui/external-link';
+import { itemDetailsMap } from '../items';
+import { ItemIcon } from '../items/item-icon';
+
 export const mapFeatures = [
 	'Altaire Camp: Small Forest',
 	'Omega Sector: Command Center',
@@ -13,7 +18,7 @@ export const mapFeatures = [
 export type MapFeature = (typeof mapFeatures)[number];
 
 export type MapFeatureDetails = {
-	description: string;
+	description: React.ReactNode;
 	docsLink: string;
 	image: string | null;
 };
@@ -40,27 +45,72 @@ export const mapFeatureDetailsMap = {
 		image: '/images/map-features/helios-tower-time-control-room.png',
 	},
 	'Minar Forest: West Border': {
-		description: 'Enter the green portal',
+		description: (
+			<>
+				<Text component="span">Enter the green portal with a </Text>
+				<ExternalLink href={itemDetailsMap['Magic Seed'].docsLink}>
+					<ItemIcon item="Magic Seed" />
+					Magic Seed
+				</ExternalLink>
+				<Text component="span"> in your inventory</Text>
+			</>
+		),
 		docsLink: 'https://maplelegends.com/lib/map?id=240010100',
 		image: '/images/map-features/minar-forest-west-border.png',
 	},
 	'Nautilus: Navigation Room': {
-		description: 'Enter the warp device',
+		description: (
+			<>
+				<Text component="span">Enter the warp device with a </Text>
+				<ExternalLink href={itemDetailsMap['Warp Card'].docsLink}>
+					<ItemIcon item="Warp Card" />
+					Warp Card
+				</ExternalLink>
+				<Text component="span"> in your inventory</Text>
+			</>
+		),
 		docsLink: 'https://maplelegends.com/lib/map?id=120000101',
 		image: null,
 	},
 	'Omega Sector: Command Center': {
-		description: 'Enter the warp device',
+		description: (
+			<>
+				<Text component="span">Enter the warp device with a </Text>
+				<ExternalLink href={itemDetailsMap['Warp Card'].docsLink}>
+					<ItemIcon item="Warp Card" />
+					Warp Card
+				</ExternalLink>
+				<Text component="span"> in your inventory</Text>
+			</>
+		),
 		docsLink: 'https://maplelegends.com/lib/map?id=221000300',
 		image: null,
 	},
 	'Perion: Iron Boar Land': {
-		description: 'Enter the red portal',
+		description: (
+			<>
+				<Text component="span">Enter the red portal with a </Text>
+				<ExternalLink href={itemDetailsMap['Desert Coin'].docsLink}>
+					<ItemIcon item="Desert Coin" />
+					Desert Coin
+				</ExternalLink>
+				<Text component="span"> in your inventory</Text>
+			</>
+		),
 		docsLink: 'https://maplelegends.com/lib/map?id=101040003',
 		image: '/images/map-features/perion-iron-boar-land.png',
 	},
 	'The Field Up North of Ellinia': {
-		description: 'Enter the green portal',
+		description: (
+			<>
+				<Text component="span">Enter the green portal with a </Text>
+				<ExternalLink href={itemDetailsMap['Magic Seed'].docsLink}>
+					<ItemIcon item="Magic Seed" />
+					Magic Seed
+				</ExternalLink>
+				<Text component="span"> in your inventory</Text>
+			</>
+		),
 		docsLink: 'https://maplelegends.com/lib/map?id=101010000',
 		image: '/images/map-features/the-field-up-north-of-ellinia.png',
 	},
