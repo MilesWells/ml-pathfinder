@@ -1,4 +1,5 @@
 import { Text } from '@mantine/core';
+import { ItemUseRestrictions } from '@/lib/items/item-use-restrictions';
 import { ExternalLink } from '@/ui/external-link';
 import type { Edge, ItemEdge, ItemTaxiEdge, MapFeatureEdge } from '../edges';
 
@@ -9,19 +10,6 @@ export type ItemUseEdgeDetailsProps = {
 };
 
 export function ItemUseEdgeDetails({ edge: { from, to, item } }: ItemUseEdgeDetailsProps) {
-	if (
-		item === 'Command Center Warp Capsule' ||
-		item === 'Ludibrium Warp Capsule' ||
-		item === 'Omega Sector Warp Capsule'
-	)
-		return <Text fs="italic">Only works within Ludus Lake</Text>;
-
-	if (item === 'Return to New Leaf City Scroll')
-		return <Text fs="italic">Only works within Victoria Island</Text>;
-
-	if (item === 'Fruit Milk' || item === 'Strawberry Milk')
-		return <Text fs="italic">Only works within Zipangu</Text>;
-
 	if (item === 'Return Scroll - Nearest Town') {
 		if (from === 'Korean Folk Town' && to === 'Aqua Road')
 			return (
@@ -33,6 +21,8 @@ export function ItemUseEdgeDetails({ edge: { from, to, item } }: ItemUseEdgeDeta
 				</Text>
 			);
 	}
+
+	if (item) return <ItemUseRestrictions item={item} />;
 
 	return null;
 }

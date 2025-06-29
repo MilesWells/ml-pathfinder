@@ -305,6 +305,7 @@ const LUDIBRIUM = {
 			method: 'Walk',
 			to: 'Omega Sector',
 		},
+		...SPINEL_EDGES,
 	],
 	region: 'Ludibrium',
 } satisfies RegionEdges;

@@ -6,6 +6,7 @@ applyTo: "**/*.ts,**/*.tsx"
 - Never look at any file ignored by git via .gitignore
 - Never search any file in the node_modules, out, or .next directories
 - Do not alter the structure of any existing code
+- Never create any new files unless instructed
 
 ## TypeScript Guidelines
 - Use TypeScript for all new code

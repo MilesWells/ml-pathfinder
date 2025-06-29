@@ -4,7 +4,9 @@ import { Center, Drawer } from '@mantine/core';
 import { itemDetailsMap, items } from '@/lib/items';
 import { ItemIcon } from '@/ui/item-icon';
 import { ItemCheckList } from './item-check-list';
+import { ItemConsumption } from './item-consumption';
 import { useItemDrawersStack } from './item-drawer-context';
+import { ItemUseRestrictions } from './item-use-restrictions';
 
 export function ItemDrawers() {
 	const itemStack = useItemDrawersStack();
@@ -35,6 +37,10 @@ export function ItemDrawers() {
 					>
 						<Center h="100%" style={{ flexDirection: 'column', gap: 8 }}>
 							<ItemIcon item={item} />
+
+							<ItemUseRestrictions item={item} />
+
+							<ItemConsumption item={item} />
 
 							{details}
 						</Center>

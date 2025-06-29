@@ -1,3 +1,8 @@
+# TODO
+
+- fix energy shard stuff
+- colors
+
 # Credit
 
 https://forum.maplelegends.com/index.php?threads/travel-guide-sishous-maplelegends-navigation-guide-and-tips.57168/

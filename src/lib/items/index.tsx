@@ -1,8 +1,8 @@
 import { Center, Divider, List, ListItem, Stack, Text, Title } from '@mantine/core';
 import { ExternalLink } from '@/ui/external-link';
-import { mapFeatureDetailsMap } from '../map-features';
 import { MapFeatureDetails } from '../map-features/map-feature-details';
-import { MapFeatureImage } from '../map-features/map-feature-image';
+import { NpcExternalLink } from '../npcs/npc-external-link';
+import { ItemDrawerLink } from './item-drawer-link';
 
 export const items = [
 	'Command Center Warp Capsule',
@@ -35,7 +35,7 @@ export const itemDetailsMap = {
 	'Command Center Warp Capsule': {
 		details: (
 			<Text ta="center">
-				Only obtainable via quests. See{' '}
+				Obtainable via quests. See{' '}
 				<ExternalLink href="https://bbb.hidden-street.net/items/return-scroll/command-center-warp-capsule">
 					BBB
 				</ExternalLink>{' '}
@@ -46,20 +46,20 @@ export const itemDetailsMap = {
 	},
 	'Desert Coin': {
 		details: (
-			<Center style={{ flexDirection: 'column', gap: 8 }}>
-				<Text ta="center">
+			<Center style={{ flexDirection: 'column', gap: 8 }} ta="center">
+				<Text>
 					<ExternalLink href="https://maplelegends.com/lib/etc?id=4031889">
 						Desert Coins
 					</ExternalLink>{' '}
 					are custom content that allow you to warp from Perion to the Sahel desert.
 				</Text>
 
-				<Text mb="sm" ta="center">
+				<Text mb="sm">
 					See the{' '}
 					<ExternalLink href="https://forum.maplelegends.com/index.php?threads/general-patch-notes-october-9-2022.47422/">
 						official patch notes
 					</ExternalLink>{' '}
-					for info on how to obtain Desert Coins.
+					to find how to obtain Desert Coins.
 				</Text>
 
 				<Divider w="100%" />
@@ -75,21 +75,19 @@ export const itemDetailsMap = {
 	},
 	'Energy Shard': {
 		details: (
-			<Center style={{ flexDirection: 'column', gap: 8 }}>
-				<Text ta="center">
+			<Center style={{ flexDirection: 'column', gap: 8 }} ta="center">
+				<Text>
 					<ExternalLink href="https://maplelegends.com/lib/etc?id=4035060">
 						Energy Shards
 					</ExternalLink>{' '}
 					are custom content that allow warping between Korean Folk Town and Omega Sector.
 				</Text>
 
-				<Text ta="center">
-					Obtaining Energy Shards first requires completing tier 3 of the HP Challenges.
-				</Text>
+				<Text>Obtaining Energy Shards first requires completing tier 3 of the HP Challenges.</Text>
 
 				<Divider my="md" w="100%" />
 
-				<List spacing={8} ta="center" type="ordered">
+				<List spacing={8} type="ordered">
 					<ListItem>
 						Read up on the{' '}
 						<ExternalLink href="https://forum.maplelegends.com/index.php?threads/release-challenges-system-hp-wash-alternative.51808/">
@@ -114,99 +112,236 @@ export const itemDetailsMap = {
 		image: IMAGE_PLACEHOLDER,
 	},
 	'Eos Rock Scroll': {
+		details: (
+			<Center style={{ flexDirection: 'column', gap: 8 }} ta="center">
+				<Text>
+					Obtainable via quests. See{' '}
+					<ExternalLink href="https://bbb.hidden-street.net/items/quest/eos-rock-scroll">
+						BBB
+					</ExternalLink>{' '}
+					for quest info.
+				</Text>
+
+				<Divider my="lg" w="100%" />
+
+				<Title order={5} td="underline">
+					Ludibrium {`->`} Omega Sector
+				</Title>
+
+				<List type="ordered">
+					<ListItem>
+						Talk to <NpcExternalLink npc="First Eos Rock" />
+					</ListItem>
+					<ListItem>Use Eos Rock Scrolls to reach the 41st floor</ListItem>
+					<ListItem>
+						Use a <ItemDrawerLink item="Return Scroll - Nearest Town" />
+					</ListItem>
+					<ListItem>Arrive in Omega Sector</ListItem>
+				</List>
+
+				<Divider my="lg" w="100%" />
+
+				<Title order={5} td="underline">
+					Omega Sector {`->`} Ludibrium
+				</Title>
+
+				<List type="ordered">
+					<ListItem>
+						Talk to <NpcExternalLink npc="Fourth Eos Rock" />
+					</ListItem>
+					<ListItem>Use Eos Rock Scrolls to reach the 71st floor</ListItem>
+					<ListItem>
+						Use a <ItemDrawerLink item="Return Scroll - Nearest Town" />
+					</ListItem>
+					<ListItem>Arrive in Ludibrium</ListItem>
+				</List>
+			</Center>
+		),
 		image: '/images/items/eos-rock-scroll.png',
-		links: {
-			bbb: 'https://bbb.hidden-street.net/items/quest/eos-rock-scroll',
-			library: 'https://maplelegends.com/lib/etc?id=4001020',
-			otherDocs: null,
-		},
 	},
 	'Fruit Milk': {
+		details: (
+			<Text ta="center">
+				Purchased from{' '}
+				<ExternalLink href="https://bbb.hidden-street.net/npc/momoyo">Momyo in Showa</ExternalLink>
+			</Text>
+		),
 		image: '/images/items/fruit-milk.png',
-		links: {
-			bbb: 'https://bbb.hidden-street.net/items/return-scroll/fruit-milk',
-			library: 'https://maplelegends.com/lib/use?id=2030010',
-			otherDocs: null,
-		},
 	},
 	'Gate Pass': {
+		details: (
+			<Text ta="center">
+				Follow{' '}
+				<ExternalLink href="https://forum.maplelegends.com/index.php?threads/neo-tokyo-guide.25729/">
+					Zooploop's guide
+				</ExternalLink>{' '}
+				to access Neo Tokyo
+			</Text>
+		),
 		image: IMAGE_PLACEHOLDER,
-		links: {
-			bbb: null,
-			library: null,
-			otherDocs: 'https://forum.maplelegends.com/index.php?threads/neo-tokyo-guide.25729/',
-		},
 	},
 	'Ludibrium Warp Capsule': {
+		details: (
+			<Text ta="center">
+				Obtainable via quests. See{' '}
+				<ExternalLink href="https://bbb.hidden-street.net/items/return-scroll/ludibrium-warp-capsule">
+					BBB
+				</ExternalLink>{' '}
+				for quest info.
+			</Text>
+		),
 		image: '/images/items/warp-capsule.png',
-		links: {
-			bbb: 'https://bbb.hidden-street.net/items/return-scroll/ludibrium-warp-capsule',
-			library: 'https://maplelegends.com/lib/use?id=2030012',
-			otherDocs: null,
-		},
 	},
 	'Magic Seed': {
+		details: (
+			<Text ta="center">
+				Purchased from{' '}
+				<ExternalLink href="https://bbb.hidden-street.net/npc/chief-tatamo">
+					Chief Tatamo
+				</ExternalLink>{' '}
+				after completion of{' '}
+				<ExternalLink href="https://bbb.hidden-street.net/quest/victoria-island/the-messenger-of-the-fairy-forest">
+					The Messenger of the Fairy Forest
+				</ExternalLink>{' '}
+				quest
+			</Text>
+		),
 		image: '/images/items/magic-seed.png',
-		links: {
-			bbb: 'https://bbb.hidden-street.net/items/quest/magic-seed-2',
-			library: 'https://maplelegends.com/lib/npc?id=2081000',
-			otherDocs: null,
-		},
 	},
 	'Omega Sector Warp Capsule': {
+		details: (
+			<Text ta="center">
+				Obtainable via quests. See{' '}
+				<ExternalLink href="https://bbb.hidden-street.net/items/return-scroll/omega-sector-warp-capsule">
+					BBB
+				</ExternalLink>{' '}
+				for quest info.
+			</Text>
+		),
 		image: '/images/items/warp-capsule.png',
-		links: {
-			bbb: 'https://bbb.hidden-street.net/items/return-scroll/omega-sector-warp-capsule',
-			library: 'https://maplelegends.com/lib/etc?id=4031221',
-			otherDocs: null,
-		},
 	},
 	'Orbis Rock Scroll': {
+		details: (
+			<Center style={{ flexDirection: 'column', gap: 8 }} ta="center">
+				<Text>
+					Obtainable via quests. See{' '}
+					<ExternalLink href="https://bbb.hidden-street.net/items/quest/orbis-rock-scroll">
+						BBB
+					</ExternalLink>{' '}
+					for quest info.
+				</Text>
+
+				<Divider my="lg" w="100%" />
+
+				<Title order={5} td="underline">
+					Starting from Orbis
+				</Title>
+
+				<Stack>
+					<Text>
+						Talk to <NpcExternalLink npc="Orbis Magic Spot" /> to reach the 1st floor
+					</Text>
+
+					<Text>
+						Use a <ItemDrawerLink item="Return Scroll - Nearest Town" /> to get to El Nath
+					</Text>
+
+					<Text>
+						OR continue to{' '}
+						<ExternalLink href="https://maplelegends.com/lib/map?id=230010000">
+							Aqua Road: Ocean I.C
+						</ExternalLink>{' '}
+						before using to reach Aquarium
+					</Text>
+				</Stack>
+
+				<Divider my="lg" w="100%" />
+
+				<Title order={5} td="underline">
+					Starting from Aquarium or El Nath
+				</Title>
+
+				<Stack>
+					<Text>
+						Walk to{' '}
+						<ExternalLink href="https://maplelegends.com/lib/map?id=200082100">
+							Orbis Tower {`<1st Floor>`}
+						</ExternalLink>
+					</Text>
+
+					<Text>
+						Talk to <NpcExternalLink npc="El Nath Magic Spot" /> to reach the 20th floor
+					</Text>
+
+					<Text>
+						Use a <ItemDrawerLink item="Return Scroll - Nearest Town" /> to get to Orbis
+					</Text>
+				</Stack>
+			</Center>
+		),
 		image: '/images/items/orbis-rock-scroll.png',
-		links: {
-			bbb: 'https://bbb.hidden-street.net/items/quest/orbis-rock-scroll',
-			library: 'https://maplelegends.com/lib/etc?id=4001019',
-			otherDocs: null,
-		},
 	},
 	'Return Scroll - Nearest Town': {
+		details: (
+			<Text ta="center">
+				Purchased from many vendors. See{' '}
+				<ExternalLink href="https://bbb.hidden-street.net/items/return-scroll/return-scroll-nearest-town">
+					BBB
+				</ExternalLink>{' '}
+				for info.
+			</Text>
+		),
 		image: '/images/items/return-scroll-nearest-town.png',
-		links: {
-			bbb: 'https://bbb.hidden-street.net/items/return-scroll/return-scroll-nearest-town',
-			library: 'https://maplelegends.com/lib/use?id=2030000',
-			otherDocs: null,
-		},
 	},
 	'Return to New Leaf City Scroll': {
+		details: (
+			<Center style={{ flexDirection: 'column', gap: 8 }} ta="center">
+				<Text>
+					Purchased from <ExternalLink href="https://bbb.hidden-street.net/npc/mo">Mo</ExternalLink>{' '}
+					after becoming an ally of the Raven Ninja Clan
+				</Text>
+
+				<Text>
+					To become an ally you must complete the quest{' '}
+					<ExternalLink href="https://bbb.hidden-street.net/quest/masteria/the-right-path">
+						The Right Path
+					</ExternalLink>
+				</Text>
+			</Center>
+		),
 		image: '/images/items/return-to-new-leaf-city-scroll.png',
-		links: {
-			bbb: 'https://bbb.hidden-street.net/items/return-scroll/return-to-new-leaf-city-scroll',
-			library: 'https://maplelegends.com/lib/use?id=2030020',
-			otherDocs: null,
-		},
 	},
 	'Strawberry Milk': {
+		details: (
+			<Text ta="center">
+				Purchased from{' '}
+				<ExternalLink href="https://bbb.hidden-street.net/npc/momoyo">Momyo in Showa</ExternalLink>
+			</Text>
+		),
 		image: '/images/items/strawberry-milk.png',
-		links: {
-			bbb: 'https://bbb.hidden-street.net/items/return-scroll/strawberry-milk',
-			library: 'https://maplelegends.com/lib/use?id=2030009',
-			otherDocs: null,
-		},
 	},
 	'VIP Ticket to Florina Beach': {
+		details: (
+			<Text ta="center">
+				Obtainable from the{' '}
+				<ExternalLink href="https://bbb.hidden-street.net/quest/ludus-lake/vip-ticket-to-florina-beach">
+					VIP Ticket to Florina Beach Quest line
+				</ExternalLink>
+			</Text>
+		),
 		image: '/images/items/vip-ticket-to-florina-beach.png',
-		links: {
-			bbb: 'https://bbb.hidden-street.net/items/ticket/vip-ticket-to-florina-beach',
-			library: 'https://maplelegends.com/lib/etc?id=4031134',
-			otherDocs: null,
-		},
 	},
 	'Warp Card': {
+		details: (
+			<Text ta="center">
+				Purchased from{' '}
+				<ExternalLink href="https://bbb.hidden-street.net/npc/bartol">Bartol</ExternalLink> after
+				completion of the quest{' '}
+				<ExternalLink href="https://bbb.hidden-street.net/quest/victoria-island/bartols-request">
+					Bartol's Request
+				</ExternalLink>
+			</Text>
+		),
 		image: '/images/items/warp-card.png',
-		links: {
-			bbb: 'https://bbb.hidden-street.net/items/quest/warp-card',
-			library: 'https://maplelegends.com/lib/etc?id=4031890',
-			otherDocs: null,
-		},
 	},
 } satisfies Record<Item, ItemDetails>;
