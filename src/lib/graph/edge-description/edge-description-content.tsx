@@ -1,6 +1,5 @@
 import { Text } from '@mantine/core';
-import { itemDetailsMap } from '@/lib/items';
-import { ExternalLink } from '@/ui/external-link';
+import { ItemDrawer } from '@/lib/items/item-drawer';
 import type { Edge } from '../edges';
 import { ItemConsumption } from './item-consumption';
 import { ItemUseEdgeDetails } from './item-use-edge-details';
@@ -21,9 +20,7 @@ export function EdgeDescriptionContent({ edge }: EdgeDescriptionContentProps) {
 			{'mesos' in edge && <MesosPopoverContent edge={edge} />}
 			{'item' in edge && !('mapFeature' in edge) && (
 				<>
-					<Text>
-						Item: <ExternalLink href={itemDetailsMap[edge.item].docsLink}>{edge.item}</ExternalLink>
-					</Text>
+					<ItemDrawer item={edge.item} />
 
 					<ItemUseEdgeDetails edge={edge} />
 

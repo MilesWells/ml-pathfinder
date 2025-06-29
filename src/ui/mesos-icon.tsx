@@ -8,7 +8,7 @@ export function MesosIcon({ mesos }: MesosIconProps) {
 	const mesosIntl = new Intl.NumberFormat().format(mesos);
 
 	return (
-		<IconBase title={`${mesosIntl} mesos`}>
+		<IconBase display="inline-flex" title={`${mesosIntl} mesos`}>
 			<img
 				alt={`${mesosIntl} mesos`}
 				src="/images/items/mesos.png"

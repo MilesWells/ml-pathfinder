@@ -6,17 +6,18 @@ export type IconBaseProps = React.DetailedHTMLProps<
 > &
 	BoxProps;
 
+const MAX_ICON_SIZE = '31px';
+
 export function IconBase({ style, ...boxProps }: IconBaseProps) {
 	return (
 		<Box
 			component="span"
-			display="inline-flex"
-			h={30}
+			h={MAX_ICON_SIZE}
 			style={{
 				verticalAlign: 'middle',
 				...style,
 			}}
-			w={30}
+			w={MAX_ICON_SIZE}
 			{...boxProps}
 		/>
 	);

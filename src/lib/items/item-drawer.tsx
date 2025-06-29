@@ -42,7 +42,7 @@ export function ItemDrawer({ item }: ItemDrawerProps) {
 				fz="inherit"
 				onClick={() => stack.open(item)}
 			>
-				<ItemIcon item={item} />
+				<ItemIcon item={item} mr="2px" />
 				{item}
 			</Anchor>
 		</>

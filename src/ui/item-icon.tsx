@@ -1,13 +1,13 @@
-import { IconBase } from '@/ui/icon-base';
+import { IconBase, type IconBaseProps } from '@/ui/icon-base';
 import { type Item, itemDetailsMap } from '../lib/items';
 
-export type ItemIconProps = {
+export type ItemIconProps = IconBaseProps & {
 	item: Item;
 };
 
-export function ItemIcon({ item }: ItemIconProps) {
+export function ItemIcon({ item, ...baseProps }: ItemIconProps) {
 	return (
-		<IconBase title={item}>
+		<IconBase display="inline-flex" title={item} {...baseProps}>
 			<img
 				alt={item}
 				src={itemDetailsMap[item].image}
