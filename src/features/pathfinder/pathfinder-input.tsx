@@ -21,10 +21,11 @@ export function PathfinderInput() {
 			<Select
 				clearable
 				data={REGIONS}
+				label="Starting Region"
 				maw="300px"
 				mx="auto"
 				onChange={from => setFrom(from as Region)}
-				placeholder="Choose starting continent"
+				placeholder="Choose starting region"
 				searchable
 				value={from}
 			/>
@@ -32,10 +33,11 @@ export function PathfinderInput() {
 			<Select
 				clearable
 				data={REGIONS}
+				label="Destination Region"
 				maw="300px"
 				mx="auto"
 				onChange={to => setTo(to as Region)}
-				placeholder="Choose destination continent"
+				placeholder="Choose destination region"
 				searchable
 				value={to}
 			/>
