@@ -2,7 +2,7 @@ import { Text } from '@mantine/core';
 import { ExternalLink } from '@/ui/external-link';
 import { ItemIcon } from '../ui/item-icon';
 import { itemDetailsMap } from './items';
-import { ItemDrawer } from './items/item-drawer';
+import { ItemDrawerLink } from './items/item-drawer-link';
 
 export const mapFeatures = [
 	'Altaire Camp: Small Forest',
@@ -49,7 +49,7 @@ export const mapFeatureDetailsMap = {
 		description: (
 			<>
 				<Text component="span">Enter the green portal with a </Text>
-				<ItemDrawer item="Magic Seed" />
+				<ItemDrawerLink item="Magic Seed" />
 				<Text component="span"> in your inventory</Text>
 			</>
 		),
@@ -60,7 +60,7 @@ export const mapFeatureDetailsMap = {
 		description: (
 			<>
 				<Text component="span">Enter the warp device with a </Text>
-				<ItemDrawer item="Warp Card" />
+				<ItemDrawerLink item="Warp Card" />
 				<Text component="span"> in your inventory</Text>
 			</>
 		),

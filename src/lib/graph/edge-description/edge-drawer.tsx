@@ -1,5 +1,4 @@
-import { Center, Drawer } from '@mantine/core';
-import { useDisclosure } from '@mantine/hooks';
+import { Center, Drawer, useDrawersStack } from '@mantine/core';
 import type { Edge } from '../edges';
 import { EdgeDescriptionContent } from './edge-description-content';
 
@@ -8,17 +7,21 @@ export type EdgeDrawerProps = {
 };
 
 export function EdgeDrawer({ edge }: EdgeDrawerProps) {
-	const [opened, { close, open }] = useDisclosure(false);
+	const stack = useDrawersStack([edge.id]);
 
 	return (
 		<>
-			<Center c="meso-yellow.6" onClick={open} style={{ cursor: 'pointer' }} td="underline">
+			<Center
+				c="meso-yellow.6"
+				onClick={() => stack.open(edge.id)}
+				style={{ cursor: 'pointer' }}
+				td="underline"
+			>
 				{edge.from} {`->`} {edge.to}
 			</Center>
 
 			<Drawer
-				onClose={close}
-				opened={opened}
+				{...stack.register(edge.id)}
 				styles={{
 					body: {
 						flexGrow: '1',
