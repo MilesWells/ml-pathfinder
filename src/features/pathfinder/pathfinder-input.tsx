@@ -1,22 +1,26 @@
 'use client';
 
-import { Button, Drawer, Select, Stack } from '@mantine/core';
-import { useDisclosure } from '@mantine/hooks';
+import { Button, Drawer, Select, Stack, useDrawersStack } from '@mantine/core';
 import { ItemCheckList } from '@/lib/items/item-check-list';
 import { REGIONS, type Region } from '@/lib/regions';
 import { usePathfinder } from './pathfinder-context';
 
 export function PathfinderInput() {
 	const { from, setFrom, setTo, to } = usePathfinder();
-	const [itemsListOpened, { open: openItemsList, close: closeItemsList }] = useDisclosure(false);
+	const stack = useDrawersStack(['item-selection']);
 
 	return (
 		<Stack>
-			<Button mx="auto" onClick={openItemsList} size="compact-lg" w="fit-content">
+			<Button
+				mx="auto"
+				onClick={() => stack.open('item-selection')}
+				size="compact-lg"
+				w="fit-content"
+			>
 				Select Items
 			</Button>
 
-			<Drawer onClose={closeItemsList} opened={itemsListOpened} title="Select items to use">
+			<Drawer {...stack.register('item-selection')} title="Select Items to Use">
 				<ItemCheckList />
 			</Drawer>
 

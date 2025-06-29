@@ -18,7 +18,11 @@ export function ItemCheckList() {
 		<Stack>
 			<Checkbox
 				checked={allSelected}
-				label={<Text>Select All</Text>}
+				label={
+					<Text c={allSelected ? 'kimmy-red.5' : 'meso-yellow.5'} fw={500} fz={18}>
+						{allSelected ? 'Unselect All' : 'Select All'}
+					</Text>
+				}
 				onChange={({ currentTarget: { checked } }) => {
 					if (checked) selectAll();
 					else removeAll();
@@ -44,7 +48,7 @@ export function ItemCheckList() {
 
 function ItemCheckLabel({ item }: { item: Item }) {
 	return (
-		<Group>
+		<Group gap="xs">
 			<ItemIcon item={item} />
 			<Text>{item}</Text>
 		</Group>
