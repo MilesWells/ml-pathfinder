@@ -14,6 +14,7 @@ export function IconBase({ style, ...boxProps }: IconBaseProps) {
 			component="span"
 			h={MAX_ICON_SIZE}
 			style={{
+				cursor: 'default',
 				verticalAlign: 'middle',
 				...style,
 			}}

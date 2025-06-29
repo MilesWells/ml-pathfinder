@@ -1,6 +1,6 @@
 'use client';
 
-import { Center, Drawer, Text } from '@mantine/core';
+import { Center, Drawer } from '@mantine/core';
 import { itemDetailsMap, items } from '@/lib/items';
 import { ExternalLink } from '@/ui/external-link';
 import { ItemIcon } from '@/ui/item-icon';
@@ -16,10 +16,26 @@ export function ItemDrawers() {
 				const { docsLink } = itemDetailsMap[item];
 
 				return (
-					<Drawer key={item} {...itemStack[item]} title={item}>
-						<Center h="100%" style={{ flexDirection: 'column' }}>
+					<Drawer
+						key={item}
+						{...itemStack[item]}
+						styles={{
+							body: {
+								flexGrow: '1',
+							},
+							content: {
+								display: 'flex',
+								flexDirection: 'column',
+							},
+							title: {
+								fontSize: 22,
+								fontWeight: 500,
+							},
+						}}
+						title={item}
+					>
+						<Center h="100%" style={{ flexDirection: 'column', gap: 8 }}>
 							<ItemIcon item={item} />
-							<Text>{item}</Text>
 							<ExternalLink href={docsLink}>Docs</ExternalLink>
 						</Center>
 					</Drawer>
