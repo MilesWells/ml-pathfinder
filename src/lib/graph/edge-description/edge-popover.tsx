@@ -44,7 +44,7 @@ export function EdgePopover({ edge }: EdgePopoverProps) {
 				</Center>
 			</PopoverTarget>
 
-			<PopoverDropdown bg="dark.9" onMouseEnter={handleOpen} onMouseLeave={handleClose}>
+			<PopoverDropdown bg="dark.9" maw={400} onMouseEnter={handleOpen} onMouseLeave={handleClose}>
 				<Center style={{ flexDirection: 'column' }}>
 					<EdgeDescriptionContent edge={edge} />
 				</Center>

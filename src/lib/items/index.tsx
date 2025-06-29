@@ -107,6 +107,22 @@ export const itemDetailsMap = {
 						<ExternalLink href="https://maplelegends.com/lib/npc?id=2041029">Karen</ExternalLink>
 					</ListItem>
 				</List>
+
+				<Divider my="lg" w="100%" />
+
+				<Title order={5} td="underline">
+					Omega Sector {`->`} Korean Folk Town
+				</Title>
+
+				<MapFeatureDetails disableDrawerLink mapFeature="Omega Sector: Gray's Prairie" />
+
+				<Divider my="lg" w="100%" />
+
+				<Title order={5} td="underline">
+					Korean Folk Town {`->`} Omega Sector
+				</Title>
+
+				<MapFeatureDetails disableDrawerLink mapFeature="Korean Folk Town: Moon Ridge" />
 			</Center>
 		),
 		image: IMAGE_PLACEHOLDER,
