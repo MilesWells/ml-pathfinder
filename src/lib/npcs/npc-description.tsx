@@ -11,11 +11,9 @@ export function NpcDescription({ npc }: NpcDescriptionProps) {
 
 	return (
 		<>
-			{image && (
-				<ExternalLink href={docsLink} mb="md" mt="sm">
-					<img alt={npc} src={image} />
-				</ExternalLink>
-			)}
+			<ExternalLink href={docsLink} mb="md" mt="sm">
+				<img alt={npc} src={image} />
+			</ExternalLink>
 
 			<Text>
 				NPC: <ExternalLink href={docsLink}>{npc}</ExternalLink>

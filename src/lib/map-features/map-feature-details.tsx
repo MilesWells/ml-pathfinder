@@ -103,7 +103,29 @@ function MapFeatureDescription({ disableDrawerLink, mapFeature }: MapFeatureDeta
 					<Text component="span"> in your inventory</Text>
 				</>
 			);
-		default:
-			return null;
+		case "Omega Sector: Gray's Prairie":
+			return (
+				<>
+					<Text component="span">Enter the marked tree with an </Text>
+					{disableDrawerLink ? (
+						<Text component="span">Energy Shard</Text>
+					) : (
+						<ItemDrawerLink item="Energy Shard" />
+					)}
+					<Text component="span"> in your inventory</Text>
+				</>
+			);
+		case 'Korean Folk Town: Moon Ridge':
+			return (
+				<>
+					<Text component="span">Enter the gnarled tree with an </Text>
+					{disableDrawerLink ? (
+						<Text component="span">Energy Shard</Text>
+					) : (
+						<ItemDrawerLink item="Energy Shard" />
+					)}
+					<Text component="span"> in your inventory</Text>
+				</>
+			);
 	}
 }

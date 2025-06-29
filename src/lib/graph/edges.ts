@@ -195,8 +195,8 @@ const KOREAN_FOLK_TOWN = {
 		},
 		{
 			item: 'Energy Shard',
-			method: 'Item Taxi',
-			npc: 'Astrum',
+			mapFeature: 'Korean Folk Town: Moon Ridge',
+			method: 'Map Feature',
 			to: 'Omega Sector',
 		},
 		{
@@ -416,8 +416,8 @@ const OMEGA_SECTOR = {
 		},
 		{
 			item: 'Energy Shard',
-			method: 'Item Taxi',
-			npc: 'Astralis',
+			mapFeature: "Omega Sector: Gray's Prairie",
+			method: 'Map Feature',
 			to: 'Korean Folk Town',
 		},
 	],

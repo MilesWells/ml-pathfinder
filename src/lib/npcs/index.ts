@@ -1,6 +1,4 @@
 export const NPCS = [
-	'Astralis',
-	'Astrum',
 	'Bell',
 	'Blake (Taipei 101)',
 	'Blake (Ximending)',
@@ -38,20 +36,10 @@ export type NPC = (typeof NPCS)[number];
 
 export type NPCDetails = {
 	docsLink: string;
-	image: string | null;
+	image: string;
 };
 
 export const npcDetailsMap = {
-	Astralis: {
-		// located in Omega Sector
-		docsLink: 'https://maplelegends.com/lib/npc?id=1052311',
-		image: null,
-	},
-	Astrum: {
-		// located in KFT
-		docsLink: 'https://maplelegends.com/lib/npc?id=1052310',
-		image: null,
-	},
 	Bell: {
 		docsLink: 'https://maplelegends.com/lib/npc?id=9201057',
 		image: '/images/npcs/bell.png',

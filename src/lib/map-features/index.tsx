@@ -1,13 +1,15 @@
 export const mapFeatures = [
 	'Altaire Camp: Small Forest',
-	'Omega Sector: Command Center',
 	'Helios Tower <2nd Floor>',
 	'Helios Tower <99th Floor>',
-	'Perion: Iron Boar Land',
+	'Helios Tower: Time Control Room',
+	'Korean Folk Town: Moon Ridge',
 	'Minar Forest: West Border',
 	'Nautilus: Navigation Room',
+	'Omega Sector: Command Center',
+	"Omega Sector: Gray's Prairie",
+	'Perion: Iron Boar Land',
 	'The Field Up North of Ellinia',
-	'Helios Tower: Time Control Room',
 ] as const;
 
 export type MapFeature = (typeof mapFeatures)[number];
@@ -34,6 +36,10 @@ export const mapFeatureDetailsMap = {
 		docsLink: 'https://maplelegends.com/lib/map?id=222020400',
 		image: '/images/map-features/helios-tower-time-control-room.png',
 	},
+	'Korean Folk Town: Moon Ridge': {
+		docsLink: 'https://maplelegends.com/lib/map?id=222010310',
+		image: '/images/map-features/korean-folk-town-moon-ridge.png',
+	},
 	'Minar Forest: West Border': {
 		docsLink: 'https://maplelegends.com/lib/map?id=240010100',
 		image: '/images/map-features/minar-forest-west-border.png',
@@ -45,6 +51,10 @@ export const mapFeatureDetailsMap = {
 	'Omega Sector: Command Center': {
 		docsLink: 'https://maplelegends.com/lib/map?id=221000300',
 		image: null,
+	},
+	"Omega Sector: Gray's Prairie": {
+		docsLink: 'https://maplelegends.com/lib/map?id=221040301',
+		image: '/images/map-features/omega-sector-grays-prairie.png',
 	},
 	'Perion: Iron Boar Land': {
 		docsLink: 'https://maplelegends.com/lib/map?id=101040003',
