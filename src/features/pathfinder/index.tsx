@@ -1,5 +1,5 @@
 import { Stack } from '@mantine/core';
-import { SelectedItemsProvider } from '../../lib/items/selected-items-context';
+import { SelectedItemsProvider } from '@/lib/items/selected-items-context';
 import { PathfinderContextProvider } from './pathfinder-context';
 import { PathfinderInput } from './pathfinder-input';
 import { PathfinderInputFeedback } from './pathfinder-input-feedback';

@@ -2,8 +2,8 @@
 
 import { Button, Drawer, Select, Stack } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
+import { ItemCheckList } from '@/lib/items/item-check-list';
 import { REGIONS, type Region } from '@/lib/regions';
-import { ItemCheckList } from '../../lib/items/item-check-list';
 import { usePathfinder } from './pathfinder-context';
 
 export function PathfinderInput() {

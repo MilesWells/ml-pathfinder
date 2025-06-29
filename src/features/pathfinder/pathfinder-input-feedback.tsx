@@ -1,9 +1,9 @@
 'use client';
 
 import { Alert, Center, Text } from '@mantine/core';
+import { useSelectedItems } from '@/lib/items/selected-items-context';
+import { isUnnavigaableRegion } from '@/lib/regions';
 import { ExternalLink } from '@/ui/external-link';
-import { useSelectedItems } from '../../lib/items/selected-items-context';
-import { isUnnavigaableRegion } from '../../lib/regions';
 import { usePathfinder } from './pathfinder-context';
 
 export function PathfinderInputFeedback() {
