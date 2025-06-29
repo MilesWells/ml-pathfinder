@@ -9,7 +9,13 @@ export function MesosIcon({ mesos }: MesosIconProps) {
 
 	return (
 		<IconBase title={`${mesosIntl} mesos`}>
-			<img alt={`${mesosIntl} mesos`} src="/images/items/mesos.png" />
+			<img
+				alt={`${mesosIntl} mesos`}
+				src="/images/items/mesos.png"
+				style={{
+					margin: 'auto',
+				}}
+			/>
 		</IconBase>
 	);
 }

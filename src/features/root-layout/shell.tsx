@@ -22,7 +22,8 @@ export default function Shell({ children }: React.PropsWithChildren) {
 			<AppShellFooter>
 				<Center h="100%" ta="center">
 					<Text fz="sm">
-						Made with love for <ExternalLink href="https://maplelegends.com">MapleLegends</ExternalLink>
+						Made with love for{' '}
+						<ExternalLink href="https://maplelegends.com">MapleLegends</ExternalLink>
 						{', '}
 						but not affiliated.
 					</Text>

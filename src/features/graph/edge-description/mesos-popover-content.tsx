@@ -8,7 +8,8 @@ export type MesosPopoverContentProps = {
 };
 
 export function MesosPopoverContent({ edge }: MesosPopoverContentProps) {
-	const mesoCost = edge.mesos !== 0 ? `${new Intl.NumberFormat().format(edge.mesos)} mesos` : 'Free!';
+	const mesoCost =
+		edge.mesos !== 0 ? `${new Intl.NumberFormat().format(edge.mesos)} mesos` : 'Free!';
 
 	return (
 		<Text>

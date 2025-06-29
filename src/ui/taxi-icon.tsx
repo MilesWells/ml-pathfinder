@@ -1,5 +1,9 @@
 import { IconBase } from '@/ui/icon-base';
 
 export function TaxiIcon() {
-	return <IconBase title="Taxi">🚕</IconBase>;
+	return (
+		<IconBase fz={22} title="Taxi">
+			🚕
+		</IconBase>
+	);
 }

@@ -31,8 +31,12 @@ export function PathfinderContextProvider({ children }: React.PropsWithChildren)
 	const { selectedItems } = useSelectedItems();
 
 	useEffect(() => {
-		const fromParseResult = regionSchema.safeParse(JSON.parse(localStorage.getItem(FROM_LOCAL_STORAGE_KEY) ?? 'null'));
-		const toParseResult = regionSchema.safeParse(JSON.parse(localStorage.getItem(TO_LOCAL_STORAGE_KEY) ?? 'null'));
+		const fromParseResult = regionSchema.safeParse(
+			JSON.parse(localStorage.getItem(FROM_LOCAL_STORAGE_KEY) ?? 'null'),
+		);
+		const toParseResult = regionSchema.safeParse(
+			JSON.parse(localStorage.getItem(TO_LOCAL_STORAGE_KEY) ?? 'null'),
+		);
 
 		if (fromParseResult.success) setFrom(fromParseResult.data);
 		if (toParseResult.success) setTo(toParseResult.data);
@@ -106,7 +110,8 @@ export function canPath(
 export function usePathfinder() {
 	const value = useContext(PathfinderContext);
 
-	if (value === null) throw new Error('usePathfinder must be used within a PathFinderContextProvider');
+	if (value === null)
+		throw new Error('usePathfinder must be used within a PathFinderContextProvider');
 
 	return value;
 }

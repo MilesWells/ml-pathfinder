@@ -9,7 +9,10 @@ import { useSelectedItems } from './selected-items-context';
 export function ItemCheckList() {
 	const { addItem, removeItem, removeAll, selectAll, selectedItems } = useSelectedItems();
 
-	const allSelected = useMemo(() => Object.entries(selectedItems).every(([, hasItem]) => hasItem), [selectedItems]);
+	const allSelected = useMemo(
+		() => Object.entries(selectedItems).every(([, hasItem]) => hasItem),
+		[selectedItems],
+	);
 
 	return (
 		<Stack>

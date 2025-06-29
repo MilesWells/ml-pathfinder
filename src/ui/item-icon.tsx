@@ -7,14 +7,13 @@ export type ItemIconProps = {
 
 export function ItemIcon({ item }: ItemIconProps) {
 	return (
-		<IconBase>
+		<IconBase title={item}>
 			<img
 				alt={item}
 				src={itemDetailsMap[item].image}
 				style={{
 					margin: 'auto',
 				}}
-				title={item}
 			/>
 		</IconBase>
 	);

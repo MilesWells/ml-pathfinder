@@ -31,7 +31,8 @@ export const itemDetailsMap = {
 		image: '/images/items/warp-capsule.png',
 	},
 	'Desert Coin': {
-		docsLink: 'https://forum.maplelegends.com/index.php?threads/general-patch-notes-october-9-2022.47422/',
+		docsLink:
+			'https://forum.maplelegends.com/index.php?threads/general-patch-notes-october-9-2022.47422/',
 		image: IMAGE_PLACEHOLDER,
 	},
 	'Energy Shard': {

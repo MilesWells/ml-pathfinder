@@ -15,7 +15,8 @@ export function PathfinderInputFeedback() {
 	if (from && isUnnavigaableRegion(from)) {
 		content = (
 			<Text fz="lg" ta="center">
-				First move back to your original location via {from === 'Florina Beach' ? <PisonLink /> : <SpinelLink />}
+				First move back to your original location via{' '}
+				{from === 'Florina Beach' ? <PisonLink /> : <SpinelLink />}
 			</Text>
 		);
 	}
