@@ -12,16 +12,18 @@ export type ItemIconProps = IconBaseProps & {
 export function ItemIcon({ item, onClick, style, ...baseProps }: ItemIconProps) {
 	const drawersStack = useContext(ItemDrawersContext);
 
+	const drawerIsOpen = drawersStack?.itemStack.state[item];
+
 	return (
 		<IconBase
 			display="inline-flex"
 			onClick={e => {
 				onClick?.(e);
-				drawersStack?.itemStack.open(item);
+				if (!drawerIsOpen) drawersStack?.itemStack.open(item);
 			}}
 			style={{
 				...style,
-				cursor: drawersStack === null ? 'default' : 'pointer',
+				cursor: drawersStack === null || drawerIsOpen ? 'default' : 'pointer',
 			}}
 			title={item}
 			{...baseProps}
