@@ -4,10 +4,15 @@ import { shortestPath } from 'graph-data-structure';
 import type React from 'react';
 import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
 import { z } from 'zod';
-import { useGraph } from '../graph';
-import type { Edge } from '../graph/edges';
-import { useSelectedItems } from '../items/selected-items-context';
-import { isUnnavigaableRegion, type NavigableRegion, REGIONS, type Region } from '../regions';
+import { useGraph } from '../../lib/graph';
+import type { Edge } from '../../lib/graph/edges';
+import { useSelectedItems } from '../../lib/items/selected-items-context';
+import {
+	isUnnavigaableRegion,
+	type NavigableRegion,
+	REGIONS,
+	type Region,
+} from '../../lib/regions';
 
 const FROM_LOCAL_STORAGE_KEY = 'ml-p-from';
 const TO_LOCAL_STORAGE_KEY = 'ml-p-to';

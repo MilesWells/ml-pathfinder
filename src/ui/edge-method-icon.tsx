@@ -1,4 +1,4 @@
-import type { Edge } from '../features/graph/edges';
+import type { Edge } from '../lib/graph/edges';
 import { ItemIcon } from './item-icon';
 import { MesosIcon } from './mesos-icon';
 import { TaxiIcon } from './taxi-icon';

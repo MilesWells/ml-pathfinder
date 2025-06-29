@@ -1,5 +1,5 @@
 import { Text } from '@mantine/core';
-import { npcDetailsMap } from '@/features/npcs';
+import { npcDetailsMap } from '@/lib/npcs';
 import { ExternalLink } from '@/ui/external-link';
 import type { Edge, ItemTaxiEdge, SpinelEdge, TaxiEdge } from '../edges';
 

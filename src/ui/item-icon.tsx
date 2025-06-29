@@ -1,5 +1,5 @@
 import { IconBase } from '@/ui/icon-base';
-import { type Item, itemDetailsMap } from '../features/items';
+import { type Item, itemDetailsMap } from '../lib/items';
 
 export type ItemIconProps = {
 	item: Item;

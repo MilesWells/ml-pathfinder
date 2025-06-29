@@ -1,5 +1,5 @@
 import { Text } from '@mantine/core';
-import { itemDetailsMap } from '@/features/items';
+import { itemDetailsMap } from '@/lib/items';
 import { ExternalLink } from '@/ui/external-link';
 import type { Edge } from '../edges';
 import { ItemConsumption } from './item-consumption';

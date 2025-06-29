@@ -1,8 +1,8 @@
 import { shortestPath } from 'graph-data-structure';
 import { describe, expect, test } from 'vitest';
-import { getFullGraph, getGraphWithoutItemEdges } from '@/features/graph';
 import { canPath } from '@/features/pathfinder/pathfinder-context';
-import { isUnnavigaableRegion, REGIONS } from '@/features/regions';
+import { getFullGraph, getGraphWithoutItemEdges } from '@/lib/graph';
+import { isUnnavigaableRegion, REGIONS } from '@/lib/regions';
 
 describe('Navigable regions should be solvable', () => {
 	const graph = getFullGraph();

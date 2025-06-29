@@ -1,5 +1,5 @@
 import { Text } from '@mantine/core';
-import { mapFeatureDetailsMap } from '@/features/map-features';
+import { mapFeatureDetailsMap } from '@/lib/map-features';
 import { ExternalLink } from '@/ui/external-link';
 import type { Edge, MapFeatureEdge } from '../edges';
 

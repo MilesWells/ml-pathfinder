@@ -1,5 +1,5 @@
 import { Text } from '@mantine/core';
-import type { Item } from '@/features/items';
+import type { Item } from '@/lib/items';
 
 export type ItemConsumptionProps = {
 	item: Item;
