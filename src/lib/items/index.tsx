@@ -1,3 +1,9 @@
+import { Center, Divider, List, ListItem, Stack, Text, Title } from '@mantine/core';
+import { ExternalLink } from '@/ui/external-link';
+import { mapFeatureDetailsMap } from '../map-features';
+import { MapFeatureDetails } from '../map-features/map-feature-details';
+import { MapFeatureImage } from '../map-features/map-feature-image';
+
 export const items = [
 	'Command Center Warp Capsule',
 	'Desert Coin',
@@ -20,41 +26,92 @@ export type Item = (typeof items)[number];
 
 export type ItemDetails = {
 	image: string;
-	links: {
-		bbb: string | null;
-		library: string | null;
-		otherDocs: string | null;
-	};
+	details: React.ReactNode;
 };
 
 const IMAGE_PLACEHOLDER = '/images/slime-sweat.png';
 
 export const itemDetailsMap = {
 	'Command Center Warp Capsule': {
+		details: (
+			<Text ta="center">
+				Only obtainable via quests. See{' '}
+				<ExternalLink href="https://bbb.hidden-street.net/items/return-scroll/command-center-warp-capsule">
+					BBB
+				</ExternalLink>{' '}
+				for quest info.
+			</Text>
+		),
 		image: '/images/items/warp-capsule.png',
-		links: {
-			bbb: 'https://bbb.hidden-street.net/items/return-scroll/command-center-warp-capsule',
-			library: 'https://maplelegends.com/lib/use?id=2030011',
-			otherDocs: null,
-		},
 	},
 	'Desert Coin': {
+		details: (
+			<Center style={{ flexDirection: 'column', gap: 8 }}>
+				<Text ta="center">
+					<ExternalLink href="https://maplelegends.com/lib/etc?id=4031889">
+						Desert Coins
+					</ExternalLink>{' '}
+					are custom content that allow you to warp from Perion to the Sahel desert.
+				</Text>
+
+				<Text mb="sm" ta="center">
+					See the{' '}
+					<ExternalLink href="https://forum.maplelegends.com/index.php?threads/general-patch-notes-october-9-2022.47422/">
+						official patch notes
+					</ExternalLink>{' '}
+					for info on how to obtain Desert Coins.
+				</Text>
+
+				<Divider w="100%" />
+
+				<Title mt={16} order={3}>
+					Usage
+				</Title>
+
+				<MapFeatureDetails disableDrawerLink mapFeature="Perion: Iron Boar Land" />
+			</Center>
+		),
 		image: IMAGE_PLACEHOLDER,
-		links: {
-			bbb: null,
-			library: 'https://maplelegends.com/lib/etc?id=4031889',
-			otherDocs:
-				'https://forum.maplelegends.com/index.php?threads/general-patch-notes-october-9-2022.47422/',
-		},
 	},
 	'Energy Shard': {
+		details: (
+			<Center style={{ flexDirection: 'column', gap: 8 }}>
+				<Text ta="center">
+					<ExternalLink href="https://maplelegends.com/lib/etc?id=4035060">
+						Energy Shards
+					</ExternalLink>{' '}
+					are custom content that allow warping between Korean Folk Town and Omega Sector.
+				</Text>
+
+				<Text ta="center">
+					Obtaining Energy Shards first requires completing tier 3 of the HP Challenges.
+				</Text>
+
+				<Divider my="md" w="100%" />
+
+				<List spacing={8} ta="center" type="ordered">
+					<ListItem>
+						Read up on the{' '}
+						<ExternalLink href="https://forum.maplelegends.com/index.php?threads/release-challenges-system-hp-wash-alternative.51808/">
+							HP Challenge Release Notes
+						</ExternalLink>
+					</ListItem>
+
+					<ListItem>
+						Follow cereal box's{' '}
+						<ExternalLink href="https://forum.maplelegends.com/index.php?threads/hp-challenges-storyline-quest-guide.51883/">
+							HP Challenge Guide
+						</ExternalLink>
+					</ListItem>
+
+					<ListItem>
+						Obtain Energy Shards from{' '}
+						<ExternalLink href="https://maplelegends.com/lib/npc?id=2041029">Karen</ExternalLink>
+					</ListItem>
+				</List>
+			</Center>
+		),
 		image: IMAGE_PLACEHOLDER,
-		links: {
-			bbb: null,
-			library: 'https://maplelegends.com/lib/etc?id=4035060',
-			otherDocs:
-				'https://forum.maplelegends.com/index.php?threads/travel-guide-sishous-maplelegends-navigation-guide-and-tips.57168/',
-		},
 	},
 	'Eos Rock Scroll': {
 		image: '/images/items/eos-rock-scroll.png',

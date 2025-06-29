@@ -19,7 +19,11 @@ export function ItemIcon({ item, onClick, style, ...baseProps }: ItemIconProps) 
 			display="inline-flex"
 			onClick={e => {
 				onClick?.(e);
-				if (!drawerIsOpen) drawersStack?.itemStack.open(item);
+
+				if (!drawerIsOpen) {
+					drawersStack?.itemStack.open(item);
+					e.preventDefault();
+				}
 			}}
 			style={{
 				...style,

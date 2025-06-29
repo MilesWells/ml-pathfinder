@@ -2,7 +2,6 @@
 
 import { Center, Drawer } from '@mantine/core';
 import { itemDetailsMap, items } from '@/lib/items';
-import { ExternalLink } from '@/ui/external-link';
 import { ItemIcon } from '@/ui/item-icon';
 import { ItemCheckList } from './item-check-list';
 import { useItemDrawersStack } from './item-drawer-context';
@@ -13,9 +12,7 @@ export function ItemDrawers() {
 	return (
 		<>
 			{items.map(item => {
-				const {
-					links: { otherDocs },
-				} = itemDetailsMap[item];
+				const { details } = itemDetailsMap[item];
 
 				return (
 					<Drawer
@@ -38,13 +35,23 @@ export function ItemDrawers() {
 					>
 						<Center h="100%" style={{ flexDirection: 'column', gap: 8 }}>
 							<ItemIcon item={item} />
-							{otherDocs && <ExternalLink href={otherDocs}>Docs</ExternalLink>}
+
+							{details}
 						</Center>
 					</Drawer>
 				);
 			})}
 
-			<Drawer {...itemStack['item-selection']} title="Select Items to Use">
+			<Drawer
+				{...itemStack['item-selection']}
+				styles={{
+					title: {
+						fontSize: 22,
+						fontWeight: 500,
+					},
+				}}
+				title="Select Items to Use"
+			>
 				<ItemCheckList />
 			</Drawer>
 		</>

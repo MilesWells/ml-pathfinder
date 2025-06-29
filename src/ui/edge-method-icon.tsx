@@ -9,16 +9,16 @@ export type EdgeMethodIconProps = {
 };
 
 export function EdgeMethodIcon({ edge }: EdgeMethodIconProps) {
+	if ('mesos' in edge && edge.mesos > 0) return <MesosIcon mesos={edge.mesos} />;
+
+	if ('item' in edge && edge.item !== null) return <ItemIcon item={edge.item} />;
+
 	if (
 		edge.method === 'Walk' ||
 		edge.method === 'Map Feature' ||
 		edge.method === 'Timed Map Feature'
 	)
 		return <WalkIcon />;
-
-	if ('mesos' in edge && edge.mesos > 0) return <MesosIcon mesos={edge.mesos} />;
-
-	if ('item' in edge && edge.item !== null) return <ItemIcon item={edge.item} />;
 
 	return <TaxiIcon />;
 }
