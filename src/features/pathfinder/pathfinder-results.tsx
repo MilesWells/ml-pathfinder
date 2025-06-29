@@ -14,7 +14,7 @@ export function PathfinderResults() {
 		<Center>
 			<Card shadow="lg" withBorder>
 				<Stack align="center" gap="lg">
-					<Title c="dark.2" order={4}>
+					<Title c="maplelegends-blue.6" fs="italic" order={4}>
 						{from} {`->`} {to}
 					</Title>
 
