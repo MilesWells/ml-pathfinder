@@ -30,7 +30,7 @@ export function EdgePopover({ edge }: EdgePopoverProps) {
 	}
 
 	return (
-		<Popover onDismiss={close} opened={opened} position="right" shadow="md" withArrow>
+		<Popover onDismiss={handleClose} opened={opened} position="right" shadow="md" withArrow>
 			<PopoverTarget>
 				<Center
 					c="meso-yellow.6"
