@@ -1,9 +1,9 @@
-import { IconBase } from '@/ui/icon-base';
+import { Text } from '@mantine/core';
 
 export function TaxiIcon() {
 	return (
-		<IconBase fz={22} title="Taxi">
+		<Text fz={22} style={{ cursor: 'default' }} title="Taxi">
 			🚕
-		</IconBase>
+		</Text>
 	);
 }

@@ -13,14 +13,14 @@ export function PathfinderResults() {
 	return (
 		<Center>
 			<Card shadow="lg" withBorder>
-				<Stack align="center" gap="xl">
+				<Stack align="center" gap="lg">
 					<Title c="dark.2" order={4}>
 						{from} {`->`} {to}
 					</Title>
 
 					<Stack gap="xs">
 						{path.map(edge => (
-							<Group align="center" key={edge.id}>
+							<Group align="center" gap={12} key={edge.id}>
 								<EdgeMethodIcon edge={edge} />
 								<EdgeDescription edge={edge} />
 							</Group>

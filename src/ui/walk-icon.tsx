@@ -1,9 +1,9 @@
-import { IconBase } from '@/ui/icon-base';
+import { Text } from '@mantine/core';
 
 export function WalkIcon() {
 	return (
-		<IconBase fz={24} ta="center" title="Walk">
+		<Text fz={24} style={{ cursor: 'default' }} title="Walk">
 			🚶
-		</IconBase>
+		</Text>
 	);
 }
