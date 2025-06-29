@@ -62,10 +62,10 @@ export const itemDetailsMap = {
 					to find how to obtain Desert Coins.
 				</Text>
 
-				<Divider w="100%" />
+				<Divider my="lg" w="100%" />
 
-				<Title mt={16} order={3}>
-					Usage
+				<Title order={5} td="underline">
+					Victoria Island {`->`} Ariant
 				</Title>
 
 				<MapFeatureDetails disableDrawerLink mapFeature="Perion: Iron Boar Land" />
