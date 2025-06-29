@@ -1,19 +1,5 @@
-import { Center } from '@mantine/core';
+import { IconBase } from '@/ui/icon-base';
 
 export function TaxiIcon() {
-	return (
-		<Center
-			styles={{
-				root: {
-					cursor: 'default',
-					fontSize: 22,
-					height: 30,
-					width: 30,
-				},
-			}}
-			title="Taxi"
-		>
-			🚕
-		</Center>
-	);
+	return <IconBase title="Taxi">🚕</IconBase>;
 }
