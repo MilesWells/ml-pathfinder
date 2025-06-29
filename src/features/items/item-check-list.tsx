@@ -2,8 +2,8 @@
 
 import { Checkbox, Group, Stack, Text } from '@mantine/core';
 import { useMemo } from 'react';
+import { ItemIcon } from '../../ui/item-icon';
 import { type Item, items } from '.';
-import { ItemIcon } from './item-icon';
 import { useSelectedItems } from './selected-items-context';
 
 export function ItemCheckList() {

@@ -2,7 +2,7 @@
 
 import { Button, Drawer, Select, Stack } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
-import { REGIONS, type Region } from '@/features/graph/regions';
+import { REGIONS, type Region } from '@/features/regions';
 import { ItemCheckList } from '../items/item-check-list';
 import { usePathfinder } from './pathfinder-context';
 

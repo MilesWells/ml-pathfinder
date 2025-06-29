@@ -1,7 +1,7 @@
 import { Text } from '@mantine/core';
 import { ExternalLink } from '@/ui/external-link';
-import { itemDetailsMap } from '../items';
-import { ItemIcon } from '../items/item-icon';
+import { ItemIcon } from '../ui/item-icon';
+import { itemDetailsMap } from './items';
 
 export const mapFeatures = [
 	'Altaire Camp: Small Forest',

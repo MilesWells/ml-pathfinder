@@ -1,8 +1,8 @@
 'use client';
 
 import { Card, Center, Group, Stack, Title } from '@mantine/core';
+import { EdgeMethodIcon } from '../../ui/edge-method-icon';
 import { EdgeDescription } from '../graph/edge-description';
-import { EdgeMethodIcon } from '../graph/edge-method-icon';
 import { usePathfinder } from './pathfinder-context';
 
 export function PathfinderResults() {

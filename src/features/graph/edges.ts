@@ -1,7 +1,7 @@
 import type { Item } from '../items';
 import type { MapFeature } from '../map-features';
 import type { NPC } from '../npcs';
-import { type Region, SPINEL_REGIONS } from './regions';
+import { type Region, SPINEL_REGIONS } from '../regions';
 
 export type WalkEdge = {
 	method: 'Walk';

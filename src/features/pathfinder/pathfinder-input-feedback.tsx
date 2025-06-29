@@ -2,8 +2,8 @@
 
 import { Alert, Center, Text } from '@mantine/core';
 import { ExternalLink } from '@/ui/external-link';
-import { isUnnavigaableRegion } from '../graph/regions';
 import { useSelectedItems } from '../items/selected-items-context';
+import { isUnnavigaableRegion } from '../regions';
 import { usePathfinder } from './pathfinder-context';
 
 export function PathfinderInputFeedback() {

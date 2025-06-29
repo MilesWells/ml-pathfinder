@@ -6,8 +6,8 @@ import { createContext, useCallback, useContext, useEffect, useMemo, useState } 
 import { z } from 'zod';
 import { useGraph } from '../graph';
 import type { Edge } from '../graph/edges';
-import { isUnnavigaableRegion, type NavigableRegion, REGIONS, type Region } from '../graph/regions';
 import { useSelectedItems } from '../items/selected-items-context';
+import { isUnnavigaableRegion, type NavigableRegion, REGIONS, type Region } from '../regions';
 
 const FROM_LOCAL_STORAGE_KEY = 'ml-p-from';
 const TO_LOCAL_STORAGE_KEY = 'ml-p-to';

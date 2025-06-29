@@ -3,8 +3,8 @@
 import { Graph } from 'graph-data-structure';
 import { useMemo } from 'react';
 import { useSelectedItems } from '../items/selected-items-context';
+import { REGIONS, type Region } from '../regions';
 import { type Edge, type EdgeMethod, edges } from './edges';
-import { REGIONS, type Region } from './regions';
 
 const edgeMethodWeights: Record<EdgeMethod, number> = {
 	Item: 0,
