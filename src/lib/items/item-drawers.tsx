@@ -13,7 +13,9 @@ export function ItemDrawers() {
 	return (
 		<>
 			{items.map(item => {
-				const { docsLink } = itemDetailsMap[item];
+				const {
+					links: { otherDocs },
+				} = itemDetailsMap[item];
 
 				return (
 					<Drawer
@@ -36,7 +38,7 @@ export function ItemDrawers() {
 					>
 						<Center h="100%" style={{ flexDirection: 'column', gap: 8 }}>
 							<ItemIcon item={item} />
-							<ExternalLink href={docsLink}>Docs</ExternalLink>
+							{otherDocs && <ExternalLink href={otherDocs}>Docs</ExternalLink>}
 						</Center>
 					</Drawer>
 				);

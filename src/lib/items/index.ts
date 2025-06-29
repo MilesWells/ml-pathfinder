@@ -20,71 +20,136 @@ export type Item = (typeof items)[number];
 
 export type ItemDetails = {
 	image: string;
-	docsLink: string;
+	links: {
+		bbb: string | null;
+		library: string | null;
+		otherDocs: string | null;
+	};
 };
 
 const IMAGE_PLACEHOLDER = '/images/slime-sweat.png';
 
 export const itemDetailsMap = {
 	'Command Center Warp Capsule': {
-		docsLink: 'https://bbb.hidden-street.net/items/return-scroll/command-center-warp-capsule',
 		image: '/images/items/warp-capsule.png',
+		links: {
+			bbb: 'https://bbb.hidden-street.net/items/return-scroll/command-center-warp-capsule',
+			library: 'https://maplelegends.com/lib/use?id=2030011',
+			otherDocs: null,
+		},
 	},
 	'Desert Coin': {
-		docsLink:
-			'https://forum.maplelegends.com/index.php?threads/general-patch-notes-october-9-2022.47422/',
 		image: IMAGE_PLACEHOLDER,
+		links: {
+			bbb: null,
+			library: 'https://maplelegends.com/lib/etc?id=4031889',
+			otherDocs:
+				'https://forum.maplelegends.com/index.php?threads/general-patch-notes-october-9-2022.47422/',
+		},
 	},
 	'Energy Shard': {
-		docsLink: 'https://maplelegends.com/lib/etc?id=4035060',
 		image: IMAGE_PLACEHOLDER,
+		links: {
+			bbb: null,
+			library: 'https://maplelegends.com/lib/etc?id=4035060',
+			otherDocs:
+				'https://forum.maplelegends.com/index.php?threads/travel-guide-sishous-maplelegends-navigation-guide-and-tips.57168/',
+		},
 	},
 	'Eos Rock Scroll': {
-		docsLink: 'https://bbb.hidden-street.net/items/quest/eos-rock-scroll',
 		image: '/images/items/eos-rock-scroll.png',
+		links: {
+			bbb: 'https://bbb.hidden-street.net/items/quest/eos-rock-scroll',
+			library: 'https://maplelegends.com/lib/etc?id=4001020',
+			otherDocs: null,
+		},
 	},
 	'Fruit Milk': {
-		docsLink: 'https://bbb.hidden-street.net/items/return-scroll/fruit-milk',
 		image: '/images/items/fruit-milk.png',
+		links: {
+			bbb: 'https://bbb.hidden-street.net/items/return-scroll/fruit-milk',
+			library: 'https://maplelegends.com/lib/use?id=2030010',
+			otherDocs: null,
+		},
 	},
 	'Gate Pass': {
-		docsLink: 'https://forum.maplelegends.com/index.php?threads/neo-tokyo-guide.25729/',
 		image: IMAGE_PLACEHOLDER,
+		links: {
+			bbb: null,
+			library: null,
+			otherDocs: 'https://forum.maplelegends.com/index.php?threads/neo-tokyo-guide.25729/',
+		},
 	},
 	'Ludibrium Warp Capsule': {
-		docsLink: 'https://bbb.hidden-street.net/items/return-scroll/ludibrium-warp-capsule',
 		image: '/images/items/warp-capsule.png',
+		links: {
+			bbb: 'https://bbb.hidden-street.net/items/return-scroll/ludibrium-warp-capsule',
+			library: 'https://maplelegends.com/lib/use?id=2030012',
+			otherDocs: null,
+		},
 	},
 	'Magic Seed': {
-		docsLink: 'https://maplelegends.com/lib/npc?id=2081000',
 		image: '/images/items/magic-seed.png',
+		links: {
+			bbb: 'https://bbb.hidden-street.net/items/quest/magic-seed-2',
+			library: 'https://maplelegends.com/lib/npc?id=2081000',
+			otherDocs: null,
+		},
 	},
 	'Omega Sector Warp Capsule': {
-		docsLink: 'https://bbb.hidden-street.net/items/return-scroll/omega-sector-warp-capsule',
 		image: '/images/items/warp-capsule.png',
+		links: {
+			bbb: 'https://bbb.hidden-street.net/items/return-scroll/omega-sector-warp-capsule',
+			library: 'https://maplelegends.com/lib/etc?id=4031221',
+			otherDocs: null,
+		},
 	},
 	'Orbis Rock Scroll': {
-		docsLink: 'https://bbb.hidden-street.net/items/quest/orbis-rock-scroll',
 		image: '/images/items/orbis-rock-scroll.png',
+		links: {
+			bbb: 'https://bbb.hidden-street.net/items/quest/orbis-rock-scroll',
+			library: 'https://maplelegends.com/lib/etc?id=4001019',
+			otherDocs: null,
+		},
 	},
 	'Return Scroll - Nearest Town': {
-		docsLink: 'https://bbb.hidden-street.net/items/return-scroll/return-scroll-nearest-town',
 		image: '/images/items/return-scroll-nearest-town.png',
+		links: {
+			bbb: 'https://bbb.hidden-street.net/items/return-scroll/return-scroll-nearest-town',
+			library: 'https://maplelegends.com/lib/use?id=2030000',
+			otherDocs: null,
+		},
 	},
 	'Return to New Leaf City Scroll': {
-		docsLink: 'https://bbb.hidden-street.net/items/return-scroll/return-to-new-leaf-city-scroll',
 		image: '/images/items/return-to-new-leaf-city-scroll.png',
+		links: {
+			bbb: 'https://bbb.hidden-street.net/items/return-scroll/return-to-new-leaf-city-scroll',
+			library: 'https://maplelegends.com/lib/use?id=2030020',
+			otherDocs: null,
+		},
 	},
 	'Strawberry Milk': {
-		docsLink: 'https://bbb.hidden-street.net/items/return-scroll/strawberry-milk',
 		image: '/images/items/strawberry-milk.png',
+		links: {
+			bbb: 'https://bbb.hidden-street.net/items/return-scroll/strawberry-milk',
+			library: 'https://maplelegends.com/lib/use?id=2030009',
+			otherDocs: null,
+		},
 	},
 	'VIP Ticket to Florina Beach': {
-		docsLink: 'https://bbb.hidden-street.net/items/ticket/vip-ticket-to-florina-beach',
 		image: '/images/items/vip-ticket-to-florina-beach.png',
+		links: {
+			bbb: 'https://bbb.hidden-street.net/items/ticket/vip-ticket-to-florina-beach',
+			library: 'https://maplelegends.com/lib/etc?id=4031134',
+			otherDocs: null,
+		},
 	},
 	'Warp Card': {
-		docsLink: 'https://bbb.hidden-street.net/items/quest/warp-card',
 		image: '/images/items/warp-card.png',
+		links: {
+			bbb: 'https://bbb.hidden-street.net/items/quest/warp-card',
+			library: 'https://maplelegends.com/lib/etc?id=4031890',
+			otherDocs: null,
+		},
 	},
 } satisfies Record<Item, ItemDetails>;

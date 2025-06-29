@@ -1,7 +1,4 @@
 import { Text } from '@mantine/core';
-import { ExternalLink } from '@/ui/external-link';
-import { ItemIcon } from '../ui/item-icon';
-import { itemDetailsMap } from './items';
 import { ItemDrawerLink } from './items/item-drawer-link';
 
 export const mapFeatures = [
@@ -71,10 +68,7 @@ export const mapFeatureDetailsMap = {
 		description: (
 			<>
 				<Text component="span">Enter the warp device with a </Text>
-				<ExternalLink href={itemDetailsMap['Warp Card'].docsLink}>
-					<ItemIcon item="Warp Card" />
-					Warp Card
-				</ExternalLink>
+				<ItemDrawerLink item="Warp Card" />
 				<Text component="span"> in your inventory</Text>
 			</>
 		),
@@ -85,10 +79,7 @@ export const mapFeatureDetailsMap = {
 		description: (
 			<>
 				<Text component="span">Enter the red portal with a </Text>
-				<ExternalLink href={itemDetailsMap['Desert Coin'].docsLink}>
-					<ItemIcon item="Desert Coin" />
-					Desert Coin
-				</ExternalLink>
+				<ItemDrawerLink item="Desert Coin" />
 				<Text component="span"> in your inventory</Text>
 			</>
 		),
@@ -99,10 +90,7 @@ export const mapFeatureDetailsMap = {
 		description: (
 			<>
 				<Text component="span">Enter the green portal with a </Text>
-				<ExternalLink href={itemDetailsMap['Magic Seed'].docsLink}>
-					<ItemIcon item="Magic Seed" />
-					Magic Seed
-				</ExternalLink>
+				<ItemDrawerLink item="Magic Seed" />
 				<Text component="span"> in your inventory</Text>
 			</>
 		),
