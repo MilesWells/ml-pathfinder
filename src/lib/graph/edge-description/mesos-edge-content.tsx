@@ -3,11 +3,11 @@ import type { Edge, SpinelEdge, TaxiEdge } from '../edges';
 
 export type MesosEdge = Extract<Edge, TaxiEdge | SpinelEdge>;
 
-export type MesosPopoverContentProps = {
+export type MesosEdgeContentProps = {
 	edge: MesosEdge;
 };
 
-export function MesosPopoverContent({ edge }: MesosPopoverContentProps) {
+export function MesosEdgeContent({ edge }: MesosEdgeContentProps) {
 	const mesoCost =
 		edge.mesos !== 0 ? `${new Intl.NumberFormat().format(edge.mesos)} mesos` : 'Free!';
 

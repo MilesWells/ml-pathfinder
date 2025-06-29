@@ -5,11 +5,11 @@ import type { Edge, ItemTaxiEdge, SpinelEdge, TaxiEdge } from '../edges';
 
 export type NPCEdge = Extract<Edge, TaxiEdge | SpinelEdge | ItemTaxiEdge>;
 
-export type NpcPopoverContentProps = {
+export type NpcEdgeContentProps = {
 	edge: NPCEdge;
 };
 
-export function NpcPopoverContent({ edge }: NpcPopoverContentProps) {
+export function NpcEdgeContent({ edge }: NpcEdgeContentProps) {
 	const { docsLink, image } = npcDetailsMap[edge.npc];
 
 	return (

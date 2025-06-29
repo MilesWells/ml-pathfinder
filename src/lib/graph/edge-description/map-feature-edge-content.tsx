@@ -5,11 +5,11 @@ import type { Edge, MapFeatureEdge } from '../edges';
 
 export type FullMapFeatureEdge = Extract<Edge, MapFeatureEdge>;
 
-export type MapFeaturePopoverContentProps = {
+export type MapFeatureEdgeContentProps = {
 	edge: FullMapFeatureEdge;
 };
 
-export function MapFeaturePopoverContent({ edge }: MapFeaturePopoverContentProps) {
+export function MapFeatureEdgeContent({ edge }: MapFeatureEdgeContentProps) {
 	const { description, docsLink, image } = mapFeatureDetailsMap[edge.mapFeature];
 
 	return (
