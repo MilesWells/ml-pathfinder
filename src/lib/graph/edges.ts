@@ -551,6 +551,7 @@ const VICTORIA_ISLAND = {
 			method: 'Timed Taxi',
 			npc: 'Cherry',
 			to: 'Orbis',
+			weight: 12,
 		},
 		{
 			item: 'Magic Seed',
