@@ -139,6 +139,7 @@ const EL_NATH = {
 		{
 			method: 'Walk',
 			to: 'Aqua Road',
+			weight: 0,
 		},
 		{
 			method: 'Walk',
@@ -202,11 +203,7 @@ const KOREAN_FOLK_TOWN = {
 		{
 			method: 'Walk',
 			to: 'Aqua Road',
-		},
-		{
-			item: 'Return Scroll - Nearest Town',
-			method: 'Item',
-			to: 'Aqua Road',
+			weight: 0,
 		},
 		{
 			item: 'Command Center Warp Capsule',
@@ -462,7 +459,7 @@ const ORBIS = {
 		},
 		{
 			mesos: 1_500,
-			method: 'Taxi',
+			method: 'Timed Taxi',
 			npc: 'Hak',
 			to: 'Mu Lung',
 		},

@@ -85,7 +85,7 @@ export const itemDetailsMap = {
 
 				<Text>Obtaining Energy Shards first requires completing tier 3 of the HP Challenges.</Text>
 
-				<Divider my="md" w="100%" />
+				<Divider my="lg" w="100%" />
 
 				<List spacing={8} type="ordered">
 					<ListItem>

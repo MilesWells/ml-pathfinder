@@ -1,6 +1,7 @@
 'use client';
 
 import { Alert, Center, Text } from '@mantine/core';
+import { ItemDrawerLink } from '@/lib/items/item-drawer-link';
 import { useSelectedItems } from '@/lib/items/selected-items-context';
 import { isUnnavigaableRegion } from '@/lib/regions';
 import { ExternalLink } from '@/ui/external-link';
@@ -24,10 +25,7 @@ export function PathfinderInputFeedback() {
 	if (to === 'Neo Tokyo' && !selectedItems['Gate Pass'])
 		content = (
 			<Text fz="lg" ta="center">
-				Accessing Neo Tokyo requires the{' '}
-				<ExternalLink href="https://forum.maplelegends.com/index.php?threads/neo-tokyo-guide.25729/">
-					Gate Pass
-				</ExternalLink>
+				Accessing Neo Tokyo requires the <ItemDrawerLink item="Gate Pass" />
 			</Text>
 		);
 

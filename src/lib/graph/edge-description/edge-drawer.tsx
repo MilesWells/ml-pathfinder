@@ -30,6 +30,10 @@ export function EdgeDrawer({ edge }: EdgeDrawerProps) {
 						display: 'flex',
 						flexDirection: 'column',
 					},
+					title: {
+						fontSize: 22,
+						fontWeight: 500,
+					},
 				}}
 				title={`${edge.from} -> ${edge.to}`}
 			>
