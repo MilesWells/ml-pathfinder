@@ -21,6 +21,8 @@ export const NPCS = [
 	'Pason',
 	'Ramini',
 	'Rini',
+	'Shalon',
+	'Shuri',
 	'Spinel',
 	'Sunny',
 	'Syras',
@@ -29,7 +31,6 @@ export const NPCS = [
 	'Tito (Taiwan)',
 	'Tito (Victoria)',
 	'Tommie',
-	'Shalon',
 ] as const;
 
 export type NPC = (typeof NPCS)[number];
@@ -131,6 +132,10 @@ export const npcDetailsMap = {
 	Shalon: {
 		docsLink: 'https://maplelegends.com/lib/npc?id=9270038',
 		image: '/images/npcs/shalon.png',
+	},
+	Shuri: {
+		docsLink: 'https://maplelegends.com/lib/npc?id=2010005',
+		image: '/images/npcs/shuri.png',
 	},
 	Spinel: {
 		docsLink: 'https://maplelegends.com/lib/npc?id=9000020',
