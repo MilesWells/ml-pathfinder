@@ -19,17 +19,6 @@ export function PathfinderInputFeedback() {
 		);
 	}
 
-	if (to === 'Neo Tokyo')
-		content = (
-			<Text fz="lg" ta="center">
-				Follow{' '}
-				<ExternalLink href="https://forum.maplelegends.com/index.php?threads/neo-tokyo-guide.25729/">
-					Zooploop's guide
-				</ExternalLink>{' '}
-				to access Neo Tokyo
-			</Text>
-		);
-
 	if (from !== null && from === to) content = <Text fz="lg">You're already there!</Text>;
 
 	if (content)
