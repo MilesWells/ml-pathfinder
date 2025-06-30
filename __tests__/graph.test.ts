@@ -14,7 +14,7 @@ describe('Navigable regions should be solvable', () => {
 			if (from === to) continue;
 
 			test(`${from}->${to} should be solvable`, () => {
-				expect(canPath({ from, to }, true)).toBeTruthy();
+				expect(canPath({ from, to })).toBeTruthy();
 				expect(() => shortestPath(graph, from, to)).not.to.throw();
 			});
 		}
@@ -32,7 +32,7 @@ describe('Navigable regions should be solvable without items', () => {
 			if (to === 'Neo Tokyo') continue; // Neo Tokyo requires an item to access
 
 			test(`${from}->${to} should be solveable`, () => {
-				expect(canPath({ from, to }, false)).toBeTruthy();
+				expect(canPath({ from, to })).toBeTruthy();
 				expect(() => shortestPath(graph, from, to)).not.to.throw();
 			});
 		}

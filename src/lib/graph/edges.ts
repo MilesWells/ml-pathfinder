@@ -367,8 +367,8 @@ const MUSHROOM_SHRINE = {
 			to: 'Ninja Castle',
 		},
 		{
-			item: 'Gate Pass',
-			method: 'Item Taxi',
+			mesos: 0,
+			method: 'Taxi',
 			npc: 'Crystal (Zipangu)',
 			to: 'Neo Tokyo',
 		},

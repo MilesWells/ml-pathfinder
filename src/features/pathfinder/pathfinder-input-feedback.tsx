@@ -1,15 +1,12 @@
 'use client';
 
 import { Alert, Center, Text } from '@mantine/core';
-import { ItemDrawerLink } from '@/lib/items/item-drawer-link';
-import { useSelectedItems } from '@/lib/items/selected-items-context';
 import { isUnnavigaableRegion } from '@/lib/regions';
 import { ExternalLink } from '@/ui/external-link';
 import { usePathfinder } from './pathfinder-context';
 
 export function PathfinderInputFeedback() {
 	const { from, to } = usePathfinder();
-	const { selectedItems } = useSelectedItems();
 
 	let content: React.ReactNode;
 
@@ -22,10 +19,14 @@ export function PathfinderInputFeedback() {
 		);
 	}
 
-	if (to === 'Neo Tokyo' && !selectedItems['Gate Pass'])
+	if (to === 'Neo Tokyo')
 		content = (
 			<Text fz="lg" ta="center">
-				Accessing Neo Tokyo requires the <ItemDrawerLink item="Gate Pass" />
+				Follow{' '}
+				<ExternalLink href="https://forum.maplelegends.com/index.php?threads/neo-tokyo-guide.25729/">
+					Zooploop's guide
+				</ExternalLink>{' '}
+				to access Neo Tokyo
 			</Text>
 		);
 

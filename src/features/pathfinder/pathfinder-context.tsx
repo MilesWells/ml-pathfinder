@@ -6,7 +6,6 @@ import { createContext, useCallback, useContext, useEffect, useMemo, useState } 
 import { z } from 'zod';
 import { useGraph } from '@/lib/graph';
 import type { Edge } from '@/lib/graph/edges';
-import { useSelectedItems } from '@/lib/items/selected-items-context';
 import { isUnnavigaableRegion, type NavigableRegion, REGIONS, type Region } from '@/lib/regions';
 
 const FROM_LOCAL_STORAGE_KEY = 'ml-p-from';
@@ -28,7 +27,6 @@ export function PathfinderContextProvider({ children }: React.PropsWithChildren)
 	const [from, setFrom] = useState<Region | null>(null);
 	const [to, setTo] = useState<Region | null>(null);
 	const graph = useGraph();
-	const { selectedItems } = useSelectedItems();
 
 	useEffect(() => {
 		const fromParseResult = regionSchema.safeParse(
@@ -45,7 +43,7 @@ export function PathfinderContextProvider({ children }: React.PropsWithChildren)
 	const path = useMemo<Edge[]>(() => {
 		const path = { from, to };
 
-		if (!canPath(path, selectedItems['Gate Pass'])) return [];
+		if (!canPath(path)) return [];
 
 		try {
 			const nodePath = shortestPath(graph, path.from, path.to).nodes;
@@ -64,7 +62,7 @@ export function PathfinderContextProvider({ children }: React.PropsWithChildren)
 		} catch {
 			return [];
 		}
-	}, [from, graph, selectedItems, to]);
+	}, [from, graph, to]);
 
 	const setFromWrapped = useCallback<PathfinderContextValue['setFrom']>(localFrom => {
 		setFrom(localFrom);
@@ -90,10 +88,10 @@ export function PathfinderContextProvider({ children }: React.PropsWithChildren)
 	return <PathfinderContext value={value}>{children}</PathfinderContext>;
 }
 
-export function canPath(
-	input: { from: Region | null; to: Region | null },
-	hasGatePass: boolean,
-): input is { from: NavigableRegion; to: Region } {
+export function canPath(input: {
+	from: Region | null;
+	to: Region | null;
+}): input is { from: NavigableRegion; to: Region } {
 	const { from, to } = input;
 
 	if (!from || !to) return false;
@@ -101,8 +99,6 @@ export function canPath(
 	if (isUnnavigaableRegion(from)) return false;
 
 	if (from === to) return false;
-
-	if (to === 'Neo Tokyo' && !hasGatePass) return false;
 
 	return true;
 }

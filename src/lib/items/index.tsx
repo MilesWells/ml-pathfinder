@@ -10,7 +10,6 @@ export const items = [
 	'Energy Shard',
 	'Eos Rock Scroll',
 	'Fruit Milk',
-	'Gate Pass',
 	'Ludibrium Warp Capsule',
 	'Magic Seed',
 	'Omega Sector Warp Capsule',
@@ -28,8 +27,6 @@ export type ItemDetails = {
 	image: string;
 	details: React.ReactNode;
 };
-
-const IMAGE_PLACEHOLDER = '/images/slime-sweat.png';
 
 export const itemDetailsMap = {
 	'Command Center Warp Capsule': {
@@ -71,7 +68,7 @@ export const itemDetailsMap = {
 				<MapFeatureDetails disableDrawerLink mapFeature="Perion: Iron Boar Land" />
 			</Center>
 		),
-		image: IMAGE_PLACEHOLDER,
+		image: '/images/items/desert-coin.png',
 	},
 	'Energy Shard': {
 		details: (
@@ -125,7 +122,7 @@ export const itemDetailsMap = {
 				<MapFeatureDetails disableDrawerLink mapFeature="Korean Folk Town: Moon Ridge" />
 			</Center>
 		),
-		image: IMAGE_PLACEHOLDER,
+		image: '/images/items/energy-shard.png',
 	},
 	'Eos Rock Scroll': {
 		details: (
@@ -183,18 +180,6 @@ export const itemDetailsMap = {
 			</Text>
 		),
 		image: '/images/items/fruit-milk.png',
-	},
-	'Gate Pass': {
-		details: (
-			<Text ta="center">
-				Follow{' '}
-				<ExternalLink href="https://forum.maplelegends.com/index.php?threads/neo-tokyo-guide.25729/">
-					Zooploop's guide
-				</ExternalLink>{' '}
-				to access Neo Tokyo
-			</Text>
-		),
-		image: IMAGE_PLACEHOLDER,
 	},
 	'Ludibrium Warp Capsule': {
 		details: (

@@ -6,7 +6,7 @@ export type ItemConsumptionProps = {
 };
 
 export function ItemConsumption({ item }: ItemConsumptionProps) {
-	if (item === 'VIP Ticket to Florina Beach' || item === 'Gate Pass')
+	if (item === 'VIP Ticket to Florina Beach')
 		return (
 			<Text c="meso-yellow.6" fs="italic">
 				Item kept on use
