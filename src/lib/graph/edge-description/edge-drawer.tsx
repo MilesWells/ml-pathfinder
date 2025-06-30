@@ -37,7 +37,7 @@ export function EdgeDrawer({ edge }: EdgeDrawerProps) {
 				}}
 				title={`${edge.from} -> ${edge.to}`}
 			>
-				<Center h="100%" style={{ flexDirection: 'column' }}>
+				<Center h="100%" style={{ flexDirection: 'column', gap: 8 }}>
 					<EdgeDescriptionContent edge={edge} />
 				</Center>
 			</Drawer>
