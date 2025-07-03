@@ -438,6 +438,7 @@ const ORBIS = {
 			method: 'Timed Taxi',
 			npc: 'Rini',
 			to: 'Victoria Island',
+			weight: 12,
 		},
 		{
 			mesos: 0,
