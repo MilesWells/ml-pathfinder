@@ -69,6 +69,11 @@ const AMORIA = {
 			npc: 'Thomas Swift',
 			to: 'Victoria Island',
 		},
+		{
+			item: 'Return to New Leaf City Scroll',
+			method: 'Item',
+			to: 'NLC',
+		},
 		...SPINEL_EDGES,
 	],
 	region: 'Amoria',
@@ -609,11 +614,6 @@ const VICTORIA_ISLAND = {
 			method: 'Taxi',
 			npc: 'Pason',
 			to: 'Florina Beach',
-		},
-		{
-			item: 'Return to New Leaf City Scroll',
-			method: 'Item',
-			to: 'NLC',
 		},
 		...SPINEL_EDGES,
 	],
