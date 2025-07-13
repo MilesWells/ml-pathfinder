@@ -31,7 +31,7 @@ export const REGIONS = [
 
 export type Region = (typeof REGIONS)[number];
 
-export const SPINEL_REGIONS = ['China', 'Thailand', 'Mushroom Shrine'] as const;
+export const SPINEL_REGIONS = ['China', 'Thailand', 'Mushroom Shrine'] as const satisfies Region[];
 
 export type SpinelRegion = (typeof SPINEL_REGIONS)[number];
 
@@ -46,7 +46,7 @@ export const UNNAVIGABLE_REGIONS = [
 	'Neo Tokyo',
 	'Ninja Castle',
 	...SPINEL_REGIONS,
-] as const;
+] as const satisfies Region[];
 
 export type UnnavigableRegion = (typeof UNNAVIGABLE_REGIONS)[number];
 
