@@ -19,6 +19,10 @@ export const WEAPON_TYPES = [
 
 export type WeaponType = (typeof WEAPON_TYPES)[number];
 
+export type MagicDamageWeaponType = 'Staff' | 'Wand';
+
+export type PhysicalDamageWeaponType = Exclude<WeaponType, MagicDamageWeaponType>;
+
 export const SWING_STAB_WEAPON_TYPES = [
 	'One Handed Axe',
 	'One Handed BW',
@@ -29,7 +33,3 @@ export const SWING_STAB_WEAPON_TYPES = [
 ] as const satisfies WeaponType[];
 
 export type SwingStabWeaponType = (typeof SWING_STAB_WEAPON_TYPES)[number];
-
-export function isSwingStabWeaponType(weaponType: WeaponType): weaponType is SwingStabWeaponType {
-	return SWING_STAB_WEAPON_TYPES.some(wt => wt === weaponType);
-}

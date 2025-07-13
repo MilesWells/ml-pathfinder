@@ -1,4 +1,4 @@
-import type { SwingStabWeaponType, WeaponType } from '.';
+import type { PhysicalDamageWeaponType, SwingStabWeaponType } from '.';
 
 export type MinMaxWeaponDamageOptions = {
 	dex: number;
@@ -175,7 +175,7 @@ export const minMaxWeaponDamageMap = {
 			weaponMastery,
 		}),
 } satisfies {
-	[k in Exclude<WeaponType, SwingStabWeaponType | 'Staff' | 'Wand'>]: (
+	[k in Exclude<PhysicalDamageWeaponType, SwingStabWeaponType>]: (
 		options: MinMaxWeaponDamageOptions,
 	) => MinMax;
 } & {
