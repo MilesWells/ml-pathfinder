@@ -13,7 +13,7 @@ export function Pathfinder() {
 			<PathfinderContextProvider>
 				<DrawerStack>
 					<ItemDrawersProvider>
-						<Stack gap="xl" mt={40}>
+						<Stack gap="xl">
 							<PathfinderInput />
 							<PathfinderInputFeedback />
 							<PathfinderResults />

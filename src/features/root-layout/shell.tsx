@@ -1,5 +1,6 @@
 import { AppShell, AppShellFooter, AppShellMain, Center, Text, Title } from '@mantine/core';
 import { ExternalLink } from '@/ui/external-link';
+import { Navigation } from './navigation';
 
 export default function Shell({ children }: React.PropsWithChildren) {
 	return (
@@ -15,6 +16,8 @@ export default function Shell({ children }: React.PropsWithChildren) {
 						MapleLegends Pathfinder
 					</Title>
 				</Center>
+
+				<Navigation />
 
 				{children}
 			</AppShellMain>
