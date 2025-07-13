@@ -10,7 +10,7 @@ const navItems = [
 		label: 'Pathfinder',
 	},
 	{
-		href: '/damage',
+		href: '/damage-calculator',
 		label: 'Damage Calculator',
 	},
 ];
