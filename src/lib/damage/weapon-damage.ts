@@ -1,4 +1,4 @@
-import type { PhysicalDamageWeaponType, SwingStabWeaponType } from '.';
+import type { MinMax, PhysicalDamageWeaponType, SwingStabWeaponType } from '.';
 
 export type MinMaxWeaponDamageOptions = {
 	dex: number;
@@ -7,11 +7,6 @@ export type MinMaxWeaponDamageOptions = {
 	str: number;
 	weaponAttack: number;
 	weaponMastery: number;
-};
-
-type MinMax = {
-	max: number;
-	min: number;
 };
 
 type GeneralMinMaxOptions = {

@@ -33,3 +33,8 @@ export const SWING_STAB_WEAPON_TYPES = [
 ] as const satisfies WeaponType[];
 
 export type SwingStabWeaponType = (typeof SWING_STAB_WEAPON_TYPES)[number];
+
+export type MinMax = {
+	max: number;
+	min: number;
+};
