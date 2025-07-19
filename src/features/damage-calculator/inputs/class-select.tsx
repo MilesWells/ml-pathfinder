@@ -1,21 +1,21 @@
 'use client';
 
 import { Select } from '@mantine/core';
-import { CLASSES, type Class } from '@/lib/classes';
-import { useDamageOptions } from './use-damage-options';
+import { MAPLE_CLASSES, type MapleClass } from '@/lib/maple-classes';
+import { useMapleClass } from './hooks';
 
 export function ClassSelect() {
-	const { options, setOptions } = useDamageOptions();
+	const { mapleClass, setMapleClass } = useMapleClass();
 
 	return (
 		<Select
-			data={CLASSES}
+			data={MAPLE_CLASSES}
 			label="Choose your class"
 			maw="300px"
 			mx="auto"
-			onChange={c => setOptions({ ...options, class: c as Class })}
+			onChange={c => setMapleClass(c as MapleClass)}
 			searchable
-			value={options.class}
+			value={mapleClass}
 		/>
 	);
 }
