@@ -1,3 +1,9 @@
+import { ClassSelect } from './inputs/class-select';
+
 export function DamageCalculator() {
-	return <div></div>;
+	return (
+		<div>
+			<ClassSelect />
+		</div>
+	);
 }

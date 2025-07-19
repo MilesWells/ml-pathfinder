@@ -27,6 +27,7 @@
 		]
 	},
 	"formatter": {
+		"formatWithErrors": true,
 		"indentStyle": "tab",
 		"lineWidth": 100
 	},
