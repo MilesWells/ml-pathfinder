@@ -29,6 +29,15 @@ export function useWeaponMastery() {
 	return { setWeaponMastery, weaponMastery };
 }
 
+export function useSpellDamage() {
+	const [spellDamage, setSpellDamage] = useLocalStorage<number>({
+		defaultValue: 1,
+		key: 'spell-damage',
+	});
+
+	return { setSpellDamage, spellDamage };
+}
+
 export function useSpellMastery() {
 	const [spellMastery, setSpellMastery] = useLocalStorage<number>({
 		defaultValue: 0,

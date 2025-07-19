@@ -6,7 +6,6 @@ export function TotalEquipWeaponAttackInput() {
 
 	return (
 		<NumberInput
-			clampBehavior="strict"
 			label="Total Weapon Attack from Equipment"
 			max={999999}
 			min={1}

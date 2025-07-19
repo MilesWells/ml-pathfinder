@@ -6,7 +6,6 @@ export function WeaponMasteryInput() {
 
 	return (
 		<NumberInput
-			clampBehavior="strict"
 			label="Weapon Mastery"
 			max={100}
 			min={0}

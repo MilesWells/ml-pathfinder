@@ -6,7 +6,6 @@ export function SpellMasteryInput() {
 
 	return (
 		<NumberInput
-			clampBehavior="strict"
 			label="Spell Mastery"
 			max={100}
 			min={0}

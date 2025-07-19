@@ -6,7 +6,6 @@ export function TotalMagicInput() {
 
 	return (
 		<NumberInput
-			clampBehavior="strict"
 			description="'magic' from stats screen"
 			label="Total Magic Attack"
 			max={999999}
