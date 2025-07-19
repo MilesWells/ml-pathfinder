@@ -13,16 +13,10 @@ export function CharacterStatsInput() {
 	return (
 		<Fieldset legend={<Title order={3}>Character</Title>} mx="auto" w="fit-content">
 			<Stack>
-				<ClassSelect maw="125px" mx="auto" />
+				<ClassSelect maw={125} mx="auto" />
 
 				<Stack mx="auto">
-					<Group
-						miw="0"
-						style={{
-							flexShrink: 1,
-						}}
-						w="fit-content"
-					>
+					<Group>
 						<AbilityScoreInput label="STR" onChange={str => setStr(Number(str))} value={str} />
 						<AbilityScoreInput label="DEX" onChange={dex => setDex(Number(dex))} value={dex} />
 					</Group>
@@ -40,7 +34,7 @@ export function CharacterStatsInput() {
 function AbilityScoreInput(props: NumberInputProps) {
 	return (
 		<NumberInput
-			maw="80px"
+			maw={80}
 			max={9999}
 			min={4}
 			styles={{

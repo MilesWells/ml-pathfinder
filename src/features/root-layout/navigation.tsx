@@ -26,6 +26,7 @@ export function Navigation() {
 					color="meso-yellow.6"
 					component={Link}
 					key={navItem.label}
+					maw={200}
 					ta="center"
 					{...navItem}
 				/>
