@@ -1,21 +1,25 @@
 'use client';
 
-import { Select } from '@mantine/core';
+import { Select, type SelectProps } from '@mantine/core';
 import { MAPLE_CLASSES, type MapleClass } from '@/lib/maple-classes';
 import { useMapleClass } from './hooks';
 
-export function ClassSelect() {
+export function ClassSelect(props: SelectProps) {
 	const { mapleClass, setMapleClass } = useMapleClass();
 
 	return (
 		<Select
+			allowDeselect={false}
 			data={MAPLE_CLASSES}
-			label="Choose your class"
-			maw="300px"
-			mx="auto"
+			label="Class"
 			onChange={c => setMapleClass(c as MapleClass)}
-			searchable
+			styles={{
+				input: {
+					caretColor: 'transparent',
+				},
+			}}
 			value={mapleClass}
+			{...props}
 		/>
 	);
 }
