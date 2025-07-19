@@ -2,6 +2,7 @@
 
 import { Fieldset, Group, Stack, Title } from '@mantine/core';
 import { useDex, useInt, useLuk, useStr } from '@/lib/local-storage/abilities';
+import { useSelectedCharacter } from '@/lib/local-storage/characters';
 import { AbilityScoreInput } from '@/ui/ability-score-input';
 import { ClassSelect } from './class-select';
 
@@ -10,9 +11,10 @@ export function CharacterStatsInput() {
 	const { dex, setDex } = useDex();
 	const { int, setInt } = useInt();
 	const { luk, setLuk } = useLuk();
+	const { selectedCharacter } = useSelectedCharacter();
 
 	return (
-		<Fieldset legend={<Title order={3}>Character</Title>} w="fit-content">
+		<Fieldset legend={<Title order={3}>{selectedCharacter}</Title>} w="fit-content">
 			<Stack h="100%" justify="space-around">
 				<ClassSelect maw={125} mx="auto" />
 
