@@ -6,20 +6,21 @@ import { ExternalLink } from '@/ui/external-link';
 import { usePathfinder } from './pathfinder-context';
 
 export function PathfinderInputFeedback() {
-	const { from, to } = usePathfinder();
+	const { startingRegion, destinationRegion } = usePathfinder();
 
 	let content: React.ReactNode;
 
-	if (from && isUnnavigaableRegion(from)) {
+	if (startingRegion && isUnnavigaableRegion(startingRegion)) {
 		content = (
 			<Text fz="lg" ta="center">
 				First move back to your original location via{' '}
-				{from === 'Florina Beach' ? <PisonLink /> : <SpinelLink />}
+				{startingRegion === 'Florina Beach' ? <PisonLink /> : <SpinelLink />}
 			</Text>
 		);
 	}
 
-	if (from !== null && from === to) content = <Text fz="lg">You're already there!</Text>;
+	if (startingRegion !== null && startingRegion === destinationRegion)
+		content = <Text fz="lg">You're already there!</Text>;
 
 	if (content)
 		return (

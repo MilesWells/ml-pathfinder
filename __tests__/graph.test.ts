@@ -7,15 +7,15 @@ import { isUnnavigaableRegion, REGIONS } from '@/lib/regions';
 describe('Navigable regions should be solvable', () => {
 	const graph = getFullGraph();
 
-	for (const from of REGIONS) {
-		if (isUnnavigaableRegion(from)) continue;
+	for (const startingRegion of REGIONS) {
+		if (isUnnavigaableRegion(startingRegion)) continue;
 
-		for (const to of REGIONS) {
-			if (from === to) continue;
+		for (const destinationRegion of REGIONS) {
+			if (startingRegion === destinationRegion) continue;
 
-			test(`${from}->${to} should be solvable`, () => {
-				expect(canPath({ from, to })).toBeTruthy();
-				expect(() => shortestPath(graph, from, to)).not.to.throw();
+			test(`${startingRegion}->${destinationRegion} should be solvable`, () => {
+				expect(canPath({ destinationRegion, startingRegion })).toBeTruthy();
+				expect(() => shortestPath(graph, startingRegion, destinationRegion)).not.to.throw();
 			});
 		}
 	}
@@ -24,16 +24,16 @@ describe('Navigable regions should be solvable', () => {
 describe('Navigable regions should be solvable without items', () => {
 	const graph = getGraphWithoutItemEdges();
 
-	for (const from of REGIONS) {
-		if (isUnnavigaableRegion(from)) continue;
+	for (const startingRegion of REGIONS) {
+		if (isUnnavigaableRegion(startingRegion)) continue;
 
-		for (const to of REGIONS) {
-			if (from === to) continue;
-			if (to === 'Neo Tokyo') continue; // Neo Tokyo requires an item to access
+		for (const destinationRegion of REGIONS) {
+			if (startingRegion === destinationRegion) continue;
+			if (destinationRegion === 'Neo Tokyo') continue; // Neo Tokyo requires an item to access
 
-			test(`${from}->${to} should be solveable`, () => {
-				expect(canPath({ from, to })).toBeTruthy();
-				expect(() => shortestPath(graph, from, to)).not.to.throw();
+			test(`${startingRegion}->${destinationRegion} should be solveable`, () => {
+				expect(canPath({ destinationRegion, startingRegion })).toBeTruthy();
+				expect(() => shortestPath(graph, startingRegion, destinationRegion)).not.to.throw();
 			});
 		}
 	}

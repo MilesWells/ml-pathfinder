@@ -6,7 +6,8 @@ import { REGIONS, type Region } from '@/lib/regions';
 import { usePathfinder } from './pathfinder-context';
 
 export function PathfinderInput() {
-	const { from, setFrom, setTo, to } = usePathfinder();
+	const { destinationRegion, startingRegion, setDestinationRegion, setStartingRegion } =
+		usePathfinder();
 	const {
 		itemStack,
 		'item-selection': { stackId },
@@ -19,27 +20,25 @@ export function PathfinderInput() {
 			</Button>
 
 			<Select
-				clearable
+				allowDeselect={false}
 				data={REGIONS}
 				label="Starting Region"
 				maw="300px"
 				mx="auto"
-				onChange={from => setFrom(from as Region)}
-				placeholder="Choose starting region"
+				onChange={startingRegion => setStartingRegion(startingRegion as Region)}
 				searchable
-				value={from}
+				value={startingRegion}
 			/>
 
 			<Select
-				clearable
+				allowDeselect={false}
 				data={REGIONS}
 				label="Destination Region"
 				maw="300px"
 				mx="auto"
-				onChange={to => setTo(to as Region)}
-				placeholder="Choose destination region"
+				onChange={destinationRegion => setDestinationRegion(destinationRegion as Region)}
 				searchable
-				value={to}
+				value={destinationRegion}
 			/>
 		</Stack>
 	);

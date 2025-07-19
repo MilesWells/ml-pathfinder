@@ -1,23 +1,18 @@
 'use client';
 
-import { Select, type SelectProps } from '@mantine/core';
+import type { SelectProps } from '@mantine/core';
 import { useCharacters, useSelectedCharacter } from '@/lib/local-storage/characters';
+import { SelectNoInput } from '@/ui/select-no-input';
 
-export function CharacterSelect(props: SelectProps) {
+export function CharacterSelect(props: Omit<SelectProps, 'data' | 'value' | 'onChange' | 'label'>) {
 	const { characters } = useCharacters();
 	const { selectedCharacter, setSelectedCharacter } = useSelectedCharacter();
 
 	return (
-		<Select
-			allowDeselect={false}
+		<SelectNoInput
 			data={characters}
 			label="Current Character"
 			onChange={value => value && setSelectedCharacter(value)}
-			styles={{
-				input: {
-					caretColor: 'transparent',
-				},
-			}}
 			value={selectedCharacter}
 			{...props}
 		/>

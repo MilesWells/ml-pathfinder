@@ -6,16 +6,16 @@ import { EdgeMethodIcon } from '@/ui/edge-method-icon';
 import { usePathfinder } from './pathfinder-context';
 
 export function PathfinderResults() {
-	const { from, to, path } = usePathfinder();
+	const { destinationRegion, path, startingRegion } = usePathfinder();
 
-	if (!from || !to || path.length === 0) return null;
+	if (path.length === 0) return null;
 
 	return (
 		<Center>
 			<Card shadow="lg" withBorder>
 				<Stack align="center" gap="lg">
 					<Title c="maplelegends-blue.6" fs="italic" order={4}>
-						{from} {`->`} {to}
+						{startingRegion} {`->`} {destinationRegion}
 					</Title>
 
 					<Stack gap="xs">

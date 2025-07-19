@@ -2,51 +2,34 @@
 
 import { shortestPath } from 'graph-data-structure';
 import type React from 'react';
-import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
-import { z } from 'zod';
+import { createContext, useContext, useMemo } from 'react';
 import { useGraph } from '@/lib/graph';
 import type { Edge } from '@/lib/graph/edges';
-import { isUnnavigaableRegion, type NavigableRegion, REGIONS, type Region } from '@/lib/regions';
-
-const FROM_LOCAL_STORAGE_KEY = 'ml-p-from';
-const TO_LOCAL_STORAGE_KEY = 'ml-p-to';
-
-const regionSchema = z.enum(REGIONS).nullable();
+import { useDestinationRegion, useStartingRegion } from '@/lib/local-storage/pathfinder/regions';
+import { isUnnavigaableRegion, type NavigableRegion, type Region } from '@/lib/regions';
 
 export type PathfinderContextValue = {
-	from: Region | null;
-	setFrom: React.Dispatch<React.SetStateAction<Region | null>>;
-	setTo: React.Dispatch<React.SetStateAction<Region | null>>;
-	to: Region | null;
+	startingRegion: Region;
+	destinationRegion: Region;
+	setStartingRegion: (region: Region) => void;
+	setDestinationRegion: (region: Region) => void;
 	path: Edge[];
 };
 
 export const PathfinderContext = createContext<PathfinderContextValue | null>(null);
 
 export function PathfinderContextProvider({ children }: React.PropsWithChildren) {
-	const [from, setFrom] = useState<Region | null>(null);
-	const [to, setTo] = useState<Region | null>(null);
 	const graph = useGraph();
-
-	useEffect(() => {
-		const fromParseResult = regionSchema.safeParse(
-			JSON.parse(localStorage.getItem(FROM_LOCAL_STORAGE_KEY) ?? 'null'),
-		);
-		const toParseResult = regionSchema.safeParse(
-			JSON.parse(localStorage.getItem(TO_LOCAL_STORAGE_KEY) ?? 'null'),
-		);
-
-		if (fromParseResult.success) setFrom(fromParseResult.data);
-		if (toParseResult.success) setTo(toParseResult.data);
-	}, []);
+	const { startingRegion, setStartingRegion } = useStartingRegion();
+	const { destinationRegion, setDestinationRegion } = useDestinationRegion();
 
 	const path = useMemo<Edge[]>(() => {
-		const path = { from, to };
+		const path = { destinationRegion, startingRegion };
 
 		if (!canPath(path)) return [];
 
 		try {
-			const nodePath = shortestPath(graph, path.from, path.to).nodes;
+			const nodePath = shortestPath(graph, path.startingRegion, path.destinationRegion).nodes;
 
 			return nodePath.reduce<Edge[]>((acc, cur, idx, arr) => {
 				if (idx === arr.length - 1) return acc;
@@ -62,43 +45,31 @@ export function PathfinderContextProvider({ children }: React.PropsWithChildren)
 		} catch {
 			return [];
 		}
-	}, [from, graph, to]);
-
-	const setFromWrapped = useCallback<PathfinderContextValue['setFrom']>(localFrom => {
-		setFrom(localFrom);
-		localStorage.setItem(FROM_LOCAL_STORAGE_KEY, JSON.stringify(localFrom));
-	}, []);
-
-	const setToWrapped = useCallback<PathfinderContextValue['setTo']>(localTo => {
-		setTo(localTo);
-		localStorage.setItem(TO_LOCAL_STORAGE_KEY, JSON.stringify(localTo));
-	}, []);
+	}, [startingRegion, destinationRegion, graph]);
 
 	const value = useMemo<PathfinderContextValue>(
 		() => ({
-			from,
+			destinationRegion,
 			path,
-			setFrom: setFromWrapped,
-			setTo: setToWrapped,
-			to,
+			setDestinationRegion,
+			setStartingRegion,
+			startingRegion,
 		}),
-		[from, path, setFromWrapped, setToWrapped, to],
+		[startingRegion, destinationRegion, path, setDestinationRegion, setStartingRegion],
 	);
 
 	return <PathfinderContext value={value}>{children}</PathfinderContext>;
 }
 
 export function canPath(input: {
-	from: Region | null;
-	to: Region | null;
-}): input is { from: NavigableRegion; to: Region } {
-	const { from, to } = input;
+	startingRegion: Region;
+	destinationRegion: Region;
+}): input is { startingRegion: NavigableRegion; destinationRegion: Region } {
+	const { startingRegion, destinationRegion } = input;
 
-	if (!from || !to) return false;
+	if (isUnnavigaableRegion(startingRegion)) return false;
 
-	if (isUnnavigaableRegion(from)) return false;
-
-	if (from === to) return false;
+	if (startingRegion === destinationRegion) return false;
 
 	return true;
 }
