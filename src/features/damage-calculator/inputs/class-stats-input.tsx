@@ -1,7 +1,7 @@
 'use client';
 
 import { Fieldset, Stack, Title } from '@mantine/core';
-import { useMapleClass } from '@/lib/local-storage';
+import { useMapleClass } from '@/lib/local-storage/maple-class';
 import { SpellDamageInput } from './spell-damage-input';
 import { SpellMasteryInput } from './spell-mastery-input';
 import { TotalEquipWeaponAttackInput } from './total-equip-weapon-attack-input';

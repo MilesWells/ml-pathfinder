@@ -10,7 +10,7 @@ import {
 	TableTr,
 	Title,
 } from '@mantine/core';
-import { useMapleClass } from '@/lib/local-storage';
+import { useMapleClass } from '@/lib/local-storage/maple-class';
 import { HealRangeTable } from './results/heal-range-tabe';
 import { PhysicalWeaponResults } from './results/physical-weapon-results';
 import { SpellDamageResults } from './results/spell-damage-results';

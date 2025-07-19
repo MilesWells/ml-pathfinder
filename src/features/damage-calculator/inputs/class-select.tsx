@@ -1,7 +1,7 @@
 'use client';
 
 import { Select, type SelectProps } from '@mantine/core';
-import { useMapleClass } from '@/lib/local-storage';
+import { useMapleClass } from '@/lib/local-storage/maple-class';
 import { MAPLE_CLASSES, type MapleClass } from '@/lib/maple-classes';
 
 export function ClassSelect(props: SelectProps) {
