@@ -1,7 +1,17 @@
 'use client';
 
-import { Fieldset, Table, TableTbody, TableTh, TableThead, TableTr, Title } from '@mantine/core';
+import {
+	Fieldset,
+	Table,
+	TableTbody,
+	TableTd,
+	TableTh,
+	TableThead,
+	TableTr,
+	Title,
+} from '@mantine/core';
 import { useMapleClass } from '@/lib/local-storage';
+import { HealRangeTable } from './results/heal-range-tabe';
 import { PhysicalWeaponResults } from './results/physical-weapon-results';
 import { SpellDamageResults } from './results/spell-damage-results';
 import { SwingStabWeaponRangeTable } from './results/swing-stab-weapon-range-table';
@@ -14,7 +24,7 @@ export function BaseRange() {
 			<Table mx="auto" ta="center" variant="vertical" w="fit-content">
 				<TableThead>
 					<TableTr>
-						<TableTh />
+						<TableTd />
 						<TableTh ta="center">MIN</TableTh>
 						<TableTh ta="center">MAX</TableTh>
 					</TableTr>
@@ -26,6 +36,7 @@ export function BaseRange() {
 			</Table>
 
 			{mapleClass === 'Warrior' && <SwingStabWeaponRangeTable />}
+			{mapleClass === 'Magician' && <HealRangeTable />}
 		</Fieldset>
 	);
 }
