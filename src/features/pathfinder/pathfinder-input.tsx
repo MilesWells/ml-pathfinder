@@ -8,6 +8,7 @@ import { usePathfinder } from './pathfinder-context';
 export function PathfinderInput() {
 	const { destinationRegion, startingRegion, setDestinationRegion, setStartingRegion } =
 		usePathfinder();
+
 	const {
 		itemStack,
 		'item-selection': { stackId },

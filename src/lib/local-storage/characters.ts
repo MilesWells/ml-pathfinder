@@ -2,7 +2,7 @@
 
 import { useLocalStorage } from '@mantine/hooks';
 
-const DEFAULT_CHARACTER = 'NewCharacter';
+const DEFAULT_CHARACTER = 'New Character';
 
 export function useCharacters() {
 	const [characters, setCharacters] = useLocalStorage<string[]>({
@@ -27,4 +27,26 @@ export function useSelectedCharacter() {
 	});
 
 	return { selectedCharacter, setSelectedCharacter };
+}
+
+export function renameCharacter(oldName: string, newName: string) {
+	const { characters, setCharacters } = useCharacters();
+	const { selectedCharacter, setSelectedCharacter } = useSelectedCharacter();
+
+	const oldKeys: string[] = [];
+	for (let i = 0; i < localStorage.length; i++) {
+		const key = localStorage.key(i);
+		if (key?.startsWith(oldName)) oldKeys.push(key);
+	}
+
+	for (const key of oldKeys) {
+		const value = localStorage.getItem(key);
+		if (!value) continue;
+
+		localStorage.setItem(key.replace(oldName, newName), value);
+	}
+
+	setCharacters(characters.map(character => (character === oldName ? newName : character)));
+	if (selectedCharacter === oldName) setSelectedCharacter(newName);
+	for (const key of oldKeys) localStorage.removeItem(key);
 }

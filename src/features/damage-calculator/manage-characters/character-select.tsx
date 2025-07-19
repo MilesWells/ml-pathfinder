@@ -11,7 +11,6 @@ export function CharacterSelect(props: Omit<SelectProps, 'data' | 'value' | 'onC
 	return (
 		<SelectNoInput
 			data={characters}
-			label="Current Character"
 			onChange={value => value && setSelectedCharacter(value)}
 			value={selectedCharacter}
 			{...props}
