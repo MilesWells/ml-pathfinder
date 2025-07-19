@@ -38,5 +38,5 @@ export function CharacterStatsInput() {
 }
 
 function AbilityScoreInput(props: NumberInputProps) {
-	return <NumberInput maw="100px" {...props} />;
+	return <NumberInput maw="100px" max={9999} min={4} {...props} />;
 }
