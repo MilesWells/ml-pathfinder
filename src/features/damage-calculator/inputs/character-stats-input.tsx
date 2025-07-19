@@ -38,5 +38,18 @@ export function CharacterStatsInput() {
 }
 
 function AbilityScoreInput(props: NumberInputProps) {
-	return <NumberInput maw="100px" max={9999} min={4} {...props} />;
+	return (
+		<NumberInput
+			maw="80px"
+			max={9999}
+			min={4}
+			styles={{
+				input: {
+					paddingLeft: 0,
+					textAlign: 'center',
+				},
+			}}
+			{...props}
+		/>
+	);
 }
