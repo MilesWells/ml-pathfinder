@@ -1,6 +1,6 @@
 import { TableTd, TableTh, TableTr } from '@mantine/core';
 import { useMemo } from 'react';
-import type { PhysicalWeaponType } from '@/lib/damage';
+import { handedCompactWeaponName, isHandedWeaponType, type PhysicalWeaponType } from '@/lib/damage';
 import { maxMinWeaponDamageMap } from '@/lib/damage/weapon-damage';
 import { useAbilities } from '@/lib/local-storage/abilities';
 import { useTotalEquipWeaponAttack, useWeaponMastery } from '@/lib/local-storage/stats';
@@ -25,7 +25,10 @@ export function PhysicalWeaponResults({ weaponType }: { weaponType: PhysicalWeap
 
 	return (
 		<TableTr>
-			<TableTh>{weaponType}</TableTh>
+			<TableTh left={0} pos="sticky" ta="right">
+				{isHandedWeaponType(weaponType) ? handedCompactWeaponName[weaponType] : weaponType}
+			</TableTh>
+
 			<TableTd>{formatter.format(min)}</TableTd>
 			<TableTd>{formatter.format(max)}</TableTd>
 		</TableTr>

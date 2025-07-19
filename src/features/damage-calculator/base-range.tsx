@@ -1,6 +1,15 @@
 'use client';
 
-import { Fieldset, Stack, Table, TableTbody, TableTd, TableTr, Title } from '@mantine/core';
+import {
+	Fieldset,
+	Table,
+	TableScrollContainer,
+	TableTbody,
+	TableTh,
+	TableThead,
+	TableTr,
+	Title,
+} from '@mantine/core';
 import { useMapleClass } from '@/lib/local-storage';
 import { PhysicalSwingStabWeaponResults } from './results/physical-swing-stab-weapon-results';
 import { PhysicalWeaponResults } from './results/physical-weapon-results';
@@ -9,21 +18,22 @@ import { ThiefSkillsResults } from './results/thief-skills-results';
 export function BaseRange() {
 	const { mapleClass } = useMapleClass();
 	return (
-		<Fieldset legend={<Title order={3}>Base Range</Title>} mx="auto" w="fit-content">
-			<Stack gap={32}>
-				<Table ta="center" variant="vertical">
-					<TableTbody>
-						<TableTr>
-							<TableTd>Method</TableTd>
-							<TableTd>MIN</TableTd>
-							<TableTd>MAX</TableTd>
-						</TableTr>
-						<RegularRangeTableSwitch />
-					</TableTbody>
-				</Table>
+		<Fieldset legend={<Title order={3}>Base Range</Title>} maw="fit-content" mx="auto">
+			<Table mx="auto" ta="center" variant="vertical" w="fit-content">
+				<TableThead>
+					<TableTr>
+						<TableTh />
+						<TableTh ta="center">MIN</TableTh>
+						<TableTh ta="center">MAX</TableTh>
+					</TableTr>
+				</TableThead>
 
-				{mapleClass === 'Warrior' && <SwingStabRangeTable />}
-			</Stack>
+				<TableTbody>
+					<RegularRangeTableSwitch />
+				</TableTbody>
+			</Table>
+
+			{mapleClass === 'Warrior' && <SwingStabRangeTable />}
 		</Fieldset>
 	);
 }
@@ -68,23 +78,27 @@ function RegularRangeTableSwitch() {
 
 function SwingStabRangeTable() {
 	return (
-		<Table ta="center" variant="vertical">
-			<TableTbody>
-				<TableTr>
-					<TableTd>Method</TableTd>
-					<TableTd>MIN (Stab)</TableTd>
-					<TableTd>MAX (Stab)</TableTd>
-					<TableTd>MIN (Swing)</TableTd>
-					<TableTd>MAX (Swing)</TableTd>
-				</TableTr>
+		<TableScrollContainer maw="fit-content" minWidth={460} mt={32} mx="auto">
+			<Table variant="vertical" w="fit-content">
+				<TableThead>
+					<TableTr>
+						<TableTh left={0} pos="sticky" />
+						<TableTh ta="center">MIN (Stab)</TableTh>
+						<TableTh ta="center">MAX (Stab)</TableTh>
+						<TableTh ta="center">MIN (Swing)</TableTh>
+						<TableTh ta="center">MAX (Swing)</TableTh>
+					</TableTr>
+				</TableThead>
 
-				<PhysicalSwingStabWeaponResults weaponType="One Handed Axe" />
-				<PhysicalSwingStabWeaponResults weaponType="Two Handed Axe" />
-				<PhysicalSwingStabWeaponResults weaponType="One Handed BW" />
-				<PhysicalSwingStabWeaponResults weaponType="Two Handed BW" />
-				<PhysicalSwingStabWeaponResults weaponType="Polearm" />
-				<PhysicalSwingStabWeaponResults weaponType="Spear" />
-			</TableTbody>
-		</Table>
+				<TableTbody ta="center">
+					<PhysicalSwingStabWeaponResults weaponType="One Handed Axe" />
+					<PhysicalSwingStabWeaponResults weaponType="Two Handed Axe" />
+					<PhysicalSwingStabWeaponResults weaponType="One Handed BW" />
+					<PhysicalSwingStabWeaponResults weaponType="Two Handed BW" />
+					<PhysicalSwingStabWeaponResults weaponType="Polearm" />
+					<PhysicalSwingStabWeaponResults weaponType="Spear" />
+				</TableTbody>
+			</Table>
+		</TableScrollContainer>
 	);
 }

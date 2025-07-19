@@ -1,6 +1,10 @@
 import { TableTd, TableTh, TableTr } from '@mantine/core';
 import { useMemo } from 'react';
-import type { PhysicalSwingStabWeaponType } from '@/lib/damage';
+import {
+	handedCompactWeaponName,
+	isHandedWeaponType,
+	type PhysicalSwingStabWeaponType,
+} from '@/lib/damage';
 import { maxMinWeaponDamageMap } from '@/lib/damage/weapon-damage';
 import { useAbilities } from '@/lib/local-storage/abilities';
 import { useTotalEquipWeaponAttack, useWeaponMastery } from '@/lib/local-storage/stats';
@@ -29,7 +33,10 @@ export function PhysicalSwingStabWeaponResults({
 
 	return (
 		<TableTr>
-			<TableTh>{weaponType}</TableTh>
+			<TableTh left={0} pos="sticky" ta="right" w={75}>
+				{isHandedWeaponType(weaponType) ? handedCompactWeaponName[weaponType] : weaponType}
+			</TableTh>
+
 			<TableTd>{formatter.format(stab.min)}</TableTd>
 			<TableTd>{formatter.format(stab.max)}</TableTd>
 			<TableTd>{formatter.format(swing.min)}</TableTd>
