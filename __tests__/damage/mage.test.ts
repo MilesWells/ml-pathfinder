@@ -41,7 +41,7 @@ const EXPECTED_HEAL_DAMAGE = [
 	},
 ];
 
-describe('Magic Weapons', () => {
+describe('Spell Damage', () => {
 	it('Should correctly calculate max/min spell damage', () => {
 		const { max, min } = spellDamage(TEST_STATS);
 
