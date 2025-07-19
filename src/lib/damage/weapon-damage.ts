@@ -28,7 +28,13 @@ function generalMaxMin({
 	};
 }
 
-export const minMaxWeaponDamageMap = {
+export type MaxMinWeaponDamageMap = {
+	[k in PhysicalWeaponType]: (options: MaxMinWeaponDamageOptions) => MaxMin;
+} & {
+	[k in PhysicalSwingStabWeaponType]: (options: MaxMinWeaponDamageOptions) => StabSwingMaxMin;
+};
+
+export const maxMinWeaponDamageMap: MaxMinWeaponDamageMap = {
 	Bow: ({ str, dex, weaponAttack, weaponMastery }) =>
 		generalMaxMin({
 			primary: dex * 3.4,
@@ -169,8 +175,4 @@ export const minMaxWeaponDamageMap = {
 			weaponAttack,
 			weaponMastery,
 		}),
-} satisfies {
-	[k in PhysicalWeaponType]: (options: MaxMinWeaponDamageOptions) => MaxMin;
-} & {
-	[k in PhysicalSwingStabWeaponType]: (options: MaxMinWeaponDamageOptions) => StabSwingMaxMin;
 };

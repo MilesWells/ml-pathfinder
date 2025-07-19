@@ -7,7 +7,7 @@ import {
 	type PhysicalWeaponType,
 	type StabSwingMaxMin,
 } from '@/lib/damage';
-import { type MaxMinWeaponDamageOptions, minMaxWeaponDamageMap } from '@/lib/damage/weapon-damage';
+import { type MaxMinWeaponDamageOptions, maxMinWeaponDamageMap } from '@/lib/damage/weapon-damage';
 
 const TEST_STATS: MaxMinWeaponDamageOptions = {
 	dex: 100,
@@ -56,7 +56,7 @@ const PHYSICAL_EXPECTED_DAMAGE = {
 PHYSICAL_WEAPON_TYPES.forEach(weaponType => {
 	describe(weaponType, () => {
 		it('Should correctly calculate base min max damage', () => {
-			const { max, min } = minMaxWeaponDamageMap[weaponType](TEST_STATS);
+			const { max, min } = maxMinWeaponDamageMap[weaponType](TEST_STATS);
 
 			expect(min).toBe(PHYSICAL_EXPECTED_DAMAGE[weaponType].min);
 			expect(max).toBe(PHYSICAL_EXPECTED_DAMAGE[weaponType].max);
@@ -94,7 +94,7 @@ const PHYSICAL_SWING_STAB_EXPECTED_DAMAGE = {
 PHYSICAL_SWING_STAB_WEAPON_TYPES.forEach(weaponType => {
 	describe(weaponType, () => {
 		it('Should correctly calculate base max/min damage for stab/swing', () => {
-			const { stab, swing } = minMaxWeaponDamageMap[weaponType](TEST_STATS);
+			const { stab, swing } = maxMinWeaponDamageMap[weaponType](TEST_STATS);
 
 			expect(stab.min).toBe(PHYSICAL_SWING_STAB_EXPECTED_DAMAGE[weaponType].stab.min);
 			expect(stab.max).toBe(PHYSICAL_SWING_STAB_EXPECTED_DAMAGE[weaponType].stab.max);

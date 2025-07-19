@@ -1,8 +1,9 @@
 'use client';
 
-import { Fieldset, Group, NumberInput, type NumberInputProps, Stack, Title } from '@mantine/core';
+import { Fieldset, Group, Stack, Title } from '@mantine/core';
+import { useDex, useInt, useLuk, useStr } from '@/lib/local-storage/abilities';
+import { AbilityScoreInput } from '@/ui/ability-score-input';
 import { ClassSelect } from './class-select';
-import { useDex, useInt, useLuk, useStr } from './hooks';
 
 export function CharacterStatsInput() {
 	const { str, setStr } = useStr();
@@ -28,22 +29,5 @@ export function CharacterStatsInput() {
 				</Stack>
 			</Stack>
 		</Fieldset>
-	);
-}
-
-function AbilityScoreInput(props: NumberInputProps) {
-	return (
-		<NumberInput
-			maw={80}
-			max={9999}
-			min={4}
-			styles={{
-				input: {
-					paddingLeft: 0,
-					textAlign: 'center',
-				},
-			}}
-			{...props}
-		/>
 	);
 }
