@@ -1,38 +1,47 @@
 'use client';
 
 import { useLocalStorage } from '@mantine/hooks';
+import { useSelectedCharacter } from './characters';
 
 export function useStr() {
+	const { selectedCharacter } = useSelectedCharacter();
+
 	const [str, setStr] = useLocalStorage<number>({
 		defaultValue: 4,
-		key: 'str',
+		key: `${selectedCharacter}::str`,
 	});
 
 	return { setStr, str };
 }
 
 export function useDex() {
+	const { selectedCharacter } = useSelectedCharacter();
+
 	const [dex, setDex] = useLocalStorage<number>({
 		defaultValue: 4,
-		key: 'dex',
+		key: `${selectedCharacter}::dex`,
 	});
 
 	return { dex, setDex };
 }
 
 export function useInt() {
+	const { selectedCharacter } = useSelectedCharacter();
+
 	const [int, setInt] = useLocalStorage<number>({
 		defaultValue: 4,
-		key: 'int',
+		key: `${selectedCharacter}::int`,
 	});
 
 	return { int, setInt };
 }
 
 export function useLuk() {
+	const { selectedCharacter } = useSelectedCharacter();
+
 	const [luk, setLuk] = useLocalStorage<number>({
 		defaultValue: 4,
-		key: 'luk',
+		key: `${selectedCharacter}::luk`,
 	});
 
 	return { luk, setLuk };
