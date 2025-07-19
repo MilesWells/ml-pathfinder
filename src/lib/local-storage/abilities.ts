@@ -37,3 +37,12 @@ export function useLuk() {
 
 	return { luk, setLuk };
 }
+
+export function useAbilities() {
+	const { str } = useStr();
+	const { dex } = useDex();
+	const { int } = useInt();
+	const { luk } = useLuk();
+
+	return { dex, int, luk, str };
+}

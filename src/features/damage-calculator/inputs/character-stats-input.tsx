@@ -12,7 +12,7 @@ export function CharacterStatsInput() {
 	const { luk, setLuk } = useLuk();
 
 	return (
-		<Fieldset legend={<Title order={3}>Character</Title>} mx="auto" w="fit-content">
+		<Fieldset legend={<Title order={3}>Character</Title>} w="fit-content">
 			<Stack>
 				<ClassSelect maw={125} mx="auto" />
 

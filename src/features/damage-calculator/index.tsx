@@ -1,14 +1,17 @@
-import { Group } from '@mantine/core';
+import { Group, Stack } from '@mantine/core';
+import { BaseRange } from './base-range';
 import { CharacterStatsInput } from './inputs/character-stats-input';
 import { ClassStatsInput } from './inputs/class-stats-input';
-import { Results } from './results';
 
 export function DamageCalculator() {
 	return (
-		<Group gap="xl">
-			<CharacterStatsInput />
-			<ClassStatsInput />
-			<Results />
-		</Group>
+		<Stack gap="xl">
+			<Group align="stretch" gap="xl" justify="center">
+				<CharacterStatsInput />
+				<ClassStatsInput />
+			</Group>
+
+			<BaseRange />
+		</Stack>
 	);
 }

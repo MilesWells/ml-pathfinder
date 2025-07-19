@@ -7,8 +7,8 @@ export type ThiefSkillOptions = {
 
 export function luckySeven({ luk, weaponAttack }: ThiefSkillOptions): MaxMin {
 	return {
-		max: (luk * 5 * weaponAttack) / 100,
-		min: (luk * 2.5 * weaponAttack) / 100,
+		max: Math.round((luk * 5 * weaponAttack) / 100),
+		min: Math.round((luk * 2.5 * weaponAttack) / 100),
 	};
 }
 

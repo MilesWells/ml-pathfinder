@@ -11,6 +11,10 @@ export const PHYSICAL_WEAPON_TYPES = [
 
 export type PhysicalWeaponType = (typeof PHYSICAL_WEAPON_TYPES)[number];
 
+export function isPhysicalWeaponType(weaponType: string): weaponType is PhysicalWeaponType {
+	return PHYSICAL_WEAPON_TYPES.some(type => type === weaponType);
+}
+
 export const PHYSICAL_SWING_STAB_WEAPON_TYPES = [
 	'One Handed Axe',
 	'One Handed BW',
@@ -22,9 +26,19 @@ export const PHYSICAL_SWING_STAB_WEAPON_TYPES = [
 
 export type PhysicalSwingStabWeaponType = (typeof PHYSICAL_SWING_STAB_WEAPON_TYPES)[number];
 
+export function isPhysicalSwingStabWeaponType(
+	weaponType: string,
+): weaponType is PhysicalSwingStabWeaponType {
+	return PHYSICAL_SWING_STAB_WEAPON_TYPES.some(type => type === weaponType);
+}
+
 export const MAGIC_WEAPON_TYPES = ['Staff', 'Wand'] as const;
 
 export type MagicWeaponType = (typeof MAGIC_WEAPON_TYPES)[number];
+
+export function isMagicWeaponType(weaponType: string): weaponType is MagicWeaponType {
+	return MAGIC_WEAPON_TYPES.some(type => type === weaponType);
+}
 
 export type MaxMin = {
 	max: number;

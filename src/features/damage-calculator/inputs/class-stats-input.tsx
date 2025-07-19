@@ -12,8 +12,10 @@ export function ClassStatsInput() {
 	const { mapleClass } = useMapleClass();
 
 	return (
-		<Fieldset legend={<Title order={3}>{mapleClass} Stats</Title>} mx="auto" w="fit-content">
-			<Stack>{mapleClass === 'Magician' ? <MagicDamageStats /> : <PhyisicalDamageStats />}</Stack>
+		<Fieldset legend={<Title order={3}>{mapleClass} Stats</Title>} w="fit-content">
+			<Stack h="100%" justify="space-around">
+				{mapleClass === 'Magician' ? <MagicDamageStats /> : <PhyisicalDamageStats />}
+			</Stack>
 		</Fieldset>
 	);
 }
