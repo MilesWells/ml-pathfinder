@@ -4,7 +4,7 @@ import { List, ListItem, Stack, Title } from '@mantine/core';
 import { ExternalLink } from '@/ui/external-link';
 import type { EdgeId, EdgeMethod } from './graph/edges';
 import { ItemDrawerLink } from './items/item-drawer-link';
-import { useSelectedItems } from './items/selected-items-context';
+import { useSelectedItems } from './local-storage/pathfinder/selected-items';
 import { REGION_LINK_MAP, type Region } from './regions';
 
 const EDGE_IDS_WITH_STEPS = [

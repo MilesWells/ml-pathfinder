@@ -2,7 +2,7 @@
 
 import { Graph } from 'graph-data-structure';
 import { useMemo } from 'react';
-import { useSelectedItems } from '../items/selected-items-context';
+import { useSelectedItems } from '../local-storage/pathfinder/selected-items';
 import { REGIONS, type Region } from '../regions';
 import { type Edge, type EdgeMethod, edges } from './edges';
 
