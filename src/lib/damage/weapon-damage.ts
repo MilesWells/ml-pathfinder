@@ -1,6 +1,6 @@
-import type { MinMax, PhysicalDamageWeaponType, SwingStabWeaponType } from '.';
+import type { MaxMin, PhysicalSwingStabWeaponType, PhysicalWeaponType, StabSwingMaxMin } from '.';
 
-export type MinMaxWeaponDamageOptions = {
+export type MaxMinWeaponDamageOptions = {
 	dex: number;
 	int: number;
 	luk: number;
@@ -9,76 +9,76 @@ export type MinMaxWeaponDamageOptions = {
 	weaponMastery: number;
 };
 
-type GeneralMinMaxOptions = {
+type GeneralMaxMinOptions = {
 	primary: number;
 	secondary: number;
 	weaponAttack: number;
 	weaponMastery: number;
 };
 
-function generalMinMax({
+function generalMaxMin({
 	primary,
 	secondary,
 	weaponAttack,
 	weaponMastery,
-}: GeneralMinMaxOptions): MinMax {
+}: GeneralMaxMinOptions): MaxMin {
 	return {
-		max: ((primary * 0.9 * weaponMastery + secondary) * weaponAttack) / 100,
-		min: ((primary + secondary) * weaponAttack) / 100,
+		max: Math.round(((primary + secondary) * weaponAttack) / 100),
+		min: Math.round(((primary * 0.9 * weaponMastery + secondary) * weaponAttack) / 100),
 	};
 }
 
 export const minMaxWeaponDamageMap = {
 	Bow: ({ str, dex, weaponAttack, weaponMastery }) =>
-		generalMinMax({
+		generalMaxMin({
 			primary: dex * 3.4,
 			secondary: str,
 			weaponAttack,
 			weaponMastery,
 		}),
 	Claw: ({ luk, str, dex, weaponAttack, weaponMastery }) =>
-		generalMinMax({
+		generalMaxMin({
 			primary: luk * 3.6,
 			secondary: str + dex,
 			weaponAttack,
 			weaponMastery,
 		}),
 	Crossbow: ({ str, dex, weaponAttack, weaponMastery }) =>
-		generalMinMax({
+		generalMaxMin({
 			primary: dex * 3.6,
 			secondary: str,
 			weaponAttack,
 			weaponMastery,
 		}),
 	Dagger: ({ luk, str, dex, weaponAttack, weaponMastery }) =>
-		generalMinMax({
+		generalMaxMin({
 			primary: luk * 3.6,
 			secondary: str + dex,
 			weaponAttack,
 			weaponMastery,
 		}),
 	Gun: ({ str, dex, weaponAttack, weaponMastery }) =>
-		generalMinMax({
+		generalMaxMin({
 			primary: dex * 3.6,
 			secondary: str,
 			weaponAttack,
 			weaponMastery,
 		}),
 	Knuckle: ({ str, dex, weaponAttack, weaponMastery }) =>
-		generalMinMax({
+		generalMaxMin({
 			primary: str * 4.8,
 			secondary: dex,
 			weaponAttack,
 			weaponMastery,
 		}),
 	'One Handed Axe': ({ str, dex, weaponAttack, weaponMastery }) => ({
-		stab: generalMinMax({
+		stab: generalMaxMin({
 			primary: str * 3.2,
 			secondary: dex,
 			weaponAttack,
 			weaponMastery,
 		}),
-		swing: generalMinMax({
+		swing: generalMaxMin({
 			primary: str * 4.4,
 			secondary: dex,
 			weaponAttack,
@@ -86,13 +86,13 @@ export const minMaxWeaponDamageMap = {
 		}),
 	}),
 	'One Handed BW': ({ str, dex, weaponAttack, weaponMastery }) => ({
-		stab: generalMinMax({
+		stab: generalMaxMin({
 			primary: str * 3.2,
 			secondary: dex,
 			weaponAttack,
 			weaponMastery,
 		}),
-		swing: generalMinMax({
+		swing: generalMaxMin({
 			primary: str * 4.4,
 			secondary: dex,
 			weaponAttack,
@@ -100,20 +100,20 @@ export const minMaxWeaponDamageMap = {
 		}),
 	}),
 	'One Handed Sword': ({ str, dex, weaponAttack, weaponMastery }) =>
-		generalMinMax({
+		generalMaxMin({
 			primary: str * 4,
 			secondary: dex,
 			weaponAttack,
 			weaponMastery,
 		}),
 	Polearm: ({ str, dex, weaponAttack, weaponMastery }) => ({
-		stab: generalMinMax({
+		stab: generalMaxMin({
 			primary: str * 3,
 			secondary: dex,
 			weaponAttack,
 			weaponMastery,
 		}),
-		swing: generalMinMax({
+		swing: generalMaxMin({
 			primary: str * 5,
 			secondary: dex,
 			weaponAttack,
@@ -121,13 +121,13 @@ export const minMaxWeaponDamageMap = {
 		}),
 	}),
 	Spear: ({ str, dex, weaponAttack, weaponMastery }) => ({
-		stab: generalMinMax({
+		stab: generalMaxMin({
 			primary: str * 5,
 			secondary: dex,
 			weaponAttack,
 			weaponMastery,
 		}),
-		swing: generalMinMax({
+		swing: generalMaxMin({
 			primary: str * 3,
 			secondary: dex,
 			weaponAttack,
@@ -135,13 +135,13 @@ export const minMaxWeaponDamageMap = {
 		}),
 	}),
 	'Two Handed Axe': ({ str, dex, weaponAttack, weaponMastery }) => ({
-		stab: generalMinMax({
+		stab: generalMaxMin({
 			primary: str * 3.4,
 			secondary: dex,
 			weaponAttack,
 			weaponMastery,
 		}),
-		swing: generalMinMax({
+		swing: generalMaxMin({
 			primary: str * 4.8,
 			secondary: dex,
 			weaponAttack,
@@ -149,13 +149,13 @@ export const minMaxWeaponDamageMap = {
 		}),
 	}),
 	'Two Handed BW': ({ str, dex, weaponAttack, weaponMastery }) => ({
-		stab: generalMinMax({
+		stab: generalMaxMin({
 			primary: str * 3.4,
 			secondary: dex,
 			weaponAttack,
 			weaponMastery,
 		}),
-		swing: generalMinMax({
+		swing: generalMaxMin({
 			primary: str * 4.8,
 			secondary: dex,
 			weaponAttack,
@@ -163,19 +163,14 @@ export const minMaxWeaponDamageMap = {
 		}),
 	}),
 	'Two Handed Sword': ({ str, dex, weaponAttack, weaponMastery }) =>
-		generalMinMax({
+		generalMaxMin({
 			primary: str * 4.6,
 			secondary: dex,
 			weaponAttack,
 			weaponMastery,
 		}),
 } satisfies {
-	[k in Exclude<PhysicalDamageWeaponType, SwingStabWeaponType>]: (
-		options: MinMaxWeaponDamageOptions,
-	) => MinMax;
+	[k in PhysicalWeaponType]: (options: MaxMinWeaponDamageOptions) => MaxMin;
 } & {
-	[k in SwingStabWeaponType]: (options: MinMaxWeaponDamageOptions) => {
-		swing: MinMax;
-		stab: MinMax;
-	};
+	[k in PhysicalSwingStabWeaponType]: (options: MaxMinWeaponDamageOptions) => StabSwingMaxMin;
 };

@@ -1,14 +1,6 @@
-export const WEAPON_TYPES = [
+export const PHYSICAL_WEAPON_TYPES = [
 	'One Handed Sword',
-	'One Handed Axe',
-	'One Handed BW',
-	'Wand',
-	'Staff',
 	'Two Handed Sword',
-	'Two Handed Axe',
-	'Two Handed BW',
-	'Spear',
-	'Polearm',
 	'Dagger',
 	'Claw',
 	'Bow',
@@ -17,24 +9,29 @@ export const WEAPON_TYPES = [
 	'Gun',
 ] as const;
 
-export type WeaponType = (typeof WEAPON_TYPES)[number];
+export type PhysicalWeaponType = (typeof PHYSICAL_WEAPON_TYPES)[number];
 
-export type MagicDamageWeaponType = 'Staff' | 'Wand';
-
-export type PhysicalDamageWeaponType = Exclude<WeaponType, MagicDamageWeaponType>;
-
-export const SWING_STAB_WEAPON_TYPES = [
+export const PHYSICAL_SWING_STAB_WEAPON_TYPES = [
 	'One Handed Axe',
 	'One Handed BW',
 	'Two Handed Axe',
 	'Two Handed BW',
 	'Spear',
 	'Polearm',
-] as const satisfies WeaponType[];
+] as const;
 
-export type SwingStabWeaponType = (typeof SWING_STAB_WEAPON_TYPES)[number];
+export type PhysicalSwingStabWeaponType = (typeof PHYSICAL_SWING_STAB_WEAPON_TYPES)[number];
 
-export type MinMax = {
+export const MAGIC_WEAPON_TYPES = ['Staff', 'Wand'] as const;
+
+export type MagicWeaponType = (typeof MAGIC_WEAPON_TYPES)[number];
+
+export type MaxMin = {
 	max: number;
 	min: number;
+};
+
+export type StabSwingMaxMin = {
+	stab: MaxMin;
+	swing: MaxMin;
 };
