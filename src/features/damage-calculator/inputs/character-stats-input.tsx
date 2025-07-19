@@ -13,7 +13,7 @@ export function CharacterStatsInput() {
 
 	return (
 		<Fieldset legend={<Title order={3}>Character</Title>} w="fit-content">
-			<Stack>
+			<Stack h="100%" justify="space-around">
 				<ClassSelect maw={125} mx="auto" />
 
 				<Stack mx="auto">

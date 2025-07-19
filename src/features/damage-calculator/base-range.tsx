@@ -1,18 +1,10 @@
 'use client';
 
-import {
-	Fieldset,
-	Table,
-	TableScrollContainer,
-	TableTbody,
-	TableTh,
-	TableThead,
-	TableTr,
-	Title,
-} from '@mantine/core';
+import { Fieldset, Table, TableTbody, TableTh, TableThead, TableTr, Title } from '@mantine/core';
 import { useMapleClass } from '@/lib/local-storage';
-import { PhysicalSwingStabWeaponResults } from './results/physical-swing-stab-weapon-results';
 import { PhysicalWeaponResults } from './results/physical-weapon-results';
+import { SpellDamageResults } from './results/spell-damage-results';
+import { SwingStabWeaponRangeTable } from './results/swing-stab-weapon-range-table';
 import { ThiefSkillsResults } from './results/thief-skills-results';
 
 export function BaseRange() {
@@ -29,16 +21,16 @@ export function BaseRange() {
 				</TableThead>
 
 				<TableTbody>
-					<RegularRangeTableSwitch />
+					<RangeTableRowsByClass />
 				</TableTbody>
 			</Table>
 
-			{mapleClass === 'Warrior' && <SwingStabRangeTable />}
+			{mapleClass === 'Warrior' && <SwingStabWeaponRangeTable />}
 		</Fieldset>
 	);
 }
 
-function RegularRangeTableSwitch() {
+function RangeTableRowsByClass() {
 	const { mapleClass } = useMapleClass();
 
 	switch (mapleClass) {
@@ -71,34 +63,7 @@ function RegularRangeTableSwitch() {
 					<PhysicalWeaponResults weaponType="Two Handed Sword" />
 				</>
 			);
-		default:
-			return null;
+		case 'Magician':
+			return <SpellDamageResults />;
 	}
-}
-
-function SwingStabRangeTable() {
-	return (
-		<TableScrollContainer maw="fit-content" minWidth={460} mt={32} mx="auto">
-			<Table variant="vertical" w="fit-content">
-				<TableThead>
-					<TableTr>
-						<TableTh left={0} pos="sticky" />
-						<TableTh ta="center">MIN (Stab)</TableTh>
-						<TableTh ta="center">MAX (Stab)</TableTh>
-						<TableTh ta="center">MIN (Swing)</TableTh>
-						<TableTh ta="center">MAX (Swing)</TableTh>
-					</TableTr>
-				</TableThead>
-
-				<TableTbody ta="center">
-					<PhysicalSwingStabWeaponResults weaponType="One Handed Axe" />
-					<PhysicalSwingStabWeaponResults weaponType="Two Handed Axe" />
-					<PhysicalSwingStabWeaponResults weaponType="One Handed BW" />
-					<PhysicalSwingStabWeaponResults weaponType="Two Handed BW" />
-					<PhysicalSwingStabWeaponResults weaponType="Polearm" />
-					<PhysicalSwingStabWeaponResults weaponType="Spear" />
-				</TableTbody>
-			</Table>
-		</TableScrollContainer>
-	);
 }
