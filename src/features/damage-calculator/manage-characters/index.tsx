@@ -1,6 +1,7 @@
 'use client';
 
 import {
+	Box,
 	Button,
 	Drawer,
 	Fieldset,
@@ -13,13 +14,13 @@ import {
 } from '@mantine/core';
 import { useField } from '@mantine/form';
 import { useDisclosure } from '@mantine/hooks';
-import React, { useMemo } from 'react';
-import { useCharacters } from '@/lib/local-storage/characters';
+import { useMemo, useState } from 'react';
+import { useCharacters } from '@/lib/zustand/characters-store';
 import { CharacterSelect } from './character-select';
 
 export function ManageCharacters() {
 	const [opened, { open, close }] = useDisclosure(false);
-	const { characters, deleteCharacter } = useCharacters();
+	const { characterNames, deleteCharacter } = useCharacters();
 
 	return (
 		<>
@@ -59,28 +60,11 @@ export function ManageCharacters() {
 				<Stack gap={100}>
 					<AddCharacter />
 
-					<SimpleGrid
-						cols={2}
-						style={{
-							alignItems: 'center',
-						}}
-					>
-						{characters.map(character => (
-							<React.Fragment key={character}>
-								<Text>{character}</Text>
-								<Group>
-									<Button>Rename</Button>
-									<Button
-										disabled={characters.length === 1}
-										onClick={() => deleteCharacter(character)}
-										title={characters.length === 1 ? 'Cannot delete last character' : undefined}
-									>
-										Delete
-									</Button>
-								</Group>
-							</React.Fragment>
+					<Stack>
+						{characterNames.map(character => (
+							<EditCharacter character={character} key={character} />
 						))}
-					</SimpleGrid>
+					</Stack>
 				</Stack>
 			</Drawer>
 		</>
@@ -88,7 +72,7 @@ export function ManageCharacters() {
 }
 
 function AddCharacter() {
-	const { characters, addCharacter } = useCharacters();
+	const { addCharacter, characterNames } = useCharacters();
 
 	const field = useField({
 		initialValue: '',
@@ -100,10 +84,10 @@ function AddCharacter() {
 		const value = field.getValue().trim();
 
 		if (value.length === 0) return 'Name must be non-empty';
-		if (characters.includes(value)) return 'Name must be unique';
+		if (characterNames.includes(value)) return 'Name must be unique';
 
 		return null;
-	}, [characters, field]);
+	}, [characterNames, field]);
 
 	return (
 		<Fieldset legend="Add Character">
@@ -121,5 +105,53 @@ function AddCharacter() {
 				</Button>
 			</Group>
 		</Fieldset>
+	);
+}
+
+function EditCharacter({ character }: { character: string }) {
+	const [editing, setEditing] = useState(false);
+	const [newName, setNewName] = useState(character);
+	const { characterNames, deleteCharacter, renameCharacter } = useCharacters();
+
+	const error = useMemo(() => {
+		if (newName.length === 0) return 'Name must be non-empty';
+		if (characterNames.includes(newName) && newName !== character) return 'Name must be unique';
+
+		return null;
+	}, [character, characterNames, newName]);
+
+	return (
+		<Group justify="space-between">
+			{editing ? (
+				<TextInput error={error} onChange={e => setNewName(e.target.value)} value={newName} />
+			) : (
+				<Text>{character}</Text>
+			)}
+
+			<Group>
+				{!editing ? (
+					<Button onClick={() => setEditing(true)}>Rename</Button>
+				) : (
+					<>
+						<Button onClick={() => renameCharacter(character, newName)}>Confirm</Button>
+						<Button
+							onClick={() => {
+								setNewName(character);
+								setEditing(false);
+							}}
+						>
+							Cancel
+						</Button>
+					</>
+				)}
+				<Button
+					disabled={characterNames.length === 1}
+					onClick={() => deleteCharacter(character)}
+					title={characterNames.length === 1 ? 'Cannot delete last character' : undefined}
+				>
+					Delete
+				</Button>
+			</Group>
+		</Group>
 	);
 }
