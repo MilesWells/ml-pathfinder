@@ -9,12 +9,12 @@ export function DamageCalculator() {
 		<>
 			<ManageCharacters />
 
-			{/* <Group align="stretch" gap="xl" justify="center" mb="xl">
-				<CharacterStatsInput />
-				<ClassStatsInput />
+			<Group align="stretch" gap="xl" justify="center" mb="xl">
+				{/* <CharacterStatsInput /> */}
+				{/* <ClassStatsInput /> */}
 			</Group>
 
-			<BaseRange /> */}
+			{/* <BaseRange /> */}
 		</>
 	);
 }

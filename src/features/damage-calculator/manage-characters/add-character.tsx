@@ -1,10 +1,11 @@
 import { ActionIcon, Fieldset, Group, TextInput } from '@mantine/core';
 import { IconPlus } from '@tabler/icons-react';
 import { useMemo, useState } from 'react';
-import { useCharactersStore } from '@/lib/zustand/characters-store';
+import { useCharacterNames, useCharactersStore } from '@/lib/zustand/characters-store';
 
 export function AddCharacter() {
-	const { addCharacter, characterNames } = useCharactersStore();
+	const { addCharacter } = useCharactersStore();
+	const characterNames = useCharacterNames();
 	const [newName, setNewName] = useState('');
 	const [dirty, setDirty] = useState(false);
 

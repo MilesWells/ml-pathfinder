@@ -1,7 +1,7 @@
 import { ActionIcon, Group, Text, TextInput } from '@mantine/core';
 import { IconCheck, IconPencil, IconTrash, IconX } from '@tabler/icons-react';
 import { useMemo, useState } from 'react';
-import { useCharactersStore } from '@/lib/zustand/characters-store';
+import { useCharacterNames, useCharactersStore } from '@/lib/zustand/characters-store';
 
 const ICON_WRAPPER_SIZE = 'md';
 const ICON_STYLES = {
@@ -9,20 +9,21 @@ const ICON_STYLES = {
 	width: '80%',
 };
 
-export function EditCharacterName({ character }: { character: string }) {
+export function EditCharacterName({ characterName }: { characterName: string }) {
 	const [editing, setEditing] = useState(false);
-	const [newName, setNewName] = useState(character);
-	const { characterNames, deleteCharacter, renameCharacter } = useCharactersStore();
+	const [newName, setNewName] = useState(characterName);
+	const { deleteCharacter, renameCharacter } = useCharactersStore();
+	const characterNames = useCharacterNames();
 
 	const error = useMemo(() => {
 		const trimmedNewName = newName.trim();
 
 		if (trimmedNewName.length === 0) return 'Name must be non-empty';
-		if (characterNames.includes(trimmedNewName) && trimmedNewName !== character)
+		if (characterNames.includes(trimmedNewName) && trimmedNewName !== characterName)
 			return 'Name must be unique';
 
 		return null;
-	}, [character, characterNames, newName]);
+	}, [characterName, characterNames, newName]);
 
 	return (
 		<Group h={40} justify="space-between" wrap="nowrap">
@@ -41,7 +42,7 @@ export function EditCharacterName({ character }: { character: string }) {
 				/>
 			) : (
 				<Text flex="1 1 0" pl={13} truncate>
-					{character}
+					{characterName}
 				</Text>
 			)}
 
@@ -58,9 +59,9 @@ export function EditCharacterName({ character }: { character: string }) {
 					<>
 						<ActionIcon
 							color="green.9"
-							disabled={error !== null || newName.trim() === character}
+							disabled={error !== null || newName.trim() === characterName}
 							onClick={() => {
-								renameCharacter(character, newName.trim());
+								renameCharacter(characterName, newName.trim());
 								setEditing(false);
 							}}
 							size={ICON_WRAPPER_SIZE}
@@ -71,7 +72,7 @@ export function EditCharacterName({ character }: { character: string }) {
 						<ActionIcon
 							color="gray.7"
 							onClick={() => {
-								setNewName(character);
+								setNewName(characterName);
 								setEditing(false);
 							}}
 							size={ICON_WRAPPER_SIZE}
@@ -84,7 +85,7 @@ export function EditCharacterName({ character }: { character: string }) {
 				<ActionIcon
 					color="kimmy-red.9"
 					disabled={characterNames.length === 1}
-					onClick={() => deleteCharacter(character)}
+					onClick={() => deleteCharacter(characterName)}
 					size={ICON_WRAPPER_SIZE}
 					title={characterNames.length === 1 ? 'Cannot delete last character' : undefined}
 				>

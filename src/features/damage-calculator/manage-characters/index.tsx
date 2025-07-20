@@ -2,14 +2,14 @@
 
 import { Button, Drawer, Fieldset, Group, Stack, Title } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
-import { useCharactersStore } from '@/lib/zustand/characters-store';
+import { useCharacterNames } from '@/lib/zustand/characters-store';
 import { AddCharacter } from './add-character';
 import { CharacterSelect } from './character-select';
 import { EditCharacterName } from './edit-character-name';
 
 export function ManageCharacters() {
 	const [opened, { open, close }] = useDisclosure(false);
-	const { characterNames } = useCharactersStore();
+	const characterNames = useCharacterNames();
 
 	return (
 		<>
@@ -51,8 +51,8 @@ export function ManageCharacters() {
 
 					<Fieldset legend="Edit Characters">
 						<Stack>
-							{characterNames.map(character => (
-								<EditCharacterName character={character} key={character} />
+							{characterNames.map(characterName => (
+								<EditCharacterName characterName={characterName} key={characterName} />
 							))}
 						</Stack>
 					</Fieldset>

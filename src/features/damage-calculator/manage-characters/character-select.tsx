@@ -1,17 +1,18 @@
 'use client';
 
 import type { SelectProps } from '@mantine/core';
-import { useCharactersStore } from '@/lib/zustand/characters-store';
+import { useCharacterNames, useCharactersStore } from '@/lib/zustand/characters-store';
 import { SelectNoInput } from '@/ui/select-no-input';
 
 export function CharacterSelect(props: Omit<SelectProps, 'data' | 'value' | 'onChange' | 'label'>) {
-	const { characterNames, selectedCharacterName, setSelectedCharacter } = useCharactersStore();
+	const { selectedCharacter, setSelectedCharacter } = useCharactersStore();
+	const characterNames = useCharacterNames();
 
 	return (
 		<SelectNoInput
 			data={characterNames}
 			onChange={value => value !== null && setSelectedCharacter(value)}
-			value={selectedCharacterName}
+			value={selectedCharacter.name}
 			{...props}
 		/>
 	);

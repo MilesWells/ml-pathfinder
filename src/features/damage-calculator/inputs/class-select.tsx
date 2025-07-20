@@ -1,19 +1,19 @@
 'use client';
 
 import type { SelectProps } from '@mantine/core';
-import { useMapleClass } from '@/lib/local-storage/maple-class';
 import { MAPLE_CLASSES, type MapleClass } from '@/lib/maple-classes';
+import { useCharactersStore } from '@/lib/zustand/characters-store';
 import { SelectNoInput } from '@/ui/select-no-input';
 
 export function ClassSelect(props: Omit<SelectProps, 'data' | 'value' | 'onChange'>) {
-	const { mapleClass, setMapleClass } = useMapleClass();
+	const { selectedCharacter, updateCharacter } = useCharactersStore();
 
 	return (
 		<SelectNoInput
 			data={MAPLE_CLASSES}
 			label="Class"
-			onChange={c => setMapleClass(c as MapleClass)}
-			value={mapleClass}
+			onChange={c => updateCharacter(selectedCharacter.name, { mapleClass: c as MapleClass })}
+			value={selectedCharacter.mapleClass}
 			{...props}
 		/>
 	);

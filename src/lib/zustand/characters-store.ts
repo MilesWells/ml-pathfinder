@@ -1,15 +1,23 @@
 'use client';
 
+import merge from 'lodash/merge';
 import { create } from 'zustand';
+import { devtools } from 'zustand/middleware';
+import { useShallow } from 'zustand/shallow';
+import type { MapleClass } from '../maple-classes';
 
 export type Character = {
 	name: string;
+	// str: number;
+	// dex: number;
+	// int: number;
+	// luk: number;
+	mapleClass: MapleClass;
 };
 
 export type CharactersState = {
-	characterNames: string[];
 	characters: Record<string, Character>;
-	selectedCharacterName: string;
+	selectedCharacter: Character;
 };
 
 export type CharactersActions = {
@@ -17,76 +25,101 @@ export type CharactersActions = {
 	deleteCharacter: (name: string) => void;
 	setSelectedCharacter: (name: string) => void;
 	renameCharacter: (oldName: string, newName: string) => void;
-	get selectedCharacter(): Character;
+	updateCharacter: (name: string, updates: Partial<Character>) => void;
 };
 
 export type CharactersStore = CharactersState & CharactersActions;
 
 export function createNewCharacter(name: string): Character {
 	return {
+		mapleClass: 'Warrior',
 		name,
 	};
 }
 
 const DEFAULT_CHARACTER_NAME = 'NewCharacter';
+const DEFAULT_CHARACTER = createNewCharacter(DEFAULT_CHARACTER_NAME);
 
 const initialState: CharactersState = {
-	characterNames: [DEFAULT_CHARACTER_NAME],
 	characters: {
-		[DEFAULT_CHARACTER_NAME]: createNewCharacter(DEFAULT_CHARACTER_NAME),
+		[DEFAULT_CHARACTER_NAME]: DEFAULT_CHARACTER,
 	},
-	selectedCharacterName: DEFAULT_CHARACTER_NAME,
+	selectedCharacter: DEFAULT_CHARACTER,
 };
 
-export const useCharactersStore = create<CharactersStore>((set, store) => ({
-	...initialState,
-	addCharacter(name) {
-		set(prev => ({
-			characterNames: [...prev.characterNames, name],
-			characters: {
-				...prev.characters,
-				[name]: createNewCharacter(name),
+export const useCharactersStore = create<CharactersStore>()(
+	devtools<CharactersStore>(set => {
+		return {
+			...initialState,
+			addCharacter(name) {
+				set(state => ({
+					characters: {
+						...state.characters,
+						[name]: createNewCharacter(name),
+					},
+				}));
 			},
-		}));
-	},
-	deleteCharacter(name) {
-		set(prev => {
-			const characters = { ...prev.characters };
-			delete characters[name];
+			deleteCharacter(name) {
+				set(state => {
+					const characters = { ...state.characters };
+					delete characters[name];
 
-			const characterNames = prev.characterNames.filter(n => n !== name);
+					const topChar = Object.keys(characters)[0];
 
-			return {
-				characterNames,
-				characters,
-				selectedCharacterName:
-					prev.selectedCharacterName === name ? characterNames[0] : prev.selectedCharacterName,
-			};
-		});
-	},
-	renameCharacter(oldName, newName) {
-		set(prev => {
-			const characters = { ...prev.characters };
-			const character = characters[oldName];
-			delete characters[oldName];
-			characters[newName] = character;
+					const selectedCharacter =
+						name === state.selectedCharacter.name ? characters[topChar] : state.selectedCharacter;
 
-			const characterNames = prev.characterNames.map(n => (n === oldName ? newName : n));
+					return {
+						characters,
+						selectedCharacter,
+					};
+				});
+			},
+			renameCharacter(oldName, newName) {
+				set(state => {
+					const characters = { ...state.characters };
+					const character = characters[oldName];
+					delete characters[oldName];
 
-			return {
-				characterNames,
-				characters,
-				selectedCharacterName:
-					prev.selectedCharacterName === oldName ? newName : prev.selectedCharacterName,
-			};
-		});
-	},
-	selectedCharacter() {
-		const { characters, selectedCharacterName } = store();
+					character.name = newName;
+					characters[newName] = character;
 
-		return characters[selectedCharacterName];
-	},
-	setSelectedCharacter(selectedCharacterName) {
-		set({ selectedCharacterName });
-	},
-}));
+					return {
+						characters,
+						selectedCharacter: {
+							...state.selectedCharacter,
+							name: newName,
+						},
+					};
+				});
+			},
+			setSelectedCharacter(name) {
+				set(state => ({
+					selectedCharacter: state.characters[name],
+				}));
+			},
+			updateCharacter(name, updates) {
+				set(state => {
+					const newCharacter = merge(state.characters[name], updates);
+
+					const characters = {
+						...state.characters,
+						[name]: newCharacter,
+					};
+
+					const selectedCharacter =
+						name === state.selectedCharacter.name ? newCharacter : state.selectedCharacter;
+
+					return {
+						characters,
+						selectedCharacter,
+					};
+				}, undefined);
+			},
+		};
+	}),
+);
+
+export function useCharacterNames() {
+	return useCharactersStore(useShallow(store => Object.keys(store.characters)));
+}
