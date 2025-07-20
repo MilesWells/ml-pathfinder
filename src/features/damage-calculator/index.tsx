@@ -11,7 +11,7 @@ export function DamageCalculator() {
 
 			<Group align="stretch" gap="xl" justify="center" mb="xl">
 				<CharacterStatsInput />
-				{/* <ClassStatsInput /> */}
+				<ClassStatsInput />
 			</Group>
 
 			{/* <BaseRange /> */}

@@ -6,14 +6,14 @@ import { useCharactersStore, useSelectedCharacter } from '@/lib/zustand/characte
 import { SelectNoInput } from '@/ui/select-no-input';
 
 export function ClassSelect(props: Omit<SelectProps, 'data' | 'value' | 'onChange'>) {
-	const { updateCharacter } = useCharactersStore();
+	const { updateSelectedCharacter } = useCharactersStore();
 	const selectedCharacter = useSelectedCharacter();
 
 	return (
 		<SelectNoInput
 			data={MAPLE_CLASSES}
 			label="Class"
-			onChange={c => updateCharacter(selectedCharacter.name, { mapleClass: c as MapleClass })}
+			onChange={c => updateSelectedCharacter({ mapleClass: c as MapleClass })}
 			value={selectedCharacter.mapleClass}
 			{...props}
 		/>

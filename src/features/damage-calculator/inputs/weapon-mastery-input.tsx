@@ -1,17 +1,20 @@
 import { NumberInput } from '@mantine/core';
-import { useWeaponMastery } from '@/lib/local-storage/stats';
+import { useCharactersStore, useSelectedCharacter } from '@/lib/zustand/characters-store';
 
 export function WeaponMasteryInput() {
-	const { weaponMastery, setWeaponMastery } = useWeaponMastery();
+	const { updateSelectedCharacter } = useCharactersStore();
+	const {
+		masteries: { weapon },
+	} = useSelectedCharacter();
 
 	return (
 		<NumberInput
 			label="Weapon Mastery"
 			max={100}
 			min={0}
-			onChange={n => setWeaponMastery(Number(n))}
+			onChange={n => updateSelectedCharacter({ masteries: { weapon: Number(n) } })}
 			suffix="%"
-			value={weaponMastery}
+			value={weapon}
 		/>
 	);
 }

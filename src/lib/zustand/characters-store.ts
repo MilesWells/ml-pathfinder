@@ -2,21 +2,32 @@
 
 import mapKeys from 'lodash/mapKeys';
 import merge from 'lodash/merge';
+import { useMemo } from 'react';
 import { create } from 'zustand';
 import { devtools } from 'zustand/middleware';
-import { useShallow } from 'zustand/shallow';
 import type { DeepPartial } from '@/types';
 import type { MapleClass } from '../maple-classes';
 
 export type Character = {
-	name: string;
 	abilities: {
 		dex: number;
 		int: number;
 		luk: number;
 		str: number;
 	};
+	equipment: {
+		totalMagicAttack: number;
+		totalWeaponAttack: number;
+	};
 	mapleClass: MapleClass;
+	masteries: {
+		weapon: number;
+		magic: number;
+	};
+	name: string;
+	skills: {
+		spellDamage: number;
+	};
 };
 
 export type CharactersState = {
@@ -29,43 +40,59 @@ export type CharactersActions = {
 	deleteCharacter: (name: string) => void;
 	setSelectedCharacter: (name: string) => void;
 	renameCharacter: (oldName: string, newName: string) => void;
-	updateCharacter: (name: string, updates: DeepPartial<Character>) => void;
+	updateCharacter: (name: string, updates: DeepPartial<Omit<Character, 'name'>>) => void;
+	updateSelectedCharacter: (updates: DeepPartial<Omit<Character, 'name'>>) => void;
 };
 
 export type CharactersStore = CharactersState & CharactersActions;
 
-export function createNewCharacter(name: string): Character {
+export function createNewCharacter(characterInfo?: DeepPartial<Character>): Character {
 	return {
-		abilities: {
-			dex: 4,
-			int: 4,
-			luk: 4,
-			str: 4,
-		},
-		mapleClass: 'Warrior',
-		name,
+		...merge(
+			{
+				abilities: {
+					dex: 4,
+					int: 4,
+					luk: 4,
+					str: 4,
+				},
+				equipment: {
+					totalMagicAttack: 10,
+					totalWeaponAttack: 10,
+				},
+				mapleClass: 'Warrior',
+				masteries: {
+					magic: 0,
+					weapon: 0,
+				},
+				name: 'NewCharacter',
+				skills: {
+					spellDamage: 10,
+				},
+			},
+			characterInfo,
+		),
 	};
 }
 
-const DEFAULT_CHARACTER_NAME = 'NewCharacter';
-const DEFAULT_CHARACTER = createNewCharacter(DEFAULT_CHARACTER_NAME);
+const DEFAULT_CHARACTER = createNewCharacter();
 
 const initialState: CharactersState = {
 	characters: {
-		[DEFAULT_CHARACTER_NAME]: DEFAULT_CHARACTER,
+		[DEFAULT_CHARACTER.name]: DEFAULT_CHARACTER,
 	},
-	selectedCharacterName: DEFAULT_CHARACTER_NAME,
+	selectedCharacterName: DEFAULT_CHARACTER.name,
 };
 
 export const useCharactersStore = create<CharactersStore>()(
-	devtools<CharactersStore>(set => {
+	devtools<CharactersStore>((set, get) => {
 		return {
 			...initialState,
 			addCharacter(name) {
 				set(state => ({
 					characters: {
 						...state.characters,
-						[name]: createNewCharacter(name),
+						[name]: createNewCharacter({ name }),
 					},
 				}));
 			},
@@ -116,14 +143,23 @@ export const useCharactersStore = create<CharactersStore>()(
 					return { characters };
 				});
 			},
+			updateSelectedCharacter(updates) {
+				const { selectedCharacterName, updateCharacter } = get();
+
+				updateCharacter(selectedCharacterName, updates);
+			},
 		};
 	}),
 );
 
 export function useCharacterNames() {
-	return useCharactersStore(useShallow(store => Object.keys(store.characters)));
+	const { characters } = useCharactersStore();
+
+	return useMemo(() => Object.keys(characters), [characters]);
 }
 
 export function useSelectedCharacter() {
-	return useCharactersStore(useShallow(store => store.characters[store.selectedCharacterName]));
+	const { characters, selectedCharacterName } = useCharactersStore();
+
+	return useMemo(() => characters[selectedCharacterName], [characters, selectedCharacterName]);
 }

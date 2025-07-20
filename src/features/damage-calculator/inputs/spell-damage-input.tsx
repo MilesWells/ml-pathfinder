@@ -1,15 +1,18 @@
 import { NumberInput } from '@mantine/core';
-import { useSpellDamage } from '@/lib/local-storage/stats';
+import { useCharactersStore, useSelectedCharacter } from '@/lib/zustand/characters-store';
 
 export function SpellDamageInput() {
-	const { spellDamage, setSpellDamage } = useSpellDamage();
+	const { updateSelectedCharacter } = useCharactersStore();
+	const {
+		skills: { spellDamage },
+	} = useSelectedCharacter();
 
 	return (
 		<NumberInput
 			label="Spell Damage"
 			max={9999}
 			min={1}
-			onChange={n => setSpellDamage(Number(n))}
+			onChange={n => updateSelectedCharacter({ skills: { spellDamage: Number(n) } })}
 			value={spellDamage}
 		/>
 	);

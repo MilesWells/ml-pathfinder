@@ -6,7 +6,7 @@ import { AbilityScoreInput } from '@/ui/ability-score-input';
 import { ClassSelect } from './class-select';
 
 export function CharacterStatsInput() {
-	const { updateCharacter } = useCharactersStore();
+	const { updateSelectedCharacter } = useCharactersStore();
 	const { name, abilities } = useSelectedCharacter();
 
 	return (
@@ -18,12 +18,12 @@ export function CharacterStatsInput() {
 					<Group>
 						<AbilityScoreInput
 							label="STR"
-							onChange={str => updateCharacter(name, { abilities: { str: Number(str) } })}
+							onChange={str => updateSelectedCharacter({ abilities: { str: Number(str) } })}
 							value={abilities.str}
 						/>
 						<AbilityScoreInput
 							label="DEX"
-							onChange={dex => updateCharacter(name, { abilities: { dex: Number(dex) } })}
+							onChange={dex => updateSelectedCharacter({ abilities: { dex: Number(dex) } })}
 							value={abilities.dex}
 						/>
 					</Group>
@@ -31,12 +31,12 @@ export function CharacterStatsInput() {
 					<Group>
 						<AbilityScoreInput
 							label="INT"
-							onChange={int => updateCharacter(name, { abilities: { int: Number(int) } })}
+							onChange={int => updateSelectedCharacter({ abilities: { int: Number(int) } })}
 							value={abilities.int}
 						/>
 						<AbilityScoreInput
 							label="LUK"
-							onChange={luk => updateCharacter(name, { abilities: { luk: Number(luk) } })}
+							onChange={luk => updateSelectedCharacter({ abilities: { luk: Number(luk) } })}
 							value={abilities.luk}
 						/>
 					</Group>
