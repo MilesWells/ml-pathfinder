@@ -14,7 +14,7 @@ export function DamageCalculator() {
 				<ClassStatsInput />
 			</Group>
 
-			{/* <BaseRange /> */}
+			<BaseRange />
 		</>
 	);
 }

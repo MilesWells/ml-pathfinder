@@ -1,16 +1,17 @@
 import { TableTd, TableTh, TableTr } from '@mantine/core';
 import { useMemo } from 'react';
 import { spellDamage } from '@/lib/damage/mage';
-import { useInt } from '@/lib/local-storage/abilities';
-import { useSpellDamage, useSpellMastery, useTotalMagicAttack } from '@/lib/local-storage/stats';
+import { useSelectedCharacter } from '@/lib/zustand/characters-store';
 
 const formatter = new Intl.NumberFormat();
 
 export function SpellDamageResults() {
-	const { int } = useInt();
-	const { totalMagicAttack } = useTotalMagicAttack();
-	const { spellMastery } = useSpellMastery();
-	const { spellDamage: spellAttack } = useSpellDamage();
+	const {
+		abilities: { int },
+		equipment: { totalMagicAttack },
+		masteries: { spellMastery },
+		skills: { spellDamage: spellAttack },
+	} = useSelectedCharacter();
 
 	const { min, max } = useMemo(() => {
 		return spellDamage({

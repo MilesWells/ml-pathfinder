@@ -4,7 +4,7 @@ import { useCharactersStore, useSelectedCharacter } from '@/lib/zustand/characte
 export function WeaponMasteryInput() {
 	const { updateSelectedCharacter } = useCharactersStore();
 	const {
-		masteries: { weapon },
+		masteries: { weaponMastery },
 	} = useSelectedCharacter();
 
 	return (
@@ -12,9 +12,9 @@ export function WeaponMasteryInput() {
 			label="Weapon Mastery"
 			max={100}
 			min={0}
-			onChange={n => updateSelectedCharacter({ masteries: { weapon: Number(n) } })}
+			onChange={n => updateSelectedCharacter({ masteries: { weaponMastery: Number(n) } })}
 			suffix="%"
-			value={weapon}
+			value={weaponMastery}
 		/>
 	);
 }

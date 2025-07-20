@@ -1,21 +1,22 @@
 import { TableTd, TableTh, TableTr } from '@mantine/core';
 import { useMemo } from 'react';
 import { luckySeven } from '@/lib/damage/thief';
-import { useAbilities } from '@/lib/local-storage/abilities';
-import { useTotalEquipWeaponAttack } from '@/lib/local-storage/stats';
+import { useSelectedCharacter } from '@/lib/zustand/characters-store';
 
 const formatter = new Intl.NumberFormat();
 
 export function ThiefSkillsResults() {
-	const { luk } = useAbilities();
-	const { totalEquipWeaponAttack } = useTotalEquipWeaponAttack();
+	const {
+		abilities: { luk },
+		equipment: { totalWeaponAttack },
+	} = useSelectedCharacter();
 
 	const { max, min } = useMemo(() => {
 		return luckySeven({
 			luk,
-			weaponAttack: totalEquipWeaponAttack,
+			weaponAttack: totalWeaponAttack,
 		});
-	}, [luk, totalEquipWeaponAttack]);
+	}, [luk, totalWeaponAttack]);
 
 	return (
 		<TableTr>

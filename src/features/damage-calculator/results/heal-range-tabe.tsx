@@ -1,12 +1,13 @@
 import { Table, TableScrollContainer, TableTbody, TableTd, TableTh, TableTr } from '@mantine/core';
 import { useMemo } from 'react';
 import { healDamage } from '@/lib/damage/mage';
-import { useAbilities } from '@/lib/local-storage/abilities';
-import { useTotalMagicAttack } from '@/lib/local-storage/stats';
+import { useSelectedCharacter } from '@/lib/zustand/characters-store';
 
 export function HealRangeTable() {
-	const { int, luk } = useAbilities();
-	const { totalMagicAttack } = useTotalMagicAttack();
+	const {
+		abilities: { int, luk },
+		equipment: { totalMagicAttack },
+	} = useSelectedCharacter();
 
 	const resultsByTarget = useMemo(() => {
 		return healDamage({

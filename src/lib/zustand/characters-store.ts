@@ -21,8 +21,8 @@ export type Character = {
 	};
 	mapleClass: MapleClass;
 	masteries: {
-		weapon: number;
-		magic: number;
+		spellMastery: number;
+		weaponMastery: number;
 	};
 	name: string;
 	skills: {
@@ -62,8 +62,8 @@ export function createNewCharacter(characterInfo?: DeepPartial<Character>): Char
 				},
 				mapleClass: 'Warrior',
 				masteries: {
-					magic: 0,
-					weapon: 0,
+					spellMastery: 0,
+					weaponMastery: 0,
 				},
 				name: 'NewCharacter',
 				skills: {

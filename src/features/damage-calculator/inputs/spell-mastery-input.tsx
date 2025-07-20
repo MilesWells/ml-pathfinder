@@ -4,7 +4,7 @@ import { useCharactersStore, useSelectedCharacter } from '@/lib/zustand/characte
 export function SpellMasteryInput() {
 	const { updateSelectedCharacter } = useCharactersStore();
 	const {
-		masteries: { magic },
+		masteries: { spellMastery: spell },
 	} = useSelectedCharacter();
 
 	return (
@@ -12,9 +12,9 @@ export function SpellMasteryInput() {
 			label="Spell Mastery"
 			max={100}
 			min={0}
-			onChange={n => updateSelectedCharacter({ masteries: { magic: Number(n) } })}
+			onChange={n => updateSelectedCharacter({ masteries: { spellMastery: Number(n) } })}
 			suffix="%"
-			value={magic}
+			value={spell}
 		/>
 	);
 }
