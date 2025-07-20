@@ -4,7 +4,7 @@ import mapKeys from 'lodash/mapKeys';
 import merge from 'lodash/merge';
 import { useMemo } from 'react';
 import { create } from 'zustand';
-import { devtools } from 'zustand/middleware';
+import { devtools, persist } from 'zustand/middleware';
 import type { DeepPartial } from '@/types';
 import type { MapleClass } from '../maple-classes';
 
@@ -85,71 +85,76 @@ const initialState: CharactersState = {
 };
 
 export const useCharactersStore = create<CharactersStore>()(
-	devtools<CharactersStore>((set, get) => {
-		return {
-			...initialState,
-			addCharacter(name) {
-				set(state => ({
-					characters: {
-						...state.characters,
-						[name]: createNewCharacter({ name }),
-					},
-				}));
-			},
-			deleteCharacter(name) {
-				set(state => {
-					const characters = { ...state.characters };
-					delete characters[name];
+	persist(
+		devtools<CharactersStore>((set, get) => {
+			return {
+				...initialState,
+				addCharacter(name) {
+					set(state => ({
+						characters: {
+							...state.characters,
+							[name]: createNewCharacter({ name }),
+						},
+					}));
+				},
+				deleteCharacter(name) {
+					set(state => {
+						const characters = { ...state.characters };
+						delete characters[name];
 
-					const topChar = Object.keys(characters)[0];
+						const topChar = Object.keys(characters)[0];
 
-					const selectedCharacterName =
-						name === state.selectedCharacterName ? topChar : state.selectedCharacterName;
+						const selectedCharacterName =
+							name === state.selectedCharacterName ? topChar : state.selectedCharacterName;
 
-					return {
-						characters,
-						selectedCharacterName,
-					};
-				});
-			},
-			renameCharacter(oldName, newName) {
-				set(state => {
-					const newCharacters = mapKeys(state.characters, (_, key) =>
-						key === oldName ? newName : key,
-					);
+						return {
+							characters,
+							selectedCharacterName,
+						};
+					});
+				},
+				renameCharacter(oldName, newName) {
+					set(state => {
+						const newCharacters = mapKeys(state.characters, (_, key) =>
+							key === oldName ? newName : key,
+						);
 
-					newCharacters[newName].name = newName;
+						newCharacters[newName].name = newName;
 
-					return {
-						characters: newCharacters,
-						selectedCharacterName: newName,
-					};
-				});
-			},
-			setSelectedCharacter(name) {
-				set({
-					selectedCharacterName: name,
-				});
-			},
-			updateCharacter(name, updates) {
-				set(state => {
-					const newCharacter = merge(state.characters[name], updates);
+						return {
+							characters: newCharacters,
+							selectedCharacterName: newName,
+						};
+					});
+				},
+				setSelectedCharacter(name) {
+					set({
+						selectedCharacterName: name,
+					});
+				},
+				updateCharacter(name, updates) {
+					set(state => {
+						const newCharacter = merge(state.characters[name], updates);
 
-					const characters = {
-						...state.characters,
-						[name]: newCharacter,
-					};
+						const characters = {
+							...state.characters,
+							[name]: newCharacter,
+						};
 
-					return { characters };
-				});
-			},
-			updateSelectedCharacter(updates) {
-				const { selectedCharacterName, updateCharacter } = get();
+						return { characters };
+					});
+				},
+				updateSelectedCharacter(updates) {
+					const { selectedCharacterName, updateCharacter } = get();
 
-				updateCharacter(selectedCharacterName, updates);
-			},
-		};
-	}),
+					updateCharacter(selectedCharacterName, updates);
+				},
+			};
+		}),
+		{
+			name: 'zustand-characters-store',
+		},
+	),
 );
 
 export function useCharacterNames() {
