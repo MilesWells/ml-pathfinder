@@ -84,78 +84,81 @@ const initialState: CharactersState = {
 	selectedCharacterName: DEFAULT_CHARACTER.name,
 };
 
-export const useCharactersStore = create<CharactersStore>()(
-	persist(
-		devtools<CharactersStore>((set, get) => {
-			return {
-				...initialState,
-				addCharacter(name) {
-					set(state => ({
-						characters: {
-							...state.characters,
-							[name]: createNewCharacter({ name }),
-						},
-					}));
-				},
-				deleteCharacter(name) {
-					set(state => {
-						const characters = { ...state.characters };
-						delete characters[name];
+const persistantStoreFactory = persist<CharactersStore>(
+	(set, get) => {
+		return {
+			...initialState,
+			addCharacter(name) {
+				set(state => ({
+					characters: {
+						...state.characters,
+						[name]: createNewCharacter({ name }),
+					},
+				}));
+			},
+			deleteCharacter(name) {
+				set(state => {
+					const characters = { ...state.characters };
+					delete characters[name];
 
-						const topChar = Object.keys(characters)[0];
+					const topChar = Object.keys(characters)[0];
 
-						const selectedCharacterName =
-							name === state.selectedCharacterName ? topChar : state.selectedCharacterName;
+					const selectedCharacterName =
+						name === state.selectedCharacterName ? topChar : state.selectedCharacterName;
 
-						return {
-							characters,
-							selectedCharacterName,
-						};
-					});
-				},
-				renameCharacter(oldName, newName) {
-					set(state => {
-						const newCharacters = mapKeys(state.characters, (_, key) =>
-							key === oldName ? newName : key,
-						);
+					return {
+						characters,
+						selectedCharacterName,
+					};
+				});
+			},
+			renameCharacter(oldName, newName) {
+				set(state => {
+					const newCharacters = mapKeys(state.characters, (_, key) =>
+						key === oldName ? newName : key,
+					);
 
-						newCharacters[newName].name = newName;
+					newCharacters[newName].name = newName;
 
-						return {
-							characters: newCharacters,
-							selectedCharacterName: newName,
-						};
-					});
-				},
-				setSelectedCharacter(name) {
-					set({
-						selectedCharacterName: name,
-					});
-				},
-				updateCharacter(name, updates) {
-					set(state => {
-						const newCharacter = merge(state.characters[name], updates);
+					return {
+						characters: newCharacters,
+						selectedCharacterName: newName,
+					};
+				});
+			},
+			setSelectedCharacter(name) {
+				set({
+					selectedCharacterName: name,
+				});
+			},
+			updateCharacter(name, updates) {
+				set(state => {
+					const newCharacter = merge(state.characters[name], updates);
 
-						const characters = {
-							...state.characters,
-							[name]: newCharacter,
-						};
+					const characters = {
+						...state.characters,
+						[name]: newCharacter,
+					};
 
-						return { characters };
-					});
-				},
-				updateSelectedCharacter(updates) {
-					const { selectedCharacterName, updateCharacter } = get();
+					return { characters };
+				});
+			},
+			updateSelectedCharacter(updates) {
+				const { selectedCharacterName, updateCharacter } = get();
 
-					updateCharacter(selectedCharacterName, updates);
-				},
-			};
-		}),
-		{
-			name: 'zustand-characters-store',
-		},
-	),
+				updateCharacter(selectedCharacterName, updates);
+			},
+		};
+	},
+	{
+		name: 'zustand-characters-store',
+	},
 );
+
+export const useCharactersStore =
+	process.env.NODE_ENV === 'development'
+		? create<CharactersStore>()(devtools(persistantStoreFactory))
+		: create<CharactersStore>()(persistantStoreFactory);
 
 export function useCharacterNames() {
 	const { characters } = useCharactersStore();
