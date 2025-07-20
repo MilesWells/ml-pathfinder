@@ -9,7 +9,7 @@ export type Character = {
 export type CharactersState = {
 	characterNames: string[];
 	characters: Record<string, Character>;
-	selectedCharacter: string;
+	selectedCharacterName: string;
 };
 
 export type CharactersActions = {
@@ -17,6 +17,7 @@ export type CharactersActions = {
 	deleteCharacter: (name: string) => void;
 	setSelectedCharacter: (name: string) => void;
 	renameCharacter: (oldName: string, newName: string) => void;
+	get selectedCharacter(): Character;
 };
 
 export type CharactersStore = CharactersState & CharactersActions;
@@ -27,17 +28,17 @@ export function createNewCharacter(name: string): Character {
 	};
 }
 
-const DEFAULT_CHARACTER_NAME = 'New Character';
+const DEFAULT_CHARACTER_NAME = 'NewCharacter';
 
 const initialState: CharactersState = {
 	characterNames: [DEFAULT_CHARACTER_NAME],
 	characters: {
 		[DEFAULT_CHARACTER_NAME]: createNewCharacter(DEFAULT_CHARACTER_NAME),
 	},
-	selectedCharacter: DEFAULT_CHARACTER_NAME,
+	selectedCharacterName: DEFAULT_CHARACTER_NAME,
 };
 
-export const useCharacters = create<CharactersStore>(set => ({
+export const useCharactersStore = create<CharactersStore>((set, store) => ({
 	...initialState,
 	addCharacter(name) {
 		set(prev => ({
@@ -58,8 +59,8 @@ export const useCharacters = create<CharactersStore>(set => ({
 			return {
 				characterNames,
 				characters,
-				selectedCharacter:
-					prev.selectedCharacter === name ? characterNames[0] : prev.selectedCharacter,
+				selectedCharacterName:
+					prev.selectedCharacterName === name ? characterNames[0] : prev.selectedCharacterName,
 			};
 		});
 	},
@@ -75,11 +76,17 @@ export const useCharacters = create<CharactersStore>(set => ({
 			return {
 				characterNames,
 				characters,
-				selectedCharacter: prev.selectedCharacter === oldName ? newName : prev.selectedCharacter,
+				selectedCharacterName:
+					prev.selectedCharacterName === oldName ? newName : prev.selectedCharacterName,
 			};
 		});
 	},
-	setSelectedCharacter(selectedCharacter) {
-		set({ selectedCharacter });
+	selectedCharacter() {
+		const { characters, selectedCharacterName } = store();
+
+		return characters[selectedCharacterName];
+	},
+	setSelectedCharacter(selectedCharacterName) {
+		set({ selectedCharacterName });
 	},
 }));
