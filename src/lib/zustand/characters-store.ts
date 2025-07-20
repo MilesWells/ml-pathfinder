@@ -5,14 +5,17 @@ import merge from 'lodash/merge';
 import { create } from 'zustand';
 import { devtools } from 'zustand/middleware';
 import { useShallow } from 'zustand/shallow';
+import type { DeepPartial } from '@/types';
 import type { MapleClass } from '../maple-classes';
 
 export type Character = {
 	name: string;
-	// str: number;
-	// dex: number;
-	// int: number;
-	// luk: number;
+	abilities: {
+		dex: number;
+		int: number;
+		luk: number;
+		str: number;
+	};
 	mapleClass: MapleClass;
 };
 
@@ -26,13 +29,19 @@ export type CharactersActions = {
 	deleteCharacter: (name: string) => void;
 	setSelectedCharacter: (name: string) => void;
 	renameCharacter: (oldName: string, newName: string) => void;
-	updateCharacter: (name: string, updates: Partial<Character>) => void;
+	updateCharacter: (name: string, updates: DeepPartial<Character>) => void;
 };
 
 export type CharactersStore = CharactersState & CharactersActions;
 
 export function createNewCharacter(name: string): Character {
 	return {
+		abilities: {
+			dex: 4,
+			int: 4,
+			luk: 4,
+			str: 4,
+		},
 		mapleClass: 'Warrior',
 		name,
 	};
