@@ -1,5 +1,6 @@
 'use client';
 
+import mapKeys from 'lodash/mapKeys';
 import merge from 'lodash/merge';
 import { create } from 'zustand';
 import { devtools } from 'zustand/middleware';
@@ -17,7 +18,7 @@ export type Character = {
 
 export type CharactersState = {
 	characters: Record<string, Character>;
-	selectedCharacter: Character;
+	selectedCharacterName: string;
 };
 
 export type CharactersActions = {
@@ -44,7 +45,7 @@ const initialState: CharactersState = {
 	characters: {
 		[DEFAULT_CHARACTER_NAME]: DEFAULT_CHARACTER,
 	},
-	selectedCharacter: DEFAULT_CHARACTER,
+	selectedCharacterName: DEFAULT_CHARACTER_NAME,
 };
 
 export const useCharactersStore = create<CharactersStore>()(
@@ -66,37 +67,33 @@ export const useCharactersStore = create<CharactersStore>()(
 
 					const topChar = Object.keys(characters)[0];
 
-					const selectedCharacter =
-						name === state.selectedCharacter.name ? characters[topChar] : state.selectedCharacter;
+					const selectedCharacterName =
+						name === state.selectedCharacterName ? topChar : state.selectedCharacterName;
 
 					return {
 						characters,
-						selectedCharacter,
+						selectedCharacterName,
 					};
 				});
 			},
 			renameCharacter(oldName, newName) {
 				set(state => {
-					const characters = { ...state.characters };
-					const character = characters[oldName];
-					delete characters[oldName];
+					const newCharacters = mapKeys(state.characters, (_, key) =>
+						key === oldName ? newName : key,
+					);
 
-					character.name = newName;
-					characters[newName] = character;
+					newCharacters[newName].name = newName;
 
 					return {
-						characters,
-						selectedCharacter: {
-							...state.selectedCharacter,
-							name: newName,
-						},
+						characters: newCharacters,
+						selectedCharacterName: newName,
 					};
 				});
 			},
 			setSelectedCharacter(name) {
-				set(state => ({
-					selectedCharacter: state.characters[name],
-				}));
+				set({
+					selectedCharacterName: name,
+				});
 			},
 			updateCharacter(name, updates) {
 				set(state => {
@@ -107,14 +104,8 @@ export const useCharactersStore = create<CharactersStore>()(
 						[name]: newCharacter,
 					};
 
-					const selectedCharacter =
-						name === state.selectedCharacter.name ? newCharacter : state.selectedCharacter;
-
-					return {
-						characters,
-						selectedCharacter,
-					};
-				}, undefined);
+					return { characters };
+				});
 			},
 		};
 	}),
@@ -122,4 +113,8 @@ export const useCharactersStore = create<CharactersStore>()(
 
 export function useCharacterNames() {
 	return useCharactersStore(useShallow(store => Object.keys(store.characters)));
+}
+
+export function useSelectedCharacter() {
+	return useCharactersStore(useShallow(store => store.characters[store.selectedCharacterName]));
 }

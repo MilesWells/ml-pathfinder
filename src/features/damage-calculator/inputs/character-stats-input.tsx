@@ -6,10 +6,10 @@ import { AbilityScoreInput } from '@/ui/ability-score-input';
 import { ClassSelect } from './class-select';
 
 export function CharacterStatsInput() {
-	const { selectedCharacter } = useCharactersStore();
+	const { selectedCharacterName } = useCharactersStore();
 
 	return (
-		<Fieldset legend={<Title order={3}>{selectedCharacter.name}</Title>} w="fit-content">
+		<Fieldset legend={<Title order={3}>{selectedCharacterName}</Title>} w="fit-content">
 			<Stack h="100%" justify="space-around">
 				<ClassSelect maw={125} mx="auto" />
 

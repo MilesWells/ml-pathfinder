@@ -10,7 +10,7 @@ export function DamageCalculator() {
 			<ManageCharacters />
 
 			<Group align="stretch" gap="xl" justify="center" mb="xl">
-				{/* <CharacterStatsInput /> */}
+				<CharacterStatsInput />
 				{/* <ClassStatsInput /> */}
 			</Group>
 

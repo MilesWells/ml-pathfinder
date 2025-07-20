@@ -2,11 +2,12 @@
 
 import type { SelectProps } from '@mantine/core';
 import { MAPLE_CLASSES, type MapleClass } from '@/lib/maple-classes';
-import { useCharactersStore } from '@/lib/zustand/characters-store';
+import { useCharactersStore, useSelectedCharacter } from '@/lib/zustand/characters-store';
 import { SelectNoInput } from '@/ui/select-no-input';
 
 export function ClassSelect(props: Omit<SelectProps, 'data' | 'value' | 'onChange'>) {
-	const { selectedCharacter, updateCharacter } = useCharactersStore();
+	const { updateCharacter } = useCharactersStore();
+	const selectedCharacter = useSelectedCharacter();
 
 	return (
 		<SelectNoInput
