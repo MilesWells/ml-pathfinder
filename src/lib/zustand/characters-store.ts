@@ -2,7 +2,7 @@
 
 import mapKeys from 'lodash/mapKeys';
 import merge from 'lodash/merge';
-import { useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { create } from 'zustand';
 import { devtools, persist } from 'zustand/middleware';
 import type { DeepPartial } from '@/types';
@@ -170,4 +170,31 @@ export function useSelectedCharacter() {
 	const { characters, selectedCharacterName } = useCharactersStore();
 
 	return useMemo(() => characters[selectedCharacterName], [characters, selectedCharacterName]);
+}
+
+export function useCharactersStoreHydrated() {
+	const [hydrated, setHydrated] = useState(false);
+
+	useEffect(() => {
+		const unsubHydrate = useCharactersStore.persist.onHydrate(() => setHydrated(false));
+
+		const unsubFinishHydration = useCharactersStore.persist.onFinishHydration(() =>
+			setHydrated(true),
+		);
+
+		setHydrated(useCharactersStore.persist.hasHydrated());
+
+		return () => {
+			unsubHydrate();
+			unsubFinishHydration();
+		};
+	}, []);
+
+	return hydrated;
+}
+
+export function CharactersStoreHydrated({ children }: React.PropsWithChildren) {
+	const hydrated = useCharactersStoreHydrated();
+
+	return hydrated ? children : null;
 }
