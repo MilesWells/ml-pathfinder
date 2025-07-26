@@ -6,6 +6,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { create } from 'zustand';
 import { devtools, persist } from 'zustand/middleware';
 import type { DeepPartial } from '@/types';
+import { LoadingContainer } from '@/ui/loading-container';
 import type { MapleClass } from '../maple-classes';
 
 export type Character = {
@@ -198,5 +199,5 @@ export function useCharactersStoreHydrated() {
 export function CharactersStoreHydrated({ children }: React.PropsWithChildren) {
 	const hydrated = useCharactersStoreHydrated();
 
-	return hydrated ? children : null;
+	return <LoadingContainer loading={!hydrated}>{children}</LoadingContainer>;
 }

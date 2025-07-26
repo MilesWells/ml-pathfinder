@@ -1,4 +1,4 @@
-import { AppShell, AppShellFooter, AppShellMain, Center, Text, Title } from '@mantine/core';
+import { AppShell, AppShellFooter, AppShellMain, Center, Stack, Text, Title } from '@mantine/core';
 import { ExternalLink } from '@/ui/external-link';
 import { Navigation } from './navigation';
 
@@ -10,7 +10,7 @@ export default function Shell({ children }: React.PropsWithChildren) {
 			}}
 			padding="sm"
 		>
-			<AppShellMain>
+			<AppShellMain component={Stack}>
 				<Center>
 					<Title c="maplelegends-blue.6" ta="center" textWrap="wrap">
 						MapleLegends Pathfinder
