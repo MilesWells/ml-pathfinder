@@ -19,6 +19,7 @@ export type Character = {
 		totalMagicAttack: number;
 		totalWeaponAttack: number;
 	};
+	level: number;
 	mapleClass: MapleClass;
 	masteries: {
 		spellMastery: number;
@@ -54,12 +55,13 @@ export function createNewCharacter(characterInfo?: DeepPartial<Character>): Char
 					dex: 4,
 					int: 4,
 					luk: 4,
-					str: 4,
+					str: 50,
 				},
 				equipment: {
-					totalMagicAttack: 10,
-					totalWeaponAttack: 10,
+					totalMagicAttack: 0,
+					totalWeaponAttack: 20,
 				},
+				level: 10,
 				mapleClass: 'Warrior',
 				masteries: {
 					spellMastery: 0,
@@ -67,7 +69,7 @@ export function createNewCharacter(characterInfo?: DeepPartial<Character>): Char
 				},
 				name: 'NewCharacter',
 				skills: {
-					spellDamage: 10,
+					spellDamage: 0,
 				},
 			},
 			characterInfo,

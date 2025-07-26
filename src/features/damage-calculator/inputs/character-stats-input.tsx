@@ -7,15 +7,25 @@ import { ClassSelect } from './class-select';
 
 export function CharacterStatsInput() {
 	const { updateSelectedCharacter } = useCharactersStore();
-	const { name, abilities } = useSelectedCharacter();
+	const { name, abilities, level } = useSelectedCharacter();
 
 	return (
 		<Fieldset legend={<Title order={3}>{name}</Title>} w="fit-content">
-			<Stack h="100%" justify="space-around">
-				<ClassSelect maw={125} mx="auto" />
+			<Stack h="100%">
+				<Group>
+					<ClassSelect maw={120} />
 
-				<Stack mx="auto">
-					<Group>
+					<AbilityScoreInput
+						label="Level"
+						max={200}
+						min={1}
+						onChange={level => updateSelectedCharacter({ level: Number(level) })}
+						value={level}
+					/>
+				</Group>
+
+				<Stack>
+					<Group justify="space-evenly">
 						<AbilityScoreInput
 							label="STR"
 							onChange={str => updateSelectedCharacter({ abilities: { str: Number(str) } })}
@@ -28,7 +38,7 @@ export function CharacterStatsInput() {
 						/>
 					</Group>
 
-					<Group>
+					<Group justify="space-evenly">
 						<AbilityScoreInput
 							label="INT"
 							onChange={int => updateSelectedCharacter({ abilities: { int: Number(int) } })}
