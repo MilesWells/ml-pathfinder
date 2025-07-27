@@ -3,6 +3,9 @@ import type { Item, Monster } from './types';
 
 const BASE_URL = 'https://maplelegends.com';
 
+const parsedMonsters: Record<string, Monster> = {};
+const parsedItems: Record<string, Item> = {};
+
 function parseIdSearchParamFromHref(rawHref: string) {
 	const match = /id=(\d+)/.exec(rawHref)?.at(1);
 
@@ -14,13 +17,19 @@ function parseIdSearchParamFromHref(rawHref: string) {
 	return match;
 }
 
-async function scrapeMonsterPage(monsterId: string): Promise<Monster> {
-	const $ = await cheerio.fromURL(`${BASE_URL}/lib/monster?id=${monsterId}`);
+export async function scrapeMonsterPage(monsterId: string): Promise<Monster> {
+	const libraryLink = `${BASE_URL}/lib/monster?id=${monsterId}`;
+
+	const $ = await cheerio.fromURL(libraryLink);
 
 	const monsterName = $('.table > tbody:nth-child(1) > tr:nth-child(1) > th:nth-child(1)')
 		.text()
 		.trim();
+
 	console.log('Scraping', monsterName, `(id: ${monsterId})`);
+
+	const scrapedImageLocation = $(`object[data*=${monsterId}]`).attr('data');
+	const imageLocation = scrapedImageLocation ? `${BASE_URL}${scrapedImageLocation}` : null;
 
 	const $drops = $('.panel-body');
 
@@ -33,19 +42,24 @@ async function scrapeMonsterPage(monsterId: string): Promise<Monster> {
 
 				const $img = $(this).find('img');
 				const { src = null, title } = $img.attr() ?? {};
+
 				if (title === undefined) {
 					console.log('Error parsing', monsterName, 'drop item name. id:', id);
 					return;
 				}
 
-				return {
+				const item: Item = {
 					id,
 					imageLocation: `${BASE_URL}${src}`,
 					libraryLink: `${BASE_URL}${this.attribs.href}`,
 					name: title,
 				};
+
+				if (!parsedItems[id]) parsedItems[id] = item;
+
+				return item.id;
 			})
-			.toArray<Item>();
+			.toArray();
 	}
 
 	return {
@@ -56,11 +70,14 @@ async function scrapeMonsterPage(monsterId: string): Promise<Monster> {
 			use: parseDropsCategory(7),
 		},
 		id: monsterId,
+		imageLocation,
+		libraryLink,
+		libraryPage: -1,
 		name: monsterName,
 	};
 }
 
-async function scrapeMonsterTablePage(page: number) {
+export async function scrapeMonsterTablePage(page: number) {
 	const url = `${BASE_URL}/lib/monster?page=${page}`;
 
 	console.log(`Scraping ${url}`);
@@ -69,38 +86,64 @@ async function scrapeMonsterTablePage(page: number) {
 	// table.text-center is currently unique enough to select the correct table.
 	// thead not used. first tr in tbody contains th instead of td.
 	// both the image of the monster and its name are links. But the image is td > center > a
+	const $monsterLinks = $('table.text-center tr:not(:has(th)) td > a');
+
 	// cheerio.map automatically filters out null/undefined values
-	return $('table.text-center tr:not(:has(th)) td > a')
-		.map((_, monsterLink) => parseIdSearchParamFromHref(monsterLink.attribs.href))
-		.toArray()
-		.slice(0, 1) // TODO: remove this after testing
-		.map(scrapeMonsterPage);
+	const scrapedMonsters = await Promise.all(
+		$monsterLinks
+			.map((_, monsterLink) => parseIdSearchParamFromHref(monsterLink.attribs.href))
+			.toArray()
+			.slice(0, 1) // TODO: remove this after testing
+			.map(async monsterId => {
+				const monster = await scrapeMonsterPage(monsterId);
+				monster.libraryPage = page;
+
+				return monster;
+			}),
+	);
+
+	return {
+		scrapedMonsters,
+		totalMonsterLinks: $monsterLinks.length,
+	};
 }
 
-export async function scrapeAllMonsters(maxPages: number) {
-	const allMonsters: Monster[] = [];
-
+export async function scrapeAllMonstersAndDrops(maxPages?: number) {
 	let page = 0;
 
-	while (++page <= maxPages) {
+	while (maxPages === undefined || ++page <= maxPages) {
 		try {
-			const monsterRows = await scrapeMonsterTablePage(page);
+			const { scrapedMonsters, totalMonsterLinks } = await scrapeMonsterTablePage(page);
 
-			if (monsterRows.length === 0) {
-				console.log(`No more monsters found on page ${page}, stopping`);
+			if (totalMonsterLinks === 0) {
+				console.log(`No monsters found on page ${page}, stopping`);
 				break;
 			}
 
-			const monsters = await Promise.all(monsterRows);
+			scrapedMonsters.forEach(monster => {
+				if (parsedMonsters[monster.id]) {
+					console.log(`Duplicate monster on page ${page}: ${monster.name} (id: ${monster.id})`);
+					return;
+				}
 
-			allMonsters.push(...monsters);
+				parsedMonsters[monster.id] = monster;
+			});
 
-			console.log(`Completed page ${page}, total monsters so far: ${allMonsters.length}`);
+			console.log(`Completed scraping monsters on page ${page}`);
 		} catch (error) {
 			console.log(`Error processing page ${page}:`, error);
 			break;
 		}
 	}
 
-	return allMonsters;
+	return {
+		parsedItems: {
+			array: Object.values(parsedItems),
+			map: parsedItems,
+		},
+		parsedMonsters: {
+			array: Object.values(parsedMonsters),
+			map: parsedMonsters,
+		},
+	};
 }

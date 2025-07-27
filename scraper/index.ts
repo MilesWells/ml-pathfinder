@@ -1,33 +1,45 @@
 import { writeFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { scrapeAllMonsters } from './scraper';
+import { scrapeAllMonstersAndDrops } from './scraper';
 
 async function main() {
 	try {
 		console.log('Starting monster scraper...');
-		const monsters = await scrapeAllMonsters(1);
+		const { parsedMonsters, parsedItems } = await scrapeAllMonstersAndDrops(1);
 
-		if (monsters.length === 0) {
+		if (parsedMonsters.array.length === 0) {
 			console.log('No monsters with drops found.');
 			return;
 		}
 
-		const outputPath = join(process.cwd(), 'public/data/monsters.json');
-		const outputData = {
-			monsters,
+		const monstersOutputPath = join(process.cwd(), 'public/data/monsters.json');
+		const itemsOutputPath = join(process.cwd(), 'public/data/items.json');
+
+		const monstersOutputData = {
+			monsters: parsedMonsters.map,
 			scrapedAt: new Date().toISOString(),
-			totalMonsters: monsters.length,
+			totalMonsters: parsedMonsters.array.length,
 		};
 
-		writeFileSync(outputPath, JSON.stringify(outputData, null, 2));
+		writeFileSync(monstersOutputPath, JSON.stringify(monstersOutputData, null, 2));
+
+		const itemsOutputData = {
+			items: parsedItems.map,
+			scrapedAt: new Date().toISOString(),
+			totalItems: parsedItems.array.length,
+		};
+
+		writeFileSync(itemsOutputPath, JSON.stringify(itemsOutputData, null, 2));
 
 		console.log(`\nScraping completed successfully!`);
-		console.log(`Total monsters with drops: ${monsters.length}`);
-		console.log(`Results saved to: ${outputPath}`);
+		console.log(`Total monsters with drops: ${parsedMonsters.array.length}`);
+		console.log(`Total items: ${parsedItems.array.length}`);
+		console.log(`Monsters saved to: ${monstersOutputPath}`);
+		console.log(`Items saved to: ${itemsOutputPath}`);
 	} catch (error) {
 		console.error('Scraping failed:', error);
 		process.exit(1);
 	}
 }
 
-main().then(() => process.exit(0));
+main();

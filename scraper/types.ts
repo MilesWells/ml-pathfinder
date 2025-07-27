@@ -7,11 +7,14 @@ export type Item = {
 
 export type Monster = {
 	drops: {
-		equip: Item[];
-		use: Item[];
-		setup: Item[];
-		etc: Item[];
+		equip: Item['id'][];
+		use: Item['id'][];
+		setup: Item['id'][];
+		etc: Item['id'][];
 	};
 	id: string;
+	imageLocation: string | null;
+	libraryLink: string;
+	libraryPage: number;
 	name: string;
 };

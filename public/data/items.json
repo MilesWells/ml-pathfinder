@@ -1,0 +1,102 @@
+{
+  "items": {
+    "1002067": {
+      "id": "1002067",
+      "imageLocation": "https://maplelegends.com/static/images/lib/character/01002067.png",
+      "libraryLink": "https://maplelegends.com/lib/equip?id=1002067",
+      "name": "Green Headband"
+    },
+    "1040002": {
+      "id": "1040002",
+      "imageLocation": "https://maplelegends.com/static/images/lib/character/01040002.png",
+      "libraryLink": "https://maplelegends.com/lib/equip?id=1040002",
+      "name": "White Undershirt"
+    },
+    "1052095": {
+      "id": "1052095",
+      "imageLocation": "https://maplelegends.com/static/images/lib/character/01052095.png",
+      "libraryLink": "https://maplelegends.com/lib/equip?id=1052095",
+      "name": "Brown Rocky Suit"
+    },
+    "1061002": {
+      "id": "1061002",
+      "imageLocation": "https://maplelegends.com/static/images/lib/character/01061002.png",
+      "libraryLink": "https://maplelegends.com/lib/equip?id=1061002",
+      "name": "Red Miniskirt"
+    },
+    "1302000": {
+      "id": "1302000",
+      "imageLocation": "https://maplelegends.com/static/images/lib/character/01302000.png",
+      "libraryLink": "https://maplelegends.com/lib/equip?id=1302000",
+      "name": "Sword"
+    },
+    "1442050": {
+      "id": "1442050",
+      "imageLocation": "https://maplelegends.com/static/images/lib/character/01442050.png",
+      "libraryLink": "https://maplelegends.com/lib/equip?id=1442050",
+      "name": "White Valentine Rose"
+    },
+    "2000000": {
+      "id": "2000000",
+      "imageLocation": "https://maplelegends.com/static/images/lib/item/02000000.png",
+      "libraryLink": "https://maplelegends.com/lib/use?id=2000000",
+      "name": "Red Potion"
+    },
+    "2040002": {
+      "id": "2040002",
+      "imageLocation": "https://maplelegends.com/static/images/lib/item/02040002.png",
+      "libraryLink": "https://maplelegends.com/lib/use?id=2040002",
+      "name": "Scroll for Helmet for DEF 10%"
+    },
+    "2041001": {
+      "id": "2041001",
+      "imageLocation": "https://maplelegends.com/static/images/lib/item/02041001.png",
+      "libraryLink": "https://maplelegends.com/lib/use?id=2041001",
+      "name": "Scroll for Cape for Magic Def. 60%"
+    },
+    "2041004": {
+      "id": "2041004",
+      "imageLocation": "https://maplelegends.com/static/images/lib/item/02041004.png",
+      "libraryLink": "https://maplelegends.com/lib/use?id=2041004",
+      "name": "Scroll for Cape for Weapon Def. 60%"
+    },
+    "2060000": {
+      "id": "2060000",
+      "imageLocation": "https://maplelegends.com/static/images/lib/item/02060000.png",
+      "libraryLink": "https://maplelegends.com/lib/use?id=2060000",
+      "name": "Arrow for Bow"
+    },
+    "2061000": {
+      "id": "2061000",
+      "imageLocation": "https://maplelegends.com/static/images/lib/item/02061000.png",
+      "libraryLink": "https://maplelegends.com/lib/use?id=2061000",
+      "name": "Arrow for Crossbow"
+    },
+    "2380000": {
+      "id": "2380000",
+      "imageLocation": "https://maplelegends.com/static/images/lib/item/02380000.png",
+      "libraryLink": "https://maplelegends.com/lib/use?id=2380000",
+      "name": "Snail Card"
+    },
+    "4000019": {
+      "id": "4000019",
+      "imageLocation": "https://maplelegends.com/static/images/lib/item/04000019.png",
+      "libraryLink": "https://maplelegends.com/lib/etc?id=4000019",
+      "name": "Snail Shell"
+    },
+    "4010000": {
+      "id": "4010000",
+      "imageLocation": "https://maplelegends.com/static/images/lib/item/04010000.png",
+      "libraryLink": "https://maplelegends.com/lib/etc?id=4010000",
+      "name": "Bronze Ore"
+    },
+    "4020000": {
+      "id": "4020000",
+      "imageLocation": "https://maplelegends.com/static/images/lib/item/04020000.png",
+      "libraryLink": "https://maplelegends.com/lib/etc?id=4020000",
+      "name": "Garnet Ore"
+    }
+  },
+  "scrapedAt": "2025-07-27T21:58:23.646Z",
+  "totalItems": 16
+}

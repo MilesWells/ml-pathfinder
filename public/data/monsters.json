@@ -1,115 +1,38 @@
 {
-  "monsters": [
-    {
+  "monsters": {
+    "0100100": {
       "drops": {
         "equip": [
-          {
-            "id": "1002067",
-            "imageLocation": "https://maplelegends.com/static/images/lib/character/01002067.png",
-            "libraryLink": "https://maplelegends.com/lib/equip?id=1002067",
-            "name": "Green Headband"
-          },
-          {
-            "id": "1040002",
-            "imageLocation": "https://maplelegends.com/static/images/lib/character/01040002.png",
-            "libraryLink": "https://maplelegends.com/lib/equip?id=1040002",
-            "name": "White Undershirt"
-          },
-          {
-            "id": "1052095",
-            "imageLocation": "https://maplelegends.com/static/images/lib/character/01052095.png",
-            "libraryLink": "https://maplelegends.com/lib/equip?id=1052095",
-            "name": "Brown Rocky Suit"
-          },
-          {
-            "id": "1061002",
-            "imageLocation": "https://maplelegends.com/static/images/lib/character/01061002.png",
-            "libraryLink": "https://maplelegends.com/lib/equip?id=1061002",
-            "name": "Red Miniskirt"
-          },
-          {
-            "id": "1302000",
-            "imageLocation": "https://maplelegends.com/static/images/lib/character/01302000.png",
-            "libraryLink": "https://maplelegends.com/lib/equip?id=1302000",
-            "name": "Sword"
-          },
-          {
-            "id": "1442050",
-            "imageLocation": "https://maplelegends.com/static/images/lib/character/01442050.png",
-            "libraryLink": "https://maplelegends.com/lib/equip?id=1442050",
-            "name": "White Valentine Rose"
-          }
+          "1002067",
+          "1040002",
+          "1052095",
+          "1061002",
+          "1302000",
+          "1442050"
         ],
         "etc": [
-          {
-            "id": "2000000",
-            "imageLocation": "https://maplelegends.com/static/images/lib/item/02000000.png",
-            "libraryLink": "https://maplelegends.com/lib/use?id=2000000",
-            "name": "Red Potion"
-          },
-          {
-            "id": "2040002",
-            "imageLocation": "https://maplelegends.com/static/images/lib/item/02040002.png",
-            "libraryLink": "https://maplelegends.com/lib/use?id=2040002",
-            "name": "Scroll for Helmet for DEF 10%"
-          },
-          {
-            "id": "2041001",
-            "imageLocation": "https://maplelegends.com/static/images/lib/item/02041001.png",
-            "libraryLink": "https://maplelegends.com/lib/use?id=2041001",
-            "name": "Scroll for Cape for Magic Def. 60%"
-          },
-          {
-            "id": "2041004",
-            "imageLocation": "https://maplelegends.com/static/images/lib/item/02041004.png",
-            "libraryLink": "https://maplelegends.com/lib/use?id=2041004",
-            "name": "Scroll for Cape for Weapon Def. 60%"
-          },
-          {
-            "id": "2060000",
-            "imageLocation": "https://maplelegends.com/static/images/lib/item/02060000.png",
-            "libraryLink": "https://maplelegends.com/lib/use?id=2060000",
-            "name": "Arrow for Bow"
-          },
-          {
-            "id": "2061000",
-            "imageLocation": "https://maplelegends.com/static/images/lib/item/02061000.png",
-            "libraryLink": "https://maplelegends.com/lib/use?id=2061000",
-            "name": "Arrow for Crossbow"
-          },
-          {
-            "id": "2380000",
-            "imageLocation": "https://maplelegends.com/static/images/lib/item/02380000.png",
-            "libraryLink": "https://maplelegends.com/lib/use?id=2380000",
-            "name": "Snail Card"
-          }
+          "2000000",
+          "2040002",
+          "2041001",
+          "2041004",
+          "2060000",
+          "2061000",
+          "2380000"
         ],
         "setup": [],
         "use": [
-          {
-            "id": "4000019",
-            "imageLocation": "https://maplelegends.com/static/images/lib/item/04000019.png",
-            "libraryLink": "https://maplelegends.com/lib/etc?id=4000019",
-            "name": "Snail Shell"
-          },
-          {
-            "id": "4010000",
-            "imageLocation": "https://maplelegends.com/static/images/lib/item/04010000.png",
-            "libraryLink": "https://maplelegends.com/lib/etc?id=4010000",
-            "name": "Bronze Ore"
-          },
-          {
-            "id": "4020000",
-            "imageLocation": "https://maplelegends.com/static/images/lib/item/04020000.png",
-            "libraryLink": "https://maplelegends.com/lib/etc?id=4020000",
-            "name": "Garnet Ore"
-          }
+          "4000019",
+          "4010000",
+          "4020000"
         ]
       },
       "id": "0100100",
+      "imageLocation": "https://maplelegends.com/static/images/lib/monster/0100100.png",
+      "libraryLink": "https://maplelegends.com/lib/monster?id=0100100",
+      "libraryPage": 1,
       "name": "Snail"
     }
-  ],
-  "scrapedAt": "2025-07-27T05:59:53.984Z",
+  },
+  "scrapedAt": "2025-07-27T21:58:23.646Z",
   "totalMonsters": 1
 }
