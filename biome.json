@@ -16,6 +16,7 @@
 		"includes": [
 			"__tests__/**/*",
 			".vscode/*",
+			"scraper/**/*",
 			"src/**/*",
 			"biome.json",
 			"eslint.config.mjs",
