@@ -17,7 +17,7 @@ function parseIdSearchParamFromHref(rawHref: string) {
 	return match;
 }
 
-export async function scrapeMonsterPage(monsterId: string): Promise<Monster> {
+export async function scrapeMonsterPage(monsterId: string): Promise<Monster | null> {
 	const libraryLink = `${BASE_URL}/lib/monster?id=${monsterId}`;
 
 	const $ = await cheerio.fromURL(libraryLink);
@@ -62,13 +62,19 @@ export async function scrapeMonsterPage(monsterId: string): Promise<Monster> {
 			.toArray();
 	}
 
+	const drops: Monster['drops'] = {
+		equip: parseDropsCategory(1),
+		etc: parseDropsCategory(3),
+		setup: parseDropsCategory(5),
+		use: parseDropsCategory(7),
+	};
+
+	const noDrops = Object.values(drops).every(parsedDrops => parsedDrops.length === 0);
+
+	if (noDrops) return null;
+
 	return {
-		drops: {
-			equip: parseDropsCategory(1),
-			etc: parseDropsCategory(3),
-			setup: parseDropsCategory(5),
-			use: parseDropsCategory(7),
-		},
+		drops,
 		id: monsterId,
 		imageLocation,
 		libraryLink,
@@ -89,18 +95,23 @@ export async function scrapeMonsterTablePage(page: number) {
 	const $monsterLinks = $('table.text-center tr:not(:has(th)) td > a');
 
 	// cheerio.map automatically filters out null/undefined values
-	const scrapedMonsters = await Promise.all(
-		$monsterLinks
-			.map((_, monsterLink) => parseIdSearchParamFromHref(monsterLink.attribs.href))
-			.toArray()
-			.slice(0, 1) // TODO: remove this after testing
-			.map(async monsterId => {
-				const monster = await scrapeMonsterPage(monsterId);
-				monster.libraryPage = page;
+	const scrapedMonsters = (
+		await Promise.all(
+			$monsterLinks
+				.map((_, monsterLink) => parseIdSearchParamFromHref(monsterLink.attribs.href))
+				.slice(0, 1) // TODO: remove this after testing
+				.toArray()
+				.map(async monsterId => {
+					const monster = await scrapeMonsterPage(monsterId);
 
-				return monster;
-			}),
-	);
+					if (monster === null) return null;
+
+					monster.libraryPage = page;
+
+					return monster;
+				}),
+		)
+	).filter(monster => monster !== null);
 
 	return {
 		scrapedMonsters,
