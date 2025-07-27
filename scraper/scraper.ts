@@ -119,10 +119,17 @@ export async function scrapeMonsterTablePage(page: number) {
 	};
 }
 
-export async function scrapeAllMonstersAndDrops(maxPages?: number) {
-	let page = 0;
+export type ScrapeOptions = {
+	maxPages?: number;
+	startPage?: number;
+};
 
-	while (maxPages === undefined || ++page <= maxPages) {
+export async function scrapeAllMonstersAndDrops(options: ScrapeOptions = {}) {
+	const { maxPages = 1, startPage = 1 } = options;
+
+	let page = startPage - 1; // -1 because the ++page below is convenient to use
+
+	while (maxPages === undefined || ++page < maxPages + startPage) {
 		try {
 			const { scrapedMonsters, totalMonsterLinks } = await scrapeMonsterTablePage(page);
 
