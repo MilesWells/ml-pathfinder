@@ -5,7 +5,10 @@ import { scrapeAllMonstersAndDrops } from './scraper';
 async function main() {
 	try {
 		console.log('Starting monster scraper...');
-		const { parsedMonsters, parsedItems } = await scrapeAllMonstersAndDrops({ maxPages: 1 });
+		const { parsedMonsters, parsedItems } = await scrapeAllMonstersAndDrops({
+			maxPages: 1,
+			// startPage: 2,
+		});
 		const totalMonsters = Object.keys(parsedMonsters).length;
 		const totalItems = Object.keys(parsedItems).length;
 

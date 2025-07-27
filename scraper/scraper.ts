@@ -22,9 +22,9 @@ export async function scrapeMonsterPage(monsterId: string): Promise<Monster | nu
 
 	const $ = await cheerio.fromURL(libraryLink);
 
-	const monsterName = $('.table > tbody:nth-child(1) > tr:nth-child(1) > th:nth-child(1)')
-		.text()
-		.trim();
+	const $stats = $('.table');
+
+	const monsterName = $stats.find('tr:first-child > th:first-child').text().trim();
 
 	console.log('Scraping', monsterName, `(id: ${monsterId})`);
 
@@ -72,6 +72,34 @@ export async function scrapeMonsterPage(monsterId: string): Promise<Monster | nu
 	const noDrops = Object.values(drops).every(parsedDrops => parsedDrops.length === 0);
 
 	if (noDrops) return null;
+
+	const statsAsText = $stats.text().trim();
+
+	function parseStat(statToFind: string) {
+		const results = new RegExp(`${statToFind}: ([-{0,1}\\d,]+)\\.{0,1}`).exec(statsAsText)?.at(1);
+		const parsedNumber = Number(results);
+
+		return Number.isNaN(parsedNumber) ? 0 : parsedNumber;
+	}
+
+	const stats = {
+		accuracy: parseStat('Accuracy'),
+		avoidability: parseStat('Avoidability'),
+		exp: parseStat('EXP'),
+		hp: parseStat('HP'),
+		hpRegen: parseStat('HP Regen'),
+		knockback: parseStat('Knockback'),
+		level: parseStat('Level'),
+		magicAttack: parseStat('M. Attack'),
+		magicDefense: parseStat('M. Defense'),
+		mp: parseStat('MP'),
+		mpRegen: parseStat('MP Regen'),
+		speed: parseStat('Speed'),
+		weaponAttack: parseStat('W. Attack'),
+		weaponDefense: parseStat('W. Defense'),
+	};
+
+	console.log(stats);
 
 	return {
 		drops,
