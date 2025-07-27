@@ -6,8 +6,10 @@ async function main() {
 	try {
 		console.log('Starting monster scraper...');
 		const { parsedMonsters, parsedItems } = await scrapeAllMonstersAndDrops(1);
+		const totalMonsters = Object.keys(parsedMonsters).length;
+		const totalItems = Object.keys(parsedItems).length;
 
-		if (parsedMonsters.array.length === 0) {
+		if (totalMonsters === 0) {
 			console.log('No monsters with drops found.');
 			return;
 		}
@@ -16,24 +18,24 @@ async function main() {
 		const itemsOutputPath = join(process.cwd(), 'public/data/items.json');
 
 		const monstersOutputData = {
-			monsters: parsedMonsters.map,
+			monsters: parsedMonsters,
 			scrapedAt: new Date().toISOString(),
-			totalMonsters: parsedMonsters.array.length,
+			totalMonsters,
 		};
 
 		writeFileSync(monstersOutputPath, JSON.stringify(monstersOutputData, null, 2));
 
 		const itemsOutputData = {
-			items: parsedItems.map,
+			items: parsedItems,
 			scrapedAt: new Date().toISOString(),
-			totalItems: parsedItems.array.length,
+			totalItems,
 		};
 
 		writeFileSync(itemsOutputPath, JSON.stringify(itemsOutputData, null, 2));
 
 		console.log(`\nScraping completed successfully!`);
-		console.log(`Total monsters with drops: ${parsedMonsters.array.length}`);
-		console.log(`Total items: ${parsedItems.array.length}`);
+		console.log(`Total monsters with drops: ${totalMonsters}`);
+		console.log(`Total items: ${totalItems}`);
 		console.log(`Monsters saved to: ${monstersOutputPath}`);
 		console.log(`Items saved to: ${itemsOutputPath}`);
 	} catch (error) {

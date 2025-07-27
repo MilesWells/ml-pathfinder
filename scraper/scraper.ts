@@ -137,13 +137,7 @@ export async function scrapeAllMonstersAndDrops(maxPages?: number) {
 	}
 
 	return {
-		parsedItems: {
-			array: Object.values(parsedItems),
-			map: parsedItems,
-		},
-		parsedMonsters: {
-			array: Object.values(parsedMonsters),
-			map: parsedMonsters,
-		},
+		parsedItems,
+		parsedMonsters,
 	};
 }
