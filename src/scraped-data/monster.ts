@@ -1,9 +1,4 @@
-export type Item = {
-	id: string;
-	imageLocation: string | null;
-	libraryLink: string;
-	name: string;
-};
+import type { Item } from './item';
 
 export type Monster = {
 	drops: {

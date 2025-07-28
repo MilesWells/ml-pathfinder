@@ -30,9 +30,34 @@
       "imageLocation": "https://maplelegends.com/static/images/lib/monster/0100100.png",
       "libraryLink": "https://maplelegends.com/lib/monster?id=0100100",
       "libraryPage": 1,
-      "name": "Snail"
+      "name": "Snail",
+      "stats": {
+        "accuracy": 20,
+        "avoidability": 0,
+        "elements": {
+          "immune": null,
+          "strong": null,
+          "weak": null
+        },
+        "exp": 3,
+        "hp": 8,
+        "hpRegen": 0,
+        "knockback": 1,
+        "level": 1,
+        "magicAttack": 0,
+        "magicDefense": 0,
+        "mesos": {
+          "max": 5,
+          "min": 3
+        },
+        "mp": 0,
+        "mpRegen": 0,
+        "speed": -65,
+        "weaponAttack": 22,
+        "weaponDefense": 0
+      }
     }
   },
-  "scrapedAt": "2025-07-28T00:18:52.988Z",
+  "scrapedAt": "2025-07-28T00:42:24.003Z",
   "totalMonsters": 1
 }

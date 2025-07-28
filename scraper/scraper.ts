@@ -1,5 +1,6 @@
 import * as cheerio from 'cheerio';
-import type { Item, Monster } from './types';
+import type { Item } from '@/scraped-data/item';
+import type { Monster } from '@/scraped-data/monster';
 
 const BASE_URL = 'https://maplelegends.com';
 
