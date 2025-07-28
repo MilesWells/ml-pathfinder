@@ -3,7 +3,7 @@ import { writeScraperResults } from './write-scraper-results';
 
 async function main() {
 	const scrapeOptions: ScrapeOptions = {
-		maxPages: 1,
+		maxPages: 2,
 		// startPage: 2,
 	};
 

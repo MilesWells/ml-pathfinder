@@ -1,0 +1,196 @@
+{
+  "scrapedAt": "2025-07-28T01:19:46.508Z",
+  "skippedMonsters": {
+    "1210104": {
+      "drops": {
+        "equip": [],
+        "etc": [],
+        "setup": [],
+        "use": []
+      },
+      "id": "1210104",
+      "imageLocation": "https://maplelegends.com/static/images/lib/monster/1210104.png",
+      "libraryLink": "https://maplelegends.com/lib/monster?id=1210104",
+      "libraryPage": 2,
+      "name": "Blue Ribbon Pig",
+      "stats": {
+        "accuracy": 23,
+        "avoidability": 1,
+        "elements": {
+          "immune": null,
+          "strong": null,
+          "weak": null
+        },
+        "exp": 23,
+        "hp": 200,
+        "hpRegen": 0,
+        "knockback": 20,
+        "level": 13,
+        "magicAttack": 49,
+        "magicDefense": 30,
+        "mesos": {
+          "max": 45,
+          "min": 29
+        },
+        "mp": 20,
+        "mpRegen": 0,
+        "speed": 5,
+        "weaponAttack": 54,
+        "weaponDefense": 10
+      }
+    },
+    "1220000": {
+      "drops": {
+        "equip": [],
+        "etc": [],
+        "setup": [],
+        "use": []
+      },
+      "id": "1220000",
+      "imageLocation": "https://maplelegends.com/static/images/lib/monster/1220000.png",
+      "libraryLink": "https://maplelegends.com/lib/monster?id=1220000",
+      "libraryPage": 2,
+      "name": "Yellow Starfish",
+      "stats": {
+        "accuracy": 23,
+        "avoidability": 1,
+        "elements": {
+          "immune": null,
+          "strong": null,
+          "weak": null
+        },
+        "exp": 28,
+        "hp": 275,
+        "hpRegen": 0,
+        "knockback": 50,
+        "level": 17,
+        "magicAttack": 64,
+        "magicDefense": 30,
+        "mesos": {
+          "max": 55,
+          "min": 36
+        },
+        "mp": 40,
+        "mpRegen": 0,
+        "speed": -10,
+        "weaponAttack": 80,
+        "weaponDefense": 20
+      }
+    },
+    "1220001": {
+      "drops": {
+        "equip": [],
+        "etc": [],
+        "setup": [],
+        "use": []
+      },
+      "id": "1220001",
+      "imageLocation": "https://maplelegends.com/static/images/lib/monster/1220001.png",
+      "libraryLink": "https://maplelegends.com/lib/monster?id=1220001",
+      "libraryPage": 2,
+      "name": "Angry Starfish",
+      "stats": {
+        "accuracy": 23,
+        "avoidability": 1,
+        "elements": {
+          "immune": null,
+          "strong": null,
+          "weak": null
+        },
+        "exp": 35,
+        "hp": 375,
+        "hpRegen": 0,
+        "knockback": 50,
+        "level": 20,
+        "magicAttack": 88,
+        "magicDefense": 20,
+        "mesos": {
+          "max": 69,
+          "min": 45
+        },
+        "mp": 40,
+        "mpRegen": 0,
+        "speed": -10,
+        "weaponAttack": 93,
+        "weaponDefense": 50
+      }
+    },
+    "1220002": {
+      "drops": {
+        "equip": [],
+        "etc": [],
+        "setup": [],
+        "use": []
+      },
+      "id": "1220002",
+      "imageLocation": "https://maplelegends.com/static/images/lib/monster/1220002.png",
+      "libraryLink": "https://maplelegends.com/lib/monster?id=1220002",
+      "libraryPage": 2,
+      "name": "Jellyfish",
+      "stats": {
+        "accuracy": 40,
+        "avoidability": 3,
+        "elements": {
+          "immune": null,
+          "strong": null,
+          "weak": null
+        },
+        "exp": 50,
+        "hp": 495,
+        "hpRegen": 0,
+        "knockback": 50,
+        "level": 24,
+        "magicAttack": 108,
+        "magicDefense": 70,
+        "mesos": {
+          "max": 98,
+          "min": 64
+        },
+        "mp": 80,
+        "mpRegen": 0,
+        "speed": -45,
+        "weaponAttack": 105,
+        "weaponDefense": 35
+      }
+    },
+    "1220003": {
+      "drops": {
+        "equip": [],
+        "etc": [],
+        "setup": [],
+        "use": []
+      },
+      "id": "1220003",
+      "imageLocation": "https://maplelegends.com/static/images/lib/monster/1220003.png",
+      "libraryLink": "https://maplelegends.com/lib/monster?id=1220003",
+      "libraryPage": 2,
+      "name": "Cool Jellyfish",
+      "stats": {
+        "accuracy": 40,
+        "avoidability": 3,
+        "elements": {
+          "immune": null,
+          "strong": null,
+          "weak": null
+        },
+        "exp": 56,
+        "hp": 580,
+        "hpRegen": 0,
+        "knockback": 150,
+        "level": 24,
+        "magicAttack": 111,
+        "magicDefense": 40,
+        "mesos": {
+          "max": 110,
+          "min": 71
+        },
+        "mp": 120,
+        "mpRegen": 0,
+        "speed": -45,
+        "weaponAttack": 121,
+        "weaponDefense": 40
+      }
+    }
+  },
+  "totalSkippedMonsters": 5
+}

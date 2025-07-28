@@ -6,6 +6,7 @@ const BASE_URL = 'https://maplelegends.com';
 
 const parsedMonsters: Record<string, ScrapedMonster> = {};
 const parsedItems: Record<string, ScrapedItem> = {};
+const skippedParsedMonsters: Record<string, ScrapedMonster> = {};
 
 function parseNumberWithDefault(numberAsString?: string) {
 	const parsedNumber = Number(numberAsString);
@@ -24,7 +25,7 @@ function parseIdSearchParamFromHref(rawHref: string) {
 	return match;
 }
 
-export async function scrapeMonsterPage(monsterId: string): Promise<ScrapedMonster | null> {
+export async function scrapeMonsterPage(monsterId: string): Promise<ScrapedMonster> {
 	const libraryLink = `${BASE_URL}/lib/monster?id=${monsterId}`;
 
 	const $ = await cheerio.fromURL(libraryLink);
@@ -75,13 +76,7 @@ export async function scrapeMonsterPage(monsterId: string): Promise<ScrapedMonst
 		use: parseDropsCategory(7),
 	};
 
-	const noDrops = Object.values(drops).every(parsedDrops => parsedDrops.length === 0);
-
-	if (noDrops) return null;
-
 	const statsAsText = $stats.text().trim();
-
-	// console.log(statsAsText);
 
 	function parseStat(statToFind: string) {
 		const results = new RegExp(`${statToFind}: (-{0,1}[\\d,]+)`).exec(statsAsText)?.at(1);
@@ -135,7 +130,7 @@ export async function scrapeMonsterPage(monsterId: string): Promise<ScrapedMonst
 export async function scrapeMonsterTablePage(page: number) {
 	const url = `${BASE_URL}/lib/monster?page=${page}`;
 
-	console.log(`Scraping ${url}`);
+	console.log(`\nScraping monster table page ${page}: ${url}`);
 	const $ = await cheerio.fromURL(url);
 
 	// table.text-center is currently unique enough to select the correct table.
@@ -143,28 +138,25 @@ export async function scrapeMonsterTablePage(page: number) {
 	// both the image of the monster and its name are links. But the image is td > center > a
 	const $monsterLinks = $('table.text-center tr:not(:has(th)) td > a');
 
-	// cheerio.map automatically filters out null/undefined values
-	const scrapedMonsters = (
-		await Promise.all(
-			$monsterLinks
-				.map((_, monsterLink) => parseIdSearchParamFromHref(monsterLink.attribs.href))
-				.toArray()
-				.map(async monsterId => {
-					const monster = await scrapeMonsterPage(monsterId);
+	return Promise.all(
+		$monsterLinks
+			// cheerio.map automatically filters out null/undefined values
+			.map((_, monsterLink) => parseIdSearchParamFromHref(monsterLink.attribs.href))
+			.toArray()
+			.map(async monsterId => {
+				const monster = await scrapeMonsterPage(monsterId);
 
-					if (monster === null) return null;
+				monster.libraryPage = page;
 
-					monster.libraryPage = page;
+				return monster;
+			}),
+	);
+}
 
-					return monster;
-				}),
-		)
-	).filter(monster => monster !== null);
+function shouldSkipMonster(monster: ScrapedMonster) {
+	const noDrops = Object.values(monster.drops).every(parsedDrops => parsedDrops.length === 0);
 
-	return {
-		scrapedMonsters,
-		totalMonsterLinks: $monsterLinks.length,
-	};
+	return noDrops;
 }
 
 export type ScrapeOptions = {
@@ -179,21 +171,30 @@ export async function scrapeAllMonstersAndDrops(options: ScrapeOptions) {
 
 	while (maxPages === undefined || ++page < maxPages + startPage) {
 		try {
-			const { scrapedMonsters, totalMonsterLinks } = await scrapeMonsterTablePage(page);
+			const scrapedMonsters = await scrapeMonsterTablePage(page);
 
-			if (totalMonsterLinks === 0) {
+			if (scrapedMonsters.length === 0) {
 				console.log(`No monsters found on page ${page}, stopping`);
 				break;
 			}
 
-			scrapedMonsters.forEach(monster => {
+			for (const monster of scrapedMonsters) {
+				if (shouldSkipMonster(monster)) {
+					console.log(`Skipping monster on page ${page}: ${monster.name} (id: ${monster.id})`);
+					skippedParsedMonsters[monster.id] = monster;
+					continue;
+				}
+
 				if (parsedMonsters[monster.id]) {
 					console.log(`Duplicate monster on page ${page}: ${monster.name} (id: ${monster.id})`);
-					return;
+					console.log(
+						`Existing monster on page ${parsedMonsters[monster.id].libraryPage}: ${parsedMonsters[monster.id].name} (id: ${parsedMonsters[monster.id].id})`,
+					);
+					continue;
 				}
 
 				parsedMonsters[monster.id] = monster;
-			});
+			}
 
 			console.log(`Completed scraping monsters on page ${page}`);
 		} catch (error) {
@@ -205,5 +206,6 @@ export async function scrapeAllMonstersAndDrops(options: ScrapeOptions) {
 	return {
 		parsedItems,
 		parsedMonsters,
+		skippedParsedMonsters,
 	};
 }

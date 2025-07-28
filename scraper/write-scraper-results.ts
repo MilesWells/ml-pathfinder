@@ -5,10 +5,12 @@ import type { ScrapedItem } from '@/scraped-data/item';
 import type { ScrapedMonster } from '@/scraped-data/monster';
 import currentItemData from '../public/data/items.json';
 import currentMonsterData from '../public/data/monsters.json';
+import currentSkippedMonstersData from '../public/data/skipped-monsters.json';
 
 export type ScraperResults = {
 	parsedItems: Record<string, ScrapedItem>;
 	parsedMonsters: Record<string, ScrapedMonster>;
+	skippedParsedMonsters: Record<string, ScrapedMonster>;
 };
 
 function writeMonstersToFile(parsedMonsters: ScraperResults['parsedMonsters']) {
@@ -64,11 +66,48 @@ function writeItemsToFile(parsedItems: ScraperResults['parsedItems']) {
 	console.log(`${totalItems} items written to file: ${itemsOutputPath}`);
 }
 
-export function writeScraperResults({ parsedItems, parsedMonsters }: ScraperResults) {
+function writeSkippedMonstersToFile(
+	skippedParsedMonsters: ScraperResults['skippedParsedMonsters'],
+) {
+	const skippedMonstersOutputPath = join(process.cwd(), 'public/data/skipped-monsters.json');
+	const totalSkippedMonsters = Object.keys(skippedParsedMonsters).length;
+
+	if (
+		currentSkippedMonstersData.totalSkippedMonsters === totalSkippedMonsters &&
+		isEqual(currentSkippedMonstersData.skippedMonsters, skippedParsedMonsters)
+	) {
+		console.log(
+			`No changes detected between parsed skipped monster data and existing data in ${skippedMonstersOutputPath}`,
+		);
+		console.log('Skipping writing skipped monster data to file');
+		return;
+	}
+
+	console.log(`Writing skipped monsters to file...`);
+
+	const skippedMonstersOutputData = {
+		scrapedAt: new Date().toISOString(),
+		skippedMonsters: skippedParsedMonsters,
+		totalSkippedMonsters,
+	};
+
+	writeFileSync(skippedMonstersOutputPath, JSON.stringify(skippedMonstersOutputData, null, 2));
+
+	console.log(
+		`${totalSkippedMonsters} skipped monsters written to file: ${skippedMonstersOutputPath}`,
+	);
+}
+
+export function writeScraperResults({
+	parsedItems,
+	parsedMonsters,
+	skippedParsedMonsters,
+}: ScraperResults) {
 	console.log(`\nWriting results to disk...`);
 
 	writeMonstersToFile(parsedMonsters);
 	writeItemsToFile(parsedItems);
+	writeSkippedMonstersToFile(skippedParsedMonsters);
 
 	console.log(`\nScraping completed successfully!`);
 }
