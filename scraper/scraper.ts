@@ -148,7 +148,6 @@ export async function scrapeMonsterTablePage(page: number) {
 		await Promise.all(
 			$monsterLinks
 				.map((_, monsterLink) => parseIdSearchParamFromHref(monsterLink.attribs.href))
-				.slice(0, 1) // TODO: remove this after testing
 				.toArray()
 				.map(async monsterId => {
 					const monster = await scrapeMonsterPage(monsterId);

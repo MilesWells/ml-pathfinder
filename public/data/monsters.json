@@ -1,5 +1,252 @@
 {
   "monsters": {
+    "1110100": {
+      "drops": {
+        "equip": [
+          "1002143",
+          "1040022",
+          "1041017",
+          "1041018",
+          "1041044",
+          "1041063",
+          "1060031",
+          "1061012",
+          "1061037",
+          "1061059",
+          "1092008",
+          "1412012",
+          "1432005",
+          "1442013",
+          "1452003",
+          "1462002",
+          "1482001"
+        ],
+        "etc": [
+          "2000000",
+          "2000003",
+          "2040902",
+          "2041020",
+          "2043102",
+          "2044701",
+          "2048000",
+          "2048001",
+          "2048003",
+          "2380011"
+        ],
+        "setup": [],
+        "use": [
+          "4000012",
+          "4010004",
+          "4010005",
+          "4020003"
+        ]
+      },
+      "id": "1110100",
+      "imageLocation": "https://maplelegends.com/static/images/lib/monster/1110100.png",
+      "libraryLink": "https://maplelegends.com/lib/monster?id=1110100",
+      "libraryPage": 1,
+      "name": "Green Mushroom",
+      "stats": {
+        "accuracy": 45,
+        "avoidability": 5,
+        "elements": {
+          "immune": "Poison",
+          "strong": null,
+          "weak": null
+        },
+        "exp": 26,
+        "hp": 250,
+        "hpRegen": 0,
+        "knockback": 1,
+        "level": 15,
+        "magicAttack": 0,
+        "magicDefense": 40,
+        "mesos": {
+          "max": 51,
+          "min": 33
+        },
+        "mp": 25,
+        "mpRegen": 0,
+        "speed": -20,
+        "weaponAttack": 82,
+        "weaponDefense": 12
+      }
+    },
+    "1110101": {
+      "drops": {
+        "equip": [
+          "1041018",
+          "1041061",
+          "1061013",
+          "1061057",
+          "1092003",
+          "1382000",
+          "1442000"
+        ],
+        "etc": [
+          "2000000",
+          "2040802",
+          "2380008"
+        ],
+        "setup": [],
+        "use": [
+          "4000005",
+          "4010001",
+          "4020000",
+          "4030009"
+        ]
+      },
+      "id": "1110101",
+      "imageLocation": "https://maplelegends.com/static/images/lib/monster/1110101.png",
+      "libraryLink": "https://maplelegends.com/lib/monster?id=1110101",
+      "libraryPage": 1,
+      "name": "Dark Stump",
+      "stats": {
+        "accuracy": 42,
+        "avoidability": 0,
+        "elements": {
+          "immune": null,
+          "strong": null,
+          "weak": "Fire"
+        },
+        "exp": 18,
+        "hp": 250,
+        "hpRegen": 0,
+        "knockback": 1,
+        "level": 10,
+        "magicAttack": 0,
+        "magicDefense": 10,
+        "mesos": {
+          "max": 35,
+          "min": 23
+        },
+        "mp": 10,
+        "mpRegen": 0,
+        "speed": -70,
+        "weaponAttack": 65,
+        "weaponDefense": 20
+      }
+    },
+    "1120100": {
+      "drops": {
+        "equip": [
+          "1032001",
+          "1040037",
+          "1060027",
+          "1061022",
+          "1092000",
+          "1092007",
+          "1442013"
+        ],
+        "etc": [
+          "2000000",
+          "2000003",
+          "2043002",
+          "2380010"
+        ],
+        "setup": [],
+        "use": [
+          "4000006",
+          "4010003",
+          "4020002",
+          "4030010",
+          "4030012"
+        ]
+      },
+      "id": "1120100",
+      "imageLocation": "https://maplelegends.com/static/images/lib/monster/1120100.png",
+      "libraryLink": "https://maplelegends.com/lib/monster?id=1120100",
+      "libraryPage": 1,
+      "name": "Octopus",
+      "stats": {
+        "accuracy": 40,
+        "avoidability": 4,
+        "elements": {
+          "immune": null,
+          "strong": null,
+          "weak": "Lightning"
+        },
+        "exp": 24,
+        "hp": 200,
+        "hpRegen": 0,
+        "knockback": 1,
+        "level": 12,
+        "magicAttack": 0,
+        "magicDefense": 40,
+        "mesos": {
+          "max": 47,
+          "min": 31
+        },
+        "mp": 50,
+        "mpRegen": 0,
+        "speed": 0,
+        "weaponAttack": 82,
+        "weaponDefense": 10
+      }
+    },
+    "1130100": {
+      "drops": {
+        "equip": [
+          "1002097",
+          "1002118",
+          "1032003",
+          "1040019",
+          "1041045",
+          "1051008",
+          "1060015",
+          "1061038",
+          "1092007",
+          "1312016",
+          "1372001",
+          "1382004",
+          "1402009",
+          "1492001"
+        ],
+        "etc": [
+          "2000000",
+          "2000003",
+          "2043202",
+          "2070009",
+          "2381000"
+        ],
+        "setup": [],
+        "use": [
+          "4000018",
+          "4010005",
+          "4020004"
+        ]
+      },
+      "id": "1130100",
+      "imageLocation": "https://maplelegends.com/static/images/lib/monster/1130100.png",
+      "libraryLink": "https://maplelegends.com/lib/monster?id=1130100",
+      "libraryPage": 1,
+      "name": "Axe Stump",
+      "stats": {
+        "accuracy": 50,
+        "avoidability": 5,
+        "elements": {
+          "immune": null,
+          "strong": null,
+          "weak": null
+        },
+        "exp": 30,
+        "hp": 300,
+        "hpRegen": 0,
+        "knockback": 1,
+        "level": 17,
+        "magicAttack": 0,
+        "magicDefense": 10,
+        "mesos": {
+          "max": 59,
+          "min": 38
+        },
+        "mp": 30,
+        "mpRegen": 0,
+        "speed": -50,
+        "weaponAttack": 85,
+        "weaponDefense": 30
+      }
+    },
     "0100100": {
       "drops": {
         "equip": [
@@ -56,8 +303,306 @@
         "weaponAttack": 22,
         "weaponDefense": 0
       }
+    },
+    "0100101": {
+      "drops": {
+        "equip": [
+          "1040006",
+          "1040013",
+          "1040017",
+          "1041012",
+          "1060004",
+          "1060013",
+          "1442049"
+        ],
+        "etc": [
+          "2000000",
+          "2041001",
+          "2041006",
+          "2060000",
+          "2061000",
+          "2380001"
+        ],
+        "setup": [],
+        "use": [
+          "4000000",
+          "4010001",
+          "4010004",
+          "4020001",
+          "4020004",
+          "4030012"
+        ]
+      },
+      "id": "0100101",
+      "imageLocation": "https://maplelegends.com/static/images/lib/monster/0100101.png",
+      "libraryLink": "https://maplelegends.com/lib/monster?id=0100101",
+      "libraryPage": 1,
+      "name": "Blue Snail",
+      "stats": {
+        "accuracy": 20,
+        "avoidability": 0,
+        "elements": {
+          "immune": null,
+          "strong": null,
+          "weak": null
+        },
+        "exp": 4,
+        "hp": 15,
+        "hpRegen": 0,
+        "knockback": 1,
+        "level": 2,
+        "magicAttack": 0,
+        "magicDefense": 0,
+        "mesos": {
+          "max": 7,
+          "min": 5
+        },
+        "mp": 15,
+        "mpRegen": 0,
+        "speed": -50,
+        "weaponAttack": 17,
+        "weaponDefense": 0
+      }
+    },
+    "0120100": {
+      "drops": {
+        "equip": [
+          "1060007",
+          "1061009",
+          "1062000",
+          "1312004",
+          "1332006"
+        ],
+        "etc": [
+          "2000000",
+          "2041007",
+          "2060000",
+          "2061000",
+          "2380002"
+        ],
+        "setup": [],
+        "use": [
+          "4000011",
+          "4010002",
+          "4020002"
+        ]
+      },
+      "id": "0120100",
+      "imageLocation": "https://maplelegends.com/static/images/lib/monster/0120100.png",
+      "libraryLink": "https://maplelegends.com/lib/monster?id=0120100",
+      "libraryPage": 1,
+      "name": "Shroom",
+      "stats": {
+        "accuracy": 30,
+        "avoidability": 0,
+        "elements": {
+          "immune": null,
+          "strong": null,
+          "weak": null
+        },
+        "exp": 5,
+        "hp": 20,
+        "hpRegen": 0,
+        "knockback": 1,
+        "level": 2,
+        "magicAttack": 0,
+        "magicDefense": 0,
+        "mesos": {
+          "max": 9,
+          "min": 6
+        },
+        "mp": 15,
+        "mpRegen": 0,
+        "speed": -30,
+        "weaponAttack": 17,
+        "weaponDefense": 0
+      }
+    },
+    "0130100": {
+      "drops": {
+        "equip": [
+          "1041002",
+          "1072007",
+          "1082003",
+          "1322005",
+          "1332000",
+          "1442012",
+          "1452003",
+          "1482001",
+          "1492000"
+        ],
+        "etc": [
+          "2000000",
+          "2040402",
+          "2041008",
+          "2380003"
+        ],
+        "setup": [],
+        "use": [
+          "4000003",
+          "4010003",
+          "4020003",
+          "4030009"
+        ]
+      },
+      "id": "0130100",
+      "imageLocation": "https://maplelegends.com/static/images/lib/monster/0130100.png",
+      "libraryLink": "https://maplelegends.com/lib/monster?id=0130100",
+      "libraryPage": 1,
+      "name": "Stump",
+      "stats": {
+        "accuracy": 30,
+        "avoidability": 0,
+        "elements": {
+          "immune": null,
+          "strong": null,
+          "weak": "Fire"
+        },
+        "exp": 8,
+        "hp": 40,
+        "hpRegen": 0,
+        "knockback": 1,
+        "level": 4,
+        "magicAttack": 0,
+        "magicDefense": 10,
+        "mesos": {
+          "max": 15,
+          "min": 10
+        },
+        "mp": 30,
+        "mpRegen": 0,
+        "speed": -70,
+        "weaponAttack": 30,
+        "weaponDefense": 0
+      }
+    },
+    "0130101": {
+      "drops": {
+        "equip": [
+          "1032003",
+          "1041006",
+          "1052095",
+          "1061029",
+          "1072005",
+          "1072060",
+          "1082029",
+          "1302000",
+          "1322007",
+          "1372002",
+          "1402001",
+          "1442048"
+        ],
+        "etc": [
+          "2000000",
+          "2040502",
+          "2041009",
+          "2060000",
+          "2061000",
+          "2380004"
+        ],
+        "setup": [],
+        "use": [
+          "4000016",
+          "4010004",
+          "4020004"
+        ]
+      },
+      "id": "0130101",
+      "imageLocation": "https://maplelegends.com/static/images/lib/monster/0130101.png",
+      "libraryLink": "https://maplelegends.com/lib/monster?id=0130101",
+      "libraryPage": 1,
+      "name": "Red Snail",
+      "stats": {
+        "accuracy": 35,
+        "avoidability": 0,
+        "elements": {
+          "immune": null,
+          "strong": null,
+          "weak": null
+        },
+        "exp": 8,
+        "hp": 40,
+        "hpRegen": 0,
+        "knockback": 1,
+        "level": 4,
+        "magicAttack": 0,
+        "magicDefense": 10,
+        "mesos": {
+          "max": 15,
+          "min": 10
+        },
+        "mp": 30,
+        "mpRegen": 0,
+        "speed": -50,
+        "weaponAttack": 27,
+        "weaponDefense": 3
+      }
+    },
+    "0210100": {
+      "drops": {
+        "equip": [
+          "1002019",
+          "1060002",
+          "1072023",
+          "1082019",
+          "1322007",
+          "1412001",
+          "1412012",
+          "1432000",
+          "1432001",
+          "1442012",
+          "1442029",
+          "1482000"
+        ],
+        "etc": [
+          "2000000",
+          "2040505",
+          "2040602",
+          "2041001",
+          "2041018",
+          "2380005"
+        ],
+        "setup": [],
+        "use": [
+          "4000004",
+          "4000010",
+          "4010005",
+          "4020005",
+          "4030000"
+        ]
+      },
+      "id": "0210100",
+      "imageLocation": "https://maplelegends.com/static/images/lib/monster/0210100.png",
+      "libraryLink": "https://maplelegends.com/lib/monster?id=0210100",
+      "libraryPage": 1,
+      "name": "Slime",
+      "stats": {
+        "accuracy": 35,
+        "avoidability": 1,
+        "elements": {
+          "immune": null,
+          "strong": null,
+          "weak": "Lightning"
+        },
+        "exp": 10,
+        "hp": 50,
+        "hpRegen": 0,
+        "knockback": 1,
+        "level": 6,
+        "magicAttack": 0,
+        "magicDefense": 10,
+        "mesos": {
+          "max": 19,
+          "min": 12
+        },
+        "mp": 35,
+        "mpRegen": 0,
+        "speed": -20,
+        "weaponAttack": 32,
+        "weaponDefense": 5
+      }
     }
   },
-  "scrapedAt": "2025-07-28T00:42:24.003Z",
-  "totalMonsters": 1
+  "scrapedAt": "2025-07-28T01:07:52.730Z",
+  "totalMonsters": 10
 }

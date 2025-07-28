@@ -1,10 +1,46 @@
 {
   "items": {
+    "1002019": {
+      "id": "1002019",
+      "imageLocation": "https://maplelegends.com/static/images/lib/character/01002019.png",
+      "libraryLink": "https://maplelegends.com/lib/equip?id=1002019",
+      "name": "White Bandana"
+    },
     "1002067": {
       "id": "1002067",
       "imageLocation": "https://maplelegends.com/static/images/lib/character/01002067.png",
       "libraryLink": "https://maplelegends.com/lib/equip?id=1002067",
       "name": "Green Headband"
+    },
+    "1002097": {
+      "id": "1002097",
+      "imageLocation": "https://maplelegends.com/static/images/lib/character/01002097.png",
+      "libraryLink": "https://maplelegends.com/lib/equip?id=1002097",
+      "name": "Yellow Starry Bandana"
+    },
+    "1002118": {
+      "id": "1002118",
+      "imageLocation": "https://maplelegends.com/static/images/lib/character/01002118.png",
+      "libraryLink": "https://maplelegends.com/lib/equip?id=1002118",
+      "name": "Blue Robin Hat"
+    },
+    "1002143": {
+      "id": "1002143",
+      "imageLocation": "https://maplelegends.com/static/images/lib/character/01002143.png",
+      "libraryLink": "https://maplelegends.com/lib/equip?id=1002143",
+      "name": "Green Matty"
+    },
+    "1032001": {
+      "id": "1032001",
+      "imageLocation": "https://maplelegends.com/static/images/lib/character/01032001.png",
+      "libraryLink": "https://maplelegends.com/lib/equip?id=1032001",
+      "name": "Single Earring"
+    },
+    "1032003": {
+      "id": "1032003",
+      "imageLocation": "https://maplelegends.com/static/images/lib/character/01032003.png",
+      "libraryLink": "https://maplelegends.com/lib/equip?id=1032003",
+      "name": "Amethyst Earrings"
     },
     "1040002": {
       "id": "1040002",
@@ -12,11 +48,149 @@
       "libraryLink": "https://maplelegends.com/lib/equip?id=1040002",
       "name": "White Undershirt"
     },
+    "1040006": {
+      "id": "1040006",
+      "imageLocation": "https://maplelegends.com/static/images/lib/character/01040006.png",
+      "libraryLink": "https://maplelegends.com/lib/equip?id=1040006",
+      "name": "Undershirt"
+    },
+    "1040013": {
+      "id": "1040013",
+      "imageLocation": "https://maplelegends.com/static/images/lib/character/01040013.png",
+      "libraryLink": "https://maplelegends.com/lib/equip?id=1040013",
+      "name": "Blue One-lined T-Shirt"
+    },
+    "1040017": {
+      "id": "1040017",
+      "imageLocation": "https://maplelegends.com/static/images/lib/character/01040017.png",
+      "libraryLink": "https://maplelegends.com/lib/equip?id=1040017",
+      "name": "Grey / Brown Training Shirt"
+    },
+    "1040019": {
+      "id": "1040019",
+      "imageLocation": "https://maplelegends.com/static/images/lib/character/01040019.png",
+      "libraryLink": "https://maplelegends.com/lib/equip?id=1040019",
+      "name": "Orange Split Piece"
+    },
+    "1040022": {
+      "id": "1040022",
+      "imageLocation": "https://maplelegends.com/static/images/lib/character/01040022.png",
+      "libraryLink": "https://maplelegends.com/lib/equip?id=1040022",
+      "name": "Green Bennis Chainmail"
+    },
+    "1040037": {
+      "id": "1040037",
+      "imageLocation": "https://maplelegends.com/static/images/lib/character/01040037.png",
+      "libraryLink": "https://maplelegends.com/lib/equip?id=1040037",
+      "name": "Brown Corporal"
+    },
+    "1041002": {
+      "id": "1041002",
+      "imageLocation": "https://maplelegends.com/static/images/lib/character/01041002.png",
+      "libraryLink": "https://maplelegends.com/lib/equip?id=1041002",
+      "name": "White Tubetop"
+    },
+    "1041006": {
+      "id": "1041006",
+      "imageLocation": "https://maplelegends.com/static/images/lib/character/01041006.png",
+      "libraryLink": "https://maplelegends.com/lib/equip?id=1041006",
+      "name": "Yellow T-Shirt"
+    },
+    "1041012": {
+      "id": "1041012",
+      "imageLocation": "https://maplelegends.com/static/images/lib/character/01041012.png",
+      "libraryLink": "https://maplelegends.com/lib/equip?id=1041012",
+      "name": "Red-Striped T-Shirt"
+    },
+    "1041017": {
+      "id": "1041017",
+      "imageLocation": "https://maplelegends.com/static/images/lib/character/01041017.png",
+      "libraryLink": "https://maplelegends.com/lib/equip?id=1041017",
+      "name": "Purple Arianne"
+    },
+    "1041018": {
+      "id": "1041018",
+      "imageLocation": "https://maplelegends.com/static/images/lib/character/01041018.png",
+      "libraryLink": "https://maplelegends.com/lib/equip?id=1041018",
+      "name": "Green Arianne"
+    },
+    "1041044": {
+      "id": "1041044",
+      "imageLocation": "https://maplelegends.com/static/images/lib/character/01041044.png",
+      "libraryLink": "https://maplelegends.com/lib/equip?id=1041044",
+      "name": "Red Nightshift"
+    },
+    "1041045": {
+      "id": "1041045",
+      "imageLocation": "https://maplelegends.com/static/images/lib/character/01041045.png",
+      "libraryLink": "https://maplelegends.com/lib/equip?id=1041045",
+      "name": "Brown Nightshift"
+    },
+    "1041061": {
+      "id": "1041061",
+      "imageLocation": "https://maplelegends.com/static/images/lib/character/01041061.png",
+      "libraryLink": "https://maplelegends.com/lib/equip?id=1041061",
+      "name": "Yellow Avelin"
+    },
+    "1041063": {
+      "id": "1041063",
+      "imageLocation": "https://maplelegends.com/static/images/lib/character/01041063.png",
+      "libraryLink": "https://maplelegends.com/lib/equip?id=1041063",
+      "name": "Grey Able Armor"
+    },
+    "1051008": {
+      "id": "1051008",
+      "imageLocation": "https://maplelegends.com/static/images/lib/character/01051008.png",
+      "libraryLink": "https://maplelegends.com/lib/equip?id=1051008",
+      "name": "Blue Avenger"
+    },
     "1052095": {
       "id": "1052095",
       "imageLocation": "https://maplelegends.com/static/images/lib/character/01052095.png",
       "libraryLink": "https://maplelegends.com/lib/equip?id=1052095",
       "name": "Brown Rocky Suit"
+    },
+    "1060002": {
+      "id": "1060002",
+      "imageLocation": "https://maplelegends.com/static/images/lib/character/01060002.png",
+      "libraryLink": "https://maplelegends.com/lib/equip?id=1060002",
+      "name": "Blue Jean Shorts"
+    },
+    "1060004": {
+      "id": "1060004",
+      "imageLocation": "https://maplelegends.com/static/images/lib/character/01060004.png",
+      "libraryLink": "https://maplelegends.com/lib/equip?id=1060004",
+      "name": "Grey Thick Sweat Pants"
+    },
+    "1060007": {
+      "id": "1060007",
+      "imageLocation": "https://maplelegends.com/static/images/lib/character/01060007.png",
+      "libraryLink": "https://maplelegends.com/lib/equip?id=1060007",
+      "name": "Jean Capris"
+    },
+    "1060013": {
+      "id": "1060013",
+      "imageLocation": "https://maplelegends.com/static/images/lib/character/01060013.png",
+      "libraryLink": "https://maplelegends.com/lib/equip?id=1060013",
+      "name": "Grey / Brown Training Pants"
+    },
+    "1060015": {
+      "id": "1060015",
+      "imageLocation": "https://maplelegends.com/static/images/lib/character/01060015.png",
+      "libraryLink": "https://maplelegends.com/lib/equip?id=1060015",
+      "name": "White Split Pants"
+    },
+    "1060027": {
+      "id": "1060027",
+      "imageLocation": "https://maplelegends.com/static/images/lib/character/01060027.png",
+      "libraryLink": "https://maplelegends.com/lib/equip?id=1060027",
+      "name": "Brown Corporal Pants"
+    },
+    "1060031": {
+      "id": "1060031",
+      "imageLocation": "https://maplelegends.com/static/images/lib/character/01060031.png",
+      "libraryLink": "https://maplelegends.com/lib/equip?id=1060031",
+      "name": "Blue Pao Bottom"
     },
     "1061002": {
       "id": "1061002",
@@ -24,11 +198,275 @@
       "libraryLink": "https://maplelegends.com/lib/equip?id=1061002",
       "name": "Red Miniskirt"
     },
+    "1061009": {
+      "id": "1061009",
+      "imageLocation": "https://maplelegends.com/static/images/lib/character/01061009.png",
+      "libraryLink": "https://maplelegends.com/lib/equip?id=1061009",
+      "name": "Green Avelin Skirt"
+    },
+    "1061012": {
+      "id": "1061012",
+      "imageLocation": "https://maplelegends.com/static/images/lib/character/01061012.png",
+      "libraryLink": "https://maplelegends.com/lib/equip?id=1061012",
+      "name": "Purple Arianne Skirt"
+    },
+    "1061013": {
+      "id": "1061013",
+      "imageLocation": "https://maplelegends.com/static/images/lib/character/01061013.png",
+      "libraryLink": "https://maplelegends.com/lib/equip?id=1061013",
+      "name": "Green Arianne Skirt"
+    },
+    "1061022": {
+      "id": "1061022",
+      "imageLocation": "https://maplelegends.com/static/images/lib/character/01061022.png",
+      "libraryLink": "https://maplelegends.com/lib/equip?id=1061022",
+      "name": "Yellow Arianne Skirt"
+    },
+    "1061029": {
+      "id": "1061029",
+      "imageLocation": "https://maplelegends.com/static/images/lib/character/01061029.png",
+      "libraryLink": "https://maplelegends.com/lib/equip?id=1061029",
+      "name": "Red Cloth Pants"
+    },
+    "1061037": {
+      "id": "1061037",
+      "imageLocation": "https://maplelegends.com/static/images/lib/character/01061037.png",
+      "libraryLink": "https://maplelegends.com/lib/equip?id=1061037",
+      "name": "Red Nightshift Pants"
+    },
+    "1061038": {
+      "id": "1061038",
+      "imageLocation": "https://maplelegends.com/static/images/lib/character/01061038.png",
+      "libraryLink": "https://maplelegends.com/lib/equip?id=1061038",
+      "name": "Brown Nightshift Pants"
+    },
+    "1061057": {
+      "id": "1061057",
+      "imageLocation": "https://maplelegends.com/static/images/lib/character/01061057.png",
+      "libraryLink": "https://maplelegends.com/lib/equip?id=1061057",
+      "name": "Yellow Avelin Skirt"
+    },
+    "1061059": {
+      "id": "1061059",
+      "imageLocation": "https://maplelegends.com/static/images/lib/character/01061059.png",
+      "libraryLink": "https://maplelegends.com/lib/equip?id=1061059",
+      "name": "Grey Able Skirt"
+    },
+    "1062000": {
+      "id": "1062000",
+      "imageLocation": "https://maplelegends.com/static/images/lib/character/01062000.png",
+      "libraryLink": "https://maplelegends.com/lib/equip?id=1062000",
+      "name": "Ice Jeans"
+    },
+    "1072005": {
+      "id": "1072005",
+      "imageLocation": "https://maplelegends.com/static/images/lib/character/01072005.png",
+      "libraryLink": "https://maplelegends.com/lib/equip?id=1072005",
+      "name": "Leather Sandals"
+    },
+    "1072007": {
+      "id": "1072007",
+      "imageLocation": "https://maplelegends.com/static/images/lib/character/01072007.png",
+      "libraryLink": "https://maplelegends.com/lib/equip?id=1072007",
+      "name": "Brown High Boots"
+    },
+    "1072023": {
+      "id": "1072023",
+      "imageLocation": "https://maplelegends.com/static/images/lib/character/01072023.png",
+      "libraryLink": "https://maplelegends.com/lib/equip?id=1072023",
+      "name": "Beige Nitty"
+    },
+    "1072060": {
+      "id": "1072060",
+      "imageLocation": "https://maplelegends.com/static/images/lib/character/01072060.png",
+      "libraryLink": "https://maplelegends.com/lib/equip?id=1072060",
+      "name": "Brown Woodsman Boots"
+    },
+    "1082003": {
+      "id": "1082003",
+      "imageLocation": "https://maplelegends.com/static/images/lib/character/01082003.png",
+      "libraryLink": "https://maplelegends.com/lib/equip?id=1082003",
+      "name": "Juno"
+    },
+    "1082019": {
+      "id": "1082019",
+      "imageLocation": "https://maplelegends.com/static/images/lib/character/01082019.png",
+      "libraryLink": "https://maplelegends.com/lib/equip?id=1082019",
+      "name": "Lemona"
+    },
+    "1082029": {
+      "id": "1082029",
+      "imageLocation": "https://maplelegends.com/static/images/lib/character/01082029.png",
+      "libraryLink": "https://maplelegends.com/lib/equip?id=1082029",
+      "name": "Brown Duo"
+    },
+    "1092000": {
+      "id": "1092000",
+      "imageLocation": "https://maplelegends.com/static/images/lib/character/01092000.png",
+      "libraryLink": "https://maplelegends.com/lib/equip?id=1092000",
+      "name": "Steel Shield"
+    },
+    "1092003": {
+      "id": "1092003",
+      "imageLocation": "https://maplelegends.com/static/images/lib/character/01092003.png",
+      "libraryLink": "https://maplelegends.com/lib/equip?id=1092003",
+      "name": "Stolen Fence"
+    },
+    "1092007": {
+      "id": "1092007",
+      "imageLocation": "https://maplelegends.com/static/images/lib/character/01092007.png",
+      "libraryLink": "https://maplelegends.com/lib/equip?id=1092007",
+      "name": "Battle Shield"
+    },
+    "1092008": {
+      "id": "1092008",
+      "imageLocation": "https://maplelegends.com/static/images/lib/character/01092008.png",
+      "libraryLink": "https://maplelegends.com/lib/equip?id=1092008",
+      "name": "Pan Lid"
+    },
     "1302000": {
       "id": "1302000",
       "imageLocation": "https://maplelegends.com/static/images/lib/character/01302000.png",
       "libraryLink": "https://maplelegends.com/lib/equip?id=1302000",
       "name": "Sword"
+    },
+    "1312004": {
+      "id": "1312004",
+      "imageLocation": "https://maplelegends.com/static/images/lib/character/01312004.png",
+      "libraryLink": "https://maplelegends.com/lib/equip?id=1312004",
+      "name": "Hand Axe"
+    },
+    "1312016": {
+      "id": "1312016",
+      "imageLocation": "https://maplelegends.com/static/images/lib/character/01312016.png",
+      "libraryLink": "https://maplelegends.com/lib/equip?id=1312016",
+      "name": "Contra Axe"
+    },
+    "1322005": {
+      "id": "1322005",
+      "imageLocation": "https://maplelegends.com/static/images/lib/character/01322005.png",
+      "libraryLink": "https://maplelegends.com/lib/equip?id=1322005",
+      "name": "Wooden Club"
+    },
+    "1322007": {
+      "id": "1322007",
+      "imageLocation": "https://maplelegends.com/static/images/lib/character/01322007.png",
+      "libraryLink": "https://maplelegends.com/lib/equip?id=1322007",
+      "name": "Leather Purse"
+    },
+    "1332000": {
+      "id": "1332000",
+      "imageLocation": "https://maplelegends.com/static/images/lib/character/01332000.png",
+      "libraryLink": "https://maplelegends.com/lib/equip?id=1332000",
+      "name": "Triangular Zamadar"
+    },
+    "1332006": {
+      "id": "1332006",
+      "imageLocation": "https://maplelegends.com/static/images/lib/character/01332006.png",
+      "libraryLink": "https://maplelegends.com/lib/equip?id=1332006",
+      "name": "Field Dagger"
+    },
+    "1372001": {
+      "id": "1372001",
+      "imageLocation": "https://maplelegends.com/static/images/lib/character/01372001.png",
+      "libraryLink": "https://maplelegends.com/lib/equip?id=1372001",
+      "name": "Wizard Wand"
+    },
+    "1372002": {
+      "id": "1372002",
+      "imageLocation": "https://maplelegends.com/static/images/lib/character/01372002.png",
+      "libraryLink": "https://maplelegends.com/lib/equip?id=1372002",
+      "name": "Metal Wand"
+    },
+    "1382000": {
+      "id": "1382000",
+      "imageLocation": "https://maplelegends.com/static/images/lib/character/01382000.png",
+      "libraryLink": "https://maplelegends.com/lib/equip?id=1382000",
+      "name": "Wooden Staff"
+    },
+    "1382004": {
+      "id": "1382004",
+      "imageLocation": "https://maplelegends.com/static/images/lib/character/01382004.png",
+      "libraryLink": "https://maplelegends.com/lib/equip?id=1382004",
+      "name": "Old Wooden Staff"
+    },
+    "1402001": {
+      "id": "1402001",
+      "imageLocation": "https://maplelegends.com/static/images/lib/character/01402001.png",
+      "libraryLink": "https://maplelegends.com/lib/equip?id=1402001",
+      "name": "Wooden Sword"
+    },
+    "1402009": {
+      "id": "1402009",
+      "imageLocation": "https://maplelegends.com/static/images/lib/character/01402009.png",
+      "libraryLink": "https://maplelegends.com/lib/equip?id=1402009",
+      "name": "Wooden Baseball Bat"
+    },
+    "1412001": {
+      "id": "1412001",
+      "imageLocation": "https://maplelegends.com/static/images/lib/character/01412001.png",
+      "libraryLink": "https://maplelegends.com/lib/equip?id=1412001",
+      "name": "Metal Axe"
+    },
+    "1412012": {
+      "id": "1412012",
+      "imageLocation": "https://maplelegends.com/static/images/lib/character/01412012.png",
+      "libraryLink": "https://maplelegends.com/lib/equip?id=1412012",
+      "name": "Iron Axe"
+    },
+    "1432000": {
+      "id": "1432000",
+      "imageLocation": "https://maplelegends.com/static/images/lib/character/01432000.png",
+      "libraryLink": "https://maplelegends.com/lib/equip?id=1432000",
+      "name": "Spear"
+    },
+    "1432001": {
+      "id": "1432001",
+      "imageLocation": "https://maplelegends.com/static/images/lib/character/01432001.png",
+      "libraryLink": "https://maplelegends.com/lib/equip?id=1432001",
+      "name": "Fork on a Stick"
+    },
+    "1432005": {
+      "id": "1432005",
+      "imageLocation": "https://maplelegends.com/static/images/lib/character/01432005.png",
+      "libraryLink": "https://maplelegends.com/lib/equip?id=1432005",
+      "name": "Zeco"
+    },
+    "1442000": {
+      "id": "1442000",
+      "imageLocation": "https://maplelegends.com/static/images/lib/character/01442000.png",
+      "libraryLink": "https://maplelegends.com/lib/equip?id=1442000",
+      "name": "Pole Arm"
+    },
+    "1442012": {
+      "id": "1442012",
+      "imageLocation": "https://maplelegends.com/static/images/lib/character/01442012.png",
+      "libraryLink": "https://maplelegends.com/lib/equip?id=1442012",
+      "name": "Sky Snowboard"
+    },
+    "1442013": {
+      "id": "1442013",
+      "imageLocation": "https://maplelegends.com/static/images/lib/character/01442013.png",
+      "libraryLink": "https://maplelegends.com/lib/equip?id=1442013",
+      "name": "Aqua Snowboard"
+    },
+    "1442029": {
+      "id": "1442029",
+      "imageLocation": "https://maplelegends.com/static/images/lib/character/01442029.png",
+      "libraryLink": "https://maplelegends.com/lib/equip?id=1442029",
+      "name": "Gold Surfboard"
+    },
+    "1442048": {
+      "id": "1442048",
+      "imageLocation": "https://maplelegends.com/static/images/lib/character/01442048.png",
+      "libraryLink": "https://maplelegends.com/lib/equip?id=1442048",
+      "name": "Red Valentine Rose"
+    },
+    "1442049": {
+      "id": "1442049",
+      "imageLocation": "https://maplelegends.com/static/images/lib/character/01442049.png",
+      "libraryLink": "https://maplelegends.com/lib/equip?id=1442049",
+      "name": "Blue Valentine Rose"
     },
     "1442050": {
       "id": "1442050",
@@ -36,17 +474,95 @@
       "libraryLink": "https://maplelegends.com/lib/equip?id=1442050",
       "name": "White Valentine Rose"
     },
+    "1452003": {
+      "id": "1452003",
+      "imageLocation": "https://maplelegends.com/static/images/lib/character/01452003.png",
+      "libraryLink": "https://maplelegends.com/lib/equip?id=1452003",
+      "name": "Composite Bow"
+    },
+    "1462002": {
+      "id": "1462002",
+      "imageLocation": "https://maplelegends.com/static/images/lib/character/01462002.png",
+      "libraryLink": "https://maplelegends.com/lib/equip?id=1462002",
+      "name": "Battle Crossbow"
+    },
+    "1482000": {
+      "id": "1482000",
+      "imageLocation": "https://maplelegends.com/static/images/lib/character/01482000.png",
+      "libraryLink": "https://maplelegends.com/lib/equip?id=1482000",
+      "name": "Steel Knuckler"
+    },
+    "1482001": {
+      "id": "1482001",
+      "imageLocation": "https://maplelegends.com/static/images/lib/character/01482001.png",
+      "libraryLink": "https://maplelegends.com/lib/equip?id=1482001",
+      "name": "Leather Arms"
+    },
+    "1492000": {
+      "id": "1492000",
+      "imageLocation": "https://maplelegends.com/static/images/lib/character/01492000.png",
+      "libraryLink": "https://maplelegends.com/lib/equip?id=1492000",
+      "name": "Pistol"
+    },
+    "1492001": {
+      "id": "1492001",
+      "imageLocation": "https://maplelegends.com/static/images/lib/character/01492001.png",
+      "libraryLink": "https://maplelegends.com/lib/equip?id=1492001",
+      "name": "Dellinger Special"
+    },
     "2000000": {
       "id": "2000000",
       "imageLocation": "https://maplelegends.com/static/images/lib/item/02000000.png",
       "libraryLink": "https://maplelegends.com/lib/use?id=2000000",
       "name": "Red Potion"
     },
+    "2000003": {
+      "id": "2000003",
+      "imageLocation": "https://maplelegends.com/static/images/lib/item/02000003.png",
+      "libraryLink": "https://maplelegends.com/lib/use?id=2000003",
+      "name": "Blue Potion"
+    },
     "2040002": {
       "id": "2040002",
       "imageLocation": "https://maplelegends.com/static/images/lib/item/02040002.png",
       "libraryLink": "https://maplelegends.com/lib/use?id=2040002",
       "name": "Scroll for Helmet for DEF 10%"
+    },
+    "2040402": {
+      "id": "2040402",
+      "imageLocation": "https://maplelegends.com/static/images/lib/item/02040402.png",
+      "libraryLink": "https://maplelegends.com/lib/use?id=2040402",
+      "name": "Scroll for Topwear for DEF 10%"
+    },
+    "2040502": {
+      "id": "2040502",
+      "imageLocation": "https://maplelegends.com/static/images/lib/item/02040502.png",
+      "libraryLink": "https://maplelegends.com/lib/use?id=2040502",
+      "name": "Scroll for Overall Armor for DEX 10%"
+    },
+    "2040505": {
+      "id": "2040505",
+      "imageLocation": "https://maplelegends.com/static/images/lib/item/02040505.png",
+      "libraryLink": "https://maplelegends.com/lib/use?id=2040505",
+      "name": "Scroll for Overall Armor for DEF 10%"
+    },
+    "2040602": {
+      "id": "2040602",
+      "imageLocation": "https://maplelegends.com/static/images/lib/item/02040602.png",
+      "libraryLink": "https://maplelegends.com/lib/use?id=2040602",
+      "name": "Scroll for Bottomwear for DEF 10%"
+    },
+    "2040802": {
+      "id": "2040802",
+      "imageLocation": "https://maplelegends.com/static/images/lib/item/02040802.png",
+      "libraryLink": "https://maplelegends.com/lib/use?id=2040802",
+      "name": "Scroll for Gloves for DEX 10%"
+    },
+    "2040902": {
+      "id": "2040902",
+      "imageLocation": "https://maplelegends.com/static/images/lib/item/02040902.png",
+      "libraryLink": "https://maplelegends.com/lib/use?id=2040902",
+      "name": "Scroll for Shield for DEF 10%"
     },
     "2041001": {
       "id": "2041001",
@@ -60,6 +576,84 @@
       "libraryLink": "https://maplelegends.com/lib/use?id=2041004",
       "name": "Scroll for Cape for Weapon Def. 60%"
     },
+    "2041006": {
+      "id": "2041006",
+      "imageLocation": "https://maplelegends.com/static/images/lib/item/02041006.png",
+      "libraryLink": "https://maplelegends.com/lib/use?id=2041006",
+      "name": "Scroll for Cape for HP 100%"
+    },
+    "2041007": {
+      "id": "2041007",
+      "imageLocation": "https://maplelegends.com/static/images/lib/item/02041007.png",
+      "libraryLink": "https://maplelegends.com/lib/use?id=2041007",
+      "name": "Scroll for Cape for HP 60%"
+    },
+    "2041008": {
+      "id": "2041008",
+      "imageLocation": "https://maplelegends.com/static/images/lib/item/02041008.png",
+      "libraryLink": "https://maplelegends.com/lib/use?id=2041008",
+      "name": "Scroll for Cape for HP 10%"
+    },
+    "2041009": {
+      "id": "2041009",
+      "imageLocation": "https://maplelegends.com/static/images/lib/item/02041009.png",
+      "libraryLink": "https://maplelegends.com/lib/use?id=2041009",
+      "name": "Scroll for Cape for MP 100%"
+    },
+    "2041018": {
+      "id": "2041018",
+      "imageLocation": "https://maplelegends.com/static/images/lib/item/02041018.png",
+      "libraryLink": "https://maplelegends.com/lib/use?id=2041018",
+      "name": "Scroll for Cape for DEX 100%"
+    },
+    "2041020": {
+      "id": "2041020",
+      "imageLocation": "https://maplelegends.com/static/images/lib/item/02041020.png",
+      "libraryLink": "https://maplelegends.com/lib/use?id=2041020",
+      "name": "Scroll for Cape for DEX 10%"
+    },
+    "2043002": {
+      "id": "2043002",
+      "imageLocation": "https://maplelegends.com/static/images/lib/item/02043002.png",
+      "libraryLink": "https://maplelegends.com/lib/use?id=2043002",
+      "name": "Scroll for One-Handed Sword for ATT 10%"
+    },
+    "2043102": {
+      "id": "2043102",
+      "imageLocation": "https://maplelegends.com/static/images/lib/item/02043102.png",
+      "libraryLink": "https://maplelegends.com/lib/use?id=2043102",
+      "name": "Scroll for One-Handed Axe for ATT 10%"
+    },
+    "2043202": {
+      "id": "2043202",
+      "imageLocation": "https://maplelegends.com/static/images/lib/item/02043202.png",
+      "libraryLink": "https://maplelegends.com/lib/use?id=2043202",
+      "name": "Scroll for One-Handed BW for ATT 10%"
+    },
+    "2044701": {
+      "id": "2044701",
+      "imageLocation": "https://maplelegends.com/static/images/lib/item/02044701.png",
+      "libraryLink": "https://maplelegends.com/lib/use?id=2044701",
+      "name": "Scroll for Claw for ATT 60%"
+    },
+    "2048000": {
+      "id": "2048000",
+      "imageLocation": "https://maplelegends.com/static/images/lib/item/02048000.png",
+      "libraryLink": "https://maplelegends.com/lib/use?id=2048000",
+      "name": "Scroll for Pet Equip. for Speed 100%"
+    },
+    "2048001": {
+      "id": "2048001",
+      "imageLocation": "https://maplelegends.com/static/images/lib/item/02048001.png",
+      "libraryLink": "https://maplelegends.com/lib/use?id=2048001",
+      "name": "Scroll for Pet Equip. for Speed 60%"
+    },
+    "2048003": {
+      "id": "2048003",
+      "imageLocation": "https://maplelegends.com/static/images/lib/item/02048003.png",
+      "libraryLink": "https://maplelegends.com/lib/use?id=2048003",
+      "name": "Scroll for Pet Equip. for Jump 100%"
+    },
     "2060000": {
       "id": "2060000",
       "imageLocation": "https://maplelegends.com/static/images/lib/item/02060000.png",
@@ -72,11 +666,131 @@
       "libraryLink": "https://maplelegends.com/lib/use?id=2061000",
       "name": "Arrow for Crossbow"
     },
+    "2070009": {
+      "id": "2070009",
+      "imageLocation": "https://maplelegends.com/static/images/lib/item/02070009.png",
+      "libraryLink": "https://maplelegends.com/lib/use?id=2070009",
+      "name": "Wooden Top"
+    },
     "2380000": {
       "id": "2380000",
       "imageLocation": "https://maplelegends.com/static/images/lib/item/02380000.png",
       "libraryLink": "https://maplelegends.com/lib/use?id=2380000",
       "name": "Snail Card"
+    },
+    "2380001": {
+      "id": "2380001",
+      "imageLocation": "https://maplelegends.com/static/images/lib/item/02380001.png",
+      "libraryLink": "https://maplelegends.com/lib/use?id=2380001",
+      "name": "Blue Snail Card"
+    },
+    "2380002": {
+      "id": "2380002",
+      "imageLocation": "https://maplelegends.com/static/images/lib/item/02380002.png",
+      "libraryLink": "https://maplelegends.com/lib/use?id=2380002",
+      "name": "Shroom Card"
+    },
+    "2380003": {
+      "id": "2380003",
+      "imageLocation": "https://maplelegends.com/static/images/lib/item/02380003.png",
+      "libraryLink": "https://maplelegends.com/lib/use?id=2380003",
+      "name": "Stump Card"
+    },
+    "2380004": {
+      "id": "2380004",
+      "imageLocation": "https://maplelegends.com/static/images/lib/item/02380004.png",
+      "libraryLink": "https://maplelegends.com/lib/use?id=2380004",
+      "name": "Red Snail Card"
+    },
+    "2380005": {
+      "id": "2380005",
+      "imageLocation": "https://maplelegends.com/static/images/lib/item/02380005.png",
+      "libraryLink": "https://maplelegends.com/lib/use?id=2380005",
+      "name": "Slime Card"
+    },
+    "2380008": {
+      "id": "2380008",
+      "imageLocation": "https://maplelegends.com/static/images/lib/item/02380008.png",
+      "libraryLink": "https://maplelegends.com/lib/use?id=2380008",
+      "name": "Dark Stump Card"
+    },
+    "2380010": {
+      "id": "2380010",
+      "imageLocation": "https://maplelegends.com/static/images/lib/item/02380010.png",
+      "libraryLink": "https://maplelegends.com/lib/use?id=2380010",
+      "name": "Octopus Card"
+    },
+    "2380011": {
+      "id": "2380011",
+      "imageLocation": "https://maplelegends.com/static/images/lib/item/02380011.png",
+      "libraryLink": "https://maplelegends.com/lib/use?id=2380011",
+      "name": "Green Mushroom Card"
+    },
+    "2381000": {
+      "id": "2381000",
+      "imageLocation": "https://maplelegends.com/static/images/lib/item/02381000.png",
+      "libraryLink": "https://maplelegends.com/lib/use?id=2381000",
+      "name": "Axe Stump Card"
+    },
+    "4000000": {
+      "id": "4000000",
+      "imageLocation": "https://maplelegends.com/static/images/lib/item/04000000.png",
+      "libraryLink": "https://maplelegends.com/lib/etc?id=4000000",
+      "name": "Blue Snail Shell"
+    },
+    "4000003": {
+      "id": "4000003",
+      "imageLocation": "https://maplelegends.com/static/images/lib/item/04000003.png",
+      "libraryLink": "https://maplelegends.com/lib/etc?id=4000003",
+      "name": "Tree Branch"
+    },
+    "4000004": {
+      "id": "4000004",
+      "imageLocation": "https://maplelegends.com/static/images/lib/item/04000004.png",
+      "libraryLink": "https://maplelegends.com/lib/etc?id=4000004",
+      "name": "Squishy Liquid"
+    },
+    "4000005": {
+      "id": "4000005",
+      "imageLocation": "https://maplelegends.com/static/images/lib/item/04000005.png",
+      "libraryLink": "https://maplelegends.com/lib/etc?id=4000005",
+      "name": "Leaf"
+    },
+    "4000006": {
+      "id": "4000006",
+      "imageLocation": "https://maplelegends.com/static/images/lib/item/04000006.png",
+      "libraryLink": "https://maplelegends.com/lib/etc?id=4000006",
+      "name": "Octopus Leg"
+    },
+    "4000010": {
+      "id": "4000010",
+      "imageLocation": "https://maplelegends.com/static/images/lib/item/04000010.png",
+      "libraryLink": "https://maplelegends.com/lib/etc?id=4000010",
+      "name": "Slime Bubble"
+    },
+    "4000011": {
+      "id": "4000011",
+      "imageLocation": "https://maplelegends.com/static/images/lib/item/04000011.png",
+      "libraryLink": "https://maplelegends.com/lib/etc?id=4000011",
+      "name": "Mushroom Spore"
+    },
+    "4000012": {
+      "id": "4000012",
+      "imageLocation": "https://maplelegends.com/static/images/lib/item/04000012.png",
+      "libraryLink": "https://maplelegends.com/lib/etc?id=4000012",
+      "name": "Green Mushroom Cap"
+    },
+    "4000016": {
+      "id": "4000016",
+      "imageLocation": "https://maplelegends.com/static/images/lib/item/04000016.png",
+      "libraryLink": "https://maplelegends.com/lib/etc?id=4000016",
+      "name": "Red Snail Shell"
+    },
+    "4000018": {
+      "id": "4000018",
+      "imageLocation": "https://maplelegends.com/static/images/lib/item/04000018.png",
+      "libraryLink": "https://maplelegends.com/lib/etc?id=4000018",
+      "name": "Firewood"
     },
     "4000019": {
       "id": "4000019",
@@ -90,13 +804,97 @@
       "libraryLink": "https://maplelegends.com/lib/etc?id=4010000",
       "name": "Bronze Ore"
     },
+    "4010001": {
+      "id": "4010001",
+      "imageLocation": "https://maplelegends.com/static/images/lib/item/04010001.png",
+      "libraryLink": "https://maplelegends.com/lib/etc?id=4010001",
+      "name": "Steel Ore"
+    },
+    "4010002": {
+      "id": "4010002",
+      "imageLocation": "https://maplelegends.com/static/images/lib/item/04010002.png",
+      "libraryLink": "https://maplelegends.com/lib/etc?id=4010002",
+      "name": "Mithril Ore"
+    },
+    "4010003": {
+      "id": "4010003",
+      "imageLocation": "https://maplelegends.com/static/images/lib/item/04010003.png",
+      "libraryLink": "https://maplelegends.com/lib/etc?id=4010003",
+      "name": "Adamantium Ore"
+    },
+    "4010004": {
+      "id": "4010004",
+      "imageLocation": "https://maplelegends.com/static/images/lib/item/04010004.png",
+      "libraryLink": "https://maplelegends.com/lib/etc?id=4010004",
+      "name": "Silver Ore"
+    },
+    "4010005": {
+      "id": "4010005",
+      "imageLocation": "https://maplelegends.com/static/images/lib/item/04010005.png",
+      "libraryLink": "https://maplelegends.com/lib/etc?id=4010005",
+      "name": "Orihalcon Ore"
+    },
     "4020000": {
       "id": "4020000",
       "imageLocation": "https://maplelegends.com/static/images/lib/item/04020000.png",
       "libraryLink": "https://maplelegends.com/lib/etc?id=4020000",
       "name": "Garnet Ore"
+    },
+    "4020001": {
+      "id": "4020001",
+      "imageLocation": "https://maplelegends.com/static/images/lib/item/04020001.png",
+      "libraryLink": "https://maplelegends.com/lib/etc?id=4020001",
+      "name": "Amethyst Ore"
+    },
+    "4020002": {
+      "id": "4020002",
+      "imageLocation": "https://maplelegends.com/static/images/lib/item/04020002.png",
+      "libraryLink": "https://maplelegends.com/lib/etc?id=4020002",
+      "name": "Aquamarine Ore"
+    },
+    "4020003": {
+      "id": "4020003",
+      "imageLocation": "https://maplelegends.com/static/images/lib/item/04020003.png",
+      "libraryLink": "https://maplelegends.com/lib/etc?id=4020003",
+      "name": "Emerald Ore"
+    },
+    "4020004": {
+      "id": "4020004",
+      "imageLocation": "https://maplelegends.com/static/images/lib/item/04020004.png",
+      "libraryLink": "https://maplelegends.com/lib/etc?id=4020004",
+      "name": "Opal Ore"
+    },
+    "4020005": {
+      "id": "4020005",
+      "imageLocation": "https://maplelegends.com/static/images/lib/item/04020005.png",
+      "libraryLink": "https://maplelegends.com/lib/etc?id=4020005",
+      "name": "Sapphire Ore"
+    },
+    "4030000": {
+      "id": "4030000",
+      "imageLocation": "https://maplelegends.com/static/images/lib/item/04030000.png",
+      "libraryLink": "https://maplelegends.com/lib/etc?id=4030000",
+      "name": "Omok Piece : Slime"
+    },
+    "4030009": {
+      "id": "4030009",
+      "imageLocation": "https://maplelegends.com/static/images/lib/item/04030009.png",
+      "libraryLink": "https://maplelegends.com/lib/etc?id=4030009",
+      "name": "Omok Table"
+    },
+    "4030010": {
+      "id": "4030010",
+      "imageLocation": "https://maplelegends.com/static/images/lib/item/04030010.png",
+      "libraryLink": "https://maplelegends.com/lib/etc?id=4030010",
+      "name": "Omok Piece : Octopus"
+    },
+    "4030012": {
+      "id": "4030012",
+      "imageLocation": "https://maplelegends.com/static/images/lib/item/04030012.png",
+      "libraryLink": "https://maplelegends.com/lib/etc?id=4030012",
+      "name": "Monster Card"
     }
   },
-  "scrapedAt": "2025-07-28T00:42:24.005Z",
-  "totalItems": 16
+  "scrapedAt": "2025-07-28T01:07:52.732Z",
+  "totalItems": 149
 }
