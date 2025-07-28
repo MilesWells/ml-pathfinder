@@ -1,4 +1,5 @@
 import * as cheerio from 'cheerio';
+import { statParserFactory } from './parsers';
 import type { Item, Monster } from './types';
 
 const BASE_URL = 'https://maplelegends.com';
@@ -48,16 +49,15 @@ export async function scrapeMonsterPage(monsterId: string): Promise<Monster | nu
 					return;
 				}
 
-				const item: Item = {
-					id,
-					imageLocation: `${BASE_URL}${src}`,
-					libraryLink: `${BASE_URL}${this.attribs.href}`,
-					name: title,
-				};
+				if (!parsedItems[id])
+					parsedItems[id] = {
+						id,
+						imageLocation: `${BASE_URL}${src}`,
+						libraryLink: `${BASE_URL}${this.attribs.href}`,
+						name: title,
+					};
 
-				if (!parsedItems[id]) parsedItems[id] = item;
-
-				return item.id;
+				return id;
 			})
 			.toArray();
 	}
@@ -75,12 +75,7 @@ export async function scrapeMonsterPage(monsterId: string): Promise<Monster | nu
 
 	const statsAsText = $stats.text().trim();
 
-	function parseStat(statToFind: string) {
-		const results = new RegExp(`${statToFind}: ([-{0,1}\\d,]+)\\.{0,1}`).exec(statsAsText)?.at(1);
-		const parsedNumber = Number(results);
-
-		return Number.isNaN(parsedNumber) ? 0 : parsedNumber;
-	}
+	const { parseMeso, parseStat } = statParserFactory(statsAsText);
 
 	const stats = {
 		accuracy: parseStat('Accuracy'),
@@ -92,6 +87,7 @@ export async function scrapeMonsterPage(monsterId: string): Promise<Monster | nu
 		level: parseStat('Level'),
 		magicAttack: parseStat('M. Attack'),
 		magicDefense: parseStat('M. Defense'),
+		mesos: parseMeso(),
 		mp: parseStat('MP'),
 		mpRegen: parseStat('MP Regen'),
 		speed: parseStat('Speed'),
