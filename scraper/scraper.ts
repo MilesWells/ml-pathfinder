@@ -94,7 +94,7 @@ export async function scrapeMonsterPage(monsterId: string): Promise<Monster | nu
 
 	const mesosResults = /Meso: ([\d,]+) - ([\d,]+)/.exec(statsAsText);
 
-	const stats = {
+	const stats: Monster['stats'] = {
 		accuracy: parseStat('Accuracy'),
 		avoidability: parseStat('Avoidability'),
 		elements: {
@@ -120,8 +120,6 @@ export async function scrapeMonsterPage(monsterId: string): Promise<Monster | nu
 		weaponDefense: parseStat('W. Defense'),
 	};
 
-	console.log(stats);
-
 	return {
 		drops,
 		id: monsterId,
@@ -129,6 +127,7 @@ export async function scrapeMonsterPage(monsterId: string): Promise<Monster | nu
 		libraryLink,
 		libraryPage: -1,
 		name: monsterName,
+		stats,
 	};
 }
 
