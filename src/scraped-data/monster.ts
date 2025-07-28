@@ -1,11 +1,11 @@
-import type { Item } from './item';
+import type { ScrapedItem } from './item';
 
-export type Monster = {
+export type ScrapedMonster = {
 	drops: {
-		equip: Item['id'][];
-		use: Item['id'][];
-		setup: Item['id'][];
-		etc: Item['id'][];
+		equip: ScrapedItem['id'][];
+		use: ScrapedItem['id'][];
+		setup: ScrapedItem['id'][];
+		etc: ScrapedItem['id'][];
 	};
 	id: string;
 	imageLocation: string | null;

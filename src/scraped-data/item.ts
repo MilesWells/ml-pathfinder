@@ -1,4 +1,4 @@
-export type Item = {
+export type ScrapedItem = {
 	id: string;
 	imageLocation: string | null;
 	libraryLink: string;

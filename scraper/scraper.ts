@@ -1,11 +1,11 @@
 import * as cheerio from 'cheerio';
-import type { Item } from '@/scraped-data/item';
-import type { Monster } from '@/scraped-data/monster';
+import type { ScrapedItem } from '@/scraped-data/item';
+import type { ScrapedMonster } from '@/scraped-data/monster';
 
 const BASE_URL = 'https://maplelegends.com';
 
-const parsedMonsters: Record<string, Monster> = {};
-const parsedItems: Record<string, Item> = {};
+const parsedMonsters: Record<string, ScrapedMonster> = {};
+const parsedItems: Record<string, ScrapedItem> = {};
 
 function parseNumberWithDefault(numberAsString?: string) {
 	const parsedNumber = Number(numberAsString);
@@ -24,7 +24,7 @@ function parseIdSearchParamFromHref(rawHref: string) {
 	return match;
 }
 
-export async function scrapeMonsterPage(monsterId: string): Promise<Monster | null> {
+export async function scrapeMonsterPage(monsterId: string): Promise<ScrapedMonster | null> {
 	const libraryLink = `${BASE_URL}/lib/monster?id=${monsterId}`;
 
 	const $ = await cheerio.fromURL(libraryLink);
@@ -68,7 +68,7 @@ export async function scrapeMonsterPage(monsterId: string): Promise<Monster | nu
 			.toArray();
 	}
 
-	const drops: Monster['drops'] = {
+	const drops: ScrapedMonster['drops'] = {
 		equip: parseDropsCategory(1),
 		etc: parseDropsCategory(3),
 		setup: parseDropsCategory(5),
@@ -95,7 +95,7 @@ export async function scrapeMonsterPage(monsterId: string): Promise<Monster | nu
 
 	const mesosResults = /Meso: ([\d,]+) - ([\d,]+)/.exec(statsAsText);
 
-	const stats: Monster['stats'] = {
+	const stats: ScrapedMonster['stats'] = {
 		accuracy: parseStat('Accuracy'),
 		avoidability: parseStat('Avoidability'),
 		elements: {
