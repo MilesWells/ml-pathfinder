@@ -2,10 +2,7 @@ import { type ScrapeOptions, scrapeAllMonstersAndDrops } from './scraper';
 import { writeScraperResults } from './write-scraper-results';
 
 async function main() {
-	const scrapeOptions: ScrapeOptions = {
-		maxPages: 2,
-		// startPage: 2,
-	};
+	const scrapeOptions: ScrapeOptions = {};
 
 	const results = await scrapeAllMonstersAndDrops(scrapeOptions);
 

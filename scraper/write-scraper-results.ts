@@ -3,9 +3,11 @@ import { join } from 'node:path';
 import isEqual from 'lodash/isEqual';
 import type { ScrapedItem } from '@/scraped-data/item';
 import type { ScrapedMonster } from '@/scraped-data/monster';
-import currentItemData from '../public/data/items.json';
-import currentMonsterData from '../public/data/monsters.json';
-import currentSkippedMonstersData from '../public/data/skipped-monsters.json';
+import currentItemData from './output/items.json';
+import currentMonsterData from './output/monsters.json';
+import currentSkippedMonstersData from './output/skipped-monsters.json';
+
+const BASE_OUTPUT_PATH = join(process.cwd(), 'scraper/output');
 
 export type ScraperResults = {
 	parsedItems: Record<string, ScrapedItem>;
@@ -14,7 +16,7 @@ export type ScraperResults = {
 };
 
 function writeMonstersToFile(parsedMonsters: ScraperResults['parsedMonsters']) {
-	const monstersOutputPath = join(process.cwd(), 'public/data/monsters.json');
+	const monstersOutputPath = join(BASE_OUTPUT_PATH, 'monsters.json');
 	const totalMonsters = Object.keys(parsedMonsters).length;
 
 	if (
@@ -42,7 +44,7 @@ function writeMonstersToFile(parsedMonsters: ScraperResults['parsedMonsters']) {
 }
 
 function writeItemsToFile(parsedItems: ScraperResults['parsedItems']) {
-	const itemsOutputPath = join(process.cwd(), 'public/data/items.json');
+	const itemsOutputPath = join(BASE_OUTPUT_PATH, 'items.json');
 	const totalItems = Object.keys(parsedItems).length;
 
 	if (currentItemData.totalItems === totalItems && isEqual(currentItemData.items, parsedItems)) {
@@ -69,7 +71,7 @@ function writeItemsToFile(parsedItems: ScraperResults['parsedItems']) {
 function writeSkippedMonstersToFile(
 	skippedParsedMonsters: ScraperResults['skippedParsedMonsters'],
 ) {
-	const skippedMonstersOutputPath = join(process.cwd(), 'public/data/skipped-monsters.json');
+	const skippedMonstersOutputPath = join(BASE_OUTPUT_PATH, 'skipped-monsters.json');
 	const totalSkippedMonsters = Object.keys(skippedParsedMonsters).length;
 
 	if (
