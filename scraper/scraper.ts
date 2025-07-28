@@ -173,7 +173,7 @@ export type ScrapeOptions = {
 	startPage?: number;
 };
 
-export async function scrapeAllMonstersAndDrops(options: ScrapeOptions = {}) {
+export async function scrapeAllMonstersAndDrops(options: ScrapeOptions) {
 	const { maxPages = 1, startPage = 1 } = options;
 
 	let page = startPage - 1; // -1 because the ++page below is convenient to use
