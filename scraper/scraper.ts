@@ -1,11 +1,16 @@
 import * as cheerio from 'cheerio';
-import { statParserFactory } from './parsers';
 import type { Item, Monster } from './types';
 
 const BASE_URL = 'https://maplelegends.com';
 
 const parsedMonsters: Record<string, Monster> = {};
 const parsedItems: Record<string, Item> = {};
+
+function parseNumberWithDefault(numberAsString?: string) {
+	const parsedNumber = Number(numberAsString);
+
+	return Number.isNaN(parsedNumber) ? 0 : parsedNumber;
+}
 
 function parseIdSearchParamFromHref(rawHref: string) {
 	const match = /id=(\d+)/.exec(rawHref)?.at(1);
@@ -75,11 +80,28 @@ export async function scrapeMonsterPage(monsterId: string): Promise<Monster | nu
 
 	const statsAsText = $stats.text().trim();
 
-	const { parseMeso, parseStat } = statParserFactory(statsAsText);
+	// console.log(statsAsText);
+
+	function parseStat(statToFind: string) {
+		const results = new RegExp(`${statToFind}: (-{0,1}[\\d,]+)`).exec(statsAsText)?.at(1);
+
+		return parseNumberWithDefault(results);
+	}
+
+	function parseElementalStatus(statusToFind: string) {
+		return new RegExp(`${statusToFind}: ([^-\n\r]+)`).exec(statsAsText)?.at(1) ?? null;
+	}
+
+	const mesosResults = /Meso: ([\d,]+) - ([\d,]+)/.exec(statsAsText);
 
 	const stats = {
 		accuracy: parseStat('Accuracy'),
 		avoidability: parseStat('Avoidability'),
+		elements: {
+			immune: parseElementalStatus('Immune'),
+			strong: parseElementalStatus('Strong'),
+			weak: parseElementalStatus('Weak'),
+		},
 		exp: parseStat('EXP'),
 		hp: parseStat('HP'),
 		hpRegen: parseStat('HP Regen'),
@@ -87,7 +109,10 @@ export async function scrapeMonsterPage(monsterId: string): Promise<Monster | nu
 		level: parseStat('Level'),
 		magicAttack: parseStat('M. Attack'),
 		magicDefense: parseStat('M. Defense'),
-		mesos: parseMeso(),
+		mesos: {
+			max: parseNumberWithDefault(mesosResults?.at(2)),
+			min: parseNumberWithDefault(mesosResults?.at(1)),
+		},
 		mp: parseStat('MP'),
 		mpRegen: parseStat('MP Regen'),
 		speed: parseStat('Speed'),
