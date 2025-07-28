@@ -38,7 +38,7 @@ function writeMonstersToFile(parsedMonsters: ScraperResults['parsedMonsters']) {
 		totalMonsters,
 	};
 
-	writeFileSync(monstersOutputPath, JSON.stringify(monstersOutputData, null, 2));
+	writeFileSync(monstersOutputPath, JSON.stringify(monstersOutputData));
 
 	console.log(`${totalMonsters} monsters written to file: ${monstersOutputPath}`);
 }
@@ -63,7 +63,7 @@ function writeItemsToFile(parsedItems: ScraperResults['parsedItems']) {
 		totalItems,
 	};
 
-	writeFileSync(itemsOutputPath, JSON.stringify(itemsOutputData, null, 2));
+	writeFileSync(itemsOutputPath, JSON.stringify(itemsOutputData));
 
 	console.log(`${totalItems} items written to file: ${itemsOutputPath}`);
 }
@@ -93,7 +93,7 @@ function writeSkippedMonstersToFile(
 		totalSkippedMonsters,
 	};
 
-	writeFileSync(skippedMonstersOutputPath, JSON.stringify(skippedMonstersOutputData, null, 2));
+	writeFileSync(skippedMonstersOutputPath, JSON.stringify(skippedMonstersOutputData));
 
 	console.log(
 		`${totalSkippedMonsters} skipped monsters written to file: ${skippedMonstersOutputPath}`,
