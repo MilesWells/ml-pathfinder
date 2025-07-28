@@ -165,11 +165,13 @@ export type ScrapeOptions = {
 };
 
 export async function scrapeAllMonstersAndDrops(options: ScrapeOptions) {
-	const { maxPages = 1, startPage = 1 } = options;
+	const { maxPages, startPage = 1 } = options;
 
-	let page = startPage - 1; // -1 because the ++page below is convenient to use
+	if (startPage < 1) throw new Error('startPage must be at least 1');
 
-	while (maxPages === undefined || ++page < maxPages + startPage) {
+	let page = startPage;
+
+	while (maxPages === undefined || page < maxPages + startPage) {
 		try {
 			const scrapedMonsters = await scrapeMonsterTablePage(page);
 
@@ -200,6 +202,8 @@ export async function scrapeAllMonstersAndDrops(options: ScrapeOptions) {
 		} catch (error) {
 			console.log(`Error processing page ${page}:`, error);
 			break;
+		} finally {
+			page++;
 		}
 	}
 
