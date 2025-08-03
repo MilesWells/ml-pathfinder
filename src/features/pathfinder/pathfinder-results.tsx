@@ -20,7 +20,7 @@ export function PathfinderResults() {
 
 					<Stack gap="xs">
 						{path.map(edge => (
-							<Group align="center" gap={12} key={edge.id}>
+							<Group align="center" gap={12} key={edge.id} wrap="nowrap">
 								<EdgeMethodIcon edge={edge} />
 								<EdgeDescription edge={edge} />
 							</Group>
