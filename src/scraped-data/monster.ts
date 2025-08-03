@@ -1,4 +1,5 @@
 import type { ScrapedItem } from './item';
+import scrapedMonsters from './raw/monsters.json' with { type: 'json' };
 
 export type ScrapedMonster = {
 	drops: {
@@ -38,3 +39,7 @@ export type ScrapedMonster = {
 		weaponDefense: number;
 	};
 };
+
+export const MONSTERS: ScrapedMonster[] = Object.values(scrapedMonsters.monsters);
+
+export const MONSTER_MAP: Record<string, ScrapedMonster> = scrapedMonsters.monsters;
