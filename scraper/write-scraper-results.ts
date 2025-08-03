@@ -3,11 +3,11 @@ import { join } from 'node:path';
 import isEqual from 'lodash/isEqual';
 import type { ScrapedItem } from '@/scraped-data/item';
 import type { ScrapedMonster } from '@/scraped-data/monster';
-import currentItemData from './output/items.json';
-import currentMonsterData from './output/monsters.json';
-import currentSkippedMonstersData from './output/skipped-monsters.json';
+import currentItemData from '@/scraped-data/raw/items.json';
+import currentMonsterData from '@/scraped-data/raw/monsters.json';
+import currentSkippedMonstersData from '@/scraped-data/raw/skipped-monsters.json';
 
-const BASE_OUTPUT_PATH = join(process.cwd(), 'scraper/output');
+const BASE_OUTPUT_PATH = join(process.cwd(), 'src/scraped-data/raw');
 
 export type ScraperResults = {
 	parsedItems: Record<string, ScrapedItem>;
