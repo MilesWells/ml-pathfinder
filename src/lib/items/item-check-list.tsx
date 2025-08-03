@@ -2,7 +2,7 @@
 
 import { Checkbox, Group, Stack, Text } from '@mantine/core';
 import { useMemo } from 'react';
-import { ItemIcon } from '@/ui/item-icon';
+import { ItemIcon } from '@/ui/icons/item-icon';
 import { useSelectedItems } from '../local-storage/pathfinder/selected-items';
 import { type Item, items } from '.';
 

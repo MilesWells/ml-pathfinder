@@ -1,4 +1,4 @@
-import { IconBase } from '@/ui/icon-base';
+import { IconBase } from '@/ui/icons/icon-base';
 
 export type MesosIconProps = {
 	mesos: number;

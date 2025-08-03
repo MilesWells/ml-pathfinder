@@ -3,7 +3,7 @@
 import { useContext } from 'react';
 import { type Item, itemDetailsMap } from '@/lib/items';
 import { ItemDrawersContext } from '@/lib/items/item-drawer-context';
-import { IconBase, type IconBaseProps } from '@/ui/icon-base';
+import { IconBase, type IconBaseProps } from '@/ui/icons/icon-base';
 
 export type ItemIconProps = IconBaseProps & {
 	item: Item;

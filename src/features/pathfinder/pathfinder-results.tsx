@@ -2,7 +2,7 @@
 
 import { Card, Center, Group, Stack, Title } from '@mantine/core';
 import { EdgeDescription } from '@/lib/graph/edge-description';
-import { EdgeMethodIcon } from '@/ui/edge-method-icon';
+import { EdgeMethodIcon } from '@/ui/icons/edge-method-icon';
 import { usePathfinder } from './pathfinder-context';
 
 export function PathfinderResults() {

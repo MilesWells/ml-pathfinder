@@ -1,7 +1,7 @@
 'use client';
 
 import { Anchor } from '@mantine/core';
-import { ItemIcon } from '@/ui/item-icon';
+import { ItemIcon } from '@/ui/icons/item-icon';
 import type { Item } from '.';
 import { useItemDrawersStack } from './item-drawer-context';
 

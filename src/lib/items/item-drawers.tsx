@@ -2,7 +2,7 @@
 
 import { Center, Drawer } from '@mantine/core';
 import { itemDetailsMap, items } from '@/lib/items';
-import { ItemIcon } from '@/ui/item-icon';
+import { ItemIcon } from '@/ui/icons/item-icon';
 import { ItemCheckList } from './item-check-list';
 import { ItemConsumption } from './item-consumption';
 import { useItemDrawersStack } from './item-drawer-context';
