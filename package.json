@@ -7,7 +7,7 @@
 		"@tabler/icons-react": "^3.34.0",
 		"graph-data-structure": "^4.5.0",
 		"lodash": "^4.17.21",
-		"next": "15.3.4",
+		"next": "15.4.5",
 		"react": "^19.0.0",
 		"react-dom": "^19.0.0",
 		"zod": "^4.0.5",

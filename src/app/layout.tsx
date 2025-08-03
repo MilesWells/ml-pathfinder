@@ -6,11 +6,13 @@ import { MantineWrapper } from '@/features/root-layout/mantine-wrapper';
 import Shell from '@/features/root-layout/shell';
 
 const geistSans = Geist({
+	preload: false,
 	subsets: ['latin'],
 	variable: '--font-geist-sans',
 });
 
 const geistMono = Geist_Mono({
+	preload: false,
 	subsets: ['latin'],
 	variable: '--font-geist-mono',
 });
