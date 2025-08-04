@@ -3,11 +3,11 @@
 import { Checkbox, Group, Stack, Text } from '@mantine/core';
 import { useMemo } from 'react';
 import { ItemIcon } from '@/ui/icons/item-icon';
-import { useSelectedItems } from '../local-storage/pathfinder/selected-items';
+import { useSelectedItemsStore } from '../zustand/selected-items-store';
 import { type Item, items } from '.';
 
 export function ItemCheckList() {
-	const { addItem, removeItem, removeAll, selectAll, selectedItems } = useSelectedItems();
+	const { addItem, removeItem, removeAll, selectAll, selectedItems } = useSelectedItemsStore();
 
 	const allSelected = useMemo(
 		() => Object.entries(selectedItems).every(([, hasItem]) => hasItem),

@@ -4,8 +4,8 @@ import { List, ListItem, Stack, Title } from '@mantine/core';
 import { ExternalLink } from '@/ui/external-link';
 import type { EdgeId, EdgeMethod } from './graph/edges';
 import { ItemDrawerLink } from './items/item-drawer-link';
-import { useSelectedItems } from './local-storage/pathfinder/selected-items';
 import { REGION_LINK_MAP, type Region } from './regions';
+import { useSelectedItemsStore } from './zustand/selected-items-store';
 
 const EDGE_IDS_WITH_STEPS = [
 	'Walk|Aqua Road|El Nath',
@@ -35,7 +35,7 @@ export type WalkPathingDetailsProps = {
 export function WalkPathingSteps({ edgeId }: WalkPathingDetailsProps) {
 	const {
 		selectedItems: { 'Return Scroll - Nearest Town': hasNearestTownScroll },
-	} = useSelectedItems();
+	} = useSelectedItemsStore();
 
 	const [, from, to] = edgeId.split('|') as [EdgeMethod, Region, Region];
 
