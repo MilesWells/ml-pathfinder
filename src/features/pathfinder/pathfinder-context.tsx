@@ -5,8 +5,8 @@ import type React from 'react';
 import { createContext, useContext, useMemo } from 'react';
 import { useGraph } from '@/lib/graph';
 import type { Edge } from '@/lib/graph/edges';
-import { useDestinationRegion, useStartingRegion } from '@/lib/local-storage/pathfinder/regions';
 import { isUnnavigaableRegion, type NavigableRegion, type Region } from '@/lib/regions';
+import { useRegionsStore } from '@/lib/zustand/regions-store';
 
 export type PathfinderContextValue = {
 	startingRegion: Region;
@@ -20,8 +20,8 @@ export const PathfinderContext = createContext<PathfinderContextValue | null>(nu
 
 export function PathfinderContextProvider({ children }: React.PropsWithChildren) {
 	const graph = useGraph();
-	const { startingRegion, setStartingRegion } = useStartingRegion();
-	const { destinationRegion, setDestinationRegion } = useDestinationRegion();
+	const { startingRegion, setStartingRegion, destinationRegion, setDestinationRegion } =
+		useRegionsStore();
 
 	const path = useMemo<Edge[]>(() => {
 		const path = { destinationRegion, startingRegion };

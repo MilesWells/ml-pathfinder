@@ -1,14 +1,17 @@
-import { Box, Loader, LoadingOverlay } from '@mantine/core';
+import { Box, LoadingOverlay } from '@mantine/core';
 
 export type LoadingContainerProps = React.PropsWithChildren<{
 	loading: boolean;
-	overlayChildren?: React.ReactNode;
 }>;
 
-export function LoadingContainer({ children, loading, overlayChildren }: LoadingContainerProps) {
+export function LoadingContainer({ children, loading }: LoadingContainerProps) {
 	return (
 		<Box flex="1 1 0" pos="relative">
-			<LoadingOverlay visible={loading}>{overlayChildren || <Loader />}</LoadingOverlay>
+			<LoadingOverlay
+				loaderProps={{ type: 'bars' }}
+				overlayProps={{ backgroundOpacity: 1, radius: 'md' }}
+				visible={loading}
+			/>
 
 			{children}
 		</Box>
