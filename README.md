@@ -1,7 +1,17 @@
 # Credit
 
+## Pathfinder
+
 https://forum.maplelegends.com/index.php?threads/travel-guide-sishous-maplelegends-navigation-guide-and-tips.57168/
+
 https://forum.maplelegends.com/index.php?threads/guide-how-to-get-to.18926/
+
 https://forum.maplelegends.com/index.php?threads/neo-tokyo-guide.25729/
+
 https://forum.maplelegends.com/index.php?threads/hp-challenges-storyline-quest-guide.51883/
+
 https://forum.maplelegends.com/index.php?threads/chews-great-maplelegends-map.11926/
+
+## Damage Calculator
+
+https://forum.maplelegends.com/index.php?threads/nises-formula-compilation.36234/
