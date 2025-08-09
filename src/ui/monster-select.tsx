@@ -1,7 +1,6 @@
 'use client';
 
-import { Group, Select, type SelectProps, Text } from '@mantine/core';
-import { IconCheck } from '@tabler/icons-react';
+import { Select, type SelectProps, Stack, Text } from '@mantine/core';
 import { useSelectedMonsterStore } from '@/lib/zustand/selected-monster-store';
 import { MONSTER_MAP, SORTED_MONSTERS_BY } from '@/scraped-data/monster';
 
@@ -12,36 +11,34 @@ const options = SORTED_MONSTERS_BY.level().map(monster => ({
 	value: monster.id,
 }));
 
-const iconProps = {
-	color: 'currentColor',
-	opacity: 0.6,
-	size: 18,
-	stroke: 1.5,
-};
-
 const renderSelectOption: SelectProps['renderOption'] = ({ option, checked }) => {
 	const monster = MONSTER_MAP[option.value];
 
 	return (
-		<Group gap="xs">
-			{checked && <IconCheck {...iconProps} />}
-
-			<Group>
-				<Text>{monster.name}</Text>
-				<Text size="xs">Lv.{monster.stats.level}</Text>
-			</Group>
-		</Group>
+		<Stack c={checked ? 'maplelegends-blue.6' : undefined} gap={0}>
+			<Text>{monster.name}</Text>
+			<Text fs="italic" size="xs">
+				Lv.{monster.stats.level}
+			</Text>
+		</Stack>
 	);
 };
 
 export function MonsterSelect(props: MonsterSelectProps) {
-	const { selectedMonsterSelectOption, setSelectedMonster } = useSelectedMonsterStore();
+	const setSelectedMonster = useSelectedMonsterStore(state => state.setSelectedMonster);
+	const selectedMonsterSelectOption = useSelectedMonsterStore(
+		state => state.selectedMonsterSelectOption.value,
+	);
 
 	return (
 		<Select
-			comboboxProps={{ offset: 0 }}
+			comboboxProps={{
+				offset: 0,
+				position: 'bottom-start',
+				width: 'fit-content',
+			}}
 			data={options}
-			defaultValue={selectedMonsterSelectOption.value}
+			defaultValue={selectedMonsterSelectOption}
 			nothingFoundMessage="Nothing found..."
 			onChange={value => {
 				if (!value) return;
@@ -50,7 +47,7 @@ export function MonsterSelect(props: MonsterSelectProps) {
 			}}
 			renderOption={renderSelectOption}
 			searchable
-			value={selectedMonsterSelectOption.value}
+			value={selectedMonsterSelectOption}
 			{...props}
 		/>
 	);
