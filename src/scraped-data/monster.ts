@@ -49,6 +49,7 @@ export const SORTABLE_MONSTER_STATS = [
 	'avoidability',
 	'exp',
 	'hp',
+	'level',
 	'magicAttack',
 	'magicDefense',
 	'minMeso',
@@ -66,11 +67,12 @@ export const SORTABLE_MONSTER_STATS = [
 
 export type SortableMonsterStats = (typeof SORTABLE_MONSTER_STATS)[number];
 
-export const SORTED_MONSTERS = {
+export const SORTED_MONSTERS_BY = {
 	accuracy: () => MONSTERS.sort((a, b) => b.stats.accuracy - a.stats.accuracy),
 	avoidability: () => MONSTERS.sort((a, b) => b.stats.avoidability - a.stats.avoidability),
 	exp: () => MONSTERS.sort((a, b) => b.stats.exp - a.stats.exp),
 	hp: () => MONSTERS.sort((a, b) => b.stats.hp - a.stats.hp),
+	level: () => MONSTERS.sort((a, b) => a.stats.level - b.stats.level),
 	magicAttack: () => MONSTERS.sort((a, b) => b.stats.magicAttack - a.stats.magicAttack),
 	magicDefense: () => MONSTERS.sort((a, b) => b.stats.magicDefense - a.stats.magicDefense),
 	maxMeso: () => MONSTERS.sort((a, b) => a.stats.mesos.max - b.stats.mesos.max),
