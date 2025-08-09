@@ -1,8 +1,9 @@
 'use client';
 
-import { Button, Drawer, Fieldset, Group, Stack, Title } from '@mantine/core';
+import { Button, Drawer, Fieldset, Group, Stack } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { useCharacterNames } from '@/lib/zustand/characters-store';
+import { CustomFieldSet } from '@/ui/material/custom-field-set';
 import { AddCharacter } from './add-character';
 import { CharacterSelect } from './character-select';
 import { EditCharacterName } from './edit-character-name';
@@ -13,12 +14,7 @@ export function ManageCharacters() {
 
 	return (
 		<>
-			<Fieldset
-				legend={<Title order={3}>Select Character</Title>}
-				maw="fit-content"
-				mb="xl"
-				mx="auto"
-			>
+			<CustomFieldSet legendText="Select Character">
 				<Group align="stretch">
 					<CharacterSelect flex="1 1 0" />
 
@@ -26,7 +22,7 @@ export function ManageCharacters() {
 						Manage
 					</Button>
 				</Group>
-			</Fieldset>
+			</CustomFieldSet>
 
 			<Drawer
 				onClose={close}

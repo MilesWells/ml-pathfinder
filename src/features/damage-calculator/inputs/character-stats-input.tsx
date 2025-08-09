@@ -1,8 +1,9 @@
 'use client';
 
-import { Fieldset, Group, Stack, Title } from '@mantine/core';
+import { Group, Stack } from '@mantine/core';
 import { useCharactersStore, useSelectedCharacter } from '@/lib/zustand/characters-store';
 import { AbilityScoreInput } from '@/ui/ability-score-input';
+import { CustomFieldSet } from '@/ui/material/custom-field-set';
 import { ClassSelect } from './class-select';
 
 export function CharacterStatsInput() {
@@ -10,7 +11,7 @@ export function CharacterStatsInput() {
 	const { name, abilities, level } = useSelectedCharacter();
 
 	return (
-		<Fieldset legend={<Title order={3}>{name}</Title>} w="fit-content">
+		<CustomFieldSet legendText={name}>
 			<Stack h="100%">
 				<Group>
 					<ClassSelect maw={120} />
@@ -52,6 +53,6 @@ export function CharacterStatsInput() {
 					</Group>
 				</Stack>
 			</Stack>
-		</Fieldset>
+		</CustomFieldSet>
 	);
 }
