@@ -2,7 +2,7 @@
 
 import { Button, Drawer, Fieldset, Group, Stack } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
-import { useCharacterNames } from '@/lib/zustand/characters-store';
+import { useCharacters } from '@/lib/jotai/characters-atom';
 import { CustomFieldSet } from '@/ui/material/custom-field-set';
 import { AddCharacter } from './add-character';
 import { CharacterSelect } from './character-select';
@@ -10,7 +10,7 @@ import { EditCharacterName } from './edit-character-name';
 
 export function ManageCharacters() {
 	const [opened, { open, close }] = useDisclosure(false);
-	const characterNames = useCharacterNames();
+	const { characterNames } = useCharacters();
 
 	return (
 		<>

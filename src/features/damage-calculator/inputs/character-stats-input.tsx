@@ -1,14 +1,16 @@
 'use client';
 
 import { Group, Stack } from '@mantine/core';
-import { useCharactersStore, useSelectedCharacter } from '@/lib/zustand/characters-store';
+import { useCharacters } from '@/lib/jotai/characters-atom';
 import { AbilityScoreInput } from '@/ui/ability-score-input';
 import { CustomFieldSet } from '@/ui/material/custom-field-set';
 import { ClassSelect } from './class-select';
 
 export function CharacterStatsInput() {
-	const { updateSelectedCharacter } = useCharactersStore();
-	const { name, abilities, level } = useSelectedCharacter();
+	const {
+		selectedCharacter: { name, abilities, level },
+		updateCharacter,
+	} = useCharacters();
 
 	return (
 		<CustomFieldSet legendText={name}>
@@ -20,7 +22,7 @@ export function CharacterStatsInput() {
 						label="Level"
 						max={200}
 						min={1}
-						onChange={level => updateSelectedCharacter({ level: Number(level) })}
+						onChange={level => updateCharacter(name, { level: Number(level) })}
 						value={level}
 					/>
 				</Group>
@@ -29,12 +31,12 @@ export function CharacterStatsInput() {
 					<Group justify="space-evenly">
 						<AbilityScoreInput
 							label="STR"
-							onChange={str => updateSelectedCharacter({ abilities: { str: Number(str) } })}
+							onChange={str => updateCharacter(name, { abilities: { str: Number(str) } })}
 							value={abilities.str}
 						/>
 						<AbilityScoreInput
 							label="DEX"
-							onChange={dex => updateSelectedCharacter({ abilities: { dex: Number(dex) } })}
+							onChange={dex => updateCharacter(name, { abilities: { dex: Number(dex) } })}
 							value={abilities.dex}
 						/>
 					</Group>
@@ -42,12 +44,12 @@ export function CharacterStatsInput() {
 					<Group justify="space-evenly">
 						<AbilityScoreInput
 							label="INT"
-							onChange={int => updateSelectedCharacter({ abilities: { int: Number(int) } })}
+							onChange={int => updateCharacter(name, { abilities: { int: Number(int) } })}
 							value={abilities.int}
 						/>
 						<AbilityScoreInput
 							label="LUK"
-							onChange={luk => updateSelectedCharacter({ abilities: { luk: Number(luk) } })}
+							onChange={luk => updateCharacter(name, { abilities: { luk: Number(luk) } })}
 							value={abilities.luk}
 						/>
 					</Group>

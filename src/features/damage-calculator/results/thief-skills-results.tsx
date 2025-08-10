@@ -1,15 +1,17 @@
 import { TableTd, TableTh, TableTr } from '@mantine/core';
 import { useMemo } from 'react';
 import { luckySeven } from '@/lib/damage/thief';
-import { useSelectedCharacter } from '@/lib/zustand/characters-store';
+import { useCharacters } from '@/lib/jotai/characters-atom';
 
 const formatter = new Intl.NumberFormat();
 
 export function ThiefSkillsResults() {
 	const {
-		abilities: { luk },
-		equipment: { totalWeaponAttack },
-	} = useSelectedCharacter();
+		selectedCharacter: {
+			abilities: { luk },
+			equipment: { totalWeaponAttack },
+		},
+	} = useCharacters();
 
 	const { max, min } = useMemo(() => {
 		return luckySeven({

@@ -1,18 +1,21 @@
 import { NumberInput } from '@mantine/core';
-import { useCharactersStore, useSelectedCharacter } from '@/lib/zustand/characters-store';
+import { useCharacters } from '@/lib/jotai/characters-atom';
 
 export function SpellMasteryInput() {
-	const { updateSelectedCharacter } = useCharactersStore();
 	const {
-		masteries: { spellMastery: spell },
-	} = useSelectedCharacter();
+		selectedCharacter: {
+			masteries: { spellMastery: spell },
+			name,
+		},
+		updateCharacter,
+	} = useCharacters();
 
 	return (
 		<NumberInput
 			label="Spell Mastery"
 			max={100}
 			min={0}
-			onChange={n => updateSelectedCharacter({ masteries: { spellMastery: Number(n) } })}
+			onChange={n => updateCharacter(name, { masteries: { spellMastery: Number(n) } })}
 			suffix="%"
 			value={spell}
 		/>

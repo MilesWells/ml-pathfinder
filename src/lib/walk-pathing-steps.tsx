@@ -1,11 +1,11 @@
 'use client';
 
 import { List, ListItem, Stack, Title } from '@mantine/core';
+import { useSelectedItems } from '@/lib/jotai/select-items-atom';
 import { ExternalLink } from '@/ui/external-link';
 import type { EdgeId, EdgeMethod } from './graph/edges';
 import { ItemDrawerLink } from './items/item-drawer-link';
 import { REGION_LINK_MAP, type Region } from './regions';
-import { useSelectedItemsStore } from './zustand/selected-items-store';
 
 const EDGE_IDS_WITH_STEPS = [
 	'Walk|Aqua Road|El Nath',
@@ -35,7 +35,7 @@ export type WalkPathingDetailsProps = {
 export function WalkPathingSteps({ edgeId }: WalkPathingDetailsProps) {
 	const {
 		selectedItems: { 'Return Scroll - Nearest Town': hasNearestTownScroll },
-	} = useSelectedItemsStore();
+	} = useSelectedItems();
 
 	const [, from, to] = edgeId.split('|') as [EdgeMethod, Region, Region];
 

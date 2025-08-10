@@ -6,7 +6,7 @@ import {
 	type PhysicalSwingStabWeaponType,
 } from '@/lib/damage';
 import { maxMinWeaponDamageMap } from '@/lib/damage/weapon-damage';
-import { useSelectedCharacter } from '@/lib/zustand/characters-store';
+import { useCharacters } from '@/lib/jotai/characters-atom';
 
 const formatter = new Intl.NumberFormat();
 
@@ -16,10 +16,12 @@ export function PhysicalSwingStabWeaponResults({
 	weaponType: PhysicalSwingStabWeaponType;
 }) {
 	const {
-		abilities: { dex, int, luk, str },
-		equipment: { totalWeaponAttack },
-		masteries: { weaponMastery },
-	} = useSelectedCharacter();
+		selectedCharacter: {
+			abilities: { dex, int, luk, str },
+			equipment: { totalWeaponAttack },
+			masteries: { weaponMastery },
+		},
+	} = useCharacters();
 
 	const { stab, swing } = useMemo(() => {
 		return maxMinWeaponDamageMap[weaponType]({

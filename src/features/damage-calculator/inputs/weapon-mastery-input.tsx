@@ -1,18 +1,21 @@
 import { NumberInput } from '@mantine/core';
-import { useCharactersStore, useSelectedCharacter } from '@/lib/zustand/characters-store';
+import { useCharacters } from '@/lib/jotai/characters-atom';
 
 export function WeaponMasteryInput() {
-	const { updateSelectedCharacter } = useCharactersStore();
 	const {
-		masteries: { weaponMastery },
-	} = useSelectedCharacter();
+		selectedCharacter: {
+			name,
+			masteries: { weaponMastery },
+		},
+		updateCharacter,
+	} = useCharacters();
 
 	return (
 		<NumberInput
 			label="Weapon Mastery"
 			max={100}
 			min={0}
-			onChange={n => updateSelectedCharacter({ masteries: { weaponMastery: Number(n) } })}
+			onChange={n => updateCharacter(name, { masteries: { weaponMastery: Number(n) } })}
 			suffix="%"
 			value={weaponMastery}
 		/>

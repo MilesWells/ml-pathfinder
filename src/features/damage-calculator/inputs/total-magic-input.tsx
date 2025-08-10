@@ -1,11 +1,14 @@
 import { NumberInput } from '@mantine/core';
-import { useCharactersStore, useSelectedCharacter } from '@/lib/zustand/characters-store';
+import { useCharacters } from '@/lib/jotai/characters-atom';
 
 export function TotalMagicInput() {
-	const { updateSelectedCharacter } = useCharactersStore();
 	const {
-		equipment: { totalMagicAttack },
-	} = useSelectedCharacter();
+		selectedCharacter: {
+			name,
+			equipment: { totalMagicAttack },
+		},
+		updateCharacter,
+	} = useCharacters();
 
 	return (
 		<NumberInput
@@ -13,7 +16,7 @@ export function TotalMagicInput() {
 			label="Total Magic Attack"
 			max={999999}
 			min={1}
-			onChange={n => updateSelectedCharacter({ equipment: { totalMagicAttack: Number(n) } })}
+			onChange={n => updateCharacter(name, { equipment: { totalMagicAttack: Number(n) } })}
 			value={totalMagicAttack}
 		/>
 	);

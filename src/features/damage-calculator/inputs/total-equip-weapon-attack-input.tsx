@@ -1,18 +1,21 @@
 import { NumberInput } from '@mantine/core';
-import { useCharactersStore, useSelectedCharacter } from '@/lib/zustand/characters-store';
+import { useCharacters } from '@/lib/jotai/characters-atom';
 
 export function TotalEquipWeaponAttackInput() {
-	const { updateSelectedCharacter } = useCharactersStore();
 	const {
-		equipment: { totalWeaponAttack },
-	} = useSelectedCharacter();
+		selectedCharacter: {
+			equipment: { totalWeaponAttack },
+			name,
+		},
+		updateCharacter,
+	} = useCharacters();
 
 	return (
 		<NumberInput
 			label="Total Weapon Attack from Equipment"
 			max={999999}
 			min={1}
-			onChange={n => updateSelectedCharacter({ equipment: { totalWeaponAttack: Number(n) } })}
+			onChange={n => updateCharacter(name, { equipment: { totalWeaponAttack: Number(n) } })}
 			value={totalWeaponAttack}
 		/>
 	);

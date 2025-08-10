@@ -2,12 +2,12 @@
 
 import { Checkbox, Group, Stack, Text } from '@mantine/core';
 import { useMemo } from 'react';
+import { useSelectedItems } from '@/lib/jotai/select-items-atom';
 import { ItemIcon } from '@/ui/icons/item-icon';
-import { useSelectedItemsStore } from '../zustand/selected-items-store';
 import { type Item, items } from '.';
 
 export function ItemCheckList() {
-	const { addItem, removeItem, removeAll, selectAll, selectedItems } = useSelectedItemsStore();
+	const { addItem, removeItem, removeAll, selectAll, selectedItems } = useSelectedItems();
 
 	const allSelected = useMemo(
 		() => Object.entries(selectedItems).every(([, hasItem]) => hasItem),

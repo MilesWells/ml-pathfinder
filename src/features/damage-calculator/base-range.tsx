@@ -10,7 +10,7 @@ import {
 	TableTr,
 	Title,
 } from '@mantine/core';
-import { useSelectedCharacter } from '@/lib/zustand/characters-store';
+import { useCharacters } from '@/lib/jotai/characters-atom';
 import { HealRangeTable } from './results/heal-range-tabe';
 import { PhysicalWeaponResults } from './results/physical-weapon-results';
 import { SpellDamageResults } from './results/spell-damage-results';
@@ -18,7 +18,9 @@ import { SwingStabWeaponRangeTable } from './results/swing-stab-weapon-range-tab
 import { ThiefSkillsResults } from './results/thief-skills-results';
 
 export function BaseRange() {
-	const { mapleClass } = useSelectedCharacter();
+	const {
+		selectedCharacter: { mapleClass },
+	} = useCharacters();
 	return (
 		<Fieldset legend={<Title order={3}>Base Range</Title>} maw="fit-content" mx="auto">
 			<Table mx="auto" ta="center" variant="vertical" w="fit-content">
@@ -42,7 +44,9 @@ export function BaseRange() {
 }
 
 function RangeTableRowsByClass() {
-	const { mapleClass } = useSelectedCharacter();
+	const {
+		selectedCharacter: { mapleClass },
+	} = useCharacters();
 
 	switch (mapleClass) {
 		case 'Thief':

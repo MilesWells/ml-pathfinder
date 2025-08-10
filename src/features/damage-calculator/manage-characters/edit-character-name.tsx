@@ -1,7 +1,7 @@
 import { ActionIcon, Group, Text, TextInput } from '@mantine/core';
 import { IconCheck, IconPencil, IconTrash, IconX } from '@tabler/icons-react';
 import { useMemo, useState } from 'react';
-import { useCharacterNames, useCharactersStore } from '@/lib/zustand/characters-store';
+import { useCharacters } from '@/lib/jotai/characters-atom';
 
 const ICON_WRAPPER_SIZE = 'md';
 const ICON_STYLES = {
@@ -12,8 +12,7 @@ const ICON_STYLES = {
 export function EditCharacterName({ characterName }: { characterName: string }) {
 	const [editing, setEditing] = useState(false);
 	const [newName, setNewName] = useState(characterName);
-	const { deleteCharacter, renameCharacter } = useCharactersStore();
-	const characterNames = useCharacterNames();
+	const { deleteCharacter, renameCharacter, characterNames } = useCharacters();
 
 	const error = useMemo(() => {
 		const trimmedNewName = newName.trim();

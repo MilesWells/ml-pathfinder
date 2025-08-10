@@ -2,8 +2,8 @@
 
 import { Graph } from 'graph-data-structure';
 import { useMemo } from 'react';
+import { useSelectedItems } from '@/lib/jotai/select-items-atom';
 import { REGIONS, type Region } from '../regions';
-import { useSelectedItemsStore } from '../zustand/selected-items-store';
 import { type Edge, type EdgeMethod, edges } from './edges';
 
 const edgeMethodWeights: Record<EdgeMethod, number> = {
@@ -18,7 +18,7 @@ const edgeMethodWeights: Record<EdgeMethod, number> = {
 };
 
 export function useGraph() {
-	const { selectedItems } = useSelectedItemsStore();
+	const { selectedItems } = useSelectedItems();
 
 	return useMemo(() => {
 		const graph = new Graph<Region, Edge>();

@@ -1,7 +1,7 @@
 'use client';
 
 import { Fieldset, Stack, Title } from '@mantine/core';
-import { useSelectedCharacter } from '@/lib/zustand/characters-store';
+import { useCharacters } from '@/lib/jotai/characters-atom';
 import { SpellDamageInput } from './spell-damage-input';
 import { SpellMasteryInput } from './spell-mastery-input';
 import { TotalEquipWeaponAttackInput } from './total-equip-weapon-attack-input';
@@ -9,7 +9,9 @@ import { TotalMagicInput } from './total-magic-input';
 import { WeaponMasteryInput } from './weapon-mastery-input';
 
 export function ClassStatsInput() {
-	const { mapleClass } = useSelectedCharacter();
+	const {
+		selectedCharacter: { mapleClass },
+	} = useCharacters();
 
 	return (
 		<Fieldset legend={<Title order={3}>{mapleClass} Stats</Title>} w={225}>

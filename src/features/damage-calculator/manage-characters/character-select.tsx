@@ -1,17 +1,11 @@
 'use client';
 
 import type { SelectProps } from '@mantine/core';
-import {
-	useCharacterNames,
-	useCharactersStore,
-	useSelectedCharacter,
-} from '@/lib/zustand/characters-store';
+import { useCharacters } from '@/lib/jotai/characters-atom';
 import { SelectNoInput } from '@/ui/select-no-input';
 
 export function CharacterSelect(props: Omit<SelectProps, 'data' | 'value' | 'onChange' | 'label'>) {
-	const { setSelectedCharacter } = useCharactersStore();
-	const characterNames = useCharacterNames();
-	const selectedCharacter = useSelectedCharacter();
+	const { characterNames, setSelectedCharacter, selectedCharacter } = useCharacters();
 
 	return (
 		<SelectNoInput
