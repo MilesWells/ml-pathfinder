@@ -53,14 +53,34 @@ type Extra = {
 
 export type Monster = ScrapedMonster & Extra;
 
-export const MONSTERS: Monster[] = Object.values(scrapedMonsters.monsters).map<Monster>(monster =>
-	merge<ScrapedMonster, Extra>(monster, {
-		stats: {
-			mesos: {
-				average: Math.round((monster.stats.mesos.max + monster.stats.mesos.min) / 2),
+export const MONSTERS: Monster[] = Object.values(scrapedMonsters.monsters).reduce<Monster[]>(
+	(acc, cur) => {
+		const noExp = cur.stats.exp === 0;
+		const minHp = cur.stats.hp < 6;
+		const hasDrops =
+			cur.drops.equip.length > 0 ||
+			cur.drops.etc.length > 0 ||
+			cur.drops.setup.length > 0 ||
+			cur.drops.use.length > 0;
+		const isEventOrBossSpawn = cur.stats.level / cur.stats.hp > 0.14; // highest ratio for normal monsters is blue snail at 0.13333
+
+		const shouldSkip = noExp || minHp || !hasDrops || isEventOrBossSpawn;
+
+		if (shouldSkip) return acc;
+
+		const monster: Monster = merge<ScrapedMonster, Extra>(cur, {
+			stats: {
+				mesos: {
+					average: Math.round((cur.stats.mesos.max + cur.stats.mesos.min) / 2),
+				},
 			},
-		},
-	}),
+		});
+
+		acc.push(monster);
+
+		return acc;
+	},
+	[],
 );
 
 export const MONSTER_MAP = MONSTERS.reduce<Record<string, Monster>>((acc, cur) => {
