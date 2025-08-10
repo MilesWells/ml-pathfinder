@@ -58,10 +58,7 @@ export function useSelectedItems() {
 				});
 			},
 			removeAll: () => {
-				// biome-ignore lint/correctness/noUnusedVariables: immer false positive
-				setSelectedItems(state => {
-					state = DEFAULT_ITEMS_FALSE;
-				});
+				setSelectedItems(DEFAULT_ITEMS_FALSE);
 			},
 			removeItem: (item: Item | Item[]) => {
 				setSelectedItems(state => {
@@ -70,10 +67,7 @@ export function useSelectedItems() {
 				});
 			},
 			selectAll: () => {
-				// biome-ignore lint/correctness/noUnusedVariables: immer false positive
-				setSelectedItems(state => {
-					state = DEFAULT_ITEMS_TRUE;
-				});
+				setSelectedItems(DEFAULT_ITEMS_TRUE);
 			},
 			selectedItems,
 		}),

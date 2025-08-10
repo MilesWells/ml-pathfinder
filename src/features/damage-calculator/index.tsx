@@ -1,6 +1,7 @@
 'use client';
 
 import { Group, Stack } from '@mantine/core';
+import { HasMountedLoadingContainer } from '@/ui/has-mounted-loading-container';
 import { CustomFieldSet } from '@/ui/material/custom-field-set';
 import { MonsterSelect } from '@/ui/monster-select';
 import { BaseRange } from './base-range';
@@ -10,25 +11,27 @@ import { ManageCharacters } from './manage-characters';
 
 export function DamageCalculator() {
 	return (
-		<Stack gap="xl">
-			<Group justify="center">
-				<CustomFieldSet legendText="Select Monster">
-					<Group mx="auto" w="fit-content">
-						<MonsterSelect />
-					</Group>
-				</CustomFieldSet>
-			</Group>
+		<HasMountedLoadingContainer>
+			<Stack gap="xl">
+				<Group justify="center">
+					<CustomFieldSet legendText="Select Monster">
+						<Group mx="auto" w="fit-content">
+							<MonsterSelect />
+						</Group>
+					</CustomFieldSet>
+				</Group>
 
-			<Group justify="center">
-				<ManageCharacters />
-			</Group>
+				<Group justify="center">
+					<ManageCharacters />
+				</Group>
 
-			<Group align="stretch" gap="xl" justify="center">
-				<CharacterStatsInput />
-				<ClassStatsInput />
-			</Group>
+				<Group align="stretch" gap="xl" justify="center">
+					<CharacterStatsInput />
+					<ClassStatsInput />
+				</Group>
 
-			<BaseRange />
-		</Stack>
+				<BaseRange />
+			</Stack>
+		</HasMountedLoadingContainer>
 	);
 }

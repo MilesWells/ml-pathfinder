@@ -1,10 +1,8 @@
 'use client';
 
 import { Select, type SelectProps, Stack, Text } from '@mantine/core';
-import { useHasMounted } from '@/lib/hooks/use-has-mounted';
 import { useSelectedMonster } from '@/lib/jotai/selected-monster-atom';
 import { MONSTER_MAP, SORTED_MONSTERS_BY } from '@/scraped-data/monster';
-import { LoadingContainer } from './loading-container';
 
 export type MonsterSelectProps = Omit<SelectProps, 'data' | 'onChange'>;
 
@@ -28,23 +26,20 @@ const renderSelectOption: SelectProps['renderOption'] = ({ option, checked }) =>
 
 export function MonsterSelect(props: MonsterSelectProps) {
 	const [{ selectedMonsterSelectOption }, setSelectedMonster] = useSelectedMonster();
-	const hasMounted = useHasMounted();
 
 	return (
-		<LoadingContainer loading={!hasMounted}>
-			<Select
-				allowDeselect={false}
-				comboboxProps={{ offset: 0, width: '100%', withinPortal: false }}
-				data={options}
-				nothingFoundMessage="Nothing found..."
-				onChange={setSelectedMonster}
-				renderOption={renderSelectOption}
-				searchable
-				styles={{ dropdown: { maxHeight: 200, overflowY: 'auto' } }}
-				value={selectedMonsterSelectOption.value}
-				withScrollArea={false}
-				{...props}
-			/>
-		</LoadingContainer>
+		<Select
+			allowDeselect={false}
+			comboboxProps={{ offset: 0, width: '100%', withinPortal: false }}
+			data={options}
+			nothingFoundMessage="Nothing found..."
+			onChange={setSelectedMonster}
+			renderOption={renderSelectOption}
+			searchable
+			styles={{ dropdown: { maxHeight: 200, overflowY: 'auto' } }}
+			value={selectedMonsterSelectOption.value}
+			withScrollArea={false}
+			{...props}
+		/>
 	);
 }
