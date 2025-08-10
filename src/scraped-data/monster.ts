@@ -68,17 +68,17 @@ export const SORTABLE_MONSTER_STATS = [
 export type SortableMonsterStats = (typeof SORTABLE_MONSTER_STATS)[number];
 
 export const SORTED_MONSTERS_BY = {
-	accuracy: () => MONSTERS.sort((a, b) => b.stats.accuracy - a.stats.accuracy),
-	avoidability: () => MONSTERS.sort((a, b) => b.stats.avoidability - a.stats.avoidability),
-	exp: () => MONSTERS.sort((a, b) => b.stats.exp - a.stats.exp),
-	hp: () => MONSTERS.sort((a, b) => b.stats.hp - a.stats.hp),
+	accuracy: () => MONSTERS.sort((a, b) => a.stats.accuracy - b.stats.accuracy),
+	avoidability: () => MONSTERS.sort((a, b) => a.stats.avoidability - b.stats.avoidability),
+	exp: () => MONSTERS.sort((a, b) => a.stats.exp - b.stats.exp),
+	hp: () => MONSTERS.sort((a, b) => a.stats.hp - b.stats.hp),
 	level: () => MONSTERS.sort((a, b) => a.stats.level - b.stats.level),
-	magicAttack: () => MONSTERS.sort((a, b) => b.stats.magicAttack - a.stats.magicAttack),
-	magicDefense: () => MONSTERS.sort((a, b) => b.stats.magicDefense - a.stats.magicDefense),
+	magicAttack: () => MONSTERS.sort((a, b) => a.stats.magicAttack - b.stats.magicAttack),
+	magicDefense: () => MONSTERS.sort((a, b) => a.stats.magicDefense - b.stats.magicDefense),
 	maxMeso: () => MONSTERS.sort((a, b) => a.stats.mesos.max - b.stats.mesos.max),
 	minMeso: () => MONSTERS.sort((a, b) => a.stats.mesos.min - b.stats.mesos.min),
 	name: () => MONSTERS.sort((a, b) => a.name.localeCompare(b.name)),
-	speed: () => MONSTERS.sort((a, b) => b.stats.speed - a.stats.speed),
-	weaponAttack: () => MONSTERS.sort((a, b) => b.stats.weaponAttack - a.stats.weaponAttack),
-	weaponDefense: () => MONSTERS.sort((a, b) => b.stats.weaponDefense - a.stats.weaponDefense),
+	speed: () => MONSTERS.sort((a, b) => a.stats.speed - b.stats.speed),
+	weaponAttack: () => MONSTERS.sort((a, b) => a.stats.weaponAttack - b.stats.weaponAttack),
+	weaponDefense: () => MONSTERS.sort((a, b) => a.stats.weaponDefense - b.stats.weaponDefense),
 } satisfies Record<SortableMonsterStats, () => ScrapedMonster[]>;

@@ -6,7 +6,7 @@ import { MONSTER_MAP, SORTED_MONSTERS_BY } from '@/scraped-data/monster';
 
 export type MonsterSelectProps = Omit<SelectProps, 'data' | 'onChange'>;
 
-const options = SORTED_MONSTERS_BY.level().map(monster => ({
+const options = SORTED_MONSTERS_BY.hp().map(monster => ({
 	label: monster.name,
 	value: monster.id,
 }));
@@ -25,7 +25,7 @@ const renderSelectOption: SelectProps['renderOption'] = ({ option, checked }) =>
 };
 
 export function MonsterSelect(props: MonsterSelectProps) {
-	const [{ selectedMonsterSelectOption }, setSelectedMonster] = useSelectedMonster();
+	const { selectedMonsterSelectOption, setSelectedMonster } = useSelectedMonster();
 
 	return (
 		<Select

@@ -1,5 +1,6 @@
 import type { ComboboxItem } from '@mantine/core';
 import { atom, useAtom } from 'jotai';
+import { useMemo } from 'react';
 import { MONSTER_MAP, type ScrapedMonster } from '@/scraped-data/monster';
 import { immerStorageAtom } from './immer-storage-atom';
 
@@ -36,5 +37,14 @@ const selectedMonsterAtom = atom(
 );
 
 export function useSelectedMonster() {
-	return useAtom(selectedMonsterAtom);
+	const [selectedMonsterState, setSelectedMonsterState] = useAtom(selectedMonsterAtom);
+
+	return useMemo(
+		() => ({
+			selectedMonster: selectedMonsterState.selectedMonster,
+			selectedMonsterSelectOption: selectedMonsterState.selectedMonsterSelectOption,
+			setSelectedMonster: setSelectedMonsterState,
+		}),
+		[selectedMonsterState, setSelectedMonsterState],
+	);
 }

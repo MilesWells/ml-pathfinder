@@ -13,7 +13,7 @@ export function ManageCharacters() {
 	const { characterNames } = useCharacters();
 
 	return (
-		<>
+		<Group justify="center">
 			<CustomFieldSet legendText="Select Character">
 				<Group align="stretch">
 					<CharacterSelect flex="1 1 0" />
@@ -54,6 +54,6 @@ export function ManageCharacters() {
 					</Fieldset>
 				</Stack>
 			</Drawer>
-		</>
+		</Group>
 	);
 }
