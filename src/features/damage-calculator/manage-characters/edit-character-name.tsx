@@ -30,7 +30,7 @@ export function EditCharacterName({ characterName }: { characterName: string }) 
 				<TextInput
 					error={error !== null}
 					flex="1 1 0"
-					maxLength={25}
+					maxLength={20}
 					onChange={e => setNewName(e.target.value.replace(/\s/g, ''))}
 					styles={{
 						input: {

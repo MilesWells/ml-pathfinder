@@ -24,7 +24,7 @@ export function AddCharacter() {
 			<Group align="start" justify="space-between">
 				<TextInput
 					error={error !== null}
-					maxLength={25}
+					maxLength={20}
 					onChange={e => {
 						const noWhitespace = e.target.value.replace(/\s/g, '');
 

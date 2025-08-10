@@ -30,13 +30,14 @@ export function MonsterSelect(props: MonsterSelectProps) {
 	return (
 		<Select
 			allowDeselect={false}
-			comboboxProps={{ offset: 0, width: '100%', withinPortal: false }}
+			comboboxProps={{ offset: 0, withinPortal: false }}
 			data={options}
 			nothingFoundMessage="Nothing found..."
 			onChange={setSelectedMonster}
 			renderOption={renderSelectOption}
 			searchable
-			styles={{ dropdown: { maxHeight: 200, overflowY: 'auto' } }}
+			styles={{ dropdown: { maxHeight: 300, overflowY: 'auto' } }}
+			title={selectedMonsterSelectOption.label}
 			value={selectedMonsterSelectOption.value}
 			withScrollArea={false}
 			{...props}
