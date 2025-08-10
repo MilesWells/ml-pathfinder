@@ -1,6 +1,6 @@
 'use client';
 
-import { Select, type SelectProps, Stack, Text } from '@mantine/core';
+import { Group, Select, type SelectProps, Stack, Text } from '@mantine/core';
 import { useSelectedMonster } from '@/lib/jotai/selected-monster-atom';
 import { MONSTER_MAP, SORTED_MONSTERS_BY } from '@/scraped-data/monster';
 
@@ -17,9 +17,16 @@ const renderSelectOption: SelectProps['renderOption'] = ({ option, checked }) =>
 	return (
 		<Stack c={checked ? 'maplelegends-blue.6' : undefined} gap={0} title={monster.name} w="100%">
 			<Text truncate>{monster.name}</Text>
-			<Text fs="italic" size="xs">
-				Lv.{monster.stats.level}
-			</Text>
+
+			<Group>
+				<Text fs="italic" size="xs">
+					Lv.{monster.stats.level}
+				</Text>
+
+				<Text c="kimmy-red.3" fs="italic" size="xs">
+					{monster.stats.hp} HP
+				</Text>
+			</Group>
 		</Stack>
 	);
 };
