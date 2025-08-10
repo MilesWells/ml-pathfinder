@@ -2,6 +2,7 @@
 
 import { Group, Select, type SelectProps, Stack, Text } from '@mantine/core';
 import { useSelectedMonster } from '@/lib/jotai/selected-monster-atom';
+import { formatPositiveInteger } from '@/lib/number-formatter';
 import { MONSTER_MAP, SORTED_MONSTERS_BY } from '@/scraped-data/monster';
 
 export type MonsterSelectProps = Omit<SelectProps, 'data' | 'onChange'>;
@@ -24,7 +25,7 @@ const renderSelectOption: SelectProps['renderOption'] = ({ option, checked }) =>
 				</Text>
 
 				<Text c="kimmy-red.3" fs="italic" size="xs">
-					{monster.stats.hp} HP
+					{formatPositiveInteger(monster.stats.hp)} HP
 				</Text>
 			</Group>
 		</Stack>

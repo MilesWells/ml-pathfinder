@@ -8,14 +8,19 @@ export function formatPositiveInteger(num: number) {
 
 	if (numLength > 12) throw new Error('Unsupported integer size');
 
-	if (numLength < 4) return num.toLocaleString();
+	if (numLength < 6) return num.toLocaleString();
 
-	let prefix = 'k';
+	const numZeroes = roundedAsString.match(/0+$/)?.[0].length ?? 0;
 
+	let prefix = '';
+
+	if (numZeroes > 0) prefix = 'k';
 	if (numLength > 6) prefix = 'm';
 	if (numLength > 9) prefix = 'b';
 
+	if (numZeroes <= 1) return rounded.toLocaleString();
+
 	const divisor = 1_000 ** Math.floor((numLength - 1) / 3);
 
-	return (rounded / divisor).toLocaleString('en-US') + prefix;
+	return (rounded / divisor).toLocaleString() + prefix;
 }
