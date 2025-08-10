@@ -1,8 +1,10 @@
 'use client';
 
 import { Select, type SelectProps, Stack, Text } from '@mantine/core';
-import { useSelectedMonsterStore } from '@/lib/zustand/selected-monster-store';
+import { useHasMounted } from '@/lib/hooks/use-has-mounted';
+import { useSelectedMonster } from '@/lib/jotai/selected-monster-atom';
 import { MONSTER_MAP, SORTED_MONSTERS_BY } from '@/scraped-data/monster';
+import { LoadingContainer } from './loading-container';
 
 export type MonsterSelectProps = Omit<SelectProps, 'data' | 'onChange'>;
 
@@ -15,8 +17,8 @@ const renderSelectOption: SelectProps['renderOption'] = ({ option, checked }) =>
 	const monster = MONSTER_MAP[option.value];
 
 	return (
-		<Stack c={checked ? 'maplelegends-blue.6' : undefined} gap={0}>
-			<Text>{monster.name}</Text>
+		<Stack c={checked ? 'maplelegends-blue.6' : undefined} gap={0} title={monster.name} w="100%">
+			<Text truncate>{monster.name}</Text>
 			<Text fs="italic" size="xs">
 				Lv.{monster.stats.level}
 			</Text>
@@ -25,30 +27,24 @@ const renderSelectOption: SelectProps['renderOption'] = ({ option, checked }) =>
 };
 
 export function MonsterSelect(props: MonsterSelectProps) {
-	const setSelectedMonster = useSelectedMonsterStore(state => state.setSelectedMonster);
-	const selectedMonsterSelectOption = useSelectedMonsterStore(
-		state => state.selectedMonsterSelectOption.value,
-	);
+	const [{ selectedMonsterSelectOption }, setSelectedMonster] = useSelectedMonster();
+	const hasMounted = useHasMounted();
 
 	return (
-		<Select
-			comboboxProps={{
-				offset: 0,
-				position: 'bottom-start',
-				width: 'fit-content',
-			}}
-			data={options}
-			defaultValue={selectedMonsterSelectOption}
-			nothingFoundMessage="Nothing found..."
-			onChange={value => {
-				if (!value) return;
-
-				setSelectedMonster(MONSTER_MAP[value]);
-			}}
-			renderOption={renderSelectOption}
-			searchable
-			value={selectedMonsterSelectOption}
-			{...props}
-		/>
+		<LoadingContainer loading={!hasMounted}>
+			<Select
+				allowDeselect={false}
+				comboboxProps={{ offset: 0, width: '100%', withinPortal: false }}
+				data={options}
+				nothingFoundMessage="Nothing found..."
+				onChange={setSelectedMonster}
+				renderOption={renderSelectOption}
+				searchable
+				styles={{ dropdown: { maxHeight: 200, overflowY: 'auto' } }}
+				value={selectedMonsterSelectOption.value}
+				withScrollArea={false}
+				{...props}
+			/>
+		</LoadingContainer>
 	);
 }

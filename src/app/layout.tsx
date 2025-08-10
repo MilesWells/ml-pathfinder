@@ -1,5 +1,6 @@
 import '@mantine/core/styles.css';
 import { ColorSchemeScript, mantineHtmlProps } from '@mantine/core';
+import { Provider } from 'jotai';
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import { MantineWrapper } from '@/features/root-layout/mantine-wrapper';
@@ -33,9 +34,11 @@ export default function RootLayout({
 			</head>
 
 			<body className={`${geistSans.variable} ${geistMono.variable}`}>
-				<MantineWrapper>
-					<Shell>{children}</Shell>
-				</MantineWrapper>
+				<Provider>
+					<MantineWrapper>
+						<Shell>{children}</Shell>
+					</MantineWrapper>
+				</Provider>
 			</body>
 		</html>
 	);
