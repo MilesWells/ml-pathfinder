@@ -1,16 +1,8 @@
 'use client';
 
-import {
-	Fieldset,
-	Table,
-	TableTbody,
-	TableTd,
-	TableTh,
-	TableThead,
-	TableTr,
-	Title,
-} from '@mantine/core';
+import { Table, TableTbody, TableTd, TableTh, TableThead, TableTr } from '@mantine/core';
 import { useCharacters } from '@/lib/jotai/characters-atom';
+import { CustomFieldSet } from '@/ui/mantine/custom-field-set';
 import { HealRangeTable } from './results/heal-range-tabe';
 import { PhysicalWeaponResults } from './results/physical-weapon-results';
 import { SpellDamageResults } from './results/spell-damage-results';
@@ -22,7 +14,7 @@ export function BaseRange() {
 		selectedCharacter: { mapleClass },
 	} = useCharacters();
 	return (
-		<Fieldset legend={<Title order={3}>Base Range</Title>} maw="fit-content" mx="auto">
+		<CustomFieldSet legendText="Base Range" mx="auto">
 			<Table mx="auto" ta="center" variant="vertical" w="fit-content">
 				<TableThead>
 					<TableTr>
@@ -39,7 +31,7 @@ export function BaseRange() {
 
 			{mapleClass === 'Warrior' && <SwingStabWeaponRangeTable />}
 			{mapleClass === 'Magician' && <HealRangeTable />}
-		</Fieldset>
+		</CustomFieldSet>
 	);
 }
 

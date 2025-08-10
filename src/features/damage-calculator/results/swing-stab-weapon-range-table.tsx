@@ -10,7 +10,7 @@ import { PhysicalSwingStabWeaponResults } from './physical-swing-stab-weapon-res
 
 export function SwingStabWeaponRangeTable() {
 	return (
-		<TableScrollContainer maw="fit-content" minWidth={460} mt={32} mx="auto">
+		<TableScrollContainer minWidth={360} mt={32} mx="auto">
 			<Table variant="vertical" w="fit-content">
 				<TableThead>
 					<TableTr>

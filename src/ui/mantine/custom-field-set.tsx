@@ -8,7 +8,8 @@ export function CustomFieldSet({ children, legendText, ...props }: CustomFieldSe
 	return (
 		<Fieldset
 			legend={legendText ? <Title order={3}>{legendText}</Title> : undefined}
-			maw="fit-content"
+			maw="calc(100dvw - 40px"
+			miw={320}
 			{...props}
 		>
 			{children}

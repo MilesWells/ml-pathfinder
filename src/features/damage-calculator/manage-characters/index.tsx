@@ -3,7 +3,7 @@
 import { Button, Drawer, Fieldset, Group, Stack } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { useCharacters } from '@/lib/jotai/characters-atom';
-import { CustomFieldSet } from '@/ui/material/custom-field-set';
+import { CustomFieldSet } from '@/ui/mantine/custom-field-set';
 import { AddCharacter } from './add-character';
 import { CharacterSelect } from './character-select';
 import { EditCharacterName } from './edit-character-name';
