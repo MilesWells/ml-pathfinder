@@ -1,3 +1,4 @@
+import merge from 'lodash/merge';
 import type { ScrapedItem } from './item';
 import scrapedMonsters from './raw/monsters.json' with { type: 'json' };
 
@@ -42,9 +43,30 @@ export type ScrapedMonster = {
 	};
 };
 
-export const MONSTERS: ScrapedMonster[] = Object.values(scrapedMonsters.monsters);
+type Extra = {
+	stats: {
+		mesos: {
+			average: number;
+		};
+	};
+};
 
-export const MONSTER_MAP: Record<string, ScrapedMonster> = scrapedMonsters.monsters;
+export type Monster = ScrapedMonster & Extra;
+
+export const MONSTERS: Monster[] = Object.values(scrapedMonsters.monsters).map<Monster>(monster =>
+	merge<ScrapedMonster, Extra>(monster, {
+		stats: {
+			mesos: {
+				average: Math.round((monster.stats.mesos.max + monster.stats.mesos.min) / 2),
+			},
+		},
+	}),
+);
+
+export const MONSTER_MAP = MONSTERS.reduce<Record<string, Monster>>((acc, cur) => {
+	acc[cur.id] = cur;
+	return acc;
+}, {});
 
 export const SORTABLE_MONSTER_STATS = [
 	'accuracy',

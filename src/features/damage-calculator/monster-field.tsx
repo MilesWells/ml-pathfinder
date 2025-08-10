@@ -8,6 +8,7 @@ import {
 	type TextProps,
 } from '@mantine/core';
 import { useSelectedMonster } from '@/lib/jotai/selected-monster-atom';
+import { formatPositiveInteger } from '@/lib/number-formatter';
 import { CustomFieldSet } from '@/ui/mantine/custom-field-set';
 import { MonsterSelect } from '@/ui/monster-select';
 
@@ -51,17 +52,17 @@ export function MonsterField() {
 
 							<StatBlock c="meso-yellow.6">
 								<StatLabelText>EXP</StatLabelText>
-								<StatValueText>{selectedMonster.stats.exp}</StatValueText>
+								<StatValueText>{formatPositiveInteger(selectedMonster.stats.exp)}</StatValueText>
 							</StatBlock>
 
 							<StatBlock c="kimmy-red.6">
 								<StatLabelText>HP</StatLabelText>
-								<StatValueText>{selectedMonster.stats.hp}</StatValueText>
+								<StatValueText>{formatPositiveInteger(selectedMonster.stats.hp)}</StatValueText>
 							</StatBlock>
 
 							<StatBlock c="maplelegends-blue.6">
 								<StatLabelText>MP</StatLabelText>
-								<StatValueText>{selectedMonster.stats.mp}</StatValueText>
+								<StatValueText>{formatPositiveInteger(selectedMonster.stats.mp)}</StatValueText>
 							</StatBlock>
 						</SimpleGrid>
 					</Group>
