@@ -10,6 +10,8 @@ export type ScrapedMonster = {
 	};
 	id: string;
 	imageLocation: string | null;
+	isAutoAggro: boolean;
+	isBoss: boolean;
 	libraryLink: string;
 	libraryPage: number;
 	name: string;

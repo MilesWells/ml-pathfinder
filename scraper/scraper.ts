@@ -6,10 +6,9 @@ const BASE_URL = 'https://maplelegends.com';
 
 const parsedMonsters: Record<string, ScrapedMonster> = {};
 const parsedItems: Record<string, ScrapedItem> = {};
-const skippedParsedMonsters: Record<string, ScrapedMonster> = {};
 
 function parseNumberWithDefault(numberAsString?: string) {
-	const parsedNumber = Number(numberAsString);
+	const parsedNumber = Number(numberAsString?.replaceAll(',', ''));
 
 	return Number.isNaN(parsedNumber) ? 0 : parsedNumber;
 }
@@ -25,6 +24,9 @@ function parseIdSearchParamFromHref(rawHref: string) {
 	return match;
 }
 
+const BOSS_STRING = '(Boss)';
+const AUTO_AGGRO_STRING = '(Auto-Aggro)';
+
 export async function scrapeMonsterPage(monsterId: string): Promise<ScrapedMonster> {
 	const libraryLink = `${BASE_URL}/lib/monster?id=${monsterId}`;
 
@@ -32,7 +34,14 @@ export async function scrapeMonsterPage(monsterId: string): Promise<ScrapedMonst
 
 	const $stats = $('.table');
 
-	const monsterName = $stats.find('tr:first-child > th:first-child').text().trim();
+	let monsterName = $stats.find('tr:first-child > th:first-child').text().trim();
+
+	const isBoss = monsterName.includes(BOSS_STRING);
+	const isAutoAggro = monsterName.includes(AUTO_AGGRO_STRING);
+
+	if (isBoss) monsterName = monsterName.replace(BOSS_STRING, '');
+	if (isAutoAggro) monsterName = monsterName.replace(AUTO_AGGRO_STRING, '');
+	if (isBoss || isAutoAggro) monsterName = monsterName.trim();
 
 	console.log('Scraping', monsterName, `(id: ${monsterId})`);
 
@@ -98,7 +107,7 @@ export async function scrapeMonsterPage(monsterId: string): Promise<ScrapedMonst
 			strong: parseElementalStatus('Strong'),
 			weak: parseElementalStatus('Weak'),
 		},
-		exp: parseStat('EXP'),
+		exp: parseStat('EXP') * 2,
 		hp: parseStat('HP'),
 		hpRegen: parseStat('HP Regen'),
 		knockback: parseStat('Knockback'),
@@ -120,6 +129,8 @@ export async function scrapeMonsterPage(monsterId: string): Promise<ScrapedMonst
 		drops,
 		id: monsterId,
 		imageLocation,
+		isAutoAggro,
+		isBoss,
 		libraryLink,
 		libraryPage: -1,
 		name: monsterName,
@@ -153,12 +164,6 @@ export async function scrapeMonsterTablePage(page: number) {
 	);
 }
 
-function shouldSkipMonster(monster: ScrapedMonster) {
-	const noDrops = Object.values(monster.drops).every(parsedDrops => parsedDrops.length === 0);
-
-	return noDrops;
-}
-
 export type ScrapeOptions = {
 	maxPages?: number;
 	startPage?: number;
@@ -181,12 +186,6 @@ export async function scrapeAllMonstersAndDrops(options: ScrapeOptions) {
 			}
 
 			for (const monster of scrapedMonsters) {
-				if (shouldSkipMonster(monster)) {
-					console.log(`Skipping monster on page ${page}: ${monster.name} (id: ${monster.id})`);
-					skippedParsedMonsters[monster.id] = monster;
-					continue;
-				}
-
 				if (parsedMonsters[monster.id]) {
 					console.log(`Duplicate monster on page ${page}: ${monster.name} (id: ${monster.id})`);
 					console.log(
@@ -210,6 +209,5 @@ export async function scrapeAllMonstersAndDrops(options: ScrapeOptions) {
 	return {
 		parsedItems,
 		parsedMonsters,
-		skippedParsedMonsters,
 	};
 }
