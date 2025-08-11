@@ -1,5 +1,5 @@
 import * as cheerio from 'cheerio';
-import type { ScrapedMonster } from '@/scraped-data/monster';
+import type { ScrapedMonster } from '@/lib/monster';
 import type { MonsterScrapeOptions } from '.';
 import { downloadImage } from './download-image';
 import { parseIdSearchParamFromHref, parseNumberWithDefault } from './parse-utils';

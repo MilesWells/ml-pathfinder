@@ -1,6 +1,6 @@
 import merge from 'lodash/merge';
+import scrapedMonsters from '../scraped-data/monsters.json' with { type: 'json' };
 import type { ScrapedItem } from './item';
-import scrapedMonsters from './raw/monsters.json' with { type: 'json' };
 
 export type ScrapedMonster = {
 	drops: {
