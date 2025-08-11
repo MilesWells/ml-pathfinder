@@ -39,7 +39,7 @@ export const itemDetailsMap = {
 				for quest info.
 			</Text>
 		),
-		image: '/images/items/warp-capsule.png',
+		image: '/images/pathfinder/items/warp-capsule.png',
 	},
 	'Desert Coin': {
 		details: (
@@ -68,7 +68,7 @@ export const itemDetailsMap = {
 				<MapFeatureDetails disableDrawerLink mapFeature="Perion: Iron Boar Land" />
 			</Center>
 		),
-		image: '/images/items/desert-coin.png',
+		image: '/images/pathfinder/items/desert-coin.png',
 	},
 	'Energy Shard': {
 		details: (
@@ -122,7 +122,7 @@ export const itemDetailsMap = {
 				<MapFeatureDetails disableDrawerLink mapFeature="Korean Folk Town: Moon Ridge" />
 			</Center>
 		),
-		image: '/images/items/energy-shard.png',
+		image: '/images/pathfinder/items/energy-shard.png',
 	},
 	'Eos Rock Scroll': {
 		details: (
@@ -170,7 +170,7 @@ export const itemDetailsMap = {
 				</List>
 			</Center>
 		),
-		image: '/images/items/eos-rock-scroll.png',
+		image: '/images/pathfinder/items/eos-rock-scroll.png',
 	},
 	'Fruit Milk': {
 		details: (
@@ -179,7 +179,7 @@ export const itemDetailsMap = {
 				<ExternalLink href="https://bbb.hidden-street.net/npc/momoyo">Momyo in Showa</ExternalLink>
 			</Text>
 		),
-		image: '/images/items/fruit-milk.png',
+		image: '/images/pathfinder/items/fruit-milk.png',
 	},
 	'Ludibrium Warp Capsule': {
 		details: (
@@ -191,7 +191,7 @@ export const itemDetailsMap = {
 				for quest info.
 			</Text>
 		),
-		image: '/images/items/warp-capsule.png',
+		image: '/images/pathfinder/items/warp-capsule.png',
 	},
 	'Magic Seed': {
 		details: (
@@ -207,7 +207,7 @@ export const itemDetailsMap = {
 				quest
 			</Text>
 		),
-		image: '/images/items/magic-seed.png',
+		image: '/images/pathfinder/items/magic-seed.png',
 	},
 	'Omega Sector Warp Capsule': {
 		details: (
@@ -219,7 +219,7 @@ export const itemDetailsMap = {
 				for quest info.
 			</Text>
 		),
-		image: '/images/items/warp-capsule.png',
+		image: '/images/pathfinder/items/warp-capsule.png',
 	},
 	'Orbis Rock Scroll': {
 		details: (
@@ -280,7 +280,7 @@ export const itemDetailsMap = {
 				</Stack>
 			</Center>
 		),
-		image: '/images/items/orbis-rock-scroll.png',
+		image: '/images/pathfinder/items/orbis-rock-scroll.png',
 	},
 	'Return Scroll - Nearest Town': {
 		details: (
@@ -292,7 +292,7 @@ export const itemDetailsMap = {
 				for info.
 			</Text>
 		),
-		image: '/images/items/return-scroll-nearest-town.png',
+		image: '/images/pathfinder/items/return-scroll-nearest-town.png',
 	},
 	'Return to New Leaf City Scroll': {
 		details: (
@@ -310,7 +310,7 @@ export const itemDetailsMap = {
 				</Text>
 			</Center>
 		),
-		image: '/images/items/return-to-new-leaf-city-scroll.png',
+		image: '/images/pathfinder/items/return-to-new-leaf-city-scroll.png',
 	},
 	'Strawberry Milk': {
 		details: (
@@ -319,7 +319,7 @@ export const itemDetailsMap = {
 				<ExternalLink href="https://bbb.hidden-street.net/npc/momoyo">Momyo in Showa</ExternalLink>
 			</Text>
 		),
-		image: '/images/items/strawberry-milk.png',
+		image: '/images/pathfinder/items/strawberry-milk.png',
 	},
 	'VIP Ticket to Florina Beach': {
 		details: (
@@ -330,7 +330,7 @@ export const itemDetailsMap = {
 				</ExternalLink>
 			</Text>
 		),
-		image: '/images/items/vip-ticket-to-florina-beach.png',
+		image: '/images/pathfinder/items/vip-ticket-to-florina-beach.png',
 	},
 	'Warp Card': {
 		details: (
@@ -343,6 +343,6 @@ export const itemDetailsMap = {
 				</ExternalLink>
 			</Text>
 		),
-		image: '/images/items/warp-card.png',
+		image: '/images/pathfinder/items/warp-card.png',
 	},
 } satisfies Record<Item, ItemDetails>;

@@ -11,7 +11,7 @@ export function MesosIcon({ mesos }: MesosIconProps) {
 		<IconBase display="inline-flex" title={`${mesosIntl} mesos`}>
 			<img
 				alt={`${mesosIntl} mesos`}
-				src="/images/items/mesos.png"
+				src="/images/pathfinder/items/mesos.png"
 				style={{
 					margin: 'auto',
 				}}
