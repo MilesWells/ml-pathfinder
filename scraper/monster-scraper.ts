@@ -37,11 +37,11 @@ export async function scrapeMonsterPage(monsterId: string): Promise<ScrapedMonst
 	let imageLocation: string | null = `public/images/monsters/${monsterId}.png`;
 	if (!options.write) imageLocation = imageUrl;
 
-	let imageDesination = join(process.cwd(), '..', imageLocation);
+	let imageDesination = join(process.cwd(), imageLocation);
 	if (options.imageDownloadDirectory !== undefined)
 		imageDesination = join(process.cwd(), options.imageDownloadDirectory, `${monsterId}.png`);
 
-	if (!(await downloadImage(imageUrl, imageDesination))) imageLocation = null;
+	if (options.write && !(await downloadImage(imageUrl, imageDesination))) imageLocation = null;
 
 	const $drops = $('.panel-body');
 
