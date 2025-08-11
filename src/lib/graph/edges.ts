@@ -1,6 +1,6 @@
-import type { Item } from '../items';
 import type { MapFeature } from '../map-features';
 import type { NPC } from '../npcs';
+import type { Item } from '../pathfinder-items';
 import { type Region, SPINEL_REGIONS } from '../regions';
 
 export type WalkEdge = {

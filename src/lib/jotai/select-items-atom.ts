@@ -2,7 +2,7 @@
 
 import { useAtom } from 'jotai';
 import { useMemo } from 'react';
-import type { Item } from '../items';
+import type { Item } from '../pathfinder-items';
 import { immerStorageAtom } from './immer-storage-atom';
 
 export type SelectedItemMap = Record<Item, boolean>;
