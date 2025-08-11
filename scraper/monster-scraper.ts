@@ -1,3 +1,4 @@
+import { join } from 'node:path';
 import * as cheerio from 'cheerio';
 import type { ScrapedMonster } from '@/lib/monster';
 import type { MonsterScrapeOptions } from '.';
@@ -31,11 +32,16 @@ export async function scrapeMonsterPage(monsterId: string): Promise<ScrapedMonst
 
 	console.log('Scraping', monsterName, `(id: ${monsterId})`);
 
-	const scrapedImageObject = $(`object[data*=${monsterId}]`);
+	const imageUrl = `${BASE_URL}${$(`object[data*=${monsterId}]`).attr('data')}`;
 
-	const imageUrl = `${BASE_URL}${scrapedImageObject.attr('data')}`;
+	let imageLocation: string | null = `public/images/monsters/${monsterId}.png`;
+	if (!options.write) imageLocation = imageUrl;
 
-	const imageLocation = await downloadImage(imageUrl, `/images/monsters/${monsterId}.png`);
+	let imageDesination = join(process.cwd(), '..', imageLocation);
+	if (options.imageDownloadDirectory !== undefined)
+		imageDesination = join(process.cwd(), options.imageDownloadDirectory, `${monsterId}.png`);
+
+	if (!(await downloadImage(imageUrl, imageDesination))) imageLocation = null;
 
 	const $drops = $('.panel-body');
 
