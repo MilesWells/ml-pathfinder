@@ -1,62 +1,29 @@
 import { writeFileSync } from 'node:fs';
-import { join } from 'node:path';
-import isEqual from 'lodash/isEqual';
-import type { ScrapedItem } from '@/lib/item';
-import type { ScrapedMonster } from '@/lib/monster';
-import currentItemData from '@/scraped-data/items.json' with { type: 'json' };
-import currentMonsterData from '@/scraped-data/monsters.json' with { type: 'json' };
 
-const BASE_OUTPUT_PATH = join(process.cwd(), 'src/scraped-data');
+export type WriteScraperResultsOptions<TData, TDerived extends Record<string, unknown>> = {
+	dataType: string;
+	derivedData: TDerived;
+	outPath: string;
+	pretty: boolean;
+	scrapedData: TData;
+};
 
-export function writeMonstersToFile(parsedMonsters: Record<string, ScrapedMonster>) {
-	const monstersOutputPath = join(BASE_OUTPUT_PATH, 'monsters.json');
-	const totalMonsters = Object.keys(parsedMonsters).length;
+export async function writeScraperResults<TData, TDerived extends Record<string, unknown>>({
+	dataType,
+	derivedData,
+	outPath,
+	pretty,
+	scrapedData,
+}: WriteScraperResultsOptions<TData, TDerived>) {
+	console.log(`Writing scraped ${dataType} data to file...`);
 
-	if (
-		currentMonsterData.totalMonsters === totalMonsters &&
-		isEqual(currentMonsterData.monsters, parsedMonsters)
-	) {
-		console.log(
-			`No changes detected between parsed monster data and existing data in ${monstersOutputPath}`,
-		);
-		console.log('Skipping writing monster data to file');
-		return;
-	}
-
-	console.log(`Writing monsters to file...`);
-
-	const monstersOutputData = {
-		monsters: parsedMonsters,
+	const outputData = {
+		[dataType]: scrapedData,
+		...derivedData,
 		scrapedAt: new Date().toISOString(),
-		totalMonsters,
 	};
 
-	writeFileSync(monstersOutputPath, JSON.stringify(monstersOutputData));
+	writeFileSync(outPath, pretty ? JSON.stringify(outputData, null, 2) : JSON.stringify(outputData));
 
-	console.log(`${totalMonsters} monsters written to file: ${monstersOutputPath}`);
-}
-
-export function writeItemsToFile(parsedItems: Record<string, ScrapedItem>) {
-	const itemsOutputPath = join(BASE_OUTPUT_PATH, 'items.json');
-	const totalItems = Object.keys(parsedItems).length;
-
-	if (currentItemData.totalItems === totalItems && isEqual(currentItemData.items, parsedItems)) {
-		console.log(
-			`No changes detected between parsed item data and existing data in ${itemsOutputPath}`,
-		);
-		console.log('Skipping writing item data to file');
-		return;
-	}
-
-	console.log(`Writing items to file...`);
-
-	const itemsOutputData = {
-		items: parsedItems,
-		scrapedAt: new Date().toISOString(),
-		totalItems,
-	};
-
-	writeFileSync(itemsOutputPath, JSON.stringify(itemsOutputData));
-
-	console.log(`${totalItems} items written to file: ${itemsOutputPath}`);
+	console.log(`${dataType} data written to file: ${outPath}`);
 }
