@@ -15,10 +15,23 @@ import { MONSTER_MAP, SORTED_MONSTERS_BY } from '@/scraped-data/monster';
 
 export type MonsterSelectProps = Omit<SelectProps, 'data' | 'onChange'>;
 
-const options: ComboboxItem[] = SORTED_MONSTERS_BY.hp().map(monster => ({
-	label: monster.name,
-	value: monster.id,
-}));
+const options: ComboboxItem[] = SORTED_MONSTERS_BY.hp()
+	.filter(monster => {
+		const hasExp = monster.stats.exp > 0;
+		const hasMinHp = monster.stats.hp >= 6;
+		const hasDrops =
+			monster.drops.equip.length > 0 ||
+			monster.drops.etc.length > 0 ||
+			monster.drops.setup.length > 0 ||
+			monster.drops.use.length > 0;
+		const isNotEventOrBossSpawn = monster.stats.level / monster.stats.hp < 0.14; // highest ratio for normal monsters is blue snail at 0.13333
+
+		return hasExp && hasMinHp && hasDrops && isNotEventOrBossSpawn;
+	})
+	.map(monster => ({
+		label: monster.name,
+		value: monster.id,
+	}));
 
 const SEARCH_FOR_MORE_LABEL = 'Search to see additional results';
 

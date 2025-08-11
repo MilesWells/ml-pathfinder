@@ -43,7 +43,7 @@ export type ScrapedMonster = {
 	};
 };
 
-type Extra = {
+type DerivedMonsterData = {
 	stats: {
 		mesos: {
 			average: number;
@@ -51,24 +51,11 @@ type Extra = {
 	};
 };
 
-export type Monster = ScrapedMonster & Extra;
+export type Monster = ScrapedMonster & DerivedMonsterData;
 
 export const MONSTERS: Monster[] = Object.values(scrapedMonsters.monsters).reduce<Monster[]>(
 	(acc, cur) => {
-		const noExp = cur.stats.exp === 0;
-		const minHp = cur.stats.hp < 6;
-		const hasDrops =
-			cur.drops.equip.length > 0 ||
-			cur.drops.etc.length > 0 ||
-			cur.drops.setup.length > 0 ||
-			cur.drops.use.length > 0;
-		const isEventOrBossSpawn = cur.stats.level / cur.stats.hp > 0.14; // highest ratio for normal monsters is blue snail at 0.13333
-
-		const shouldSkip = noExp || minHp || !hasDrops || isEventOrBossSpawn;
-
-		if (shouldSkip) return acc;
-
-		const monster: Monster = merge<ScrapedMonster, Extra>(cur, {
+		const monster: Monster = merge<ScrapedMonster, DerivedMonsterData>(cur, {
 			stats: {
 				mesos: {
 					average: Math.round((cur.stats.mesos.max + cur.stats.mesos.min) / 2),
@@ -125,4 +112,4 @@ export const SORTED_MONSTERS_BY = {
 	speed: () => MONSTERS.sort((a, b) => a.stats.speed - b.stats.speed),
 	weaponAttack: () => MONSTERS.sort((a, b) => a.stats.weaponAttack - b.stats.weaponAttack),
 	weaponDefense: () => MONSTERS.sort((a, b) => a.stats.weaponDefense - b.stats.weaponDefense),
-} satisfies Record<SortableMonsterStats, () => ScrapedMonster[]>;
+} satisfies Record<SortableMonsterStats, () => Monster[]>;
