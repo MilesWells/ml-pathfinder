@@ -1,8 +1,7 @@
 import { program } from 'commander';
 import z from 'zod';
 import { scrapeMonsters } from './monster-scraper';
-
-// import { writeScraperResults } from './write-scraper-results';
+import { writeMonstersToFile } from './write-scraper-results';
 
 program.name('maplelegends-scraper').description('CLI for scraping Maplelegends Library');
 
@@ -21,12 +20,11 @@ program
 	.option('--max-pages <num>', 'maximum number of pages to scrape', undefined)
 	.option('-w, --write', 'write scrape results to file', false)
 	.action(async rawOptions => {
-		console.log(rawOptions);
 		const options = monsterScrapeOptionsSchema.parse(rawOptions);
-		console.log(options);
 		const scrapedMonsters = await scrapeMonsters(options);
-		console.log(scrapedMonsters);
-		// 	writeScraperResults(results);
+
+		if (options.write) writeMonstersToFile(scrapedMonsters);
+		else console.log(scrapedMonsters);
 	});
 
 program.parseAsync();

@@ -6,14 +6,9 @@ import type { ScrapedMonster } from '@/scraped-data/monster';
 import currentItemData from '@/scraped-data/raw/items.json';
 import currentMonsterData from '@/scraped-data/raw/monsters.json';
 
-const BASE_OUTPUT_PATH = join(process.cwd(), 'src/scraped-data/raw');
+const BASE_OUTPUT_PATH = join(process.cwd(), 'src/scraped-data');
 
-export type ScraperResults = {
-	parsedItems: Record<string, ScrapedItem>;
-	parsedMonsters: Record<string, ScrapedMonster>;
-};
-
-function writeMonstersToFile(parsedMonsters: ScraperResults['parsedMonsters']) {
+export function writeMonstersToFile(parsedMonsters: Record<string, ScrapedMonster>) {
 	const monstersOutputPath = join(BASE_OUTPUT_PATH, 'monsters.json');
 	const totalMonsters = Object.keys(parsedMonsters).length;
 
@@ -41,7 +36,7 @@ function writeMonstersToFile(parsedMonsters: ScraperResults['parsedMonsters']) {
 	console.log(`${totalMonsters} monsters written to file: ${monstersOutputPath}`);
 }
 
-function writeItemsToFile(parsedItems: ScraperResults['parsedItems']) {
+export function writeItemsToFile(parsedItems: Record<string, ScrapedItem>) {
 	const itemsOutputPath = join(BASE_OUTPUT_PATH, 'items.json');
 	const totalItems = Object.keys(parsedItems).length;
 
@@ -64,13 +59,4 @@ function writeItemsToFile(parsedItems: ScraperResults['parsedItems']) {
 	writeFileSync(itemsOutputPath, JSON.stringify(itemsOutputData));
 
 	console.log(`${totalItems} items written to file: ${itemsOutputPath}`);
-}
-
-export function writeScraperResults({ parsedItems, parsedMonsters }: ScraperResults) {
-	console.log(`\nWriting results to disk...`);
-
-	writeMonstersToFile(parsedMonsters);
-	writeItemsToFile(parsedItems);
-
-	console.log(`\nScraping completed successfully!`);
 }
