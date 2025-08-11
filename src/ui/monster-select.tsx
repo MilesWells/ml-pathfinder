@@ -10,8 +10,8 @@ import {
 	Text,
 } from '@mantine/core';
 import { useSelectedMonster } from '@/lib/jotai/selected-monster-atom';
+import { MONSTER_MAP, SORTED_MONSTERS_BY } from '@/lib/monster';
 import { formatPositiveInteger } from '@/lib/number-formatter';
-import { MONSTER_MAP, SORTED_MONSTERS_BY } from '@/scraped-data/monster';
 
 export type MonsterSelectProps = Omit<SelectProps, 'data' | 'onChange'>;
 

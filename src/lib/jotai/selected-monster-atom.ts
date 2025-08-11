@@ -1,7 +1,7 @@
 import type { ComboboxItem } from '@mantine/core';
 import { atom, useAtom } from 'jotai';
 import { useMemo } from 'react';
-import { MONSTER_MAP, type ScrapedMonster } from '@/scraped-data/monster';
+import { MONSTER_MAP, type ScrapedMonster } from '@/lib/monster';
 import { immerStorageAtom } from './immer-storage-atom';
 
 export type SelectedMonsterState = {
