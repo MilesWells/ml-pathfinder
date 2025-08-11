@@ -18,7 +18,7 @@
 			".vscode/*",
 			"scraper/**/*",
 			"src/**/*",
-			"!src/scraped-data/raw/**/*",
+			"!src/scraped-data/**/*",
 			"biome.json",
 			"eslint.config.mjs",
 			"next.config.ts",
