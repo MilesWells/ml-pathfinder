@@ -2,9 +2,9 @@ import { writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import isEqual from 'lodash/isEqual';
 import type { ScrapedItem } from '@/scraped-data/item';
+import currentItemData from '@/scraped-data/items.json';
 import type { ScrapedMonster } from '@/scraped-data/monster';
-import currentItemData from '@/scraped-data/raw/items.json';
-import currentMonsterData from '@/scraped-data/raw/monsters.json';
+import currentMonsterData from '@/scraped-data/monsters.json';
 
 const BASE_OUTPUT_PATH = join(process.cwd(), 'src/scraped-data');
 

@@ -7,6 +7,7 @@ program.name('maplelegends-scraper').description('CLI for scraping Maplelegends 
 
 export const monsterScrapeOptionsSchema = z.object({
 	maxPages: z.coerce.number().optional().default(undefined),
+	merge: z.boolean(),
 	startPage: z.coerce.number().optional().default(undefined),
 	write: z.boolean(),
 });
@@ -16,9 +17,10 @@ export type MonsterScrapeOptions = z.infer<typeof monsterScrapeOptionsSchema>;
 program
 	.command('monsters')
 	.description('scrape monsters')
-	.option('--start-page <num>', 'page to start at', undefined)
-	.option('--max-pages <num>', 'maximum number of pages to scrape', undefined)
-	.option('-w, --write', 'write scrape results to file', false)
+	.option('--start-page <num>', 'page to start at')
+	.option('--max-pages <num>', 'maximum number of pages to scrape')
+	.option('--write', 'write scrape results to file', false)
+	.option('--merge', 'merge results with current results, if any', false)
 	.action(async rawOptions => {
 		const options = monsterScrapeOptionsSchema.parse(rawOptions);
 		const scrapedMonsters = await scrapeMonsters(options);

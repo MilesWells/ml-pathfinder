@@ -4,6 +4,8 @@ import type { MonsterScrapeOptions } from '.';
 import { downloadImage } from './download-image';
 import { parseIdSearchParamFromHref, parseNumberWithDefault } from './parse-utils';
 
+let options: MonsterScrapeOptions;
+
 const BASE_URL = 'https://maplelegends.com';
 
 const parsedMonsters: Record<string, ScrapedMonster> = {};
@@ -132,9 +134,8 @@ export async function scrapeMonsterTablePage(page: number) {
 	);
 }
 
-export async function scrapeMonsters(
-	options: Pick<MonsterScrapeOptions, 'maxPages' | 'startPage'>,
-) {
+export async function scrapeMonsters(passedOptions: MonsterScrapeOptions) {
+	options = passedOptions;
 	const { maxPages, startPage = 1 } = options;
 
 	if (startPage < 1) throw new Error('startPage must be at least 1');
