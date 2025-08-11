@@ -1,7 +1,7 @@
 'use client';
 
 import { Group, Stack } from '@mantine/core';
-import { HasMountedLoadingContainer } from '@/ui/has-mounted-loading-container';
+import { NullIfNotMounted } from '@/ui/null-if-not-mounted';
 import { BaseRange } from './base-range';
 import { CharacterStatsInput } from './inputs/character-stats-input';
 import { ClassStatsInput } from './inputs/class-stats-input';
@@ -10,7 +10,7 @@ import { MonsterField } from './monster-field';
 
 export function DamageCalculator() {
 	return (
-		<HasMountedLoadingContainer>
+		<NullIfNotMounted>
 			<Stack gap="xl">
 				<MonsterField />
 
@@ -23,6 +23,6 @@ export function DamageCalculator() {
 
 				<BaseRange />
 			</Stack>
-		</HasMountedLoadingContainer>
+		</NullIfNotMounted>
 	);
 }

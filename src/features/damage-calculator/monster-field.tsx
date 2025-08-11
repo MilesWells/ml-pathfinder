@@ -1,7 +1,9 @@
+'use client';
+
 import {
-	Box,
 	Group,
 	type GroupProps,
+	Image,
 	SimpleGrid,
 	Stack,
 	Text,
@@ -9,7 +11,6 @@ import {
 } from '@mantine/core';
 import { useSelectedMonster } from '@/lib/jotai/selected-monster-atom';
 import { formatPositiveInteger } from '@/lib/number-formatter';
-import { HasMountedLoadingContainer } from '@/ui/has-mounted-loading-container';
 import { CustomFieldSet } from '@/ui/mantine/custom-field-set';
 import { MonsterSelect } from '@/ui/monster-select';
 
@@ -37,15 +38,18 @@ export function MonsterField() {
 			<CustomFieldSet legendText="Select Monster">
 				<Stack>
 					<MonsterSelect mx="auto" w="fit-content" />
-					<Group>
+
+					<Group gap="xl" justify="center">
 						{selectedMonster.imageLocation && (
-							<HasMountedLoadingContainer>
-								<Box mah={230} maw={230}>
-									<img alt={selectedMonster.name} src={selectedMonster.imageLocation} />
-								</Box>
-							</HasMountedLoadingContainer>
+							<Image
+								fallbackSrc="/images/slime-sweat.png"
+								maw="230px"
+								src={selectedMonster.imageLocation}
+								w="unset"
+							/>
 						)}
-						<SimpleGrid cols={4} style={{ placeItems: 'center' }}>
+
+						<SimpleGrid cols={4} flex="1 1 fit-content" style={{ placeItems: 'center' }}>
 							<StatBlock>
 								<StatLabelText>Lv.</StatLabelText>
 								<StatValueText>{selectedMonster.stats.level}</StatValueText>

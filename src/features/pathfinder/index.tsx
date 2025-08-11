@@ -1,7 +1,7 @@
 import { DrawerStack, Stack } from '@mantine/core';
 import { ItemDrawersProvider } from '@/lib/pathfinder-items/item-drawer-context';
 import { ItemDrawers } from '@/lib/pathfinder-items/item-drawers';
-import { HasMountedLoadingContainer } from '@/ui/has-mounted-loading-container';
+import { NullIfNotMounted } from '@/ui/null-if-not-mounted';
 import { PathfinderContextProvider } from './pathfinder-context';
 import { PathfinderInput } from './pathfinder-input';
 import { PathfinderInputFeedback } from './pathfinder-input-feedback';
@@ -12,13 +12,13 @@ export function Pathfinder() {
 		<PathfinderContextProvider>
 			<DrawerStack>
 				<ItemDrawersProvider>
-					<HasMountedLoadingContainer>
+					<NullIfNotMounted>
 						<Stack gap="xl" pt="sm">
 							<PathfinderInput />
 							<PathfinderInputFeedback />
 							<PathfinderResults />
 						</Stack>
-					</HasMountedLoadingContainer>
+					</NullIfNotMounted>
 					<ItemDrawers />
 				</ItemDrawersProvider>
 			</DrawerStack>
