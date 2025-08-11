@@ -34,7 +34,7 @@ export async function scrapeMonsterPage(monsterId: string): Promise<ScrapedMonst
 
 	const imageUrl = `${BASE_URL}${$(`object[data*=${monsterId}]`).attr('data')}`;
 
-	let imageLocation: string | null = `public/images/monsters/${monsterId}.png`;
+	let imageLocation: string | null = `/images/monsters/${monsterId}.png`;
 	if (!options.write) imageLocation = imageUrl;
 
 	let imageDesination = join(process.cwd(), imageLocation);
