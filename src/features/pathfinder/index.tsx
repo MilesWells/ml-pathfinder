@@ -1,6 +1,6 @@
 import { DrawerStack, Stack } from '@mantine/core';
-import { ItemDrawersProvider } from '@/lib/items/item-drawer-context';
-import { ItemDrawers } from '@/lib/items/item-drawers';
+import { ItemDrawersProvider } from '@/lib/pathfinder-items/item-drawer-context';
+import { ItemDrawers } from '@/lib/pathfinder-items/item-drawers';
 import { HasMountedLoadingContainer } from '@/ui/has-mounted-loading-container';
 import { PathfinderContextProvider } from './pathfinder-context';
 import { PathfinderInput } from './pathfinder-input';

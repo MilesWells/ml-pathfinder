@@ -1,7 +1,7 @@
 import { Text } from '@mantine/core';
 import { type MapFeature, mapFeatureDetailsMap } from '@/lib/map-features';
 import { ExternalLink } from '@/ui/external-link';
-import { ItemDrawerLink } from '../items/item-drawer-link';
+import { ItemDrawerLink } from '../pathfinder-items/item-drawer-link';
 import { MapFeatureImage } from './map-feature-image';
 
 export type MapFeatureDetailsProps = {

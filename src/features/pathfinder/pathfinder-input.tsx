@@ -1,7 +1,7 @@
 'use client';
 
 import { Button, Select, Stack } from '@mantine/core';
-import { useItemDrawersStack } from '@/lib/items/item-drawer-context';
+import { useItemDrawersStack } from '@/lib/pathfinder-items/item-drawer-context';
 import { REGIONS, type Region } from '@/lib/regions';
 import { usePathfinder } from './pathfinder-context';
 

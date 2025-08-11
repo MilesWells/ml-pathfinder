@@ -1,7 +1,7 @@
 import { Text } from '@mantine/core';
-import { ItemConsumption } from '@/lib/items/item-consumption';
-import { ItemDrawerLink } from '@/lib/items/item-drawer-link';
 import { MapFeatureDetails } from '@/lib/map-features/map-feature-details';
+import { ItemConsumption } from '@/lib/pathfinder-items/item-consumption';
+import { ItemDrawerLink } from '@/lib/pathfinder-items/item-drawer-link';
 import { WalkPathingSteps } from '@/lib/walk-pathing-steps';
 import { ExternalLink } from '@/ui/external-link';
 import { NpcDescription } from '../../npcs/npc-description';

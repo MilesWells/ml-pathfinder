@@ -1,5 +1,5 @@
 import { Text } from '@mantine/core';
-import { ItemUseRestrictions } from '@/lib/items/item-use-restrictions';
+import { ItemUseRestrictions } from '@/lib/pathfinder-items/item-use-restrictions';
 import { ExternalLink } from '@/ui/external-link';
 import type { Edge, ItemEdge, ItemTaxiEdge, MapFeatureEdge } from '../edges';
 

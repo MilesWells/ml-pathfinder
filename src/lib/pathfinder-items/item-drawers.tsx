@@ -1,7 +1,7 @@
 'use client';
 
 import { Center, Drawer } from '@mantine/core';
-import { itemDetailsMap, items } from '@/lib/items';
+import { itemDetailsMap, items } from '@/lib/pathfinder-items';
 import { ItemIcon } from '@/ui/icons/item-icon';
 import { ItemCheckList } from './item-check-list';
 import { ItemConsumption } from './item-consumption';
