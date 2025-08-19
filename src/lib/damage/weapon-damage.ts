@@ -23,8 +23,8 @@ function generalMaxMin({
 	weaponMastery,
 }: GeneralMaxMinOptions): MaxMin {
 	return {
-		max: Math.round(((primary + secondary) * weaponAttack) / 100),
-		min: Math.round(((primary * 0.9 * weaponMastery + secondary) * weaponAttack) / 100),
+		max: Math.floor(((primary + secondary) * weaponAttack) / 100),
+		min: Math.floor(((primary * 0.9 * weaponMastery + secondary) * weaponAttack) / 100),
 	};
 }
 
