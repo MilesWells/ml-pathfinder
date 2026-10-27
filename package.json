@@ -31,6 +31,8 @@
 		"build": "next build",
 		"check": "biome check --write",
 		"dev": "next dev --turbopack",
+		"docker:build": "docker build -t ml-pathfinder .",
+		"docker:run": "docker run -p 8080:80 ml-pathfinder",
 		"start": "next start",
 		"test": "vitest",
 		"tsc": "tsc --noEmit"

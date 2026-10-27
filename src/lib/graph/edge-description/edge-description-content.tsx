@@ -33,7 +33,7 @@ export function EdgeDescriptionContent({ edge }: EdgeDescriptionContentProps) {
 			{edge.to === 'Neo Tokyo' && (
 				<Text ta="center">
 					Follow{' '}
-					<ExternalLink href="https://forum.maplelegends.com/index.php?threads/neo-tokyo-guide.25729/">
+					<ExternalLink href="https://forum.legends.ml/index.php?threads/neo-tokyo-guide.25729/">
 						Zooploop's guide
 					</ExternalLink>{' '}
 					to access Neo Tokyo

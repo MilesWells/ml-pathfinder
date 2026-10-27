@@ -15,7 +15,7 @@ export function ItemUseEdgeDetails({ edge: { from, to, item } }: ItemUseEdgeDeta
 			return (
 				<Text fs="italic">
 					Use in{' '}
-					<ExternalLink href="https://maplelegends.com/lib/map?id=230030200">
+					<ExternalLink href="https://legends.ml/lib/map?id=230030200">
 						The Sharp Unknown
 					</ExternalLink>
 				</Text>

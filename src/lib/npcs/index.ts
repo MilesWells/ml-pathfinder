@@ -42,131 +42,131 @@ export type NPCDetails = {
 
 export const npcDetailsMap = {
 	Bell: {
-		docsLink: 'https://maplelegends.com/lib/npc?id=9201057',
+		docsLink: 'https://legends.ml/lib/npc?id=9201057',
 		image: '/images/npcs/bell.png',
 	},
 	'Blake (Taipei 101)': {
-		docsLink: 'https://maplelegends.com/lib/npc?id=9330062',
+		docsLink: 'https://legends.ml/lib/npc?id=9330062',
 		image: '/images/npcs/blake.png',
 	},
 	'Blake (Ximending)': {
-		docsLink: 'https://maplelegends.com/lib/npc?id=9330061',
+		docsLink: 'https://legends.ml/lib/npc?id=9330061',
 		image: '/images/npcs/blake.png',
 	},
 	'Camel Taxi': {
-		docsLink: 'https://maplelegends.com/lib/npc?id=2110005',
+		docsLink: 'https://legends.ml/lib/npc?id=2110005',
 		image: '/images/npcs/camel-taxi.png',
 	},
 	Cherry: {
-		docsLink: 'https://maplelegends.com/lib/npc?id=1032008',
+		docsLink: 'https://legends.ml/lib/npc?id=1032008',
 		image: '/images/npcs/cherry.png',
 	},
 	'Cokebear Administrator': {
-		docsLink: 'https://maplelegends.com/lib/npc?id=9001000',
+		docsLink: 'https://legends.ml/lib/npc?id=9001000',
 		image: '/images/npcs/cokebear-administrator.png',
 	},
 	Corba: {
-		docsLink: 'https://maplelegends.com/lib/npc?id=2082003',
+		docsLink: 'https://legends.ml/lib/npc?id=2082003',
 		image: '/images/npcs/corba.png',
 	},
 	'Crystal (Zipangu)': {
-		docsLink: 'https://maplelegends.com/lib/npc?id=9120026',
+		docsLink: 'https://legends.ml/lib/npc?id=9120026',
 		image: '/images/npcs/zipangu-crystal.png',
 	},
 	'Dolphin (Aquarium)': {
-		docsLink: 'https://maplelegends.com/lib/npc?id=2060009',
+		docsLink: 'https://legends.ml/lib/npc?id=2060009',
 		image: '/images/npcs/dolphin.png',
 	},
 	'Dolphin (Herb Town)': {
-		docsLink: 'https://maplelegends.com/lib/npc?id=2093004',
+		docsLink: 'https://legends.ml/lib/npc?id=2093004',
 		image: '/images/npcs/dolphin.png',
 	},
 	'El Nath Magic Spot': {
-		docsLink: 'https://maplelegends.com/lib/npc?id=2012015',
+		docsLink: 'https://legends.ml/lib/npc?id=2012015',
 		image: '/images/npcs/el-nath-magic-spot.png',
 	},
 	'First Eos Rock': {
-		docsLink: 'https://maplelegends.com/lib/npc?id=2040024',
+		docsLink: 'https://legends.ml/lib/npc?id=2040024',
 		image: '/images/npcs/first-eos-rock.png',
 	},
 	'Fourth Eos Rock': {
-		docsLink: 'https://maplelegends.com/lib/npc?id=2040027',
+		docsLink: 'https://legends.ml/lib/npc?id=2040027',
 		image: '/images/npcs/fourth-eos-rock.png',
 	},
 	Geras: {
-		docsLink: 'https://maplelegends.com/lib/npc?id=2012025',
+		docsLink: 'https://legends.ml/lib/npc?id=2012025',
 		image: 'images/npcs/geras.png',
 	},
 	Hak: {
-		docsLink: 'https://maplelegends.com/lib/npc?id=2090005',
+		docsLink: 'https://legends.ml/lib/npc?id=2090005',
 		image: '/images/npcs/hak.png',
 	},
 	Irene: {
-		docsLink: 'https://maplelegends.com/lib/npc?id=9270041',
+		docsLink: 'https://legends.ml/lib/npc?id=9270041',
 		image: '/images/npcs/irene.png',
 	},
 	Karcasa: {
-		docsLink: 'https://maplelegends.com/lib/npc?id=2101013',
+		docsLink: 'https://legends.ml/lib/npc?id=2101013',
 		image: '/images/npcs/karcasa.png',
 	},
 	Nara: {
-		docsLink: 'https://maplelegends.com/lib/npc?id=2040048',
+		docsLink: 'https://legends.ml/lib/npc?id=2040048',
 		image: '/images/npcs/nara.png',
 	},
 	'Orbis Magic Spot': {
-		docsLink: 'https://maplelegends.com/lib/npc?id=2012014',
+		docsLink: 'https://legends.ml/lib/npc?id=2012014',
 		image: '/images/npcs/orbis-magic-spot.png',
 	},
 	Pason: {
-		docsLink: 'https://maplelegends.com/lib/npc?id=1002002',
+		docsLink: 'https://legends.ml/lib/npc?id=1002002',
 		image: '/images/npcs/pason.png',
 	},
 	Ramini: {
-		docsLink: 'https://maplelegends.com/lib/npc?id=2012021',
+		docsLink: 'https://legends.ml/lib/npc?id=2012021',
 		image: 'images/npcs/ramini.png',
 	},
 	Rini: {
-		docsLink: 'https://maplelegends.com/lib/npc?id=2012001',
+		docsLink: 'https://legends.ml/lib/npc?id=2012001',
 		image: '/images/npcs/rini.png',
 	},
 	Shalon: {
-		docsLink: 'https://maplelegends.com/lib/npc?id=9270038',
+		docsLink: 'https://legends.ml/lib/npc?id=9270038',
 		image: '/images/npcs/shalon.png',
 	},
 	Shuri: {
-		docsLink: 'https://maplelegends.com/lib/npc?id=2010005',
+		docsLink: 'https://legends.ml/lib/npc?id=2010005',
 		image: '/images/npcs/shuri.png',
 	},
 	Spinel: {
-		docsLink: 'https://maplelegends.com/lib/npc?id=9000020',
+		docsLink: 'https://legends.ml/lib/npc?id=9000020',
 		image: '/images/npcs/spinel.png',
 	},
 	Sunny: {
-		docsLink: 'https://maplelegends.com/lib/npc?id=2012013',
+		docsLink: 'https://legends.ml/lib/npc?id=2012013',
 		image: '/images/npcs/sunny.png',
 	},
 	Syras: {
-		docsLink: 'https://maplelegends.com/lib/npc?id=2102002',
+		docsLink: 'https://legends.ml/lib/npc?id=2102002',
 		image: '/images/npcs/syras.png',
 	},
 	'Thomas Swift': {
-		docsLink: 'https://maplelegends.com/lib/npc?id=9201022',
+		docsLink: 'https://legends.ml/lib/npc?id=9201022',
 		image: '/images/npcs/thomas-swift.png',
 	},
 	Tian: {
-		docsLink: 'https://maplelegends.com/lib/npc?id=2041000',
+		docsLink: 'https://legends.ml/lib/npc?id=2041000',
 		image: '/images/npcs/tian.png',
 	},
 	'Tito (Taiwan)': {
-		docsLink: 'https://maplelegends.com/lib/npc?id=9330014',
+		docsLink: 'https://legends.ml/lib/npc?id=9330014',
 		image: '/images/npcs/tito.png',
 	},
 	'Tito (Victoria)': {
-		docsLink: 'https://maplelegends.com/lib/npc?id=9330007',
+		docsLink: 'https://legends.ml/lib/npc?id=9330007',
 		image: '/images/npcs/tito.png',
 	},
 	Tommie: {
-		docsLink: 'https://maplelegends.com/lib/npc?id=2082001',
+		docsLink: 'https://legends.ml/lib/npc?id=2082001',
 		image: '/images/npcs/tommie.png',
 	},
 } satisfies Record<NPC, NPCDetails>;

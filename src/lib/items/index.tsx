@@ -45,15 +45,13 @@ export const itemDetailsMap = {
 		details: (
 			<Center style={{ flexDirection: 'column', gap: 8 }} ta="center">
 				<Text>
-					<ExternalLink href="https://maplelegends.com/lib/etc?id=4031889">
-						Desert Coins
-					</ExternalLink>{' '}
-					are custom content that allow you to warp from Perion to the Sahel desert.
+					<ExternalLink href="https://legends.ml/lib/etc?id=4031889">Desert Coins</ExternalLink> are
+					custom content that allow you to warp from Perion to the Sahel desert.
 				</Text>
 
 				<Text mb="sm">
 					See the{' '}
-					<ExternalLink href="https://forum.maplelegends.com/index.php?threads/general-patch-notes-october-9-2022.47422/">
+					<ExternalLink href="https://forum.legends.ml/index.php?threads/general-patch-notes-october-9-2022.47422/">
 						official patch notes
 					</ExternalLink>{' '}
 					to find how to obtain Desert Coins.
@@ -74,9 +72,7 @@ export const itemDetailsMap = {
 		details: (
 			<Center style={{ flexDirection: 'column', gap: 8 }} ta="center">
 				<Text>
-					<ExternalLink href="https://maplelegends.com/lib/etc?id=4035060">
-						Energy Shards
-					</ExternalLink>{' '}
+					<ExternalLink href="https://legends.ml/lib/etc?id=4035060">Energy Shards</ExternalLink>{' '}
 					are custom content that allow warping between Korean Folk Town and Omega Sector.
 				</Text>
 
@@ -87,21 +83,21 @@ export const itemDetailsMap = {
 				<List spacing={8} type="ordered">
 					<ListItem>
 						Read up on the{' '}
-						<ExternalLink href="https://forum.maplelegends.com/index.php?threads/release-challenges-system-hp-wash-alternative.51808/">
+						<ExternalLink href="https://forum.legends.ml/index.php?threads/release-challenges-system-hp-wash-alternative.51808/">
 							HP Challenge Release Notes
 						</ExternalLink>
 					</ListItem>
 
 					<ListItem>
 						Follow cereal box's{' '}
-						<ExternalLink href="https://forum.maplelegends.com/index.php?threads/hp-challenges-storyline-quest-guide.51883/">
+						<ExternalLink href="https://forum.legends.ml/index.php?threads/hp-challenges-storyline-quest-guide.51883/">
 							HP Challenge Guide
 						</ExternalLink>
 					</ListItem>
 
 					<ListItem>
 						Obtain Energy Shards from{' '}
-						<ExternalLink href="https://maplelegends.com/lib/npc?id=2041029">Karen</ExternalLink>
+						<ExternalLink href="https://legends.ml/lib/npc?id=2041029">Karen</ExternalLink>
 					</ListItem>
 				</List>
 
@@ -249,7 +245,7 @@ export const itemDetailsMap = {
 
 					<Text>
 						OR continue to{' '}
-						<ExternalLink href="https://maplelegends.com/lib/map?id=230010000">
+						<ExternalLink href="https://legends.ml/lib/map?id=230010000">
 							Aqua Road: Ocean I.C
 						</ExternalLink>{' '}
 						before using to reach Aquarium
@@ -265,7 +261,7 @@ export const itemDetailsMap = {
 				<Stack>
 					<Text>
 						Walk to{' '}
-						<ExternalLink href="https://maplelegends.com/lib/map?id=200082100">
+						<ExternalLink href="https://legends.ml/lib/map?id=200082100">
 							Orbis Tower {`<1st Floor>`}
 						</ExternalLink>
 					</Text>

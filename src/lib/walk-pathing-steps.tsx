@@ -75,7 +75,7 @@ function Steps({ edgeId, hasNearestTownScroll }: StepsProps) {
 				<>
 					<ListItem>
 						Walk to{' '}
-						<ExternalLink href="https://maplelegends.com/lib/map?id=200082300">{`Orbis Tower <B2>`}</ExternalLink>
+						<ExternalLink href="https://legends.ml/lib/map?id=200082300">{`Orbis Tower <B2>`}</ExternalLink>
 					</ListItem>
 					<ListItem>
 						Use a <ItemDrawerLink item="Return Scroll - Nearest Town" />
@@ -90,9 +90,7 @@ function Steps({ edgeId, hasNearestTownScroll }: StepsProps) {
 				<>
 					<ListItem>
 						Walk to{' '}
-						<ExternalLink href="https://maplelegends.com/lib/map?id=230010000">
-							Ocean I.C
-						</ExternalLink>
+						<ExternalLink href="https://legends.ml/lib/map?id=230010000">Ocean I.C</ExternalLink>
 					</ListItem>
 					<ListItem>
 						Use a <ItemDrawerLink item="Return Scroll - Nearest Town" />
@@ -107,7 +105,7 @@ function Steps({ edgeId, hasNearestTownScroll }: StepsProps) {
 				<>
 					<ListItem>
 						Walk to{' '}
-						<ExternalLink href="https://maplelegends.com/lib/map?id=200081400">
+						<ExternalLink href="https://legends.ml/lib/map?id=200081400">
 							{'Orbis Tower <8th Floor>'}
 						</ExternalLink>
 					</ListItem>
@@ -124,7 +122,7 @@ function Steps({ edgeId, hasNearestTownScroll }: StepsProps) {
 				<>
 					<ListItem>
 						Walk to{' '}
-						<ExternalLink href="https://maplelegends.com/lib/map?id=200081500">
+						<ExternalLink href="https://legends.ml/lib/map?id=200081500">
 							{'Orbis Tower <7th Floor>'}
 						</ExternalLink>
 					</ListItem>
@@ -141,7 +139,7 @@ function Steps({ edgeId, hasNearestTownScroll }: StepsProps) {
 				<>
 					<ListItem>
 						Walk to{' '}
-						<ExternalLink href="https://maplelegends.com/lib/map?id=221022100">
+						<ExternalLink href="https://legends.ml/lib/map?id=221022100">
 							Eos Tower 45th Floor
 						</ExternalLink>
 					</ListItem>
@@ -159,7 +157,7 @@ function Steps({ edgeId, hasNearestTownScroll }: StepsProps) {
 				<>
 					<ListItem>
 						Walk to{' '}
-						<ExternalLink href="https://maplelegends.com/lib/map?id=221022200">
+						<ExternalLink href="https://legends.ml/lib/map?id=221022200">
 							Eos Tower 46th ~ 55th Floor
 						</ExternalLink>
 					</ListItem>
@@ -176,7 +174,7 @@ function Steps({ edgeId, hasNearestTownScroll }: StepsProps) {
 				<>
 					<ListItem>
 						Walk to{' '}
-						<ExternalLink href="https://maplelegends.com/lib/map?id=230030200">
+						<ExternalLink href="https://legends.ml/lib/map?id=230030200">
 							The Sharp Unknown
 						</ExternalLink>
 					</ListItem>
@@ -193,7 +191,7 @@ function Steps({ edgeId, hasNearestTownScroll }: StepsProps) {
 				<>
 					<ListItem>
 						Walk to{' '}
-						<ExternalLink href="https://maplelegends.com/lib/map?id=801030000">
+						<ExternalLink href="https://legends.ml/lib/map?id=801030000">
 							Showa Street 3
 						</ExternalLink>
 					</ListItem>

@@ -1,0 +1,13 @@
+__tests__
+.git
+.github
+.next
+.vscode
+node_modules
+out
+.gitignore
+biome.json
+dockerfile
+lefthook.yml
+README.md
+vitest.config.mts

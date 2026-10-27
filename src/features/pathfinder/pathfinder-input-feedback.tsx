@@ -32,9 +32,9 @@ export function PathfinderInputFeedback() {
 }
 
 function SpinelLink() {
-	return <ExternalLink href="https://maplelegends.com/lib/npc?id=9000020">Spinel</ExternalLink>;
+	return <ExternalLink href="https://legends.ml/lib/npc?id=9000020">Spinel</ExternalLink>;
 }
 
 function PisonLink() {
-	return <ExternalLink href="https://maplelegends.com/lib/npc?id=1081001">Pison</ExternalLink>;
+	return <ExternalLink href="https://legends.ml/lib/npc?id=1081001">Pison</ExternalLink>;
 }
